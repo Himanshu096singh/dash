@@ -1,0 +1,14 @@
+User-agent: googlebot-image
+Disallow:
+User-agent: *
+Crawl-Delay: 20
+Disallow: /app
+Disallow: /bootstrap
+Disallow: /cgi-bin
+Disallow: /config
+Disallow: /database
+Disallow: /resources
+Disallow: /routes
+Disallow: /tests
+Disallow: /vendor
+Disallow: /admin
