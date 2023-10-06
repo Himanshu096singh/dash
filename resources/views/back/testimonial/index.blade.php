@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="content-header">
-                    FAQ's
+                    Testimonials 
                 </div>
             </div>
         </div>
@@ -15,8 +15,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Faq List</h4>
-                            <a href="{{ route('supportfaq.create') }}" class="btn gradient-purple-bliss shadow-z-1-hover float-right"><i class="ft-plus-square"></i> Add New Record</a>
+                            <h4 class="card-title">Testimonial List</h4>
+                            <a href="{{ route('testimonial.create') }}" class="btn gradient-purple-bliss shadow-z-1-hover float-right"><i class="ft-plus-square"></i> Add New Record</a>
                         </div>
                         <div class="card-content">
                             <div class="card-body">
@@ -25,25 +25,37 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Question</th>
-                                                <th>Answer</th>
+                                                <th>Name</th>
+                                                <th>Image</th>
+                                                <th>Course</th>
+                                                <th>Review</th>
+                                                <th>Status</th>
                                                 <th>Date</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($supportfaq as $key => $item)
+                                            @foreach ($testimonial as $key => $item)
                                             <tr>
                                                 <td>{{ $key+1 }}</td>
-                                                <td>{{ $item->question }}</td>
-                                                <td>{!! Str::words($item->answer, 100,'...') !!}</td>
+                                                <td>{{ Str::title($item->name) }}</td>
+                                                <td><img src="{{ asset($item->image) }}" style="max-width:80px;"></td>
+                                                <td>{{ Str::title($item->course) }}</td>
+                                                <td>{{ Str::title($item->review) }}</td>
+                                                <td>
+                                                    @if($item->status == 1)
+                                                        <span class="badge badge-success">Active</span>
+                                                    @else
+                                                        <span class="badge badge-danger">Inactive</span>
+                                                    @endif
+                                                </td>
                                                 <td>{{ $item->created_at }}</td>
                                                 @php
                                                     $eid = Crypt::encrypt($item->id);
                                                 @endphp
-                                                <td class="inlinebtn">
-                                                    <a href="{{ route('supportfaq.edit', $eid) }}" class="btn btn-info btn"><i class="ft-edit"></i></a>
-                                                    <form action="{{ route('supportfaq.destroy',$eid) }}" method="post" class="ml-1">
+                                                <td>
+                                                    <a href="{{ route('testimonial.edit', $eid) }}" class="btn btn-info btn"><i class="ft-edit"></i></a>
+                                                    <form action="{{ route('testimonial.destroy',$eid) }}" method="post" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="btn btn-danger" type="submit" onclick="return DeleteConfirmation();"><i class="ft-trash-2"></i></button>

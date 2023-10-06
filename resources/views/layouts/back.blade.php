@@ -49,6 +49,7 @@
         .note-icon-arrows-alt{
             display:none;
         }
+        .form-control{color: #272727 !important;}
     </style>
 </head>
 <body class="vertical-layout vertical-menu 2-columns navbar-sticky" data-col="2-columns" data-menu="vertical-menu">

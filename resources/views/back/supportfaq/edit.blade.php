@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="content-header">
-                    Supportfaqs
+                    FAQ's
                 </div>
             </div>
         </div>
@@ -16,8 +16,8 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Add Supportfaqs</h4>
-                            <a href="{{ route('supportfaq.index') }}" class="btn gradient-purple-bliss shadow-z-1-hover float-right"><i class="ft-plus-square"></i> View Supportfaq</a>
+                            <h4 class="card-title">Add Faq's</h4>
+                            <a href="{{ route('supportfaq.index') }}" class="btn gradient-purple-bliss shadow-z-1-hover float-right"><i class="ft-plus-square"></i> View Faq's</a>
                         </div>
                         @php
                             $eid = Crypt::encrypt($supportfaq->id);

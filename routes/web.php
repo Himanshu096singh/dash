@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\FixissueController;
 use App\Http\Controllers\Admin\CkeditorController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\CourseController;
 
 
 /*
@@ -69,6 +70,12 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
     Route::post('deletefixissue', [FixissueController::class, 'deletefixissue'])->name('deletefixissue');
     Route::post('ckupload', [CkeditorController::class, 'uploadimage'])->name('ckupload');
     Route::resource('testimonial', TestimonialController::class);
+    Route::resource('course', CourseController::class);
+    Route::post('course/faqs', [CourseController::class, 'faqs'])->name('course.faq');
+    Route::post('course/curriculam', [CourseController::class, 'curriculams'])->name('course.curriculam');
+    Route::post('course/testimonial', [CourseController::class, 'testimonial'])->name('course.testimonial');
+    Route::post('course/inclusion', [CourseController::class, 'inclusion'])->name('course.inclusion');
+    Route::post('course/schedule', [CourseController::class, 'schedule'])->name('course.schedule');
 });
 
  /*Route::group(['middleware' => ['auth', 'isUser'], 'prefix' => 'user'], function(){

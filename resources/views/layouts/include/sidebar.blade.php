@@ -70,13 +70,13 @@
                     </ul>
                 </li>
                 <li class="has-sub nav-item">
-                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Faqs</span></a>
+                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Faq's</span></a>
                     <ul class="menu-content">
                         <li class="{{ Route::is('supportfaq.create') ? 'active' : '' }}">
-                            <a href="{{ route('supportfaq.create') }}"><i class="ft-plus-square"></i><span class="menu-item" >Add Supportfaqs</span></a>
+                            <a href="{{ route('supportfaq.create') }}"><i class="ft-plus-square"></i><span class="menu-item" >Add Faq's</span></a>
                         </li>
                         <li class="{{ Route::is('supportfaq.index') ? 'active' : '' }}">
-                            <a href="{{ route('supportfaq.index') }}"><i class="ft-eye"></i><span class="menu-item">View Supportfaqs</span></a>
+                            <a href="{{ route('supportfaq.index') }}"><i class="ft-eye"></i><span class="menu-item">View Faq's</span></a>
                         </li>
                     </ul>
                 </li>
@@ -88,6 +88,17 @@
                         </li>
                         <li class="{{ Route::is('seo.index') ? 'active' : '' }}">
                             <a href="{{ route('seo.index') }}"><i class="ft-eye"></i><span class="menu-item">View Seo</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-sub nav-item">
+                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Testimonial</span></a>
+                    <ul class="menu-content">
+                        <li class="{{ Route::is('testimonial.create') ? 'active' : '' }}">
+                            <a href="{{ route('testimonial.create') }}"><i class="ft-plus-square"></i><span class="menu-item" >Add Testimonial</span></a>
+                        </li>
+                        <li class="{{ Route::is('testimonial.index') ? 'active' : '' }}">
+                            <a href="{{ route('testimonial.index') }}"><i class="ft-eye"></i><span class="menu-item">View Testimonial</span></a>
                         </li>
                     </ul>
                 </li>
