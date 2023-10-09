@@ -1,39 +1,54 @@
-<div class="sidebar p-md-5 p-3 ps-md-0">
-    <div class="side_advertisment mb-4 text-center">
-        <a href="{{route('support')}}" title="Download Printer Driver">
-            <img src="{{asset('assets/images/download-driver.png')}}" alt="download printer driver" class="img-fluid">
-        </a>
+<div class="sidebar p-3">
+  <div class="widget ">
+    <h5 class="widget_title">Courses</h5>
+    <div class="ccourse border_bottom_dash">
+       <div class="ccourse_list p-2 pb-3 mb-3">
+          <h6><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h6>
+          <div class="c_img mb-2">
+             <a href="#"><img src="{{asset('assets/images/blog_img1.jpg')}}" alt="letest_post1" class="" style="width:260px;border-radius:5px"></a>
+          </div>
+          <div class="c_course_info d-flex justify-content-between mb-2">
+             <div>
+                <i class="fa fa-calendar"></i> 50 Days
+             </div>
+             <div>
+                <i class="fas fa-dollar-sign"></i> 599.00
+             </div>
+          </div>
+          <a class="btn btn-default rounded-3 d-block p-1" href="#" >Course Details</a>
+       </div>
+       <div class="ccourse_list p-2 pb-3 mb-3">
+          <h6><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h6>
+          <div class="c_img mb-2">
+             <a href="#"><img src="{{asset('assets/images/blog_img1.jpg')}}" alt="letest_post1" class="" style="width:260px;border-radius:5px"></a>
+          </div>
+          <div class="c_course_info d-flex justify-content-between mb-2">
+             <div>
+                <i class="fa fa-calendar"></i> 50 Days
+             </div>
+             <div>
+                <i class="fas fa-dollar-sign"></i> 599.00
+             </div>
+          </div>
+          <a class="btn btn-default rounded-3 d-block p-1" href="#" >Course Details</a>
+       </div>
+      
     </div>
-    
-    <div class="recent_block">
-      <div class="sidebar_head mb-4">
-        <h3 class="h5 text-center"> Top Blogs</h3>
-      </div>
-        <ul class="list-unstyled">
-            @foreach($latestblog as $list)
-                <li> 
-                  <a class="text-decoration-none" href="{{url($list->category->slug.'/'.$list->slug)}}" title="{{$list->name}}">  {{$list->name}}  </a>
-                </li>
-            @endforeach
-         </ul>
-    </div>
-
-    <div class="brand_block">
-      <div class="sidebar_head mb-4">
-        <h3 class="h5 text-center"> Top Brands</h3>
-      </div>
-      <ul class="list-unstyled list-inline">
-            @foreach($categories as $list)
-                <li class="list-inline-item"> 
-                  <a class="text-decoration-none fs-6 badge rounded-pill bg-{{$list->slug}}" href="{{url($list->slug)}}">  {{$list->name}} </a>
-                </li>
-            @endforeach
+  </div>
+  <div class="widget widget_recent_post">
+      <h5 class="widget_title">Recent Post</h5>
+      <ul class="recent_post border_bottom_dash list_none">
+          <li>
+              <div class="post_footer">
+              <div class="post_img">
+                  <a href="#"><img src="{{('assets/images/letest_post1.jpg')}}" alt="letest_post1"></a>
+              </div>
+              <div class="post_content">
+                  <h6><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h6>
+                  <span class="post_date">April 14, 2018</span>
+              </div>
+              </div>
+          </li>
       </ul>
-    </div>
-
-    <div class="disclaimer_block">
-      <hr>
-      <p class="fs-14">{{$setting->disclaimer}}</p>
-    </div>
-
+  </div>
 </div>

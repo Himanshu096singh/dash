@@ -11,6 +11,7 @@ use App\Models\Staticpage;
 use App\Models\Seo;
 use App\Models\Code;
 use App\Models\Error;
+use App\Models\testimonial;
 use App\Models\Supportfaq;
 use App\Models\Comment;
 use App\Models\Fixissue;
@@ -43,6 +44,8 @@ class FrontController extends Controller
 
     public function index()
     {
+        $faq = Supportfaq::get();
+        $testimonial = testimonial::limit(5)-> get();
         $blog = Blog::with('category')->latest()->get();
         $product = Product::with('category')->latest()->get();
         $seo = Seo::where('name','home')->where('status',1)->first();
@@ -53,13 +56,46 @@ class FrontController extends Controller
                 'metadescription' => $seo['metadescription'],
                 'image' => $seo['image']
             ];
-            return view('front/home',compact('blog','product','meta'));
+            return view('front/home',compact('blog','faq','testimonial','meta'));
         } else {
-            return view('front/home',compact('blog','product'));
+            return view('front/home',compact('blog','faq','testimonial'));
         }
         
     }
-    
+
+    public function blog()
+    {
+        $blog = Blog::latest()->get();
+        $recentBlog = Blog::latest()->limit(5)->get(); 
+        $seo = Seo::where('name','blog')->where('status',1)->first();
+        if($seo){
+            $meta = [
+                'metatitle' => $seo['metatitle'],
+                'metakeywords' => $seo['metakeyword'],
+                'metadescription' => $seo['metadescription'],
+                'image' => $seo['image']
+            ];
+            return view('front/blog',compact('blog','meta','recentBlog'));
+        } else {
+            return view('front/blog',compact('blog','recentBlog'));
+        }
+        
+    }
+
+    public function blogdetail($slug)
+    {
+        $blog = Blog::where('slug',$slug)->first();
+        if($blog) {
+            $meta = [
+                'metatitle' => $blog['metatitle'],
+                'metakeywords' => $blog['metakeyword'],
+                'metadescription' => $blog['metadescription'],
+                'image' => $blog['image'],
+                'type' => 'blog'
+            ];
+            return view('front/blogdetail',compact('blog','meta'));
+        }
+    }
     public function support(){
         $supportfaq = Supportfaq::get();
         $seo = Seo::where('name','support')->where('status',1)->first();
@@ -76,38 +112,7 @@ class FrontController extends Controller
         }
     }
     
-    public function singlefunction($slug)
-    {
-        $category = Category::with(['subcategory','faqs','blogs' => function($query) {
-                $query->where('status',1)->latest();
-            }, 'blogs.user'])->where('slug',$slug)->first();
-        if($category) {
-            
-             $meta = [
-                'metatitle' => $category['metatitle'],
-                'metakeywords' => $category['metakeyword'],
-                'metadescription' => $category['metadescription'],
-                'image' => $category['image'],
-                'type' => 'category'
-            ];
-            return view('front/singlebrand',compact('category','meta'));
-        } else {
-            $page = Staticpage::where('slug',$slug)->where('status',1)->first();
-            if($page){
-                $meta = [
-                    'metatitle' => $page['metatitle'],
-                    'metakeywords' => $page['metakeyword'],
-                    'metadescription' => $page['metadescription'],
-                    'image' => $page['image'],
-                    'index'=>'no'
-                ];
-                return view('front/staticpage',compact('page','meta'));
-            } else {
-                return abort(404);
-            }
-            
-        }
-    }
+    
    
     public function brandserror($slug){
         $category = Category::where('slug',$slug)->where('status',1)->first();

@@ -63,7 +63,7 @@
           "image": "{{asset($blog->image)}}",  
           "author": {
             "@type": "Person",
-            "name": "{{$blog->user->name}}",
+            "name": "yoga",
             "url": ""
           },  
           "publisher": {

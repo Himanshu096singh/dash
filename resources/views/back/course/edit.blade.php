@@ -345,25 +345,25 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="card">
                         <div class="card-header alert alert-warning pb-2">
-                            <h4 class="card-title">Add Time Schdule</h4>
+                            <h4 class="card-title">Add Time Schedule</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form method="post" action="{{ route('course.faq') }}">
+                                <form method="post" action="{{ route('course.schedule') }}">
                                     @csrf
                                     <input type="hidden" name="courseId" value="{{ $eid }}">
-                                    @foreach($course->faqs as $faqs)
+                                    @foreach($course->schdule as $schdule)
                                     <div class="repeatable mb-3">
                                         <div class="row">
                                             <div class="col-md-11">
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <label class="form-label col-form-label" for="time">Time</label>
-                                                        <input class="form-control" id="time" name="time[]" placeholder="06:00 - 07:30" required="" type="text" value="{{ $faqs->time }}">
+                                                        <input class="form-control" id="time" name="time[]" placeholder="06:00 - 07:30" required="" type="text" value="{{ $schdule->time }}">
                                                     </div>
                                                     <div class="col-md-8">
                                                         <label class="form-label col-form-label" for="task">Task</label>
-                                                        <input class="form-control" id="task" name="task[]" placeholder="Task" required="" type="text" value="{{ $faqs->task }}">
+                                                        <input class="form-control" id="task" name="task[]" placeholder="Task" required="" type="text" value="{{ $schdule->task }}">
                                                     </div>
                                                 </div>
                                             </div>

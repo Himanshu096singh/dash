@@ -26,8 +26,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Name</th>
-                                                <th>Image</th>
-                                                <th>Course</th>
+                                                <th>Profile Img</th>
                                                 <th>Review</th>
                                                 <th>Status</th>
                                                 <th>Date</th>
@@ -40,7 +39,6 @@
                                                 <td>{{ $key+1 }}</td>
                                                 <td>{{ Str::title($item->name) }}</td>
                                                 <td><img src="{{ asset($item->image) }}" style="max-width:80px;"></td>
-                                                <td>{{ Str::title($item->course) }}</td>
                                                 <td>{{ Str::title($item->review) }}</td>
                                                 <td>
                                                     @if($item->status == 1)

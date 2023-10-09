@@ -58,20 +58,6 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-6 col-12">
-                                            <div class="form-group mb-2">
-                                                <label for="cources">Select Cources</label>
-                                                <select name="course" id="cources" class="select2 form-control @error('cources') is-invalid @enderror">
-                                                    <option value="course1" {{ $testimonial->course == 'course1' ? 'selected':'' }}>Course 1</option>
-                                                    <option value="course2" {{ $testimonial->course == 'course2' ? 'selected':'' }}>Course 2</option>
-                                                </select>
-                                                @error('name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
                                             <label for="alt">Status</label>
                                             <div class="form-group mb-2">
                                                 <div class="radio radio-success @error('status') is-invalid @enderror">

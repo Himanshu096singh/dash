@@ -35,7 +35,6 @@ class TestimonialController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name'      =>    'required',
-            'course'    =>    'required',
             'status'    =>    'required',
             'image'     =>    'required|mimes:jpeg,png,jpg,webp|max:2048',
             'review'    =>    'required',
@@ -58,7 +57,6 @@ class TestimonialController extends Controller
         $testimonial                    =     new Testimonial;
         $testimonial->name              =     $request->name;
         $testimonial->image             =     $saveImage;
-        $testimonial->course            =     $request->course;
         $testimonial->status            =     $request->status;
         $testimonial->review            =     $request->review;
         $testimonial->save();
@@ -88,13 +86,13 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, string $eid)
     {
+        // return $request->all();
         $id = Crypt::decrypt($eid);
         $testimonial = Testimonial::findOrFail($id);
 
         $validator= Validator::make($request->all() ,[
             'name'         =>    'required',
             'status'       =>    'required',
-            'course'       =>    'required',
             'review'       =>    'required',
         ]);
         if($validator->fails()){
@@ -121,7 +119,6 @@ class TestimonialController extends Controller
         $testimonial->image        =     $saveImage;
         $testimonial->status       =     $request->status;
         $testimonial->review       =     $request->review;
-        $testimonial->course       =     $request->course;
         $testimonial->save();
         return redirect()->back()->with('success', 'Successfully Updated');
     }
