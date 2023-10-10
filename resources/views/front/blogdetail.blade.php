@@ -14,7 +14,7 @@
     	<div class="row align-items-center">
         	<div class="col-sm-12 text-center">
             	<div class="page-title">
-            		<h1>{{$blog->title}}</h1>
+            		<h1>{{$blog->name}}</h1>
                 </div>
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb justify-content-center">
@@ -38,7 +38,7 @@
                     </div>
                     <div class="single_post_content">
                         <div class="blog_text">
-                            <h2 class="blog_title">{{$blog->title}}</h2>
+                            <h2 class="blog_title">{{$blog->name}}</h2>
                             <ul class="list_none blog_meta">
                                 <li><a href="#"><i class="far fa-calendar"></i>{{$blog->created_at->format('M, d Y')}} </a></li>
                                 <li><a href="#"><i class="far fa-comments"></i>4</a></li>

@@ -38,17 +38,19 @@
   <div class="widget widget_recent_post">
       <h5 class="widget_title">Recent Post</h5>
       <ul class="recent_post border_bottom_dash list_none">
-          <li>
-              <div class="post_footer">
-              <div class="post_img">
-                  <a href="#"><img src="{{('assets/images/letest_post1.jpg')}}" alt="letest_post1"></a>
-              </div>
-              <div class="post_content">
-                  <h6><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h6>
-                  <span class="post_date">April 14, 2018</span>
-              </div>
-              </div>
-          </li>
+         @foreach($recentblog as $list)
+            <li>
+               <div class="post_footer">
+               <div class="post_img">
+                     <a href="{{url('blog/'.$list->slug)}}"><img src="{{asset($list->image)}}" alt="{{$list->alt}}"></a>
+               </div>
+               <div class="post_content">
+                     <h6><a href="{{url('blog/'.$list->slug)}}">{{$list->name}}</a></h6>
+                     <span class="post_date">April 14, 2018</span>
+               </div>
+               </div>
+            </li>
+         @endforeach
       </ul>
   </div>
 </div>

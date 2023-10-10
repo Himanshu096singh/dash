@@ -45,7 +45,7 @@ class FrontController extends Controller
     public function index()
     {
         $faq = Supportfaq::get();
-        $testimonial = testimonial::limit(5)-> get();
+        $testimonial = testimonial::limit(3)-> get();
         $blog = Blog::with('category')->latest()->get();
         $product = Product::with('category')->latest()->get();
         $seo = Seo::where('name','home')->where('status',1)->first();
@@ -66,7 +66,7 @@ class FrontController extends Controller
     public function blog()
     {
         $blog = Blog::latest()->get();
-        $recentBlog = Blog::latest()->limit(5)->get(); 
+        $recentblog = Blog::latest()->limit(3)->get(); 
         $seo = Seo::where('name','blog')->where('status',1)->first();
         if($seo){
             $meta = [
@@ -75,9 +75,9 @@ class FrontController extends Controller
                 'metadescription' => $seo['metadescription'],
                 'image' => $seo['image']
             ];
-            return view('front/blog',compact('blog','meta','recentBlog'));
+            return view('front/blog',compact('blog','meta','recentblog'));
         } else {
-            return view('front/blog',compact('blog','recentBlog'));
+            return view('front/blog',compact('blog','recentblog'));
         }
         
     }
@@ -85,6 +85,7 @@ class FrontController extends Controller
     public function blogdetail($slug)
     {
         $blog = Blog::where('slug',$slug)->first();
+        $recentblog = Blog::latest()->limit(5)->get(); 
         if($blog) {
             $meta = [
                 'metatitle' => $blog['metatitle'],
@@ -93,9 +94,41 @@ class FrontController extends Controller
                 'image' => $blog['image'],
                 'type' => 'blog'
             ];
-            return view('front/blogdetail',compact('blog','meta'));
+            return view('front/blogdetail',compact('blog','meta','recentblog'));
         }
     }
+
+    public function contact(){
+        $seo = Seo::where('name','contact')->first();
+        if($seo){
+            $meta = [
+                'metatitle' => $seo['metatitle'],
+                'metakeywords' => $seo['metakeyword'],
+                'metadescription' => $seo['metadescription'],
+                'image' => $seo['image']
+            ];
+            return view('front/contact',compact('meta'));
+        }
+        return view('front/contact');
+    }
+
+    public function testimonial(){
+       $testimonial = Testimonial::where("status",1)->latest()->get();
+       $seo = Seo::where('name','testimonial')->first();
+        if($seo){
+            $meta = [
+                'metatitle' => $seo['metatitle'],
+                'metakeywords' => $seo['metakeyword'],
+                'metadescription' => $seo['metadescription'],
+                'image' => $seo['image']
+            ];
+            return view('front/testimonial',compact('testimonial','meta'));
+        } else {
+            return view('front/testimonial',compact('testimonial'));
+        }
+    
+    }
+
     public function support(){
         $supportfaq = Supportfaq::get();
         $seo = Seo::where('name','support')->where('status',1)->first();
@@ -186,24 +219,9 @@ class FrontController extends Controller
     }
     
     
-    public function commentsubmit(Request $req): RedirectResponse
+    public function contactsubmit(Request $req)
     {
-        $validatedData = $req->validate([
-            'name' => 'required',
-            'email' => 'required|email'
-        ], [
-            'name.required' => 'Name field is required.',
-            'email.required' => 'Email field is required.',
-        ]);
-        
-        if(preg_match('/www\.|http:|https:/i', $req->comment)){
-            $msg = [
-                    'message' => "Links Not Allowed",
-                    'type' => 'error'
-                ];
-            return redirect()->back()->with('result',$msg);
-        }
-        $data = $req->all();
+        return $data = $req->all();
         $comment = new Comment();
         
         $comment->blog_id = $req->blogid;

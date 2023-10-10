@@ -100,7 +100,7 @@ Route::get('{slug}/errors',[FrontController::class,'brandserror'])->name('errors
 Route::get('{slug}/{slug2}', [FrontController::class, 'doublefunction'])->name('double');
 Route::get('{slug}',[FrontController::class, 'singlefunction'])->name('single');
 
-Route::post('comment',[FrontController::class,'commentsubmit'])->name('comment');
+Route::post('contactsubmit',[FrontController::class,'contactsubmit'])->name('contactsubmit');
 Route::post('fixissue', [FrontController::class, 'fixissue']);
 Route::post('bookconsultation', [FrontController::class, 'consultation']);
 Route::post('searchbar', [FrontController::class, 'search']);
