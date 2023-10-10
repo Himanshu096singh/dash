@@ -59,7 +59,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mb-2">
                                                 <label for="usmobile">Contact No.</label>
-                                                <input class="form-control @error('usmobile') is-invalid @enderror" id="usmobile" name="usmobile" type="text" placeholder="US Mobile No." value="{{ old('usmobile', $setting->usmobile) }}">
+                                                <input class="form-control @error('usmobile') is-invalid @enderror" id="usmobile" name="usmobile" type="text" placeholder="Contact Number" value="{{ old('usmobile', $setting->usmobile) }}">
                                                 @error('usmobile')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -67,6 +67,7 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                        
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="image">Logo</label>
@@ -108,6 +109,17 @@
                                                 @enderror
                                                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group mb-2">
+                                                <label for="address">Address</label>
+                                                <input class="form-control @error('address') is-invalid @enderror" id="address" name="address" type="text" placeholder="Address" value="{{ old('address', $setting->address) }}">
+                                                @error('address')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">

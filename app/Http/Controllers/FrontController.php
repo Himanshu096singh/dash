@@ -16,6 +16,7 @@ use App\Models\Supportfaq;
 use App\Models\Comment;
 use App\Models\Fixissue;
 use App\Models\Consultation;
+use App\Models\Form;
 use Mail;
 use App\Mail\Email;
 use App\Mail\ConsultationEmail;
@@ -129,9 +130,8 @@ class FrontController extends Controller
     
     }
 
-    public function support(){
-        $supportfaq = Supportfaq::get();
-        $seo = Seo::where('name','support')->where('status',1)->first();
+    public function about(){
+        $seo = Seo::where('name','about')->first();
         if($seo){
             $meta = [
                 'metatitle' => $seo['metatitle'],
@@ -139,9 +139,9 @@ class FrontController extends Controller
                 'metadescription' => $seo['metadescription'],
                 'image' => $seo['image']
             ];
-            return view('front/support',compact('meta','supportfaq'));
+            return view('front/about',compact('meta'));
         } else {
-            return view('front/support',compact('supportfaq'));
+            return view('front/about');
         }
     }
     
@@ -221,27 +221,22 @@ class FrontController extends Controller
     
     public function contactsubmit(Request $req)
     {
-        return $data = $req->all();
-        $comment = new Comment();
-        
-        $comment->blog_id = $req->blogid;
-        $comment->name = $req->name;
-        $comment->email = $req->email;
-        $comment->comment = $req->comment;
-        
-        $save = $comment->save();
+        $data = $req->all();
+        $form = new Form();
+        $form->name = $req->name;
+        $form->email = $req->email;
+        $form->country = $req->country_selector_code;
+        $form->phone = $req->phone;
+        $form->subject = $req->subject;
+        $form->comment = $req->message;
+        $toEmail = "himanshu01eglobalsoft@gmail.com";
+        $ccEmail = "himanshu096singh@gmail.com";
+        Mail::to($toEmail)->cc($ccEmail)->send(new Email($req->all()));
+        $save = $form->save();
         if($save){
-            $msg = [
-                    'message' => "Thanks, Your form has been successfully submitted.",
-                    'type' => 'success'
-                ];
-            return back()->with('result',$msg);
+            return back()->with('succcess',"Thanks, Your form has been successfully submitted.",);
         } else {
-            $msg = [
-                    'message' => "Something went wrong, please try again.",
-                    'type' => 'error'
-                ];
-            return back()->with('result',$msg);
+            return back()->with('error',"Something went wrong, please try again.");
         }
     }
     

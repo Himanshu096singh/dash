@@ -39,22 +39,39 @@
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
                 <ul class="contact_info contact_info_style2 list_none">
-                    <li>
-                        <span class=""><i class="fa fa-phone"></i></span>
-                        <p>+91 123-456-7890</p>
-                    </li>
-                    <li>
-                        <span class=""><i class="fa fa-envelope"></i></span>
-                        <a href="mailto:info@gmail.com">info@gmail.com</a>
-                    </li>
+                    @if($setting->usmobile)
+                        <li>
+                            <span class=""><i class="fa fa-phone"></i></span>
+                            <a href="tel:{{$setting->usmobile}}">{{$setting->usmobile}}</a>
+                        </li>
+                    @endif
+                    @if($setting->email)
+                        <li>
+                            <span class=""><i class="fa fa-envelope"></i></span>
+                            <a href="mailto:{{$setting->email}}">{{$setting->email}}</a>
+                        </li>
+                    @endif
+                    @if($setting->email)
                     <li>
                         <span class=""><i class="fa fa-location-arrow"></i></span>
-                        <address>Rishikesh Uttarakhand</address>
+                        <address>{{$setting->address}}</address>
                     </li>
+                    @endif
                 </ul>
             </div>
             <div class="col-lg-8 col-md-6 mt-4 mt-lg-0 animation" data-animation="fadeInUp" data-animation-delay="0.3s">
-            	<div class="field_form icon_form">
+            	@if(session()->has('succcess'))
+                    <div class="alert alert-success">
+                        {{ session()->get('succcess') }}
+                    </div>
+                @endif
+                @if(session()->has('error'))
+                    <div class="alert alert-error">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
+
+                <div class="field_form icon_form">
                     <form action="{{url('contactsubmit')}}" method="post">
                         @csrf
                         <div class="row">

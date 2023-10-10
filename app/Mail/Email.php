@@ -30,7 +30,7 @@ class Email extends Mailable
      */
     public function build()
     {
-        return $this->subject('Alert - Wirelessprinter Online')
+        return $this->subject('Alert - New Entry (Heart of yoga institute)')
                     ->view('mail.email');
     }
 }

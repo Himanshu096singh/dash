@@ -18,16 +18,15 @@ class SettingController extends Controller
 
     public function setting(Request $request)
     {
+        // return $request;
         $validator = Validator::make($request->all(), [
             'name'                  =>    'required',
             'url'                   =>    'required',
             'email'                 =>    'required',
             'usmobile'              =>    'required',
-            'ukmobile'              =>    'required',
             'logo'                  =>    'mimes:jpeg,png,jpg,webp|max:2048',
             'logoalt'               =>    'required',
             'fevicon'               =>    'mimes:jpeg,png,jpg,webp|max:2048',
-            'fevalt'                =>    'required',
             'disclaimer'            =>    'required',
             'robots'                =>    'required'
         ]);
@@ -78,13 +77,12 @@ class SettingController extends Controller
         $setting->url               =       $request->url;
         $setting->email             =       $request->email;
         $setting->usmobile          =       $request->usmobile;
-        $setting->ukmobile          =       $request->ukmobile;
         $setting->robots            =       $request->robots;
         $setting->logoalt           =       $request->logoalt;
         $setting->logo              =       $savelogo;
-        $setting->fevalt            =       $request->fevalt;
         $setting->fevicon           =       $savfevicon;
         $setting->disclaimer        =       $request->disclaimer;
+        $setting->address           =       $request->address;
         $setting->save();
         return redirect()->back()->with('success','Successfully Updated !');
     }

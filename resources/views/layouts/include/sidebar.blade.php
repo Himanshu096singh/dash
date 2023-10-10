@@ -23,13 +23,21 @@
                     </a>
                 </li>
                 <li class="has-sub nav-item ">
-                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Category</span></a>
+                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Forms</span></a>
                     <ul class="menu-content">
-                        <li class="{{ Route::is('category.create') ? 'active' : '' }}">
-                            <a href="{{ route('category.create') }}"><i class="ft-plus-square"></i><span class="menu-item">Add Category</span></a>
+                       <li class="{{ Route::is('forms.index') ? 'active' : '' }}">
+                            <a href="{{ route('forms.index') }}"><i class="ft-eye"></i><span class="menu-item" >View Forms</span></a>
                         </li>
-                        <li class="{{ Route::is('category.index') ? 'active' : '' }}">
-                            <a href="{{ route('category.index') }}"><i class="ft-eye"></i><span class="menu-item" >View Category</span></a>
+                    </ul>
+                </li>
+                <li class="has-sub nav-item ">
+                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Course</span></a>
+                    <ul class="menu-content">
+                        <li class="{{ Route::is('course.create') ? 'active' : '' }}">
+                            <a href="{{ route('course.create') }}"><i class="ft-plus-square"></i><span class="menu-item">Add Course</span></a>
+                        </li>
+                        <li class="{{ Route::is('course.index') ? 'active' : '' }}">
+                            <a href="{{ route('course.index') }}"><i class="ft-eye"></i><span class="menu-item" >View Course</span></a>
                         </li>
                     </ul>
                 </li>

@@ -22,6 +22,8 @@ use App\Http\Controllers\Admin\FixissueController;
 use App\Http\Controllers\Admin\CkeditorController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\FormController;
+use App\Http\Controllers\Admin\FounderController;
 
 
 /*
@@ -76,6 +78,9 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
     Route::post('course/testimonial', [CourseController::class, 'testimonial'])->name('course.testimonial');
     Route::post('course/inclusion', [CourseController::class, 'inclusion'])->name('course.inclusion');
     Route::post('course/schedule', [CourseController::class, 'schedule'])->name('course.schedule');
+
+    Route::resource('forms', FormController::class);
+    Route::resource('founders', FounderController::class);
 });
 
  /*Route::group(['middleware' => ['auth', 'isUser'], 'prefix' => 'user'], function(){
