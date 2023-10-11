@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\Course;
 use App\Models\Subcategory;
 use App\Models\Blog;
 use App\Models\Product;
@@ -18,6 +18,7 @@ use App\Models\Fixissue;
 use App\Models\Consultation;
 use App\Models\Form;
 use App\Models\Founder;
+use App\Models\Gallery;
 use Mail;
 use App\Mail\Email;
 use App\Mail\ConsultationEmail;
@@ -34,14 +35,13 @@ class FrontController extends Controller
      */
     public function __construct()
     {
-        $mainCategory = Category::get();
+        $courselist = Course::get();
         $latestblog = Blog::with('category')->where('status',1)->limit(4)->latest()->get();
-        $categories = Category::where('status',1)->get();
         $setting = Setting::first();
         $staticpage = Staticpage::where('status',1)->get();
         $code = Code::first();
        
-        view::share(compact('mainCategory','latestblog','categories','setting','staticpage','code'));
+        view::share(compact('courselist','latestblog','setting','staticpage','code'));
     }
 
     public function index()
@@ -145,15 +145,10 @@ class FrontController extends Controller
             return view('front/about',compact('founder'));
         }
     }
-    
-    
-   
-    public function brandserror($slug){
-        $category = Category::where('slug',$slug)->where('status',1)->first();
-        $brandserror = Category::with(['error'=>function($q){
-            $q->where('status',1)->get();
-        }])->where('slug',$slug)->where('status',1)->first();
-        $seo = Seo::where('name',$category->slug."-errors")->where('status',1)->first();
+
+    public function gallery(){
+        $gallery = Gallery::get();
+        $seo = Seo::where('name','gallery')->first();
         if($seo){
             $meta = [
                 'metatitle' => $seo['metatitle'],
@@ -161,64 +156,53 @@ class FrontController extends Controller
                 'metadescription' => $seo['metadescription'],
                 'image' => $seo['image']
             ];
-            return view('front/errors',compact('meta','brandserror','category','seo'));
-        }
-        
-        return view('front/errors',compact('brandserror','category','seo'));
-    }
-    
-    public function doublefunction($slug,$slug2){
-        $category = Category::where('slug',$slug)->where('status',1)->first();
-        if($category){
-             $blog = Blog::with(['comment' => function($q){
-                 $q->where('status',1)->get();
-             },'faqs'])->where('slug',$slug2)->where('status',1)->first();
-            if($blog){
-                $meta = [
-                    'metatitle' => $blog['metatitle'],
-                    'metakeywords' => $blog['metakeyword'],
-                    'metadescription' => $blog['metadescription'],
-                    'image' => $blog['image'],
-                    'type' => 'blog'
-                    ];
-                $prevblog = Blog::with(['category:id,slug'])->where('id', '<' ,$blog->id)->where('status',1)->select('category_id','name','slug')->first();
-                $nextblog = Blog::with(['category:id,slug'])->where('id', '>' ,$blog->id)->where('status',1)->select('category_id','name','slug')->first();
-                return view('front/blogdetail',compact('category','blog','meta','prevblog','nextblog'));
-            } else {
-                $product = Product::with('faqs')->where('slug',$slug2)->where('status',1)->first();     
-                if($product) {
-                    $meta = [
-                        'metatitle' => $product['metatitle'],
-                        'metakeywords' => $product['metakeyword'],
-                        'metadescription' => $product['metadescription'],
-                        'image' => $product['image'],
-                        'type' => 'product'
-                    ];
-                    return view('front/productdetail',compact('category','product','meta'));
-                } else {
-                    $subcategory = Subcategory::with(['faq','blogs','products'])->where('slug',$slug2)->where('status',1)->first();
-                    if($subcategory){
-                        $meta = [
-                            'metatitle' => $subcategory['metatitle'],
-                            'metakeywords' => $subcategory['metakeyword'],
-                            'metadescription' => $subcategory['metadescription'],
-                            'image' => $subcategory['image'],
-                            'type' => 'subcategory'
-                        ];
-                        return view('front/subcategorydetails',compact('subcategory','category','meta'));
-                        
-                    } else {
-                        return abort(404);
-                    }
-                    
-                }
-            }
+            return view('front/gallery',compact('meta','gallery'));
         } else {
-            return abort(404);
+            return view('front/gallery',compact('gallery'));
         }
-        
+    }
+
+    public function booking(){
+        $seo = Seo::where('name','booking')->first();
+        if($seo){
+            $meta = [
+                'metatitle' => $seo['metatitle'],
+                'metakeywords' => $seo['metakeyword'],
+                'metadescription' => $seo['metadescription'],
+                'image' => $seo['image']
+            ];
+            return view('front/booking',compact('meta'));
+        } else {
+            return view('front/booking');
+        }
     }
     
+    public function coursedetails($slug){
+        $course = Course::where('slug',$slug)->where('status',1)->first();
+        if($course){
+            $meta = [
+                'metatitle' => $course['metatitle'],
+                'metakeywords' => $course['metakeyword'],
+                'metadescription' => $course['metadescription'],
+                'image' => $course['image']
+            ];
+            return view('front/coursedetails',compact('meta','course'));
+        } else {
+            $page = Staticpage::where('slug',$slug)->where('status',1)->first();
+            if($page){
+                $meta = [
+                    'metatitle' => $page['metatitle'],
+                    'metakeywords' => $page['metakeyword'],
+                    'metadescription' => $page['metadescription'],
+                    'image' => $page['image']
+                ];
+                return view('front/staticpage',compact('meta','page'));
+            } else {
+                abort(404);
+            }
+        }
+    }
+   
     
     public function contactsubmit(Request $req)
     {

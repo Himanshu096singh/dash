@@ -56,28 +56,6 @@
                     </ul>
                 </li>
                 <li class="has-sub nav-item">
-                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Product</span></a>
-                    <ul class="menu-content">
-                        <li class="{{ Route::is('product.create') ? 'active' : '' }}">
-                            <a href="{{ route('product.create') }}"><i class="ft-plus-square"></i><span class="menu-item">Add Product</span></a>
-                        </li>
-                        <li class="{{ Route::is('product.index') ? 'active' : '' }}">
-                            <a href="{{ route('product.index') }}"><i class="ft-eye"></i><span class="menu-item">View Product</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="has-sub nav-item">
-                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">User</span></a>
-                    <ul class="menu-content">
-                        <li class="{{ Route::is('user.create') ? 'active' : '' }}">
-                            <a href="{{ route('user.create') }}"><i class="ft-plus-square"></i><span class="menu-item">Add User</span></a>
-                        </li>
-                        <li class="{{ Route::is('user.index') ? 'active' : '' }}">
-                            <a href="{{ route('user.index') }}"><i class="ft-eye"></i><span class="menu-item">View User</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="has-sub nav-item">
                     <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Faq's</span></a>
                     <ul class="menu-content">
                         <li class="{{ Route::is('supportfaq.create') ? 'active' : '' }}">
@@ -118,6 +96,14 @@
                         </li>
                         <li class="{{ Route::is('founders.index') ? 'active' : '' }}">
                             <a href="{{ route('founders.index') }}"><i class="ft-eye"></i><span class="menu-item">View Founder</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-sub nav-item">
+                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Gallery</span></a>
+                    <ul class="menu-content">
+                        <li class="{{ Route::is('gallery.index') ? 'active' : '' }}">
+                            <a href="{{ route('gallery.index') }}"><i class="ft-eye"></i><span class="menu-item">View Gallery</span></a>
                         </li>
                     </ul>
                 </li>

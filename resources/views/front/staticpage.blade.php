@@ -3,21 +3,35 @@
 @endsection
 
 @section('content')
-
-    <div class="row">
-        <div class="col-md-12">
-          <div class="main-content p-3 p-md-5 pb-md-2 m-md-1">
-             <div class="blog_single mb-4">
-                <div class="page_title blog_title mb-5">
-                   <h1 class=" text-center text-dark pb-3">{{$page->name}}</h1>
+    <section class="breadcrumb_section page-title-light background_bg overlay_bg_blue_70" data-img-src="https://bestwebcreator.com/dhyana/demo/assets/images/breadcrumb_bg.jpg">
+        <div class="container">
+        <div class="row align-items-center">
+            <div class="col-sm-12 text-center">
+                <div class="page-title">
+                    <h1>{{$page->name}}</h1>
                 </div>
-                <div class="description">
-                    {!! $page->description !!}
-                </div>
-             </div>
-          </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$page->name}}</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
-    </div>
+        </div>
+    </section>
+    <section style="padding:80px 0px 40px">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-12">
+                    <h2 class="text-uppercase mb-5" style="font-weight:600;letter-spacing:1.2px;">{{$page->name}}</h2>
+                    <div class="desc">
+                        {!! $page->description !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+       </section>
 
 @endsection
 

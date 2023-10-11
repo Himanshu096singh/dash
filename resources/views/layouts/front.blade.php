@@ -56,8 +56,6 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" />
-    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-
     <link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">	
     <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -103,7 +101,9 @@
                             <a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown">Yoga Courses</a>
                             <div class="dropdown-menu">
                                 <ul> 
-                                    <li><a class="dropdown-item nav-link nav_item" href="#">200 Hour Yoga Teacher Training in Rishikesh India</a></li>
+                                    @foreach($courselist as $list)
+                                        <li><a class="dropdown-item nav-link nav_item" href="{{url($list->slug)}}">{{$list->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </li>
@@ -146,10 +146,6 @@
 
     @yield('content')
 
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#enquiryForm">
-    Launch demo modal
-    </button> -->
-    <!-- Modal -->
     <div class="modal fade " data-backdrop="static" id="enquiryForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
@@ -167,31 +163,32 @@
                             <div class="row">
                                 <div class="col-md-6 form-group mb-5">
                                 <label for class="col-form-label">Name *</label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
+                                <input type="text" class="form-control" name="name" id="enquiryname" placeholder="Your name" >
                                 </div>
                                 <div class="col-md-6 form-group mb-5">
                                 <label for class="col-form-label">Email *</label>
-                                <input type="text" class="form-control" name="email" id="email" placeholder="Your email">
+                                <input type="text" class="form-control" name="email" id="enquiryemail" placeholder="Your email">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 form-group mb-5">
                                     <label for class="col-form-label">Country</label>
-                                    <input type="text" class="form-control country" id="country_selector" name="country_selector_code" data-countrycodeinput="1" placeholder="Selected country code will appear here" />
+                                    <input type="text" class="form-control country" id="enquirycountry" name="country_selector_code" data-countrycodeinput="1" placeholder="Selected country code will appear here" />
                                 </div>
                                 <div class="col-md-6 form-group mb-5">
                                 <label for class="col-form-label">Phone</label>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone #">
+                                <input type="text" class="form-control" name="phone" id="enquiryphone" placeholder="Phone #">
                                 </div>
                                 
                             </div>
                             <div class="row">
                                 <div class="col-md-12 form-group mb-5">
                                     <label for class="col-form-label">Courses</label>
-                                    <select class="form-control" name="country" id="country">
+                                    <select class="form-control" name="course" id="enquirycourse">
                                         <option> Select Course </option>
-                                        <option> option2 </option>
-                                        <option> option3 </option>
+                                        @foreach($courselist as $list)
+                                            <option class="{{$list->name}}">  {{$list->name}} </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 
@@ -199,12 +196,12 @@
                             <div class="row">
                                 <div class="col-md-12 form-group mb-5">
                                 <label for="message" class="col-form-label">Message *</label>
-                                <textarea class="form-control" name="message" id="message" cols="30" rows="4" placeholder="Write your message"></textarea>
+                                <textarea class="form-control" name="message" id="enquirymessage" cols="30" rows="4" placeholder="Write your message"></textarea>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                <input type="button" value="Send Message" class="btn btn-default btn-radius animation" data-animation="fadeInUp" data-animation-delay="0.7s">
+                                <input type="button" onclick="enquirysubmit()" value="Send Message" class="btn btn-default btn-radius animation" data-animation="fadeInUp" data-animation-delay="0.7s">
                                 <span class="submitting"></span>
                                 </div>
                             </div>
@@ -224,72 +221,51 @@
         <div class="top_footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-sm-7">
+                    <div class="col-lg-4 col-sm-7">
                         <div class="footer_logo">
-                            <a href="{{route('home')}}"><img alt="logo" src="assets/images/logo_white.png"></a>
+                            <a href="{{route('home')}}"><img alt="{{$setting->alt}}" src="{{asset($setting->logo)}}"></a>
                         </div>
                         <div class="footer_desc">
-                            <p>Phasellus blandit massa enim. elit id varius nunc. Lorems ipsum dolor sit consectetur. If you are going to use a passage of Lorem Ipsum.</p>
-                            <ul class="contact_info list_none">
-                                <li>
-                                    <span class="fa fa-map-marker-alt "></span>
-                                    <address>256 Mohra Rd, North London, UK</address>
-                                </li>
-                                <li>
-                                    <span class="fa fa-mobile-alt"></span>
-                                    <p>+123 456 7890</p>
-                                </li>
-                                <li>
-                                    <span class="fa fa-envelope"></span>
-                                    <a href="mailto:info@yourmail.com">info@yourmail.com</a>
-                                </li>
-                            </ul>
+                            <p>{{$setting->disclaimer}}</p>
                         </div>
                     </div>
                     <div class="col-lg-2 col-sm-5">
                         <h5 class="widget_title3">Quick Links</h5>
                         <ul class="list_none widget_links links_style2">
-                            <li><a href="#">Join Us</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Feedback</a></li>
-                            <li><a href="#">Support center</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
+                            <li><a href="{{route('home')}}">Home</a></li>
+                            <li><a href="{{route('about')}}">About Us</a></li>
+                            <li><a href="{{route('blog')}}">Blog</a></li>
+                            <li><a href="{{route('gallery')}}">Gallery</a></li>
+                            <li><a href="{{route('testimonial')}}">Testimonials</a></li>
+                            <li><a href="{{route('contact')}}">Contact Us</a></li>
+                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-7">
-                        <h5 class="widget_title3">Letest Post</h5>
-                        <ul class="recent_post border_bottom_dash list_none">
-                            <li>
-                                <div class="post_footer">
-                                    <div class="post_content">
-                                        <h6><a href="#">Lorem ipsum dolor sit amet nullam consectetur adipiscing elit.</a></h6>
-                                        <span class="post_date"><i class="ion-android-time"></i>April 14, 2018</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="post_footer">
-                                    <div class="post_content">
-                                        <h6><a href="#">Lorem ipsum dolor sit amet nullam consectetur adipiscing elit.</a></h6>
-                                        <span class="post_date"><i class="ion-android-time"></i>April 14, 2018</span>
-                                    </div>
-                                </div>
-                            </li>
+                        <h5 class="widget_title3">Our Course</h5>
+                        <ul class="list_none widget_links links_style2">
+                            @foreach($courselist as $list)
+                                <li><a href="{{url($list->slug)}}">{{$list->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
-                    <div class="col-lg-4 col-md-5">
-                        <h5 class="widget_title3">Instagram</h5>
-                        <ul class="list_none instafeed">
-                            <li><a href="#"><img src="assets/images/insta_img1.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                            <li><a href="#"><img src="assets/images/insta_img2.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                            <li><a href="#"><img src="assets/images/insta_img3.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                            <li><a href="#"><img src="assets/images/insta_img4.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                            <li><a href="#"><img src="assets/images/insta_img5.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                            <li><a href="#"><img src="assets/images/insta_img6.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                            <li><a href="#"><img src="assets/images/insta_img7.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                            <li><a href="#"><img src="assets/images/insta_img8.jpg" alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
-                        </ul>
+                    <div class="col-lg-3 col-md-5">
+                        <h5 class="widget_title3">Get in Touch</h5>
+                        <div class="footer_desc">
+                            <ul class="contact_info list_none">
+                                <li>
+                                    <span class="fa fa-map-marker-alt "></span>
+                                    <address>{{$setting->address}}</address>
+                                </li>
+                                <li>
+                                    <span class="fa fa-mobile-alt"></span>
+                                    <a href="tel:{{$setting->usmobile}}">{{$setting->usmobile}}</a>
+                                </li>
+                                <li>
+                                    <span class="fa fa-envelope"></span>
+                                    <a href="mailto:{{$setting->email}}">{{$setting->email}}</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -300,12 +276,13 @@
                     <div class="bottom_footer border_top_transparent">
                         <div class="row">
                             <div class="col-md-7">
-                                <p class="copyright m-md-0 text-center text-md-left">Copyright © 2019 - Template Made By <a href="https://bestwebcreator.com/" class="text_default">BestWebCreator</a></p>
+                                <p class="copyright m-md-0 text-center text-md-left">Copyright © {{Date('Y')}} - <a href="{{route('home')}}" class="text_default">Heart Of Yoga</a></p>
                             </div>
                             <div class="col-md-5">
                                 <ul class="list_none footer_link text-center text-md-right">
-                                    <li><a href="#">Terms of use</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
+                                    @foreach($staticpage as $list)
+                                        <li><a href="{{url($list->slug)}}">{{$list->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -340,11 +317,25 @@
             autoPlay:true
         });
     });
+    $("#enquirycountry").countrySelect({
+        preferredCountries: []
+    });
     $("#country_selector").countrySelect({
         preferredCountries: []
     });
     </script>
-
+    <script>
+        function enquirysubmit(){
+            console.log("ok")
+            const name = document.querySelector("enquiryname").value;
+            const email = document.querySelector("enquiryemail").value;
+            const country = document.querySelector("enquirycountry").value;
+            const phone = document.querySelector("enquiryphone").value;
+            const course = document.querySelector("enquirycourse").value;
+            const message = document.querySelector("enquirymessage").value;
+            console.log(name);
+        }
+    </script>
     @section('js')
     @show
     {!! $code->footer !!}

@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\FormController;
 use App\Http\Controllers\Admin\FounderController;
+use App\Http\Controllers\Admin\GalleryController;
 
 
 /*
@@ -81,6 +82,7 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
 
     Route::resource('forms', FormController::class);
     Route::resource('founders', FounderController::class);
+    Route::resource('gallery', GalleryController::class);
 });
 
  /*Route::group(['middleware' => ['auth', 'isUser'], 'prefix' => 'user'], function(){
@@ -97,13 +99,15 @@ Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/testimonial', [FrontController::class, 'testimonial'])->name('testimonial');
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
-Route::get('support',[FrontController::class,'support'])->name('support');
+Route::get('/gallery',[FrontController::class,'gallery'])->name('gallery');
+Route::get('/gallery',[FrontController::class,'gallery'])->name('gallery');
+Route::get('/booking',[FrontController::class,'booking'])->name('booking');
 Route::get('sitemap.xml',[FrontController::class,'sitemap'])->name('sitemap');
 // Route::get('driver',[FrontController::class,'driver']);
 Route::get('/blog/{slug}', [FrontController::class, 'blogdetail'])->name('blogdetail');
-Route::get('{slug}/errors',[FrontController::class,'brandserror'])->name('errors');
-Route::get('{slug}/{slug2}', [FrontController::class, 'doublefunction'])->name('double');
-Route::get('{slug}',[FrontController::class, 'singlefunction'])->name('single');
+// Route::get('{slug}/errors',[FrontController::class,'brandserror'])->name('errors');
+// Route::get('{slug}/{slug2}', [FrontController::class, 'doublefunction'])->name('double');
+Route::get('{slug}',[FrontController::class, 'coursedetails'])->name('coursedetails');
 
 Route::post('contactsubmit',[FrontController::class,'contactsubmit'])->name('contactsubmit');
 Route::post('fixissue', [FrontController::class, 'fixissue']);

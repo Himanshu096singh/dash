@@ -35,22 +35,21 @@
                 <div class="row">
                     @foreach($blog as $list)
                         <div class="col-12">
+                           <a href="{{url('blog/'.$list->slug)}}">
                             <div class="blog_post box_shadow4">
-                                <div class="blog_img">
-                                    <a href="{{url('blog/'.$list->slug)}}">
-                                        <img src="{{asset($list->image)}}" alt="{{$list->alt}}">
-                                    </a>
-                                </div>
-                                <div class="blog_content">
-                                    <h4 class="blog_title"><a href="{{url('blog/'.$list->slug)}}">{{ $list->title }}</a></h4>
-                                    <ul class="list_none blog_meta">
-                                    <li><a href="#"><img src="{{asset('assets/images/cl_teacher_img1.jpg')}}" alt="image"><span>yoga</span></a></li>
-                                    <li><a href="#"><i class="far fa-calendar"></i>{{ $list->created_at->format('M, d Y') }} </a></li>
+                                <div class="overflow-hidden blog_img">
+                                    <img class="rounded" src="{{asset($list->image)}}" alt="{{$list->alt}}">
+                                 </div>
+                                 <div class="blog_content ">
+                                    <h4 class="h5 blog_title mb-2">{{ $list->name }}</h4>
+                                    <ul class="list_none blog_meta mb-0">
+                                       <li style='font-size:14px;'><i class="far fa-calendar"></i>{{ $list->created_at->format('M, d Y') }}</li>
                                     </ul>
-                                    <p class="text-capitalize">{{substr(strip_tags($list->description),180);}}...</p>
-                                    <a href="{{url('blog/'.$list->slug)}}" class="blog_link">Read More</a>
-                                </div>
+                                    <p class="text-capitalize">{!! substr(strip_tags($list->description),'0','120') !!}....</p>
+                                    <span>Read More.</span>
+                                 </div>
                             </div>
+                           </a>
                         </div>
                     @endforeach
                 </div>

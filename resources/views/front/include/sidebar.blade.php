@@ -1,40 +1,26 @@
 <div class="sidebar p-3">
-  <div class="widget ">
-    <h5 class="widget_title">Courses</h5>
-    <div class="ccourse border_bottom_dash">
-       <div class="ccourse_list p-2 pb-3 mb-3">
-          <h6><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h6>
-          <div class="c_img mb-2">
-             <a href="#"><img src="{{asset('assets/images/blog_img1.jpg')}}" alt="letest_post1" class="" style="width:260px;border-radius:5px"></a>
-          </div>
-          <div class="c_course_info d-flex justify-content-between mb-2">
-             <div>
-                <i class="fa fa-calendar"></i> 50 Days
-             </div>
-             <div>
-                <i class="fas fa-dollar-sign"></i> 599.00
-             </div>
-          </div>
-          <a class="btn btn-default rounded-3 d-block p-1" href="#" >Course Details</a>
-       </div>
-       <div class="ccourse_list p-2 pb-3 mb-3">
-          <h6><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h6>
-          <div class="c_img mb-2">
-             <a href="#"><img src="{{asset('assets/images/blog_img1.jpg')}}" alt="letest_post1" class="" style="width:260px;border-radius:5px"></a>
-          </div>
-          <div class="c_course_info d-flex justify-content-between mb-2">
-             <div>
-                <i class="fa fa-calendar"></i> 50 Days
-             </div>
-             <div>
-                <i class="fas fa-dollar-sign"></i> 599.00
-             </div>
-          </div>
-          <a class="btn btn-default rounded-3 d-block p-1" href="#" >Course Details</a>
-       </div>
-      
-    </div>
-  </div>
+   <div class="widget ">
+      <h5 class="widget_title">Courses</h5>
+      <div class="ccourse border_bottom_dash">
+         @foreach($courselist as $clist)
+            <div class="ccourse_list p-3 pb-3 mb-3">
+               <h6><a href="{{url($clist->slug)}}">{{$clist->name}}</a></h6>
+               <div class="c_img mb-2 ">
+                  <a href="{{url($clist->slug)}}"><img src="{{asset($clist->image)}}" alt="{{$clist->alt}}" class="overflow-hidden" style="width:100%;border-radius:5px"></a>
+               </div>
+               <div class="c_course_info d-flex justify-content-between mb-2 px-1">
+                  <div>
+                     <i class="fa fa-calendar"></i> {{$clist->duration}}
+                  </div>
+                  <div>
+                     <i class="fas fa-dollar-sign"></i> {{$clist->privateroom}}
+                  </div>
+               </div>
+               <a class="btn btn-default rounded-3 d-block p-1" href="{{url($clist->slug)}}" >Course Details</a>
+            </div>
+         @endforeach
+      </div>
+   </div>
   <div class="widget widget_recent_post">
       <h5 class="widget_title">Recent Post</h5>
       <ul class="recent_post border_bottom_dash list_none">
@@ -46,7 +32,7 @@
                </div>
                <div class="post_content">
                      <h6><a href="{{url('blog/'.$list->slug)}}">{{$list->name}}</a></h6>
-                     <span class="post_date">April 14, 2018</span>
+                     <span class="post_date">{{ $list->created_at->format('M, d Y') }}</span>
                </div>
                </div>
             </li>

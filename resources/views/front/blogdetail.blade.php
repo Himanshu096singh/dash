@@ -6,8 +6,13 @@
     .sidebar::-webkit-scrollbar-track {box-shadow: inset 0 0 5px grey; border-radius: 10px;}
     .sidebar::-webkit-scrollbar-thumb {background: #cf3e5f; border-radius: 10px;border-right: none;border-left: none;}
     .sidebar::-webkit-scrollbar-thumb:hover {background: #d02f55;}
+    .blog_desc img {height: auto !important;}
     .blog_desc ul,.blog_desc ol {margin-left:20px;margin-bottom:20px;}
     .blog_desc li {margin-bottom:15px;}
+    .blog_desc p,.blog_desc ul li, .blog_desc ol li {text-align: justify;}
+    @media(max-width:620px){
+        .blog_desc p,.blog_desc ul li, .blog_desc ol li {text-align: justify;}
+    }
 </style>
 @endsection
 @section('content')
@@ -33,10 +38,10 @@
 <section>
 	<div class="container">
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-8">
             	<div class="single_post">
                     <div class="blog_img">
-                        <img src="{{asset($blog->image)}}" alt="{{$blog->alt}}">
+                        <img class="rounded" src="{{asset($blog->image)}}" alt="{{$blog->alt}}">
                     </div>
                     <div class="single_post_content">
                         <div class="blog_text">
@@ -50,18 +55,17 @@
                             </div>
                         	<div class="border-top border-bottom blog_post_footer">
                                 <div class="row justify-content-between align-items-center">
-                                	<div class="col-md-8 mb-3 mb-md-0">
+                                	<div class="col-md-9 mb-3 mb-md-0">
                                         <div class="tags">
-                                            {{$blog->tags}}
                                             @php
                                                 $newStr = explode(",", $blog->tags);
                                             @endphp
-                                            @forach($newStr as $arrlist)
-                                            <a href="#">Gym</a>
-                                            @endforach
+                                            @foreach($newStr as $arrlist)
+                                            <a href="#">{{$arrlist}}</a>
+                                            @endforeach
                                         </div>
                                     </div>
-                                    <div class="col-md-4 text-md-right">
+                                    <div class="col-md-3 text-md-right">
                                     	<div class="share">
                                             <ul class="list_none social_icons">
 
@@ -106,7 +110,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 mt-5 mt-lg-0">
+            <div class="col-lg-4 mt-5 mt-lg-0">
             	@include('front.include.sidebar')
             </div>
         </div>
