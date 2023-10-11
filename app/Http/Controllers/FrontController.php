@@ -17,6 +17,7 @@ use App\Models\Comment;
 use App\Models\Fixissue;
 use App\Models\Consultation;
 use App\Models\Form;
+use App\Models\Founder;
 use Mail;
 use App\Mail\Email;
 use App\Mail\ConsultationEmail;
@@ -48,8 +49,7 @@ class FrontController extends Controller
         $faq = Supportfaq::get();
         $testimonial = testimonial::limit(3)-> get();
         $blog = Blog::with('category')->latest()->get();
-        $product = Product::with('category')->latest()->get();
-        $seo = Seo::where('name','home')->where('status',1)->first();
+        $seo = Seo::where('name','home')->first();
         if($seo){
             $meta = [
                 'metatitle' => $seo['metatitle'],
@@ -68,7 +68,7 @@ class FrontController extends Controller
     {
         $blog = Blog::latest()->get();
         $recentblog = Blog::latest()->limit(3)->get(); 
-        $seo = Seo::where('name','blog')->where('status',1)->first();
+        $seo = Seo::where('name','blog')->first();
         if($seo){
             $meta = [
                 'metatitle' => $seo['metatitle'],
@@ -100,7 +100,7 @@ class FrontController extends Controller
     }
 
     public function contact(){
-        $seo = Seo::where('name','contact')->first();
+        $seo = Seo::where('name','contactus')->first();
         if($seo){
             $meta = [
                 'metatitle' => $seo['metatitle'],
@@ -131,7 +131,8 @@ class FrontController extends Controller
     }
 
     public function about(){
-        $seo = Seo::where('name','about')->first();
+        $founder = Founder::get();
+        $seo = Seo::where('name','aboutus')->first();
         if($seo){
             $meta = [
                 'metatitle' => $seo['metatitle'],
@@ -139,9 +140,9 @@ class FrontController extends Controller
                 'metadescription' => $seo['metadescription'],
                 'image' => $seo['image']
             ];
-            return view('front/about',compact('meta'));
+            return view('front/about',compact('meta','founder'));
         } else {
-            return view('front/about');
+            return view('front/about',compact('founder'));
         }
     }
     

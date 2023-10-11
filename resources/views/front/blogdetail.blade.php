@@ -6,6 +6,8 @@
     .sidebar::-webkit-scrollbar-track {box-shadow: inset 0 0 5px grey; border-radius: 10px;}
     .sidebar::-webkit-scrollbar-thumb {background: #cf3e5f; border-radius: 10px;border-right: none;border-left: none;}
     .sidebar::-webkit-scrollbar-thumb:hover {background: #d02f55;}
+    .blog_desc ul,.blog_desc ol {margin-left:20px;margin-bottom:20px;}
+    .blog_desc li {margin-bottom:15px;}
 </style>
 @endsection
 @section('content')
@@ -43,27 +45,30 @@
                                 <li><a href="#"><i class="far fa-calendar"></i>{{$blog->created_at->format('M, d Y')}} </a></li>
                                 <li><a href="#"><i class="far fa-comments"></i>4</a></li>
                             </ul>
-                            <div>
+                            <div class="blog_desc">
                                 {!! $blog->description !!}
                             </div>
                         	<div class="border-top border-bottom blog_post_footer">
                                 <div class="row justify-content-between align-items-center">
                                 	<div class="col-md-8 mb-3 mb-md-0">
                                         <div class="tags">
+                                            {{$blog->tags}}
+                                            @php
+                                                $newStr = explode(",", $blog->tags);
+                                            @endphp
+                                            @forach($newStr as $arrlist)
                                             <a href="#">Gym</a>
-                                            <a href="#">Fitness</a>
-                                            <a href="#">Cardio</a>
-                                            <a href="#">Cycling</a>
+                                            @endforach
                                         </div>
                                     </div>
                                     <div class="col-md-4 text-md-right">
                                     	<div class="share">
                                             <ul class="list_none social_icons">
-                                                <li><a href="#" class="sc_facebook"><i class="ion-social-facebook"></i></a></li>
-                                                <li><a href="#" class="sc_twitter"><i class="ion-social-twitter"></i></a></li>
-                                                <li><a href="#" class="sc_gplus"><i class="ion-social-googleplus"></i></a></li>
-                                                <li><a href="#" class="sc_youtube"><i class="ion-social-youtube-outline"></i></a></li>
-                                                <li><a href="#" class="sc_instagram"><i class="ion-social-instagram-outline"></i></a></li>
+
+                                                <li><a href="https://www.facebook.com/sharer/sharer.php?u={{url('blog/'.$blog->slug)}}" target="_blank" class="sc_facebook"><i class="ion-social-facebook"></i></a></li>
+                                                <li><a href="https://twitter.com/intent/tweet?url={{url('blog/'.$blog->slug)}}" class="sc_twitter"><i class="ion-social-twitter"></i></a></li>
+                                                <li><a href="https://www.linkedin.com/shareArticle?url={{url('blog/'.$blog->slug)}}" class="sc_linkedin"><i class="ion-social-linkedin"></i></a></li>
+                                                
                                             </ul>
                                         </div>
                                     </div>
@@ -73,8 +78,9 @@
                     </div>
                     <div class="post_navigation border-bottom pb-5">
                         <div class="row align-items-center justify-content-between">
+                            @if($blog->previous)
                             <div class="col-auto">
-                                <a href="#">
+                                <a href="{{url('blog/'.$blog->previous->slug)}}">
                                     <div class="d-flex align-items-center">
                                         <i class="ion-ios-arrow-thin-left mr-2"></i>
                                         <div>
@@ -83,8 +89,10 @@
                                     </div>
                                 </a>
                             </div>
+                            @endif
+                            @if($blog->next)
                             <div class="col-auto">
-                                <a href="#">
+                                <a href="{{url('blog/'.$blog->next->slug)}}">
                                     <div class="d-flex align-items-center flex-row-reverse text-right">
                                         <i class="ion-ios-arrow-thin-right ml-2"></i>
                                         <div>
@@ -93,6 +101,7 @@
                                     </div>
                                 </a>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>

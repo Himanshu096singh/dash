@@ -36,6 +36,7 @@
                                                     <option value="aboutus" {{ old('aboutus',$seo->name) == 'aboutus' ? 'selected':'' }}>About Us</option>
                                                     <option value="contactus" {{ old('contactus',$seo->name) == 'contactus' ? 'selected':'' }}>Contact Us</option>
                                                     <option value="blog" {{ old('blog',$seo->name) == 'blog' ? 'selected':'' }}>Blog</option>
+                                                    <option value="testimonial" {{ old('testimonial',$seo->name) == 'testimonial' ? 'selected':'' }}>Testimonial</option>
                                                 </select>
                                                 @error('name')
                                                     <span class="invalid-feedback" role="alert">

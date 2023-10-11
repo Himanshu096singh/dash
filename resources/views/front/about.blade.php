@@ -86,83 +86,35 @@
             </h2>
         </div>
         <div class="row">
-        	<div class="col-lg-3 col-sm-6">
-            	<div class="team_box animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s" style="animation-delay: 0.2s; opacity: 1;">
-                	<div class="team_img">
-                    	<img src="assets/images/team1.jpg" alt="team1">
-                        <ul class="list_none social_icons social_style1 rounded_social">
-                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="team_info text-center">
-                        <div class="team_title">
-                            <h5><a href="#">Elena Mark</a></h5>
-                            <span>Yoga Teacher</span>
+            @foreach($founder as $list)
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team_box animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s" style="animation-delay: 0.2s; opacity: 1;">
+                        <div class="team_img">
+                            <img src="{{asset($list->image)}}" alt="team1">
+                            <ul class="list_none social_icons social_style1 rounded_social">
+                                @if(isset($list->facebook))
+                                    <li><a href="{{$list->facebook}}"><i class="ion-social-facebook"></i></a></li>
+                                @endif
+                                @if(isset($list->twitter))
+                                    <li><a href="{{$list->twitter}}"><i class="ion-social-twitter"></i></a></li>
+                                @endif
+                                @if(isset($list->gmail))
+                                    <li><a href="{{$list->gmail}}"><i class="ion-social-googleplus"></i></a></li>
+                                @endif
+                                @if(isset($list->instagram))
+                                    <li><a href="{{$list->instagram}}"><i class="ion-social-instagram-outline"></i></a></li>
+                                @endif
+                            </ul>
+                        </div>
+                        <div class="team_info text-center">
+                            <div class="team_title">
+                                <h5><a href="#">{{$list->name}}</a></h5>
+                                <span>{{$list->position}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-            	<div class="team_box animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.3s" style="animation-delay: 0.3s; opacity: 1;">
-                	<div class="team_img">
-                    	<img src="assets/images/team2.jpg" alt="team2">
-                        <ul class="list_none social_icons social_style1 rounded_social">
-                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="team_info text-center">
-                        <div class="team_title">
-                            <h5><a href="#">Grace Wong</a></h5>
-                            <span>Yoga Teacher</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-            	<div class="team_box animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.4s" style="animation-delay: 0.4s; opacity: 1;">
-                	<div class="team_img">
-                    	<img src="assets/images/team3.jpg" alt="team3">
-                        <ul class="list_none social_icons social_style1 rounded_social">
-                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="team_info text-center">
-                        <div class="team_title">
-                            <h5><a href="#">Maria Redwood</a></h5>
-                            <span>Yoga Teacher</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-            	<div class="team_box animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.5s" style="animation-delay: 0.5s; opacity: 1;">
-                	<div class="team_img">
-                    	<img src="assets/images/team4.jpg" alt="team4">
-                        <ul class="list_none social_icons social_style1 rounded_social">
-                            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="team_info text-center">
-                        <div class="team_title">
-                            <h5><a href="#">Merry Walter</a></h5>
-                            <span>Yoga Teacher</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
 </section>

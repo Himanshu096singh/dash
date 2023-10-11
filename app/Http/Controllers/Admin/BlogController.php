@@ -67,6 +67,7 @@ class BlogController extends Controller
         $blog->alt               =     $request->alt;
         $blog->status            =     $request->status;
         $blog->description       =     $request->description;
+        $blog->tags              =     $request->tags;
         $blog->metatitle         =     $request->metatitle;
         $blog->metakeyword       =     $request->metakeyword;
         $blog->metadescription   =     $request->metadescription;
@@ -136,6 +137,7 @@ class BlogController extends Controller
         $blog->alt               =     $request->alt;
         $blog->status            =     $request->status;
         $blog->description       =     $request->description;
+        $blog->tags              =     $request->tags;
         $blog->metatitle         =     $request->metatitle;
         $blog->metakeyword       =     $request->metakeyword;
         $blog->metadescription   =     $request->metadescription;

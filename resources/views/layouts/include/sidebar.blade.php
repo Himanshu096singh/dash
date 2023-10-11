@@ -111,6 +111,17 @@
                     </ul>
                 </li>
                 <li class="has-sub nav-item">
+                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Founders</span></a>
+                    <ul class="menu-content">
+                        <li class="{{ Route::is('founders.create') ? 'active' : '' }}">
+                            <a href="{{ route('founders.create') }}"><i class="ft-plus-square"></i><span class="menu-item" >Add Founder</span></a>
+                        </li>
+                        <li class="{{ Route::is('founders.index') ? 'active' : '' }}">
+                            <a href="{{ route('founders.index') }}"><i class="ft-eye"></i><span class="menu-item">View Founder</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-sub nav-item">
                     <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Static Page</span></a>
                     <ul class="menu-content">
                         <li class="{{ Route::is('staticpage.create') ? 'active' : '' }}">

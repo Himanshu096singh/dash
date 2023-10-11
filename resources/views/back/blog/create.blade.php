@@ -97,6 +97,12 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                        <div class="colo-md-12 col-lg-12 col-12">
+                                            <div class="form-group mb-2">
+                                                <label for="tags">Tags (seprate by comma(,))</label>
+                                                <input class="form-control" id="tags" name="tags" type="text" placeholder="tags" value="{{ old('tags') }}">
+                                            </div>
+                                        </div>
                                     </div>
                                     <hr/>
                                     <div class="my-3">

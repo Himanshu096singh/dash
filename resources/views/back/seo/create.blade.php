@@ -32,6 +32,7 @@
                                                     <option value="aboutus" {{ old('aboutus') == 'aboutus' ? 'selected':'' }}>About Us</option>
                                                     <option value="contactus" {{ old('contactus') == 'contactus' ? 'selected':'' }}>Contact Us</option>
                                                     <option value="blog" {{ old('blog') == 'blog' ? 'selected':'' }}>Blog</option>
+                                                    <option value="testimonial" {{ old('testimonial') == 'testimonial' ? 'selected':'' }}>Testimonial</option>
                                                 </select>
                                                 @error('name')
                                                     <span class="invalid-feedback" role="alert">
