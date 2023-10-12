@@ -70,6 +70,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
+        .formloader{top: 0;text-align: center;margin: auto;position: absolute;height: 100%;width: 100%;align-items: initial;display: flex;background: #dddddd47;z-index: 99;}
+        .spinner-grow{margin:auto}
     </style>
     @section('css')
     @show
@@ -236,8 +238,14 @@
                                 <span class="submitting"></span>
                                 </div>
                             </div>
+                            
                         </form>
                         
+                    </div>
+                    <div id="enquiryloader" class="d-none formloader ">
+                        <div class="spinner-grow text-danger" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -460,6 +468,7 @@
             const enqform = document.querySelector("#enquiryform");
             const successenquiry = document.querySelector("#successenquiry");
             const errorenquiry = document.querySelector("#errorenquiry");
+            const enquiryloader = document.querySelector("#enquiryloader");
 
             nameValidate(name, errorname);
             emailValidate(email, erroremail);
@@ -470,6 +479,7 @@
 
             if (nameflag && emailflag && phoneflag  && courseflag && genderflag && roomflag ){
                 console.log(name.value, email.value, phone.value, country.value,  gender.value, room.value, message.value )
+                enquiryloader.classList.remove("d-none");
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -482,8 +492,10 @@
                     success: function (data) {
                         if (data == true) {
                           enqform.classList.add("d-none");
+                          enquiryloader.classList.add("d-none");
                           successenquiry.classList.remove("d-none");
                         } else {
+                            enquiryloader.classList.add("d-none");
                             errorenquiry.classList.remove("d-none");
                         }
                     }

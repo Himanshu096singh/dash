@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>New Enquiry Form: </h1>
-    <table>
+    <table class="table">
         <tr>
             <th style="text-align:left">Name :</th>
             <td>{{ $mailData['name'] }}</td>

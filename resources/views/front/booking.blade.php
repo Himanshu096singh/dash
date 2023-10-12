@@ -50,7 +50,7 @@
                 <div class="form-group">
                    <label>Select Course: <span class="required">*</span></label>
                    <div class="custom_select">
-                      <select name="course">
+                        <select id="bookingcourse">
                             <option value="">Select Course...</option>
                             @foreach($courselist as $list)
                                 <option value="{{$list->id}}">{{$list->name}}</option>
@@ -61,28 +61,28 @@
                 <div class="form-group">
                    <label>Choose Room: <span class="required">*</span></label>
                    <div class="custom_select">
-                      <select>
+                      <select id="bookingroom">
                          <option value="">Select Room...</option>
-                         <option value="">Private Room</option>
-                         <option value="">2 Bed Room</option>
-                         <option value="">3 Bed Room</option>
-                         <option value="">6 Bed Room</option>
+                         <option value="privateroom">Private Room</option>
+                         <option value="2bedroom">2 Bed Room</option>
+                         <option value="3bedroom">3 Bed Room</option>
+                         <option value="6bedroom">6 Bed Room</option>
                       </select>
                    </div>
                 </div>
                 <div class="form-group">
                    <label>Select Date:<span class="required">*</span></label>
                    <div class="custom_select">
-                      <select>
+                      <select id="bookingdate">
                          <option value="">Select Date...</option>
-                         <option value="">01 Feb - 02 March</option>
-                         <option value="">01 Feb - 02 March</option>
-                         <option value="">01 Feb - 02 March</option>
-                         <option value="">01 Feb - 02 March</option>
-                         <option value="">01 Feb - 02 March</option>
-                         <option value="">01 Feb - 02 March</option>
-                         <option value="">01 Feb - 02 March</option>
-                         <option value="">01 Feb - 02 March</option>
+                         <option value="1">01 Feb - 02 March</option>
+                         <option value="2">01 Feb - 02 March</option>
+                         <option value="3">01 Feb - 02 March</option>
+                         <option value="4">01 Feb - 02 March</option>
+                         <option value="5">01 Feb - 02 March</option>
+                         <option value="6">01 Feb - 02 March</option>
+                         <option value="7">01 Feb - 02 March</option>
+                         <option value="8">01 Feb - 02 March</option>
                       </select>
                    </div>
                 </div>
@@ -107,31 +107,31 @@
                 </div>
                 <div class="form-group">
                    <label>Name: <span class="required">*</span></label>
-                   <input required="required" placeholder="Enter Name *" id="first-name" class="form-control" name="name" type="text">
+                   <input required="required" placeholder="Enter Name *" id="bookingname" class="form-control" name="bookingname" type="text" >
                 </div>
                 <div class="form-group">
                    <label>Email: <span class="required">*</span></label>
-                   <input required="required" placeholder="Enter Email *" id="first-name" class="form-control" name="name" type="text">
+                   <input required="required" placeholder="Enter Email *" id="bookingemail" class="form-control" name="email" type="text">
                 </div>
                 <div class="form-group">
                    <label>Country: <span class="required">*</span></label>
-                   <input type="text" class="form-control country" id="country_selector" name="country_selector_code" data-countrycodeinput="1" placeholder="Selected country code will appear here" />
+                   <input type="text" class="form-control country" id="bookingcountry" name="country_selector_code" data-countrycodeinput="1" placeholder="Selected country code will appear here" />
                 </div>
                 <div class="form-group">
                    <label>Contact Number: <span class="required">*</span></label>
-                   <input required="required" placeholder="Enter Contact Number *" id="first-name" class="form-control" name="name" type="text">
+                   <input required="required" placeholder="Enter Contact Number *" id="bookingphone" class="form-control" name="number" type="text">
                 </div>
                 <div class="form-group">
                    <label>Message: <span class="required">*</span></label>
-                   <textarea required="required" placeholder="Message *" id="description" class="form-control" name="message" rows="5"></textarea>
+                   <textarea required="required" placeholder="Message *" id="bookingmessage" class="form-control" name="message" rows="5"></textarea>
                 </div>
                 <div class="form-group">
                    <label>Payment Mode: <span class="required">*</span></label>
                    <div class="custom_select">
-                      <select>
+                      <select id="bookingpaymentmode">
                          <option value="">Choose Payment Mode</option>
-                         <option value="">Full Payment</option>
-                         <option value="">Advance Payment</option>
+                         <option value="full">Full Payment</option>
+                         <option value="advance">Advance Payment</option>
                       </select>
                    </div>
                 </div>
@@ -208,16 +208,59 @@
 @endsection
 @section('js')
 <script>
+   $("#bookingcountry").countrySelect({
+        preferredCountries: []
+    });
+   function bookingCoursefun(bookingfield){
+      if (bookingfield.value !== "") {
+         bookingfield.style.borderColor = "#ccc";
+            return true;
+         } else {
+            bookingfield.style.borderColor = "#d9534f";
+            return false;
+      }
+   }
     function myFunctionStep1() {
-       const step1 = document.querySelector(".step1");
-       step1.classList.add("d-none");
-       document.querySelector(".step2").classList.remove("d-none");
+         const bookingCourse = document.querySelector("#bookingcourse");
+         const bookingRoom = document.querySelector("#bookingroom");
+         const bookingDate = document.querySelector("#bookingdate");
+         const courseflag = bookingCoursefun(bookingCourse)
+         const roomflag = bookingCoursefun(bookingRoom)
+         const dateflag = bookingCoursefun(bookingDate)
+         if(courseflag && roomflag && dateflag){
+            const step1 = document.querySelector(".step1");
+            step1.classList.add("d-none");
+            document.querySelector(".step2").classList.remove("d-none");
+         } else {
+            console.log(0);
+         }
+      
     }
 
     function myFunctionStep2() {
-       const step1 = document.querySelector(".step2");
-       step1.classList.add("d-none");
-       document.querySelector(".step3").classList.remove("d-none");
+      console.log("btn2")
+      const bookingName    = document.querySelector("#bookingname");
+      const bookingEmail   = document.querySelector("#bookingemail");
+      const bookingCountry = document.querySelector("#bookingcountry");
+      const bookingPhone   = document.querySelector("#bookingphone");
+      const bookingMessage = document.querySelector("#bookingmessage");
+      const booingPaymentmode = document.querySelector("#bookingpaymentmode")
+      const step2 = document.querySelector(".step2");
+      
+      const nameflag    = bookingCoursefun(bookingName)
+      const emailflag   = bookingCoursefun(bookingEmail)
+      const countryflag = bookingCoursefun(bookingCountry)
+      const phoneflag   = bookingCoursefun(bookingPhone)
+      const messageflag = bookingCoursefun(bookingMessage)
+      const paymentmodeflag = bookingCoursefun(booingPaymentmode)
+      
+      if(nameflag && emailflag && countryflag && phoneflag && messageflag & paymentmodeflag){
+         console.log("test");
+         step2.classList.add("d-none");
+         document.querySelector(".step3").classList.remove("d-none");
+      } 
+
+      
     }
  </script>
 @endsection

@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Enquiry;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 
 class EnquiryController extends Controller
@@ -12,7 +15,8 @@ class EnquiryController extends Controller
      */
     public function index()
     {
-        //
+        $enquiry = Enquiry::latest()->get();
+        return view('back.enquiry.index',compact('enquiry'));
     }
 
     /**
@@ -34,9 +38,11 @@ class EnquiryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Enquiry $enquiry)
+    public function show(string $eid)
     {
-        //
+        $id = Crypt::decrypt($eid);
+        $enquiry = Enquiry::findOrFail($id);
+        return view('back.enquiry.show', compact('enquiry'));
     }
 
     /**
@@ -58,8 +64,10 @@ class EnquiryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Enquiry $enquiry)
+    public function destroy(string $eid)
     {
-        //
+        $id = Crypt::decrypt($eid);
+        Enquiry::destroy($id);
+        return redirect()->back()->with('success', 'Deleted Successfully');
     }
 }

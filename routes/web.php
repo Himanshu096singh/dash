@@ -25,6 +25,8 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\FormController;
 use App\Http\Controllers\Admin\FounderController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\EnquiryController;
+use App\Http\Controllers\payment\PaymentController;
 
 
 /*
@@ -79,10 +81,13 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
     Route::post('course/testimonial', [CourseController::class, 'testimonial'])->name('course.testimonial');
     Route::post('course/inclusion', [CourseController::class, 'inclusion'])->name('course.inclusion');
     Route::post('course/schedule', [CourseController::class, 'schedule'])->name('course.schedule');
-
+    Route::get('accountsetting', [AdminController::class, 'accountsetting'])->name('accountsetting');
     Route::resource('forms', FormController::class);
     Route::resource('founders', FounderController::class);
     Route::resource('gallery', GalleryController::class);
+    Route::resource('enquiry', EnquiryController::class);
+
+    Route::post('passwordupdate',[AdminController::class, 'passwordupdate'])->name('passwordupdate');
 });
 
  /*Route::group(['middleware' => ['auth', 'isUser'], 'prefix' => 'user'], function(){
@@ -93,6 +98,13 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
     Route::post('product/ajax',[ProductController::class, 'ajaxrequest'])->name('product.ajax');
     Route::post('product/faqs',[ProductController::class, 'faqs'])->name('product.faq');
 });*/
+Route::get('razorpay-payment', [PaymentController::class, 'index']);
+Route::post('razorpay-payment', [PaymentController::class, 'store'])->name('razorpay.payment.store');
+
+Route::get('paypal', [PayPalController::class, 'index'])->name('paypal');
+Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal.payment');
+Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
+Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment/cancel');
 
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
