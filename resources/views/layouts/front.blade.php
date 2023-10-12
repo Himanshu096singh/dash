@@ -159,57 +159,85 @@
                 <div class="row align-items-stretch no-gutters contact-wrap">
                     <div class="col-md-12">
                     <div class="form h-100">
-                        <form class="mb-5" method="post" id="contactForm" name="contactForm">
+                        <div id="errorenquiry" class="alert alert-danger d-none">We encountered an error. Kindly re-submit the form, please.</div>
+                        <div id="successenquiry" class="alert alert-success d-none"> Thank you for reaching out! Your message has been sent to our admin team, and we will get back to you soon.</div>
+                        
+                        <form class="mb-5" method="post" id="enquiryform" name="contactForm">
                             <div class="row">
-                                <div class="col-md-6 form-group mb-5">
-                                <label for class="col-form-label">Name *</label>
-                                <input type="text" class="form-control" name="name" id="enquiryname" placeholder="Your name" >
+                                <div class="col-md-6 form-group mb-3">
+                                    <label for class="col-form-label mb-0">Name *</label>
+                                    <input type="text" class="form-control" name="name" id="enquiryname" placeholder="Your name" >
+                                    <small> <span id="errorname" class="text-danger"></span> </small>   
                                 </div>
-                                <div class="col-md-6 form-group mb-5">
-                                <label for class="col-form-label">Email *</label>
-                                <input type="text" class="form-control" name="email" id="enquiryemail" placeholder="Your email">
+                                <div class="col-md-6 form-group mb-3">
+                                    <label for class="col-form-label mb-0   ">Email *</label>
+                                    <input type="text" class="form-control" name="email" id="enquiryemail" placeholder="Your email">
+                                    <small> <span id="erroremail" class="text-danger"></span></small>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 form-group mb-5">
-                                    <label for class="col-form-label">Country</label>
+                                <div class="col-md-6 form-group mb-3">
+                                    <label for class="col-form-label mb-0">Country</label>
                                     <input type="text" class="form-control country" id="enquirycountry" name="country_selector_code" data-countrycodeinput="1" placeholder="Selected country code will appear here" />
+                                    <small><span id="errorcountry" class="text-danger"> </span></small>
                                 </div>
-                                <div class="col-md-6 form-group mb-5">
-                                <label for class="col-form-label">Phone</label>
-                                <input type="text" class="form-control" name="phone" id="enquiryphone" placeholder="Phone #">
+                                <div class="col-md-6 form-group mb-3">
+                                    <label for class="col-form-label mb-0">Phone</label>
+                                    <input type="text" class="form-control" name="phone" id="enquiryphone" placeholder="Phone #">
+                                    <small><span id="errorphone" class="text-danger"> </span></small>
                                 </div>
-                                
                             </div>
                             <div class="row">
-                                <div class="col-md-12 form-group mb-5">
-                                    <label for class="col-form-label">Courses</label>
+                                <div class="col-md-12 form-group mb-3">
+                                    <label for class="col-form-label mb-0">Courses</label>
                                     <select class="form-control" name="course" id="enquirycourse">
-                                        <option> Select Course </option>
+                                        <option value=""> Select Course </option>
                                         @foreach($courselist as $list)
-                                            <option class="{{$list->name}}">  {{$list->name}} </option>
+                                            <option value="{{$list->name}}">  {{$list->name}} </option>
                                         @endforeach
                                     </select>
+                                    <small><span id="errorcourse" class="text-danger"> </span></small>
                                 </div>
-                                
                             </div>
+                            
                             <div class="row">
-                                <div class="col-md-12 form-group mb-5">
-                                <label for="message" class="col-form-label">Message *</label>
+                                <div class="col-md-6 form-group mb-3">
+                                    <label for class="col-form-label mb-0">Gender</label>
+                                    <select class="form-control" name="gender" id="enquirygender">
+                                        <option value=""> Select Gender </option>
+                                        <option value="male"> Male </option>
+                                        <option value="female"> Female </option>
+                                    </select>
+                                    <small><span id="errorgender" class="text-danger"> </span></small>
+                                </div>
+                                <div class="col-md-6 form-group mb-3">
+                                    <label for class="col-form-label mb-0">Select Room type</label>
+                                    <select class="form-control" name="room" id="enquiryroom">
+                                        <option value=""> Select Room Type </option>
+                                        <option value="Private Room"> Private Room </option>
+                                        <option value="2 Shared Room"> 2 Shared Room </option>
+                                        <option value="3 Shared Room"> 3 Shared Room </option>
+                                        <option value="6 Shared Room"> 6 Shared Room </option>
+                                    </select>
+                                    <small><span id="errorroom" class="text-danger"> </span></small>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12 form-group mb-3">
+                                <label for="message" class="col-form-label mb-0">Message *</label>
                                 <textarea class="form-control" name="message" id="enquirymessage" cols="30" rows="4" placeholder="Write your message"></textarea>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                <input type="button" onclick="enquirysubmit()" value="Send Message" class="btn btn-default btn-radius animation" data-animation="fadeInUp" data-animation-delay="0.7s">
+                                <input type="button" onclick="return enquirysubmit()" value="Send Message" class="btn btn-default btn-radius animation" data-animation="fadeInUp" data-animation-delay="0.7s">
                                 <span class="submitting"></span>
                                 </div>
                             </div>
                         </form>
-                        <div id="form-message-warning mt-4"></div>
-                        <div id="form-message-success">
-                            Your message was sent, thank you!
-                        </div>
+                        
                     </div>
                     </div>
                 </div>
@@ -325,15 +353,144 @@
     });
     </script>
     <script>
+        function nameValidate(nameval, errorname) {
+            var nameRegex = /^[a-zA-Z0-9 ]{3,30}$/;
+            if (nameval.value !== "" && nameRegex.test(nameval.value)) {
+                errorname.innerHTML = "";
+                errorname.style.borderColor = "#ccc";
+                nameflag = true;
+            } else {
+                errorname.style.borderColor = "#d9534f";
+                errorname.innerHTML = "*Please Enter your correct Name";
+                nameflag = false;
+            }
+        }
+
+        function emailValidate(email, emailErr) {
+            var emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+            if (email.value !== "" && emailRegex.test(email.value)) {
+                emailErr.innerHTML = "";
+                email.style.borderColor = "#ccc";
+                emailflag = true;
+            } else {
+                email.style.borderColor = "#d9534f";
+                emailErr.innerHTML = "*Please Enter your correct Email";
+                email.placeholder = '*Please Enter your correct Email';
+                emailflag = false;
+            }
+        }
+
+        function phoneValidate(phone, phoneErr) {
+            var num = phone.value.length;
+            const nb = phone.value;
+            const exp1 = /[0-9]{9,12}$/;
+            var val = 0;
+            if ((!exp1.test(nb))) {
+                val = 0;
+            } else {
+                val = 1;
+            }
+            if ((val == 1) && (num > 8) && (num < 14)) {
+                phoneflag = true;
+                phone.style.borderColor = "#ccc";
+                phoneErr.innerHTML = "";
+            } else if (phone.value === "") {
+                phone.style.borderColor = "#d9534f";
+                phoneErr.innerHTML = '*Please Enter your correct Number';
+                phoneflag = false;
+            } else {
+                phone.style.borderColor = "#d9534f";
+                phoneErr.innerHTML = '*Please Enter your correct Number';
+                phoneflag = false;
+            }
+        }
+
+        function courseValidate(course, errorcourse) {
+            if (course.value !== "") {
+                errorcourse.innerHTML = "";
+                errorcourse.style.borderColor = "#ccc";
+                courseflag = true;
+            } else {
+                errorcourse.style.borderColor = "#d9534f";
+                errorcourse.innerHTML = "*Please Select Course";
+                courseflag = false;
+            }
+        }
+        function genderValidate(gender, errorgender) {
+            if (gender.value !== "") {
+                errorgender.innerHTML = "";
+                errorgender.style.borderColor = "#ccc";
+                genderflag = true;
+            } else {
+                errorgender.style.borderColor = "#d9534f";
+                errorgender.innerHTML = "*Please Select Gender";
+                genderflag = false;
+            }
+        }
+
+        function roomValidate(room, errorroom) {
+            if (room.value !== "") {
+                errorroom.innerHTML = "";
+                errorroom.style.borderColor = "#ccc";
+                roomflag = true;
+            } else {
+                errorroom.style.borderColor = "#d9534f";
+                errorroom.innerHTML = "*Please Select Room Type";
+                roomflag = false;
+            }
+        }
+
         function enquirysubmit(){
-            console.log("ok")
-            const name = document.querySelector("enquiryname").value;
-            const email = document.querySelector("enquiryemail").value;
-            const country = document.querySelector("enquirycountry").value;
-            const phone = document.querySelector("enquiryphone").value;
-            const course = document.querySelector("enquirycourse").value;
-            const message = document.querySelector("enquirymessage").value;
-            console.log(name);
+            const name = document.querySelector("#enquiryname");
+            const email = document.querySelector("#enquiryemail");
+            const country = document.querySelector("#enquirycountry");
+            const phone = document.querySelector("#enquiryphone");
+            const course = document.querySelector("#enquirycourse");
+            const gender = document.querySelector("#enquirygender");
+            const room = document.querySelector("#enquiryroom");
+            const message = document.querySelector("#enquirymessage");
+
+            const errorname = document.querySelector("#errorname");
+            const erroremail = document.querySelector("#erroremail");
+            const errorcountry = document.querySelector("#errorcountry");
+            const errorphone = document.querySelector("#errorphone");
+            const errorcourse = document.querySelector("#errorcourse");
+            const errorgender = document.querySelector("#errorgender");
+            const errorroom = document.querySelector("#errorroom");
+            const enqform = document.querySelector("#enquiryform");
+            const successenquiry = document.querySelector("#successenquiry");
+            const errorenquiry = document.querySelector("#errorenquiry");
+
+            nameValidate(name, errorname);
+            emailValidate(email, erroremail);
+            phoneValidate(phone, errorphone);
+            courseValidate(course, errorcourse);
+            genderValidate(gender, errorgender);
+            roomValidate(room, errorroom);
+
+            if (nameflag && emailflag && phoneflag  && courseflag && genderflag && roomflag ){
+                console.log(name.value, email.value, phone.value, country.value,  gender.value, room.value, message.value )
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "/enquiry",
+                    type: "POST",
+                    data: { name: name.value, email: email.value, phone: phone.value, country: country.value, course:course.value, gender: gender.value, room: room.value, message: message.value },
+                    success: function (data) {
+                        if (data == true) {
+                          enqform.classList.add("d-none");
+                          successenquiry.classList.remove("d-none");
+                        } else {
+                            errorenquiry.classList.remove("d-none");
+                        }
+                    }
+                });
+            } else {
+                console.log(0)
+            }
         }
     </script>
     @section('js')

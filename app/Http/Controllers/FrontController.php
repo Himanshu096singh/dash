@@ -19,9 +19,10 @@ use App\Models\Consultation;
 use App\Models\Form;
 use App\Models\Founder;
 use App\Models\Gallery;
+use App\Models\Enquiry;
 use Mail;
 use App\Mail\Email;
-use App\Mail\ConsultationEmail;
+use App\Mail\EnquiryMail;
 use Illuminate\Http\RedirectResponse;
 use View;
 use Carbon\Carbon;
@@ -236,36 +237,33 @@ class FrontController extends Controller
         return response()->view('front.sitemap', compact('categories','staticpage','blog','product'))->header('Content-Type', 'text/xml');
     }
     
-    public function fixissue(Request $request)
-    {
-        $toEmail = 'eglobalforms@gmail.com';
-        $ccEmail = 'egssfbackup@gmail.com';
-        $request->validate([
-                'issue'         =>      'required',
-                'device'        =>      'required',
-                'software'      =>      'required',
-                'email'         =>      'required',
-                'countrycode'   =>      'required',
-                'mobile'        =>      'required',
-            ]);
-        
-        Mail::to($toEmail)->cc($ccEmail)->send(new Email($request->all()));
-        $fixissue               =           new Fixissue;   
-        $fixissue->issue        =           $request->issue;
-        $fixissue->device       =           $request->device;
-        $fixissue->os           =           $request->software;
-        $fixissue->email        =           $request->email;
-        $fixissue->countrycode  =           $request->countrycode;
-        $fixissue->mobile       =           $request->mobile;
-        $fixissue->ip_address   =           request()->ip();
-        $fixissue->save();
-        return 1;
+    public function enquiry(Request $request)
+    {   
+        // return $request;
+        $toEmail = 'himanshu096singh@gmail.com';
+        // $ccEmail = 'himanshu096singh@gmail.com';
+        Mail::to($toEmail)->send(new EnquiryMail($request->all()));
+        $enquiry               =           new Enquiry;   
+        $enquiry->name         =           $request->name;
+        $enquiry->email        =           $request->email;
+        $enquiry->country      =           $request->country;
+        $enquiry->phone        =           $request->phone;
+        $enquiry->gender       =           $request->gender;
+        $enquiry->room         =           $request->room;
+        $enquiry->course       =           $request->course;
+        $enquiry->message      =           $request->message;
+        $save  = $enquiry->save();
+        if($save){
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public function consultation(Request $request)
     {
-        $toEmail = 'eglobalforms@gmail.com';
-        $ccEmail = 'egssfbackup@gmail.com';
+        $toEmail = '';
+        $ccEmail = '';
         $request->validate([
                 'consultdate'   =>      'required',
                 'consulttime'   =>      'required',

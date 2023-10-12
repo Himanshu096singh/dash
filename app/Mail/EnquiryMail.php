@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
   
-class ConsultationEmail extends Mailable
+class EnquiryMail extends Mailable
 {
     use Queueable, SerializesModels;
   
@@ -30,7 +30,7 @@ class ConsultationEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Alert - Wirelessprinter Online Book Free Consultation')
-                    ->view('mail.consultation');
+        return $this->subject('Enquiry - Heart of Yoga')
+                    ->view('mail.enquiry');
     }
 }

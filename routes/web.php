@@ -103,13 +103,10 @@ Route::get('/gallery',[FrontController::class,'gallery'])->name('gallery');
 Route::get('/gallery',[FrontController::class,'gallery'])->name('gallery');
 Route::get('/booking',[FrontController::class,'booking'])->name('booking');
 Route::get('sitemap.xml',[FrontController::class,'sitemap'])->name('sitemap');
-// Route::get('driver',[FrontController::class,'driver']);
 Route::get('/blog/{slug}', [FrontController::class, 'blogdetail'])->name('blogdetail');
-// Route::get('{slug}/errors',[FrontController::class,'brandserror'])->name('errors');
-// Route::get('{slug}/{slug2}', [FrontController::class, 'doublefunction'])->name('double');
 Route::get('{slug}',[FrontController::class, 'coursedetails'])->name('coursedetails');
 
 Route::post('contactsubmit',[FrontController::class,'contactsubmit'])->name('contactsubmit');
-Route::post('fixissue', [FrontController::class, 'fixissue']);
+Route::post('enquiry', [FrontController::class, 'enquiry'])->name('enquiry');
 Route::post('bookconsultation', [FrontController::class, 'consultation']);
 Route::post('searchbar', [FrontController::class, 'search']);

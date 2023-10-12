@@ -369,8 +369,8 @@ button:focus {
 	box-shadow: none;
 }
 .form-control {
-	height: 45px;
-	padding: 10px 15px;
+	height: 40px;
+	padding: 5px 15px;
 	font-size: 14px;
 }
 .icon_form .form-control {
