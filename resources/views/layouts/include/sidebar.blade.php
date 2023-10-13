@@ -25,8 +25,11 @@
                 <li class="has-sub nav-item ">
                     <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Forms</span></a>
                     <ul class="menu-content">
-                       <li class="{{ Route::is('forms.index') ? 'active' : '' }}">
-                            <a href="{{ route('forms.index') }}"><i class="ft-eye"></i><span class="menu-item" >View Forms</span></a>
+                        <li class="{{ Route::is('forms.index') ? 'active' : '' }}">
+                            <a href="{{ route('forms.index') }}"><i class="ft-eye"></i><span class="menu-item" >View Contact Forms</span></a>
+                        </li>
+                        <li class="{{ Route::is('enquiry.index') ? 'active' : '' }}">
+                            <a href="{{ route('enquiry.index') }}"><i class="ft-eye"></i><span class="menu-item" >View Enqyiry Forms</span></a>
                         </li>
                     </ul>
                 </li>
@@ -49,9 +52,6 @@
                         </li>
                         <li class="{{ Route::is('blog.index') ? 'active' : '' }}">
                             <a href="{{ route('blog.index') }}"><i class="ft-eye"></i><span class="menu-item">View Blog</span></a>
-                        </li>
-                        <li class="{{ Route::is('comment.index') ? 'active' : '' }}">
-                            <a href="{{ route('comment.index') }}"><i class="ft-eye"></i><span class="menu-item">View Comment</span></a>
                         </li>
                     </ul>
                 </li>
