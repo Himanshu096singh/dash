@@ -31,4 +31,12 @@ class Course extends Model
     {
         return $this->hasMany(Courseschdule::class);
     }
+    public function dates()
+    {
+        return $this->hasMany(Coursedates::class);
+    }
+    public function media()
+    {
+        return $this->hasMany(Coursemedia::class);
+    }
 }

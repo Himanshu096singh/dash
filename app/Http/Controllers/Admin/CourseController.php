@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\{Course,Coursefaq,Coursecurriculam,Coursetestimonial,CourseInclusion,Courseschdule};
+use App\Models\{Course,Coursefaq,Coursecurriculam,Coursetestimonial,CourseInclusion,Courseschdule,Coursemedia};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
@@ -292,4 +292,54 @@ class CourseController extends Controller
             return redirect()->back()->with('error', 'Please add Inclusion!');
         endif;
     }
+
+    public function media(Request $request)
+    {
+        // return $request;
+        $courseIds = Crypt::decrypt($request->courseId);
+        if($request->hasFile('media')){
+            foreach ($request->file('media') as $imagefile) {
+                $file = $imagefile->getClientOriginalName();
+                $imageExt = $imagefile->getClientOriginalExtension();
+                $imageName = pathinfo($file,PATHINFO_FILENAME);
+                $image = Str::slug(uniqid().$imageName);
+                $uploadImage = $image.'.'.$imageExt;
+                $imagePath = '/upload/course/media/';
+                $imagefile->move(public_path($imagePath), $uploadImage);
+                $saveImage = $imagePath.$uploadImage;
+
+                $cmedia = new Coursemedia;
+                    $cmedia->course_id = $courseIds;
+                    $cmedia->image = $saveImage;
+                $cmedia->save();
+            }
+            return redirect()->back()->with('success', 'Course Media Successfully Added!');
+        } else{
+            return redirect()->back()->with('error', 'Error in media!');
+        }
+    }
+
+    public function media_edit(string $id){
+        $id = Crypt::decrypt($id);
+        $media = Coursemedia::find($id);
+        return view('back.course.editmedia',compact('media'));
+    }
+    public function media_update(Request $request){
+        $coursemedia = Coursemedia::find($request->id);
+        $coursemedia->alt = $request->alt;
+        $coursemedia->save();
+        $dd = Crypt::encrypt($coursemedia->course_id);
+        return redirect("admin/course/{$dd}/edit")->with('success', 'Update Successfully');
+    }
+    public function media_delete(Request $request){
+        $id = Crypt::decrypt($request->id);
+        $coursemedia = Coursemedia::find($id);
+
+        if(File::exists(public_path($coursemedia->image))){
+            File::delete(public_path($coursemedia->image));
+        }
+        Coursemedia::destroy($id);
+        return redirect()->back()->with('success', 'Deleted Successfully');
+    }
+
 }

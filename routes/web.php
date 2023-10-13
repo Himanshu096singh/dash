@@ -26,7 +26,9 @@ use App\Http\Controllers\Admin\FormController;
 use App\Http\Controllers\Admin\FounderController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\EnquiryController;
+use App\Http\Controllers\Admin\CoursemediaController;
 use App\Http\Controllers\payment\PaymentController;
+
 
 
 /*
@@ -81,11 +83,18 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
     Route::post('course/testimonial', [CourseController::class, 'testimonial'])->name('course.testimonial');
     Route::post('course/inclusion', [CourseController::class, 'inclusion'])->name('course.inclusion');
     Route::post('course/schedule', [CourseController::class, 'schedule'])->name('course.schedule');
+    Route::post('course/dates', [CourseController::class, 'dates'])->name('course.dates');
+    Route::post('course/media', [CourseController::class, 'media'])->name('course.media');
+    Route::post('course/delete', [CourseController::class, 'media_delete'])->name('course.media.destroy');
+    Route::get('course/media_edit/{id}', [CourseController::class, 'media_edit'])->name('course.media.edit');
+    Route::post('course/updatemedia', [CourseController::class, 'media_update'])->name('course.media.updatemedia');
+    
     Route::get('accountsetting', [AdminController::class, 'accountsetting'])->name('accountsetting');
     Route::resource('forms', FormController::class);
     Route::resource('founders', FounderController::class);
     Route::resource('gallery', GalleryController::class);
     Route::resource('enquiry', EnquiryController::class);
+   
 
     Route::post('passwordupdate',[AdminController::class, 'passwordupdate'])->name('passwordupdate');
 });

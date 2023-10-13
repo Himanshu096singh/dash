@@ -85,7 +85,7 @@
 
                                         <div class="col-md-3 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="privateroom">Private Room Rent(in USD)</label>
+                                                <label for="privateroom">Private Room Fees(in USD)</label>
                                                 <input class="form-control @error('privateroom') is-invalid @enderror" id="privateroom" name="privateroom" type="number" min="0" placeholder="299" value="{{ old('privateroom') }}">
                                                 @error('privateroom')
                                                     <span class="invalid-feedback" role="alert">
@@ -97,7 +97,7 @@
 
                                         <div class="col-md-3 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="shared2room">2 Shared Room Rent(in USD)</label>
+                                                <label for="shared2room">2 Shared Room Fees(in USD)</label>
                                                 <input class="form-control @error('shared2room') is-invalid @enderror" id="shared2room" name="shared2room" type="number" min="0" placeholder="399" value="{{ old('shared2room') }}">
                                                 @error('certificate')
                                                     <span class="invalid-feedback" role="alert">
@@ -109,7 +109,7 @@
                                         
                                         <div class="col-md-3 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="shared3room">3 Shared Room Rent(in USD)</label>
+                                                <label for="shared3room">3 Shared Room Fees(in USD)</label>
                                                 <input class="form-control @error('shared3room') is-invalid @enderror" id="shared3room" name="shared3room" type="number" min="0" placeholder="599" value="{{ old('shared3room') }}">
                                                 @error('certificate')
                                                     <span class="invalid-feedback" role="alert">
@@ -120,7 +120,7 @@
                                         </div>
                                         <div class="col-md-3 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="shared6room">6 Shared Room Rent(in USD)</label>
+                                                <label for="shared6room">6 Shared Room Fees(in USD)</label>
                                                 <input class="form-control @error('shared6room') is-invalid @enderror" id="shared6room" name="shared6room" type="number" min="0" placeholder="899" value="{{ old('shared6room') }}">
                                                 @error('certificate')
                                                     <span class="invalid-feedback" role="alert">

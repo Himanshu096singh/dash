@@ -89,7 +89,7 @@
 
                                         <div class="col-md-3 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="privateroom">Private Room Rent(in USD)</label>
+                                                <label for="privateroom">Private Room Fees(in USD)</label>
                                                 <input class="form-control @error('privateroom') is-invalid @enderror" id="privateroom" name="privateroom" type="number" min="0" placeholder="299" value="{{ old('privateroom',$course->privateroom) }}">
                                                 @error('privateroom')
                                                     <span class="invalid-feedback" role="alert">
@@ -101,7 +101,7 @@
 
                                         <div class="col-md-3 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="shared2room">2 Shared Room Rent(in USD)</label>
+                                                <label for="shared2room">2 Shared Room Fees(in USD)</label>
                                                 <input class="form-control @error('shared2room') is-invalid @enderror" id="shared2room" name="shared2room" type="number" min="0" placeholder="399" value="{{ old('shared2room',$course->shared2room) }}">
                                                 @error('certificate')
                                                     <span class="invalid-feedback" role="alert">
@@ -113,7 +113,7 @@
                                         
                                         <div class="col-md-3 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="shared3room">3 Shared Room Rent(in USD)</label>
+                                                <label for="shared3room">3 Shared Room Fees(in USD)</label>
                                                 <input class="form-control @error('shared3room') is-invalid @enderror" id="shared3room" name="shared3room" type="number" min="0" placeholder="599" value="{{ old('shared3room',$course->shared3room) }}">
                                                 @error('certificate')
                                                     <span class="invalid-feedback" role="alert">
@@ -124,7 +124,7 @@
                                         </div>
                                         <div class="col-md-3 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="shared6room">6 Shared Room Rent(in USD)</label>
+                                                <label for="shared6room">6 Shared Room Fees(in USD)</label>
                                                 <input class="form-control @error('shared6room') is-invalid @enderror" id="shared6room" name="shared6room" type="number" min="0" placeholder="899" value="{{ old('shared6room',$course->shared6room) }}">
                                                 @error('certificate')
                                                     <span class="invalid-feedback" role="alert">
@@ -345,6 +345,58 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="card">
                         <div class="card-header alert alert-warning pb-2">
+                            <h4 class="card-title">Add Course Dates</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <form method="post" action="{{ route('course.dates') }}">
+                                    @csrf
+                                    <input type="hidden" name="courseId" value="{{ $eid }}">
+                                    @foreach($course->dates as $date)
+                                    <div class="repeatable mb-3">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label class="form-label col-form-label" for="time">Time</label>
+                                                        <input class="form-control" id="time" name="time[]" placeholder="06:00 - 07:30" required="" type="text" value="{{ $schdule->time }}">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <label class="form-label col-form-label" for="task">Task</label>
+                                                        <input class="form-control" id="task" name="task[]" placeholder="Task" required="" type="text" value="{{ $schdule->task }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-check">
+                                                    <input class="btn btn-danger mt-4" id="removeRow" type="button" value="x">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     @endforeach
+                                    <div id="newtimeRow"></div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12">
+                                            <input type="button" id="addtimeRow" class="btn btn-primary mr-2" value="+ Add Task">
+                                            <button class="btn btn-success" type="submit">
+                                                <i class="ft-check-square mr-1"></i>Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="basic-hidden-label-form-layouts">
+            <div class="row match-height">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <div class="card">
+                        <div class="card-header alert alert-warning pb-2">
                             <h4 class="card-title">Add Time Schedule</h4>
                         </div>
                         <div class="card-content">
@@ -479,6 +531,75 @@
                                     <div class="row mb-3">
                                         <div class="col-sm-12">
                                             <input type="button" id="addRow" class="btn btn-primary mr-2" value="+ Add Faqs">
+                                            <button class="btn btn-success" type="submit">
+                                                <i class="ft-check-square mr-1"></i>Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="basic-hidden-label-form-layouts">
+            <div class="row match-height">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <div class="card">
+                        <div class="card-header alert alert-warning pb-2">
+                            <h4 class="card-title">Add Top Media Images</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table text-center m-0">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Image</th>
+                                                <th>Alt</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($course->media as $key => $item)
+                                            <tr>
+                                                <td>{{ $key+1 }}</td>
+                                                <td>
+                                                    <img src="{{ asset($item->image) }}" alt="{{ $item->image }}" width="100">
+                                                </td>
+                                                <td>{{ $item->alt }}</td>
+                                                @php
+                                                    $mid = Crypt::encrypt($item->id);
+                                                @endphp
+                                                <td class="inlinebtn">
+                                                    <a href="{{ route('course.media.edit', $mid) }}" class="btn btn-info btn ml-1"><i class="ft-edit"></i></a>
+                                                    @if(Auth::check() && Auth::user()->role_id == 1)
+                                                    <form action="{{ route('course.media.destroy',$mid) }}" method="post" class="ml-1">
+                                                        @csrf
+                                                        <input type="hidden" value="{{$mid}}" name="id">
+                                                       <button class="btn btn-danger" type="submit" onclick="return DeleteConfirmation();"><i class="ft-trash-2"></i></button>
+                                                    </form>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <form method="post" action="{{ route('course.media') }}" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="courseId" value="{{ $eid }}">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" @error('media') is-invalid @enderror  name="media[]" multiple>
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12">
                                             <button class="btn btn-success" type="submit">
                                                 <i class="ft-check-square mr-1"></i>Save
                                             </button>

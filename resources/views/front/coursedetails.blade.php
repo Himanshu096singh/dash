@@ -133,40 +133,17 @@ h5.faq-title.collapsed:after {
 </style>
 @endsection
 @section('content')
-<div class="slider__container">
-    <div class="slider__items">
-      <div class="slider__item">
-        <img src="assets/images/new_gallery_item1.jpg">
-      </div>
-      <div class="slider__item">
-        <img src="assets/images/new_gallery_item2.jpg">
-      </div>
-      <div class="slider__item">
-        <img src="assets/images/new_gallery_item3.jpg">
-      </div>
-      <div class="slider__item">
-        <img src="assets/images/new_gallery_item4.jpg">
-      </div>
-      <div class="slider__item">
-        <img src="assets/images/new_gallery_item5.jpg">
-      </div>
-      <div class="slider__item">
-        <img src="assets/images/new_gallery_item6.jpg">
-      </div>
-      <div class="slider__item">
-        <img src="assets/images/new_gallery_item7.jpg">
-      </div>
-      <div class="slider__item">
-        <img src="assets/images/new_gallery_item8.jpg">
-      </div>
-      <div class="slider__item">
-        <img src="assets/images/new_gallery_item9.jpg">
-      </div>
-      <div class="slider__item">
-        <img src="assets/images/new_gallery_item10.jpg">
-      </div>
+@if(count($course->media)>0)
+    <div class="slider__container">
+        <div class="slider__items">
+            @foreach($course->media as $list)
+            <div class="slider__item">
+                <img src="{{$list->image}}" alt="{{$list->alt}}">
+            </div>
+            @endforeach
+        </div>
     </div>
-</div>
+@endif
 <div class="topscrollbox p-1 bg-gray">
     <div class="container">
         <ul class="list-inline text-center m-2">
