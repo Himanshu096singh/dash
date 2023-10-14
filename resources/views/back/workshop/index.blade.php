@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="content-header">
-                    Testimonials 
+                    Course
                 </div>
             </div>
         </div>
@@ -15,8 +15,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Testimonial List</h4>
-                            <a href="{{ route('testimonial.create') }}" class="btn gradient-purple-bliss shadow-z-1-hover float-right"><i class="ft-plus-square"></i> Add New Record</a>
+                            <h4 class="card-title">Course List</h4>
+                            <a href="{{ route('course.create') }}" class="btn gradient-purple-bliss shadow-z-1-hover float-right"><i class="ft-plus-square"></i> Add New Record</a>
                         </div>
                         <div class="card-content">
                             <div class="card-body">
@@ -26,26 +26,20 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Name</th>
-                                                <th>Profile Img</th>
-                                                <th>Review / Video ID</th>
+                                                <th>Image</th>
                                                 <th>Status</th>
                                                 <th>Date</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($testimonial as $key => $item)
+                                            @foreach ($course as $key => $item)
                                             <tr>
                                                 <td>{{ $key+1 }}</td>
-                                                <td>{{ Str::title($item->name) }}</td>
-                                                <td><img src="{{ asset($item->image) }}" style="width:60px;"></td>
                                                 <td>
-                                                    @if($item->type == 1)
-                                                        <strong> Youtube Id: </strong> {{$item->youtube}}
-                                                    @else
-                                                        <strong> Review: </strong> {{ Str::title($item->review) }}
-                                                    @endif
-                                                    
+                                                    {{ $item->name }}
+                                                <td>
+                                                    <img src="{{ asset($item->image) }}" alt="{{ $item->image }}" width="100">
                                                 </td>
                                                 <td>
                                                     @if($item->status == 1)
@@ -58,13 +52,20 @@
                                                 @php
                                                     $eid = Crypt::encrypt($item->id);
                                                 @endphp
-                                                <td>
-                                                    <a href="{{ route('testimonial.edit', $eid) }}" class="btn btn-info btn"><i class="ft-edit"></i></a>
-                                                    <form action="{{ route('testimonial.destroy',$eid) }}" method="post" class="d-inline">
+                                                <td class="inlinebtn">
+                                                    @if($item->status == 1)
+                                                    @isset($item->category->slug)
+                                                        <a href="{{ url($item->category->slug.'/'.$item->slug) }}" target="_blank" class="btn btn-warning btn"><i class="ft-eye"></i></a>
+                                                    @endisset
+                                                    @endif
+                                                    <a href="{{ route('course.edit', $eid) }}" class="btn btn-info btn ml-1"><i class="ft-edit"></i></a>
+                                                    @if(Auth::check() && Auth::user()->role_id == 1)
+                                                    <form action="{{ route('course.destroy',$eid) }}" method="post" class="ml-1">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="btn btn-danger" type="submit" onclick="return DeleteConfirmation();"><i class="ft-trash-2"></i></button>
                                                     </form>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             @endforeach

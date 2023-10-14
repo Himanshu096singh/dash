@@ -1,5 +1,6 @@
 @extends('layouts.front')
 @section('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/binouze/lightboxjs/src/lightboxjs.min.css" type="text/css" />
 <style>
     .testi_desc .p-2{line-height:26px;text-align: left;letter-spacing:1.2px;font-size:16px;color:#131313;text-shadow: 1px 1px 1px #d0d0d0;}
     .testimonial_box{background: linear-gradient(112deg, #ffffff 50%, #ffbfcdd6 50%);}
@@ -42,66 +43,30 @@
             </div>
         </div>
 
-        <div class="row mb-5">
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="video-testimonial-block">
-                    <div class="video-thumbnail"><img src="https://easetemplate.com/free-website-templates/finvisor/images/testi_img_1.jpg" alt="" class="img-fluid"></div>
-                    <div class="video">
-                        <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
-                        </iframe>
+        @if(count($video)>0)
+            <div class="row mb-5">
+                @foreach($video as $list)
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                        <div class="video-testimonial-block">
+                            <div class="lightboxjs-link" data-width="1000" data-height="600" data-url="https://www.youtube.com/embed/{{$list->youtube}}">
+                                <div class="video">
+                                    <div class="video-thumbnail"><img src="https://img.youtube.com/vi/{{$list->youtube}}/mqdefault.jpg" alt="video testimonial" class="img-fluid"></div>
+                                </div>
+                                <a href="#" class="video-play"></a>
+                            </div>
+                        </div>
+                        <div class="testi_meta d-flex justify-content-start">
+                            <div class="testimonial_img mr-3">
+                                <img class="rounded-circle" src="{{asset($list->image)}}" alt="{{$list->name}}" style="width:60px">
+                            </div>
+                            <div class="testi_user text-left align-self-center">
+                                <h5 class=" h6 mb-0 ">{{$list->name}}</h5>
+                            </div>
+                        </div>
                     </div>
-                    <a href="#" class="video-play"></a>
-                </div>
-                <div class="testi_meta d-flex justify-content-start">
-                    <div class="testimonial_img mr-3">
-                        <img class="rounded-circle" src="assets/images/client_img3.jpg" alt="client" style="width:60px">
-                    </div>
-                    <div class="testi_user text-left">
-                        <h5 class=" h6 mb-0 ">Calvin William</h5>
-                        <span>Web Designer</span>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="video-testimonial-block">
-                    <div class="video-thumbnail"><img src="https://easetemplate.com/free-website-templates/finvisor/images/testi_img_2.jpg" alt="" class="img-fluid"></div>
-                    <div class="video">
-                        <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" 
-                         allowfullscreen>
-                        </iframe>
-                    </div>
-                    <a href="#" class="video-play"></a>
-                </div>
-                <div class="testi_meta d-flex justify-content-start">
-                    <div class="testimonial_img mr-3">
-                        <img class="rounded-circle" src="assets/images/client_img3.jpg" alt="client" style="width:60px">
-                    </div>
-                    <div class="testi_user text-left">
-                        <h5 class=" h6 mb-0 ">Calvin William</h5>
-                        <span>Web Designer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-                <div class="video-testimonial-block">
-                    <div class="video-thumbnail"><img src="https://easetemplate.com/free-website-templates/finvisor/images/testi_img_3.jpg" alt="" class="img-fluid"></div>
-                    <div class="video">
-                        <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
-                        </iframe>
-                    </div>
-                    <a href="#" class="video-play"></a>
-                </div>
-                <div class="testi_meta d-flex justify-content-start">
-                    <div class="testimonial_img mr-3">
-                        <img class="rounded-circle" src="assets/images/client_img3.jpg" alt="client" style="width:60px">
-                    </div>
-                    <div class="testi_user text-left">
-                        <h5 class=" h6 mb-0 ">Calvin William</h5>
-                        <span>Web Designer</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endif
         <div class="row mt-5">
         	<div class="col-12 animation animated fadeInUp" data-animation="fadeInUp" data-animation-delay="0.2s" style="animation-delay: 0.2s; opacity: 1;">
             	@foreach($testimonial as $list)
@@ -117,7 +82,7 @@
                                 <div class="testimonial_img mr-3">
                                     <img src="{{asset($list->image)}}" alt="{{$list->name}}" style="width:60px" >
                                 </div>
-                                <div class="testi_user text-left justify-self-item">
+                                <div class="testi_user text-left align-self-center">
                                     <h5 class=" h6 mb-0 ">{{$list->name}}</h5>
                                 </div>
                             </div>
@@ -131,4 +96,5 @@
 </section>
 @endsection
 @section('js')
+<script src="https://cdn.jsdelivr.net/gh/binouze/lightboxjs/src/lightboxjs.min.js"></script>
 @endsection

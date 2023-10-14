@@ -115,7 +115,8 @@ class FrontController extends Controller
     }
 
     public function testimonial(){
-       $testimonial = Testimonial::where("status",1)->latest()->get();
+       $testimonial = Testimonial::where("status",1)->where('type',0)->latest()->get();
+       $video = Testimonial::where("status",1)->where('type',1)->latest()->get();
        $seo = Seo::where('name','testimonial')->first();
         if($seo){
             $meta = [
@@ -124,9 +125,9 @@ class FrontController extends Controller
                 'metadescription' => $seo['metadescription'],
                 'image' => $seo['image']
             ];
-            return view('front/testimonial',compact('testimonial','meta'));
+            return view('front/testimonial',compact('testimonial','meta','video'));
         } else {
-            return view('front/testimonial',compact('testimonial'));
+            return view('front/testimonial',compact('testimonial','video'));
         }
     
     }
@@ -176,6 +177,11 @@ class FrontController extends Controller
         } else {
             return view('front/booking');
         }
+    }
+
+    public function bookingform($slug){
+        $course = Course::where('slug',$slug)->get();
+        return view('booking',compact('courese'));
     }
     
     public function coursedetails($slug){

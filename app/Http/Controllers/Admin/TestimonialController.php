@@ -16,7 +16,7 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-       $testimonial = Testimonial::all();
+       $testimonial = Testimonial::latest()->get();
        return view('back.testimonial.index',compact('testimonial'));
     }
 
@@ -37,7 +37,9 @@ class TestimonialController extends Controller
             'name'      =>    'required',
             'status'    =>    'required',
             'image'     =>    'required|mimes:jpeg,png,jpg,webp|max:2048',
-            'review'    =>    'required',
+            'type'      =>    'required',
+            'review'    =>    'required_if:type,0',
+            'youtube'   =>    'required_if:type,1'
         ]);
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
@@ -59,6 +61,8 @@ class TestimonialController extends Controller
         $testimonial->image             =     $saveImage;
         $testimonial->status            =     $request->status;
         $testimonial->review            =     $request->review;
+        $testimonial->type              =     $request->type;
+        $testimonial->youtube           =     $request->youtube;
         $testimonial->save();
         return redirect()->route('testimonial.index')->with('success', 'Successfully Added');
     }

@@ -66,11 +66,38 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-6 col-12">
+                                            <label for="alt">Testimonial Type</label>
+                                            
+                                            <div class="form-group mb-2">
+                                                <div class="radio radio-danger @error('type') is-invalid @enderror">
+                                                    <input type="radio" name="type" id="video"  onchange="handleChange(this)" value="1" {{ old('type') == 1 ? 'checked':'' }} >
+                                                    <label for="video">Video</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-2">
+                                                <div class="radio radio-success @error('type') is-invalid @enderror">
+                                                    <input type="radio" name="type" id="text" onchange="handleChange(this);" value="0" {{ old('type') == 0 ? 'checked':'' }} >
+                                                    <label for="text">Text</label>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
                                     </div>
-                                    <div class="form-group mb-2">
+                                    <div id="review"  class="form-group mb-2 {{old('type')==0 ? 'd-block' : 'd-none' }}">
                                         <label for="review">Review</label>
                                         <textarea class="form-control @error('review') is-invalid @enderror" id="review" name="review" rows="4" placeholder="Review">{{ old('review') }}</textarea>
                                         @error('review')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <div id="youtube" class="form-group mb-2 {{old('type')==1 ? 'd-block' : 'd-none' }} ">
+                                        <label for="video">Youtube Video Id</label>
+                                        <input type="text" class="form-control @error('youtube') is-invalid @enderror" id="youtube" name="youtube" placeholder="youtube" value="{{ old('youtube') }}">
+                                        @error('youtube')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -94,4 +121,23 @@
         </section>
     </div>
 </div>
+@endsection
+@section('js')
+    <script>
+        const review =  document.querySelector("#review")
+        const youtube =  document.querySelector("#youtube")
+        
+        function handleChange(type){
+            console.log(type.value)
+            if(type.value == 1){
+                review.classList.remove("d-block");
+                review.classList.add("d-none");
+                youtube.classList.remove("d-none");
+            } else {
+                review.classList.remove("d-none");
+                youtube.classList.add("d-none");
+            }
+
+        }
+    </script>
 @endsection

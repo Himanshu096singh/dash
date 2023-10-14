@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\{Course,Coursefaq,Coursecurriculam,Coursetestimonial,CourseInclusion,Courseschdule,Coursemedia,Coursedates};
+use App\Models\{Workshop,Coursefaq,Coursecurriculam,Coursetestimonial,CourseInclusion,Courseschdule,Coursemedia,Coursedates};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
-class CourseController extends Controller
+class WorkshopController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $course = Course::latest()->get();
-        return view('back.course.index', compact('course'));
+        $workshop = Workshop::latest()->get();
+        return view('back.workshop.index', compact('workshop'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('back.course.create');
+        return view('back.workshop.create');
     }
 
     /**

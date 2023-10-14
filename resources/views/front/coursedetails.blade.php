@@ -230,12 +230,12 @@ h5.faq-title.collapsed:after {
 
                     <div id="introduction" class="course_section introduction">
                         <h3>About the course</h3>
-                        <hr style="background:#cf3e5f;height:2px"/>
+                        <hr class="bg-default opacity-100" style="height:2px"/>
                         <div class="classes_desc"> 
                             {!! $course->description !!}
                             <div style="overflow-x:auto;" class="wtable pt20">
-                                <table class="table table-striped">
-                                <tr>
+                                <table class="table">
+                                <tr class="bg-grey">
                                     <th>
                                         Style
                                     </th>
@@ -266,7 +266,7 @@ h5.faq-title.collapsed:after {
 
                     <div id="included" class="course_section included">
                         <h3>What is included</h3>
-                        <hr style="background:#cf3e5f;height:2px"/>
+                        <hr class="bg-default opacity-100" style="height:2px"/>
                         <div class="classes_desc"> 
                             <div class="row">
                                 @foreach($course->inclusion as $list)
@@ -280,7 +280,7 @@ h5.faq-title.collapsed:after {
 
                     <div id="curriculam" class="course_section curriculam">
                         <h3>Curriculam</h3>
-                        <hr style="background:#cf3e5f;height:2px"/>
+                        <hr class="bg-default opacity-100" style="height:2px"/>
                         <div class="classes_desc"> 
                            <div class="faq" id="accordion">
                             @foreach($course->curriculam as $index=>$list)
@@ -305,7 +305,7 @@ h5.faq-title.collapsed:after {
 
                     <div id="schedule" class="course_section dailyschedule">
                         <h3>Daily Schedule</h3>
-                        <hr style="background:#cf3e5f;height:2px"/>
+                        <hr class="bg-default opacity-100" style="height:2px"/>
                         <div class="classes_desc"> 
                            <ul class="sessions mb-5" >
                                 @foreach($course->schdule as $list)
@@ -321,77 +321,38 @@ h5.faq-title.collapsed:after {
 
                     <div id="upcoming-batches" class="course_section batches">
                         <h3>Course Dates</h3>
-                        <hr style="background:#cf3e5f;height:2px"/>
+                        <hr class="bg-default opacity-100" style="height:2px"/>
                         <div class="classes_desc"> 
                             <p class="mb-3">
                                 This yoga certification course will be assessed by practical exam, theoretical exam, written assessment, classroom participation, and observation during the class.
                             </p>
                             <div style="overflow-x:auto;" class="wtable pt20">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                          <th scope="col">Month</th>
-                                          <th scope="col">Available Seats</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1 Feb - 25 Feb 2023	</td>
-                                            <td>3 seats left</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 Mar - 25 Mar 2023	</td>
-                                            <td>4 seats left</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 Apr - 25 Apr 2023	</td>
-                                            <td>3 seats left</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 May - 25 May 2023	</td>
-                                            <td>5 seats left</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 June - 25 June 2023	</td>
-                                            <td>5 seats left</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 July - 25 July 2023	</td>
-                                            <td>5 seats left</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 August - 25 August 2023	</td>
-                                            <td>5 seats left</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 September - 25 September	</td>
-                                            <td>5 seats left</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 October - 25 October	</td>
-                                            <td>5 seats left</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 November - 25 November	</td>
-                                            <td>5 seats left</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 December - 25 December	</td>
-                                            <td>5 seats left</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1 January - 25 January	</td>
-                                            <td>5 seats left</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                @if(count($course->dates))
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">Month</th>
+                                            <th scope="col">Available Seats</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach($course->dates as $list)
+                                            <tr>
+                                                <td> {{$list->date}} </td>
+                                                <td> {{$list->seats}} </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                @endif
                             </div>
                         </div>
                     </div>
 
                     <div id="accomodation" class="course_section accomodation">
                         <h3>Accomodation & Food</h3>
-                        <hr style="background:#cf3e5f;height:2px"/>
+                        <hr class="bg-default opacity-100" style="height:2px"/>
                         <div class="classes_desc"> 
                             <p class="mb-5">
                                 This yoga certification course will be assessed by practical exam, theoretical exam, written assessment, classroom participation, and observation during the class.
@@ -530,7 +491,7 @@ h5.faq-title.collapsed:after {
 
                     <div id="testimonials" class="course_section testimonial">
                         <h3>Our Testimonials</h3>
-                        <hr style="background:#cf3e5f;height:2px"/>
+                        <hr class="bg-default opacity-100" style="height:2px"/>
                         <div class="classes_desc"> 
                             <div class="" id="testimonial_lists">
                                 @foreach($course->testimonial as $list)
@@ -560,7 +521,7 @@ h5.faq-title.collapsed:after {
 
                     <div id="faq" class="course_section faq">
                         <h3>Frequently Asked Questions</h3>
-                        <hr style="background:#cf3e5f;height:2px"/>
+                        <hr class="bg-default opacity-100" style="height:2px"/>
                         <div class="classes_desc"> 
                             <div class="faq" id="accordion">
                                 @foreach($course->faqs as $index=>$list)
@@ -624,7 +585,7 @@ h5.faq-title.collapsed:after {
                             </table>  
                             </div>
                             <div class="action_btn d-flex justify-content-between">
-                                <a class="btn btn-default d-inline-block m-1 mb-3 px-2 font-weight-normal" style="width:150px"> Book Now </a>
+                                <a href="{{url($course->slug."/booking")}}" class="btn btn-default d-inline-block m-1 mb-3 px-2 font-weight-normal" style="width:150px"> Book Now </a>
                                 <a class="btn btn-default d-inline-block m-1 mb-3 px-2 font-weight-normal" style="width:150px"> Enquiry Now </a>
                             </div>
                         </div>

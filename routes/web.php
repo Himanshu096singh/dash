@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\FormController;
 use App\Http\Controllers\Admin\FounderController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\EnquiryController;
+use App\Http\Controllers\Admin\WorkshopController;
 use App\Http\Controllers\Admin\CoursemediaController;
 use App\Http\Controllers\payment\PaymentController;
 
@@ -94,6 +95,7 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
     Route::resource('founders', FounderController::class);
     Route::resource('gallery', GalleryController::class);
     Route::resource('enquiry', EnquiryController::class);
+    Route::resource('workshop', WorkshopController::class);
    
 
     Route::post('passwordupdate',[AdminController::class, 'passwordupdate'])->name('passwordupdate');
@@ -125,6 +127,7 @@ Route::get('/gallery',[FrontController::class,'gallery'])->name('gallery');
 Route::get('/booking',[FrontController::class,'booking'])->name('booking');
 Route::get('sitemap.xml',[FrontController::class,'sitemap'])->name('sitemap');
 Route::get('/blog/{slug}', [FrontController::class, 'blogdetail'])->name('blogdetail');
+Route::get('/{slug}/booking',[FrontController::class,'bookingform'])->name('bookingform');
 Route::get('{slug}',[FrontController::class, 'coursedetails'])->name('coursedetails');
 
 Route::post('contactsubmit',[FrontController::class,'contactsubmit'])->name('contactsubmit');
