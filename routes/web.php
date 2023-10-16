@@ -96,7 +96,8 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
     Route::resource('gallery', GalleryController::class);
     Route::resource('enquiry', EnquiryController::class);
     Route::resource('workshop', WorkshopController::class);
-   
+    Route::post('workshop/modules', [WorkshopController::class, 'modules'])->name('workshop.modules');
+    
 
     Route::post('passwordupdate',[AdminController::class, 'passwordupdate'])->name('passwordupdate');
 });

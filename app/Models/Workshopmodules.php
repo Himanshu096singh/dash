@@ -5,12 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Workshop extends Model
+class Workshopmodules extends Model
 {
     use HasFactory;
+    protected $fillable = ['workshop_id', 'question', 'answer'];
     
-    public function modules()
-    {
-        return $this->hasMany(Workshopmodules::class);
-    }
 }

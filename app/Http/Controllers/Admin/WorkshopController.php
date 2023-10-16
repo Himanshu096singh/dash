@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\{Workshop,Coursefaq,Coursecurriculam,Coursetestimonial,CourseInclusion,Courseschdule,Coursemedia,Coursedates};
-use Illuminate\Http\Request;
+use App\Models\{Workshop,Workshopmodules};
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
@@ -36,20 +35,16 @@ class WorkshopController extends Controller
         $validator = Validator::make($request->all(), [
             'name'                  =>    'required|unique:courses',
             'slug'                  =>    'required|unique:courses',
-            'status'                =>    'required',
             'image'                 =>    'required|mimes:jpeg,png,jpg,webp|max:2048',
             'alt'                   =>    'required',
-            'description'           =>    'required',
+            'about'                 =>    'required',
             'metatitle'             =>    'required',
             'metakeyword'           =>    'required',
             'metadescription'       =>    'required',
-            'privateroom'           =>    'required',
-            'shared2room'           =>    'required',
-            'shared3room'           =>    'required',
-            'shared6room'           =>    'required',
             'duration'              =>    'required',
-            'certificate'           =>    'required',
-            'hour'                  =>    'required',
+            'session'               =>    'required',
+            'onlineprice'           =>    'required',
+            'inpersonprice'         =>    'required',
         ]);
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
@@ -66,25 +61,21 @@ class WorkshopController extends Controller
             $saveImage = $imagePath.$uploadImage;
         }
 
-        $course                    =     new Course;
-        $course->name              =     $request->name;
-        $course->slug              =     Str::slug($request->slug);
-        $course->image             =     $saveImage;
-        $course->alt               =     $request->alt;
-        $course->status            =     $request->status;
-        $course->description       =     $request->description;
-        $course->metatitle         =     $request->metatitle;
-        $course->metakeywords      =     $request->metakeyword;
-        $course->metadescription   =     $request->metadescription;
-        $course->privateroom       =     $request->privateroom;
-        $course->shared2room       =     $request->shared2room;
-        $course->shared3room       =     $request->shared3room;
-        $course->shared6room       =     $request->shared6room;
-        $course->duration          =     $request->duration;
-        $course->certification     =     $request->certificate;
-        $course->hour              =     $request->hour;
-        $course->save();
-        return redirect()->route('course.index')->with('success', 'Successfully Added');
+        $workshop                    =     new Workshop;
+        $workshop->name              =     $request->name;
+        $workshop->slug              =     Str::slug($request->slug);
+        $workshop->image             =     $saveImage;
+        $workshop->alt               =     $request->alt;
+        $workshop->about             =     $request->about;
+        $workshop->metatitle         =     $request->metatitle;
+        $workshop->metakeywords      =     $request->metakeyword;
+        $workshop->metadescription   =     $request->metadescription;
+        $workshop->duration          =     $request->duration;
+        $workshop->session           =     $request->session;
+        $workshop->onlineprice       =     $request->onlineprice;
+        $workshop->inpersonprice     =     $request->inpersonprice;
+        $workshop->save();
+        return redirect()->route('workshop.index')->with('success', 'Successfully Added');
     }
 
     /**
@@ -101,8 +92,8 @@ class WorkshopController extends Controller
     public function edit(string $eid)
     {
         $id = Crypt::decrypt($eid);
-        $course = Course::findOrFail($id);
-        return view('back.course.edit', compact('course'));
+        $workshop = Workshop::findOrFail($id);
+        return view('back.workshop.edit', compact('workshop'));
     }
 
     /**
@@ -110,23 +101,19 @@ class WorkshopController extends Controller
      */
     public function update(Request $request, string $eid)
     {   $id = Crypt::decrypt($eid);
-        $course = Course::findOrFail($id);
+        $workshop = Workshop::findOrFail($id);
         $validator = Validator::make($request->all(), [
-            'name'                  =>    'required|unique:courses,name,'.$id,
-            'slug'                  =>    'required|unique:courses,slug,'.$id,
-            'status'                =>    'required',
+            'name'                  =>    'required|unique:workshops,name,'.$id,
+            'slug'                  =>    'required|unique:workshops,slug,'.$id,
             'alt'                   =>    'required',
-            'description'           =>    'required',
+            'about'           =>    'required',
             'metatitle'             =>    'required',
             'metakeyword'           =>    'required',
             'metadescription'       =>    'required',
-            'privateroom'           =>    'required',
-            'shared2room'           =>    'required',
-            'shared3room'           =>    'required',
-            'shared6room'           =>    'required',
             'duration'              =>    'required',
-            'certificate'           =>    'required',
-            'hour'                  =>    'required',
+            'session'               =>    'required',
+            'onlineprice'           =>    'required',
+            'inpersonprice'         =>    'required',
         ]);
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
@@ -138,31 +125,27 @@ class WorkshopController extends Controller
             $imageName = pathinfo($file,PATHINFO_FILENAME);
             $image = Str::slug(uniqid().$imageName);
             $uploadImage = $image.'.'.$imageExt;
-            $imagePath = '/upload/course/';
+            $imagePath = '/upload/workshop/';
             $request->image->move(public_path($imagePath), $uploadImage);
             $saveImage = $imagePath.$uploadImage;
         } else {
-            $saveImage = $course->image;
+            $saveImage = $workshop->image;
         }
 
-        $course->name              =     $request->name;
-        $course->slug              =     Str::slug($request->slug);
-        $course->image             =     $saveImage;
-        $course->alt               =     $request->alt;
-        $course->status            =     $request->status;
-        $course->description       =     $request->description;
-        $course->metatitle         =     $request->metatitle;
-        $course->metakeywords      =     $request->metakeyword;
-        $course->metadescription   =     $request->metadescription;
-        $course->privateroom       =     $request->privateroom;
-        $course->shared2room       =     $request->shared2room;
-        $course->shared3room       =     $request->shared3room;
-        $course->shared6room       =     $request->shared6room;
-        $course->duration          =     $request->duration;
-        $course->certification     =     $request->certificate;
-        $course->hour              =     $request->hour;
-        $course->save();
-        return redirect()->route('course.index')->with('success', 'Successfully Added');
+        $workshop->name              =     $request->name;
+        $workshop->slug              =     Str::slug($request->slug);
+        $workshop->image             =     $saveImage;
+        $workshop->alt               =     $request->alt;
+        $workshop->about             =     $request->about;
+        $workshop->metatitle         =     $request->metatitle;
+        $workshop->metakeywords      =     $request->metakeyword;
+        $workshop->metadescription   =     $request->metadescription;
+        $workshop->duration        =     $request->duration;
+        $workshop->session         =     $request->session;
+        $workshop->onlineprice     =     $request->onlineprice;
+        $workshop->inpersonprice   =     $request->inpersonprice;
+        $workshop->save();
+        return redirect()->back()->with('success', 'Successfully Update');
     }
 
     /**
@@ -202,26 +185,26 @@ class WorkshopController extends Controller
         endif;
     }
 
-    public function curriculams(Request $request)
+    public function modules(Request $request)
     {
-        $courseIds = Crypt::decrypt($request->courseId);
+        $workshopId = Crypt::decrypt($request->workshopid);
         $questions = $request->heading;
         $answer = $request->comment;
-        $Coursecurriculam = Coursecurriculam::where('course_id',$courseIds)->count();
-        if($Coursecurriculam > 0):
-            Coursecurriculam::where('course_id',$courseIds)->delete();
+        $workshopmodules = Workshopmodules::where('workshop_id',$workshopId)->count();
+        if($workshopmodules > 0):
+            Workshopmodules::where('workshop_id',$workshopId)->delete();
         endif;
         if($questions != null):
             foreach($questions as $key => $question){
-                Coursecurriculam::create([
-                    'course_id'   =>  $courseIds,
-                    'question'  =>  $question,
-                    'answer'    =>  $answer[$key],
+                Workshopmodules::create([
+                    'workshop_id'   =>  $workshopId,
+                    'question'    =>  $question,
+                    'answer'      =>  $answer[$key],
                 ]);
             }
-            return redirect()->back()->with('success', 'Course Curriculam Successfully Added !');
+            return redirect()->back()->with('success', 'Workshop Modules Successfully Added !');
         else:
-            return redirect()->back()->with('error', 'Please add Curriculam Details!');
+            return redirect()->back()->with('error', 'Please add Modules Details!');
         endif;
     }
 

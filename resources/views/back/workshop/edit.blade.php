@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="content-header">
-                    Course
+                    Workshop
                 </div>
             </div>
         </div>
@@ -16,22 +16,22 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Edit Course</h4>
-                            <a href="{{ route('course.index') }}" class="btn gradient-purple-bliss shadow-z-1-hover float-right"><i class="ft-eye"></i> View Course</a>
+                            <h4 class="card-title">Edit Workshop</h4>
+                            <a href="{{ route('workshop.index') }}" class="btn gradient-purple-bliss shadow-z-1-hover float-right"><i class="ft-eye"></i> View Workshop</a>
                         </div>
                         @php
-                            $eid = Crypt::encrypt($course->id);
+                            $eid = Crypt::encrypt($workshop->id);
                         @endphp
                         <div class="card-content">
                             <div class="card-body">
-                                <form method="post" action="{{ route('course.update', $eid) }}" enctype="multipart/form-data">
+                                <form method="post" action="{{ route('workshop.update', $eid) }}" enctype="multipart/form-data">
                                     @csrf
                                     @method('PATCH')
                                     <div class="form-row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mb-2">
                                                 <label for="name">Name</label>
-                                                <input class="form-control @error('name') is-invalid @enderror" id="name" name="name" type="text" placeholder="Name" value="{{ old('name', $course->name) }}">
+                                                <input class="form-control @error('name') is-invalid @enderror" id="name" name="name" type="text" placeholder="Name" value="{{ old('name', $workshop->name) }}">
                                                 @error('name')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -42,7 +42,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mb-2">
                                                 <label for="slug">Slug</label>
-                                                <input class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" type="text" placeholder="Slug" value="{{ old('slug', $course->slug) }}">
+                                                <input class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" type="text" placeholder="Slug" value="{{ old('slug', $workshop->slug) }}">
                                                 @error('slug')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -51,10 +51,10 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-md-4 col-12">
+                                        <div class="col-md-6 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="duration">Course Duration (Day)</label>
-                                                <input class="form-control @error('duration') is-invalid @enderror" id="duration" name="duration" type="text" placeholder="15 Days" value="{{ old('duration',$course->duration) }}">
+                                                <label for="duration">Workshop Duration (Day)</label>
+                                                <input class="form-control @error('duration') is-invalid @enderror" id="duration" name="duration" type="text" placeholder="15 Days" value="{{ old('duration',$workshop->duration) }}">
                                                 @error('duration')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -63,11 +63,11 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4 col-12">
+                                        <div class="col-md-6 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="hour">Course Hour</label>
-                                                <input class="form-control @error('hour') is-invalid @enderror" id="hour" name="hour" type="text" placeholder="200 Hr" value="{{ old('hour',$course->hour) }}">
-                                                @error('hour')
+                                                <label for="session">Workshop Session</label>
+                                                <input class="form-control @error('session') is-invalid @enderror" id="session" name="session" type="text" placeholder="200 Hr" value="{{ old('session',$workshop->session) }}">
+                                                @error('session')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -75,11 +75,11 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4 col-12">
+                                        <div class="col-md-6 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="certificate">Certificate</label>
-                                                <input class="form-control @error('certificate') is-invalid @enderror" id="certificate" name="certificate" type="text" placeholder="Course certificate" value="{{ old('certificate',$course->certification) }}">
-                                                @error('certificate')
+                                                <label for="onlineprice">Online Workshop Fees(in USD)</label>
+                                                <input class="form-control @error('onlineprice') is-invalid @enderror" id="onlineprice" name="onlineprice" type="number" min="0" placeholder="299" value="{{ old('onlineprice',$workshop->onlineprice) }}">
+                                                @error('onlineprice')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -87,57 +87,23 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-3 col-12">
+                                        <div class="col-md-6 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="privateroom">Private Room Fees(in USD)</label>
-                                                <input class="form-control @error('privateroom') is-invalid @enderror" id="privateroom" name="privateroom" type="number" min="0" placeholder="299" value="{{ old('privateroom',$course->privateroom) }}">
-                                                @error('privateroom')
+                                                <label for="inpersonprice">Inperson Workshop Fees(in USD)</label>
+                                                <input class="form-control @error('inpersonprice') is-invalid @enderror" id="inpersonprice" name="inpersonprice" type="number" min="0" placeholder="399" value="{{ old('inpersonprice',$workshop->inpersonprice) }}">
+                                                @error('inpersonprice')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
                                             </div>
                                         </div>
-
-                                        <div class="col-md-3 col-12">
-                                            <div class="form-group mb-2">
-                                                <label for="shared2room">2 Shared Room Fees(in USD)</label>
-                                                <input class="form-control @error('shared2room') is-invalid @enderror" id="shared2room" name="shared2room" type="number" min="0" placeholder="399" value="{{ old('shared2room',$course->shared2room) }}">
-                                                @error('certificate')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-3 col-12">
-                                            <div class="form-group mb-2">
-                                                <label for="shared3room">3 Shared Room Fees(in USD)</label>
-                                                <input class="form-control @error('shared3room') is-invalid @enderror" id="shared3room" name="shared3room" type="number" min="0" placeholder="599" value="{{ old('shared3room',$course->shared3room) }}">
-                                                @error('certificate')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-12">
-                                            <div class="form-group mb-2">
-                                                <label for="shared6room">6 Shared Room Fees(in USD)</label>
-                                                <input class="form-control @error('shared6room') is-invalid @enderror" id="shared6room" name="shared6room" type="number" min="0" placeholder="899" value="{{ old('shared6room',$course->shared6room) }}">
-                                                @error('certificate')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
+ 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label for="image d-block">Course Image</label> 
+                                                <label for="image d-block">Workshop Image</label> 
                                                 <br/>
-                                                <img src="{{ asset($course->image) }}" class="img-fluid rounded-top" alt="{{ $course->item }}" width="100">
+                                                <img src="{{ asset($workshop->image) }}" class="img-fluid rounded-top" alt="{{ $workshop->item }}" width="100">
 
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="inputGroupFile01" @error('image') is-invalid @enderror  name="image">
@@ -153,7 +119,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mb-2">
                                                 <label for="alt">Alt</label>
-                                                <input class="form-control @error('alt') is-invalid @enderror" id="alt" name="alt" type="text" placeholder="Alt" value="{{ old('alt', $course->alt ) }}">
+                                                <input class="form-control @error('alt') is-invalid @enderror" id="alt" name="alt" type="text" placeholder="Alt" value="{{ old('alt', $workshop->alt ) }}">
                                                 @error('alt')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -161,27 +127,12 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                       
-                                        <div class="col-md-6 col-12">
-                                            <label for="alt">Status</label>
-                                            <div class="form-group mb-2">
-                                                <div class="radio radio-success @error('status') is-invalid @enderror">
-                                                    <input type="radio" name="status" id="active" value="1" {{ old('status', $course->status) == 1 ? 'checked':'' }}>
-                                                    <label for="active">Active</label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group mb-2">
-                                                <div class="radio radio-danger @error('status') is-invalid @enderror">
-                                                    <input type="radio" name="status" id="inactive"  value="0" {{ old('status', $course->status) == 0 ? 'checked':'' }}>
-                                                    <label for="inactive">Inactive</label>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="colo-md-12 col-lg-12 col-12">
                                             <div class="form-group mb-2">
-                                                <label for="description">Description</label>
-                                                <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4">{{ old('description', $course->description) }}</textarea>
-                                                @error('description')
+                                                <label for="about">About</label>
+                                                <textarea class="form-control @error('about') is-invalid @enderror" id="description" name="about" rows="4">{{ old('about', $workshop->about) }}</textarea>
+                                                @error('about')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -197,7 +148,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mb-2">
                                                 <label for="metatitle">Meta Title</label>
-                                                <input class="form-control @error('metatitle') is-invalid @enderror" id="metatitle" name="metatitle" type="text" placeholder="Meta Title" value="{{ old('metatitle', $course->metatitle) }}">
+                                                <input class="form-control @error('metatitle') is-invalid @enderror" id="metatitle" name="metatitle" type="text" placeholder="Meta Title" value="{{ old('metatitle', $workshop->metatitle) }}">
                                                 @error('metatitle')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -208,7 +159,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mb-2">
                                                 <label for="metakeyword">Meta Keyword</label>
-                                                <input class="form-control @error('metakeyword') is-invalid @enderror" id="metakeyword" name="metakeyword" type="text" placeholder="Meta Keyword" value="{{ old('metakeyword', $course->metakeywords) }}">
+                                                <input class="form-control @error('metakeyword') is-invalid @enderror" id="metakeyword" name="metakeyword" type="text" placeholder="Meta Keyword" value="{{ old('metakeyword', $workshop->metakeywords) }}">
                                                 @error('metakeyword')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -219,7 +170,7 @@
                                         <div class="col-md-12 col-12">
                                             <div class="form-group mb-2">
                                                 <label for="metadescription">Meta Description</label>
-                                                <textarea class="form-control @error('metadescription') is-invalid @enderror" id="metadescription" name="metadescription" rows="4" placeholder="Meta Description">{{ old('metadescription', $course->metadescription) }}</textarea>
+                                                <textarea class="form-control @error('metadescription') is-invalid @enderror" id="metadescription" name="metadescription" rows="4" placeholder="Meta Description">{{ old('metadescription', $workshop->metadescription) }}</textarea>
                                                 @error('metadescription')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -243,7 +194,56 @@
                 </div>
             </div>
         </section>
-        
+        <section id="basic-hidden-label-form-layouts">
+            <div class="row match-height">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <div class="card">
+                        <div class="card-header alert alert-warning pb-2">
+                            <h4 class="card-title">Add Modules</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <form method="post" action="{{ route('workshop.modules') }}">
+                                    @csrf
+                                    <input type="hidden" name="workshopid" value="{{ $eid }}">
+                                    @foreach($workshop->modules as $modules)
+                                    <div class="repeatable mb-3">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <div class="mb-2">
+                                                    <label class="form-label col-form-label" for="heading">Heading</label>
+                                                    <input class="form-control" id="heading" name="heading[]" placeholder="Heading" required="" type="text" value="{{ $modules->question }}">
+                                                </div>
+                                                <div class="mb-2">
+                                                    <label class="form-label col-form-label" for="comment">Description</label>
+                                                    <textarea class="form-control summernote" id="comment" name="comment[]" placeholder="Description" required="">{{ $modules->answer }}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-check">
+                                                    <input class="btn btn-danger mt-4" id="removeRow" type="button" value="x">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     @endforeach
+                                    <div id="newccRow"></div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12">
+                                            <input type="button" id="addccRow" class="btn btn-primary mr-2" value="Add Modules">
+                                            <button class="btn btn-success" type="submit">
+                                                <i class="ft-check-square mr-1"></i>Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {{--    
         <section id="basic-hidden-label-form-layouts">
             <div class="row match-height">
                 <div class="col-lg-12 col-md-12 col-12">
@@ -290,55 +290,7 @@
             </div>
         </section>
 
-        <section id="basic-hidden-label-form-layouts">
-            <div class="row match-height">
-                <div class="col-lg-12 col-md-12 col-12">
-                    <div class="card">
-                        <div class="card-header alert alert-warning pb-2">
-                            <h4 class="card-title">Add Curriculam</h4>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-body">
-                                <form method="post" action="{{ route('course.curriculam') }}">
-                                    @csrf
-                                    <input type="hidden" name="courseId" value="{{ $eid }}">
-                                    @foreach($course->Curriculam as $cc)
-                                    <div class="repeatable mb-3">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <div class="mb-2">
-                                                    <label class="form-label col-form-label" for="heading">Heading</label>
-                                                    <input class="form-control" id="heading" name="heading[]" placeholder="Heading" required="" type="text" value="{{ $cc->question }}">
-                                                </div>
-                                                <div class="mb-2">
-                                                    <label class="form-label col-form-label" for="comment">Description</label>
-                                                    <textarea class="form-control summernote" id="comment" name="comment[]" placeholder="Description" required="">{{ $cc->answer }}</textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1">
-                                                <div class="form-check">
-                                                    <input class="btn btn-danger mt-4" id="removeRow" type="button" value="x">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                     @endforeach
-                                    <div id="newccRow"></div>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-12">
-                                            <input type="button" id="addccRow" class="btn btn-primary mr-2" value="Add Curriculams">
-                                            <button class="btn btn-success" type="submit">
-                                                <i class="ft-check-square mr-1"></i>Save
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
 
         <section id="basic-hidden-label-form-layouts">
             <div class="row match-height">
@@ -612,7 +564,7 @@
                 </div>
             </div>
         </section>
-
+    --}}
     </div>
 </div>
 @endsection
