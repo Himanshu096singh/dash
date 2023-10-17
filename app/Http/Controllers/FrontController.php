@@ -180,8 +180,8 @@ class FrontController extends Controller
     }
 
     public function bookingform($slug){
-        $course = Course::where('slug',$slug)->get();
-        return view('booking',compact('courese'));
+        $course = Course::where('slug',$slug)->first();
+        return view('front.booking',compact('course'));
     }
     
     public function coursedetails($slug){
@@ -264,6 +264,14 @@ class FrontController extends Controller
         } else {
             return false;
         }
+    }
+
+    public function courseprice(Request $request){
+        $room = $request->room;
+        $course = Course::where('id',$request->course)->first();
+        $price = $course->$room;
+        return $price;
+        
     }
     
     public function consultation(Request $request)

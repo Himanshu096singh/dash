@@ -50,10 +50,10 @@
                 <div class="form-group">
                    <label>Select Course: <span class="required">*</span></label>
                    <div class="custom_select">
-                        <select id="bookingcourse">
+                        <select id="bookingcourse" onchange = "roomselect()">
                             <option value="">Select Course...</option>
                             @foreach($courselist as $list)
-                                <option value="{{$list->id}}">{{$list->name}}</option>
+                                <option value="{{$list->id}}" {{$list->id == $course->id ? 'selected' : ''}}  >{{$list->name}}</option>
                             @endforeach
                         </select>
                    </div>
@@ -61,12 +61,12 @@
                 <div class="form-group">
                    <label>Choose Room: <span class="required">*</span></label>
                    <div class="custom_select">
-                      <select id="bookingroom">
+                      <select id="bookingroom" onchange="roomselect()">
                          <option value="">Select Room...</option>
                          <option value="privateroom">Private Room</option>
-                         <option value="2bedroom">2 Bed Room</option>
-                         <option value="3bedroom">3 Bed Room</option>
-                         <option value="6bedroom">6 Bed Room</option>
+                         <option value="shared2room">2 Bed Room</option>
+                         <option value="shared3room">3 Bed Room</option>
+                         <option value="shared6room">6 Bed Room</option>
                       </select>
                    </div>
                 </div>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="booking-course-title d-flex justify-content-between mb-4">
                    <div class="title">
-                      <h3 class="h4 clr-default" > Fee : 899.00 USD</h3>
+                      <h3 class="h4 clr-default" > Fee : <span class="courseprice"> </span> USD</h3>
                    </div>
                 </div>
                 <div class="text-align-right">
@@ -141,7 +141,7 @@
                 </div>
                 <div class="booking-course-title d-flex justify-content-between mb-4">
                    <div class="title">
-                      <h3 class="h4 clr-default" > Fee : 899.00 USD</h3>
+                      <h3 class="h4 clr-default" > Fee : <span class="courseprice"> </span> USD</h3>
                    </div>
                 </div>
                 <div class="form-group">
@@ -259,8 +259,42 @@
          step2.classList.add("d-none");
          document.querySelector(".step3").classList.remove("d-none");
       } 
+   }
 
+   function roomselect(){
+      const room = document.querySelector("#bookingroom");
+      const course = document.querySelector("#bookingcourse");
+      const courseprice = document.querySelectorAll(".courseprice");
+      const roomflag = bookingCoursefun(room);
+      const courseflag = bookingCoursefun(course);
+      if(roomflag && courseflag){
+         const coursevalue = course.value;
+         const roomvalue = room.value;
+         $.ajaxSetup({
+            headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+         });
+         $.ajax({
+            url: "/courseprice",
+            type: "POST",
+            data: { course: course.value, room: room.value},
+            success: function (data) {
+               for (const price of courseprice) {
+                  price.innerHTML = data;
+               }
+               console.log(data);
+               // if (data == true) {
+                  
+               // } else {
+                  
+               // }
+            }
+         });
+      }else{
+         console.log("please select your room");
+      }
       
-    }
+   }
  </script>
 @endsection
