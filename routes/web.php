@@ -134,6 +134,6 @@ Route::get('{slug}',[FrontController::class, 'coursedetails'])->name('coursedeta
 
 Route::post('contactsubmit',[FrontController::class,'contactsubmit'])->name('contactsubmit');
 Route::post('enquiry', [FrontController::class, 'enquiry'])->name('enquiry');
-Route::post('bookconsultation', [FrontController::class, 'consultation']);
+Route::post('bookingform', [FrontController::class, 'bookingsubmit']);
 Route::post('courseprice', [FrontController::class, 'courseprice']);
 Route::post('searchbar', [FrontController::class, 'search']);

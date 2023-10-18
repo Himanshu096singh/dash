@@ -20,6 +20,7 @@ use App\Models\Form;
 use App\Models\Founder;
 use App\Models\Gallery;
 use App\Models\Enquiry;
+use App\Models\Bookingform;
 use Mail;
 use App\Mail\Email;
 use App\Mail\EnquiryMail;
@@ -274,27 +275,22 @@ class FrontController extends Controller
         
     }
     
-    public function consultation(Request $request)
+    public function bookingsubmit(Request $request)
     {
-        $toEmail = '';
-        $ccEmail = '';
-        $request->validate([
-                'consultdate'   =>      'required',
-                'consulttime'   =>      'required',
-                'email'         =>      'required',
-                'countrycode'   =>      'required',
-                'mobile'        =>      'required',
-            ]);
-        
-        Mail::to($toEmail)->cc($ccEmail)->send(new ConsultationEmail($request->all()));
-        $mobile = $request->countrycode.' '.$request->mobile;
-        $consult               =           new Consultation;   
-        $consult->email        =           $request->email;
-        $consult->mobile       =           $mobile;
-        $consult->consultdate  =           Carbon::createFromFormat('d-M-Y', $request->consultdate)->format('Y-m-d');
-        $consult->consulttime  =           $request->consulttime;
-        $consult->ip_address   =           request()->ip();
-        $consult->save();
+        // return $request;
+        $form                   =           new Bookingform;   
+        $form->course_id        =           $request->courseid;
+        $form->room             =           $request->room;
+        $form->date             =           $request->date;
+        $form->name             =           $request->bookingname;
+        $form->email            =           $request->email;
+        $form->country          =           $request->country_selector_code;
+        $form->phone            =           $request->number;
+        $form->message          =           $request->message;
+        $form->paymentmode      =           $request->paymentmode;
+        $form->paymentmethod      =           $request->payment_option;
+        $form->price            =           '0';
+        $form->save();
         return 1;
     }
     
