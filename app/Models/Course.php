@@ -39,4 +39,8 @@ class Course extends Model
     {
         return $this->hasMany(Coursemedia::class);
     }
+    public function booking()
+    {
+        return $this->hasMany(Bookingform::class);
+    }
 }
