@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\{Workshop,Workshopmodules};
+use App\Models\{Workshop,Workshopmodules,Workshoptestimonials,Workshopexcept};
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
@@ -187,6 +188,7 @@ class WorkshopController extends Controller
 
     public function modules(Request $request)
     {
+        // return $request->all();
         $workshopId = Crypt::decrypt($request->workshopid);
         $questions = $request->heading;
         $answer = $request->comment;
@@ -210,22 +212,22 @@ class WorkshopController extends Controller
 
     public function testimonial(Request $request)
     {
-        $courseIds = Crypt::decrypt($request->courseId);
+        $workshopid = Crypt::decrypt($request->workshopid);
         $name = $request->name;
         $review = $request->review;
-        $coursetestimonial = Coursetestimonial::where('course_id',$courseIds)->count();
-        if($coursetestimonial > 0):
-            Coursetestimonial::where('course_id',$courseIds)->delete();
+        $workshoptestimonials = Workshoptestimonials::where('workshop_id',$workshopid)->count();
+        if($workshoptestimonials > 0):
+            Workshoptestimonials::where('workshop_id',$workshopid)->delete();
         endif;
         if($name != null):
             foreach($name as $key => $name){
-                Coursetestimonial::create([
-                    'course_id' =>  $courseIds,
+                Workshoptestimonials::create([
+                    'workshop_id' =>  $workshopid,
                     'name'      =>  $name,
                     'review'    =>  $review[$key],
                 ]);
             }
-            return redirect()->back()->with('success', 'Course Testimonial Successfully Added !');
+            return redirect()->back()->with('success', 'Workshop Testimonial Successfully Added !');
         else:
             return redirect()->back()->with('error', 'Please add Testimonial!');
         endif;
@@ -278,22 +280,22 @@ class WorkshopController extends Controller
     }
 
 
-    public function inclusion(Request $request)
+    public function except(Request $request)
     {
-        $courseIds = Crypt::decrypt($request->courseId);
-        $inclusion = $request->inclusion;
-        $courseinclusion = Courseinclusion::where('course_id',$courseIds)->count();
-        if($courseinclusion > 0):
-            Courseinclusion::where('course_id',$courseIds)->delete();
+        $workshopid = Crypt::decrypt($request->workshopid);
+        $except = $request->except;
+        $workshopexcept = Workshopexcept::where('workshop_id',$workshopid)->count();
+        if($workshopexcept > 0):
+            Workshopexcept::where('workshop_id',$workshopid)->delete();
         endif;
-        if($inclusion != null):
-            foreach($inclusion as $key => $inclusion){
-                Courseinclusion::create([
-                    'course_id' =>  $courseIds,
-                    'inclusion' =>  $inclusion,
+        if($workshopexcept != null):
+            foreach($workshopexcept as $key => $except){
+                Workshopexcept::create([
+                    'workshop_id' =>  $workshopid,
+                    'except' =>  $except,
                 ]);
             }
-            return redirect()->back()->with('success', 'Course Inclusion Successfully Added !');
+            return redirect()->back()->with('success', 'Except Successfully Added !');
         else:
             return redirect()->back()->with('error', 'Please add Inclusion!');
         endif;

@@ -13,4 +13,14 @@ class Workshop extends Model
     {
         return $this->hasMany(Workshopmodules::class);
     }
+
+    public function testimonial()
+    {
+        return $this->hasMany(Workshoptestimonials::class);
+    }
+    
+    public function except()
+    {
+        return $this->hasMany(Workshopexcept::class);
+    }
 }

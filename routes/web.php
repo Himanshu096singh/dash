@@ -97,7 +97,8 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
     Route::resource('enquiry', EnquiryController::class);
     Route::resource('workshop', WorkshopController::class);
     Route::post('workshop/modules', [WorkshopController::class, 'modules'])->name('workshop.modules');
-    
+    Route::post('workshop/testimonial', [WorkshopController::class, 'testimonial'])->name('workshop.testimonial');
+    Route::post('workshop/except', [WorkshopController::class, 'except'])->name('workshop.except');
 
     Route::post('passwordupdate',[AdminController::class, 'passwordupdate'])->name('passwordupdate');
 });

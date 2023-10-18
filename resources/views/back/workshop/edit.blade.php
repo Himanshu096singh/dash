@@ -199,6 +199,51 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="card">
                         <div class="card-header alert alert-warning pb-2">
+                            <h4 class="card-title">Add Except</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <form method="post" action="{{ route('workshop.except') }}">
+                                    @csrf
+                                    <input type="hidden" name="workshopid" value="{{ $eid }}">
+                                    @foreach($workshop->except as $except)
+                                    <div class="repeatable mb-3">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <div class="mb-2">
+                                                    <input class="form-control" id="except" name="except[]" placeholder="Except" required="" type="text" value="{{ $except->except}}">
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-check">
+                                                    <input class="btn btn-danger" id="removeRow" type="button" value="x">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     @endforeach
+                                    <div id="newincRow"></div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12">
+                                            <input type="button" id="addincRow" class="btn btn-primary mr-2" value="+ Add Inclusion">
+                                            <button class="btn btn-success" type="submit">
+                                                <i class="ft-check-square mr-1"></i>Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="basic-hidden-label-form-layouts">
+            <div class="row match-height">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <div class="card">
+                        <div class="card-header alert alert-warning pb-2">
                             <h4 class="card-title">Add Modules</h4>
                         </div>
                         <div class="card-content">
@@ -243,6 +288,57 @@
                 </div>
             </div>
         </section>
+
+        <section id="basic-hidden-label-form-layouts">
+            <div class="row match-height">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <div class="card">
+                        <div class="card-header alert alert-warning pb-2">
+                            <h4 class="card-title">Add Testimonial</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <form method="post" action="{{ route('workshop.testimonial') }}">
+                                    @csrf
+                                    <input type="hidden" name="workshopid" value="{{ $eid }}">
+                                    @foreach($workshop->Testimonial as $testimonial)
+                                    <div class="repeatable mb-3">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <div class="mb-2">
+                                                    <label class="form-label col-form-label" for="name">Name</label>
+                                                    <input class="form-control" id="name" name="name[]" placeholder="name" required="" type="text" value="{{ $testimonial->name }}">
+                                                </div>
+                                                <div class="mb-2">
+                                                    <label class="form-label col-form-label" for="review">Review</label>
+                                                    <textarea class="form-control" id="review" name="review[]" placeholder="Review" required="">{{ $testimonial->review }}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-check">
+                                                    <input class="btn btn-danger mt-4" id="removeRow" type="button" value="x">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     @endforeach
+                                    <div id="newtestimonialRow"></div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12">
+                                            <input type="button" id="addtestimonialRow" class="btn btn-primary mr-2" value="+ Add Testimonial">
+                                            <button class="btn btn-success" type="submit">
+                                                <i class="ft-check-square mr-1"></i>Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
     {{--    
         <section id="basic-hidden-label-form-layouts">
             <div class="row match-height">
@@ -396,55 +492,7 @@
             </div>
         </section>
 
-        <section id="basic-hidden-label-form-layouts">
-            <div class="row match-height">
-                <div class="col-lg-12 col-md-12 col-12">
-                    <div class="card">
-                        <div class="card-header alert alert-warning pb-2">
-                            <h4 class="card-title">Add Testimonial</h4>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-body">
-                                <form method="post" action="{{ route('course.testimonial') }}">
-                                    @csrf
-                                    <input type="hidden" name="courseId" value="{{ $eid }}">
-                                    @foreach($course->Testimonial as $testimonial)
-                                    <div class="repeatable mb-3">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <div class="mb-2">
-                                                    <label class="form-label col-form-label" for="name">Name</label>
-                                                    <input class="form-control" id="name" name="name[]" placeholder="name" required="" type="text" value="{{ $testimonial->name }}">
-                                                </div>
-                                                <div class="mb-2">
-                                                    <label class="form-label col-form-label" for="review">Review</label>
-                                                    <textarea class="form-control" id="review" name="review[]" placeholder="Review" required="">{{ $testimonial->review }}</textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1">
-                                                <div class="form-check">
-                                                    <input class="btn btn-danger mt-4" id="removeRow" type="button" value="x">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                     @endforeach
-                                    <div id="newtestimonialRow"></div>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-12">
-                                            <input type="button" id="addtestimonialRow" class="btn btn-primary mr-2" value="+ Add Testimonial">
-                                            <button class="btn btn-success" type="submit">
-                                                <i class="ft-check-square mr-1"></i>Save
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
 
         <section id="basic-hidden-label-form-layouts">
             <div class="row match-height">
@@ -581,7 +629,7 @@
     <script type="text/javascript">
         $("#addincRow").click(function () {
             var html = '';
-            html += '<div class="repeatable mb-3"><div class="row"><div class="col-md-11"><div class="mb-2"><input class="form-control" id="inclusion" name="inclusion[]" placeholder="Inclusion" required="" type="text"></div></div><div class="col-md-1"><div class="form-check"><input class="btn btn-danger" id="removeRow" type="button" value="x"></div></div></div></div>';
+            html += '<div class="repeatable mb-3"><div class="row"><div class="col-md-11"><div class="mb-2"><input class="form-control" id="except" name="except[]" placeholder="except" required="" type="text"></div></div><div class="col-md-1"><div class="form-check"><input class="btn btn-danger" id="removeRow" type="button" value="x"></div></div></div></div>';
             $('#newincRow').append(html);
         });
 
