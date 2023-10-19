@@ -26,7 +26,8 @@
             <td>{{ $mailData['phone']}}</td>
         </tr>
         <tr>
-            <th style="text-align:left">Course :</th>
+            
+            <th style="text-align:left">{{$mailData['type']==0 ? 'Course' : 'Workshop' }} :</th>
             <td>{{ $mailData['course']}}</td>
         </tr>
         <tr>
@@ -34,7 +35,7 @@
             <td>{{ $mailData['gender']}}</td>
         </tr>
         <tr>
-            <th style="text-align:left">Room :</th>
+            <th style="text-align:left">{{$mailData['type']==0 ? 'Room' : 'Attend' }} :</th>
             <td>{{ $mailData['room']}}</td>
         </tr>
         <tr>

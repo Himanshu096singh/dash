@@ -9,4 +9,8 @@ class Bookingform extends Model
 {
     use HasFactory;
     protected $fillable = ['course_id', 'room', 'date','name','email','country','phone','message','paymentmode','paymentmethod','price'];
+
+    public function course(){
+        return $this->belongsTo(Course::class);
+    }
 }

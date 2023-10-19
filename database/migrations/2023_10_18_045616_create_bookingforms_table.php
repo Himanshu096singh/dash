@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('price')->nullable();
             $table->longText('message')->nullable();
-            $table->string('paymentmode')->nullable();
+            $table->boolean('paymentmode')->default(0);
             $table->boolean('paymentmethod')->default(0);
-            $table->foreign('course_id')->references('id')->on('cources')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->timestamps();
         });
     }

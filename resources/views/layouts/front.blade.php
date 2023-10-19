@@ -80,11 +80,11 @@
 </head>
 
 <body>
-    <div id="preloader">
+    {{-- <div id="preloader">
         <div class="loading_wrap">
             <img src="{{asset('assets/images/loading_logo.png')}}" alt="logo">
         </div>
-    </div>
+    </div> --}}
     <header class="header_wrap dark_skin main_menu_uppercase main_menu_weight_600 menu_style1">
         <div class="container s">
             <nav class="navbar navbar-expand-lg"> 
@@ -112,7 +112,9 @@
                         <li><a class="dropdown-item nav-link nav_item dropdown-toggler" href="#">Workshop</a>
                             <div class="dropdown-menu">
                                 <ul> 
-                                    <li><a class="dropdown-item nav-link nav_item" href="#">Mindfullness</a></li>
+                                    @foreach($workshoplist as $list)
+                                        <li><a class="dropdown-item nav-link nav_item" href="{{url($list->slug)}}">{{$list->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </li>
@@ -165,6 +167,7 @@
                         <div id="successenquiry" class="alert alert-success d-none"> Thank you for reaching out! Your message has been sent to our admin team, and we will get back to you soon.</div>
                         
                         <form class="mb-5" method="post" id="enquiryform" name="contactForm">
+                            <input type="hidden" name="type" id="enquirytype" value="0">
                             <div class="row">
                                 <div class="col-md-6 form-group mb-3">
                                     <label for class="col-form-label mb-0">Name *</label>
@@ -360,6 +363,9 @@
         preferredCountries: []
     });
     </script>
+    
+    @section('js')
+    @show
     <script>
         function nameValidate(nameval, errorname) {
             var nameRegex = /^[a-zA-Z0-9 ]{3,30}$/;
@@ -457,6 +463,7 @@
             const gender = document.querySelector("#enquirygender");
             const room = document.querySelector("#enquiryroom");
             const message = document.querySelector("#enquirymessage");
+            const type = document.querySelector("#enquirytype");
 
             const errorname = document.querySelector("#errorname");
             const erroremail = document.querySelector("#erroremail");
@@ -478,7 +485,7 @@
             roomValidate(room, errorroom);
 
             if (nameflag && emailflag && phoneflag  && courseflag && genderflag && roomflag ){
-                console.log(name.value, email.value, phone.value, country.value,  gender.value, room.value, message.value )
+                // console.log(name.value, email.value, phone.value, country.value,  gender.value, room.value, message.value )
                 enquiryloader.classList.remove("d-none");
                 $.ajaxSetup({
                     headers: {
@@ -488,7 +495,7 @@
                 $.ajax({
                     url: "/enquiry",
                     type: "POST",
-                    data: { name: name.value, email: email.value, phone: phone.value, country: country.value, course:course.value, gender: gender.value, room: room.value, message: message.value },
+                    data: { name: name.value, email: email.value, phone: phone.value, country: country.value, course:course.value, gender: gender.value, room: room.value, message: message.value,type:type.value},
                     success: function (data) {
                         if (data == true) {
                           enqform.classList.add("d-none");
@@ -505,8 +512,6 @@
             }
         }
     </script>
-    @section('js')
-    @show
     {!! $code->footer !!}
     @if(!Route::is('support'))
     {!! $code->tawkto !!}

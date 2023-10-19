@@ -23,6 +23,17 @@
                     </a>
                 </li>
                 <li class="has-sub nav-item ">
+                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Booking</span></a>
+                    <ul class="menu-content">
+                        <li class="{{ Route::is('.index') ? 'active' : '' }}">
+                            <a href="{{ route('bookingform.index') }}"><i class="ft-eye"></i><span class="menu-item" >View Course Booking</span></a>
+                        </li>
+                        <li class="">
+                            <a href=""><i class="ft-eye"></i><span class="menu-item" >View Workshop Orders</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-sub nav-item ">
                     <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Forms</span></a>
                     <ul class="menu-content">
                         <li class="{{ Route::is('forms.index') ? 'active' : '' }}">
@@ -41,6 +52,17 @@
                         </li>
                         <li class="{{ Route::is('course.index') ? 'active' : '' }}">
                             <a href="{{ route('course.index') }}"><i class="ft-eye"></i><span class="menu-item" >View Course</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-sub nav-item ">
+                    <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Workshop</span></a>
+                    <ul class="menu-content">
+                        <li class="{{ Route::is('workshop.create') ? 'active' : '' }}">
+                            <a href="{{ route('workshop.create') }}"><i class="ft-plus-square"></i><span class="menu-item">Add Workshop</span></a>
+                        </li>
+                        <li class="{{ Route::is('workshop.index') ? 'active' : '' }}">
+                            <a href="{{ route('workshop.index') }}"><i class="ft-eye"></i><span class="menu-item" >View Workshop</span></a>
                         </li>
                     </ul>
                 </li>

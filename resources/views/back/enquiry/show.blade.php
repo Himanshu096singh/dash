@@ -16,8 +16,13 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header d-flex justify-content-between">
-                    <h4 class="card-title">{{$enquiry->name}}'s Enquiry</h4>
-                    <h5> Date: {{$enquiry->created_at->format('M, d Y')}} </h5>
+                    <h4 class="card-title">{{$enquiry->name}}'s Enquiry : 
+                      @if($enquiry->type==0)
+                      <span class="badge badge-info">Course</span>
+                  @else
+                      <span class="badge badge-success">Workshop</span>
+                  @endif</h4>
+                    <h5 class="badge badge-danger"> Date: {{$enquiry->created_at->format('M, d Y')}} </h5>
                   </div>
                   <div class="card-content">
                     <div class="card-body">
@@ -41,15 +46,16 @@
                                     <td>{{$enquiry->phone}}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Course</th>
+                                    <th scope="row">{{$enquiry->type == 0 ? 'Course' : 'Workshop'}}</th>
                                     <td>{{$enquiry->course}}</td>
                                 </tr>
                                 <tr>
+
                                     <th scope="row">Gender</th>
                                     <td>{{$enquiry->gender}}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Room Type</th>
+                                    <th scope="row">{{$enquiry->type == 0 ? 'Room Type' : 'Attend'}} </th>
                                     <td>{{$enquiry->room}}</td>
                                 </tr>
                                 <tr>

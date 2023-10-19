@@ -23,4 +23,8 @@ class Workshop extends Model
     {
         return $this->hasMany(Workshopexcept::class);
     }
+
+    public function resources(){
+        return $this->hasMany(Workshopresource::class);
+    }
 }

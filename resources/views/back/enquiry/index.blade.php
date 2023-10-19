@@ -26,7 +26,8 @@
                                                 <th>#</th>
                                                 <th>Name</th>
                                                 <th>Phone</th>
-                                                <th>Course</th>
+                                                <th>Enquiry Type</th>
+                                                <th>Service</th>
                                                 <th>Date</th>
                                                 <th>Action</th>
                                             </tr>
@@ -44,6 +45,13 @@
                                                     <b>Country: </b>{{ $item->country }}
                                                     <br>
                                                     <b>Number: </b>{{ $item->phone }}
+                                                </td>
+                                                <td>
+                                                    @if($item->type==0)
+                                                        <span class="badge badge-info">Course</span>
+                                                    @else
+                                                        <span class="badge badge-success">Workshop</span>
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     {{ $item->course }}

@@ -21,6 +21,7 @@ use App\Models\Founder;
 use App\Models\Gallery;
 use App\Models\Enquiry;
 use App\Models\Bookingform;
+use App\Models\Workshop;
 use Mail;
 use App\Mail\Email;
 use App\Mail\EnquiryMail;
@@ -37,13 +38,13 @@ class FrontController extends Controller
      */
     public function __construct()
     {
-        $courselist = Course::get();
+        $courselist = Course::where('status',1)->get();
+        $workshoplist = Workshop::get();
         $latestblog = Blog::with('category')->where('status',1)->limit(4)->latest()->get();
         $setting = Setting::first();
         $staticpage = Staticpage::where('status',1)->get();
         $code = Code::first();
-       
-        view::share(compact('courselist','latestblog','setting','staticpage','code'));
+       view::share(compact('courselist','latestblog','setting','staticpage','code','workshoplist'));
     }
 
     public function index()
@@ -195,9 +196,20 @@ class FrontController extends Controller
                 'image' => $course['image']
             ];
             return view('front/coursedetails',compact('meta','course'));
-        } else {
-            $page = Staticpage::where('slug',$slug)->where('status',1)->first();
-            if($page){
+        }else {
+             $workshop = Workshop::where('slug',$slug)->first();
+            if($workshop){
+                $meta = [
+                    'metatitle' => $workshop['metatitle'],
+                    'metakeywords' => $workshop['metakeyword'],
+                    'metadescription' => $workshop['metadescription'],
+                    'image' => $workshop['image']
+                ];
+                return view('front/workshop',compact('meta','workshop'));
+
+            } else {
+                $page = Staticpage::where('slug',$slug)->where('status',1)->first();
+                if($page){
                 $meta = [
                     'metatitle' => $page['metatitle'],
                     'metakeywords' => $page['metakeyword'],
@@ -205,11 +217,12 @@ class FrontController extends Controller
                     'image' => $page['image']
                 ];
                 return view('front/staticpage',compact('meta','page'));
-            } else {
-                abort(404);
+                } else {
+                    abort(404);
+                }
             }
         }
-    }
+    } 
    
     
     public function contactsubmit(Request $req)
@@ -259,6 +272,7 @@ class FrontController extends Controller
         $enquiry->room         =           $request->room;
         $enquiry->course       =           $request->course;
         $enquiry->message      =           $request->message;
+        $enquiry->type          =           $request->type;
         $save  = $enquiry->save();
         if($save){
             return true;

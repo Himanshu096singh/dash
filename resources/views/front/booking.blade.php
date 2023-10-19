@@ -132,8 +132,8 @@
                      <div class="custom_select">
                         <select id="bookingpaymentmode" name="paymentmode">
                            <option value="">Choose Payment Mode</option>
-                           <option value="full">Full Payment</option>
-                           <option value="advance">Advance Payment</option>
+                           <option value="0">Full Payment</option>
+                           <option value="1">Advance Payment</option>
                         </select>
                      </div>
                   </div>

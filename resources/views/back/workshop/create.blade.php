@@ -62,7 +62,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mb-2">
                                                 <label for="session">Workshop Session</label>
-                                                <input class="form-control @error('session') is-invalid @enderror" id="session" name="session" type="text" placeholder="15 Hr" value="{{ old('session') }}">
+                                                <input class="form-control @error('session') is-invalid @enderror" id="session" name="session" type="text" placeholder="15" value="{{ old('session') }}">
                                                 @error('session')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -95,30 +95,167 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="image">Workshop Image</label>
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="inputGroupFile01" @error('image') is-invalid @enderror name="image">
-                                                        @error('image')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group mb-2">
-                                                <label for="alt">Alt</label>
-                                                <input class="form-control @error('alt') is-invalid @enderror" id="alt" name="alt" type="text" placeholder="Alt" value="{{ old('alt') }}">
-                                                @error('alt')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
+                                        <div class="col-md-12">
+                                            <table class="table table-striped table-bordered">
+                                                
+                                                <tr>
+                                                    <td>
+                                                        1.
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <label for="image d-block">Workshop Image (600x450px)</label> 
+                                                            <br/>
+                                                            <div class="custom-file" @error('image') is-invalid @enderror >
+                                                               <input type="file" class="custom-file-input" id="inputGroupFile01"  name="image">
+                                                               
+                                                               <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                            </div>
+                                                            
+                                                         </div>
+                                                            @error('image')
+                                                                <span class="invalid" role="alert">
+                                                                    <strong class="text-danger">{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group mb-2">
+                                                            <label for="alt">Alt</label>
+                                                            <input class="form-control @error('alt') is-invalid @enderror" id="alt" name="alt" type="text" placeholder="Alt" value="{{ old('alt') }}">
+                                                            @error('alt')
+                                                            <span class="invalid" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                            </span>
+                                                            @enderror
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        2.
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <label for="image d-block">Workshop Image (400x300px)</label> 
+                                                            <br/>
+                                                            <div class="custom-file">
+                                                               <input type="file" class="custom-file-input" id="inputGroupFile01" @error('image2') is-invalid @enderror name="image2">
+                                                               @error('image2')
+                                                               <span class="invalid" role="alert">
+                                                               <strong class="text-danger">{{ $message }}</strong>
+                                                               </span>
+                                                               @enderror
+                                                               <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                            </div>
+                                                         </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group mb-2">
+                                                            <label for="alt2">Alt</label>
+                                                            <input class="form-control @error('alt2') is-invalid @enderror" id="alt2" name="alt2" type="text" placeholder="Alt" value="{{ old('alt2') }}">
+                                                            @error('alt2')
+                                                            <span class="invalid" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                            </span>
+                                                            @enderror
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        3.
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <label for="image d-block">Workshop Image(400x300px)</label> 
+                                                            <br/>
+                                                            <div class="custom-file">
+                                                               <input type="file" class="custom-file-input" id="inputGroupFile01" @error('image3') is-invalid @enderror  name="image3">
+                                                               @error('image3')
+                                                               <span class="invalid" role="alert">
+                                                               <strong class="text-danger">{{ $message }}</strong>
+                                                               </span>
+                                                               @enderror
+                                                               <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                            </div>
+                                                         </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group mb-2">
+                                                            <label for="alt3">Alt</label>
+                                                            <input class="form-control @error('alt3') is-invalid @enderror" id="alt3" name="alt3" type="text" placeholder="Alt" value="{{ old('alt3') }}">
+                                                            @error('alt3')
+                                                            <span class="invalid" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                            </span>
+                                                            @enderror
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        4.
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <label for="image d-block">Workshop Image (400x350px)</label> 
+                                                            <br/>
+                                                            <div class="custom-file">
+                                                               <input type="file" class="custom-file-input" id="inputGroupFile01" @error('image4') is-invalid @enderror name="image4">
+                                                               @error('image4')
+                                                               <span class="invalid" role="alert">
+                                                               <strong class="text-danger">{{ $message }}</strong>
+                                                               </span>
+                                                               @enderror
+                                                               <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                            </div>
+                                                         </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group mb-2">
+                                                            <label for="alt">Alt</label>
+                                                            <input class="form-control @error('alt4') is-invalid @enderror" id="alt4" name="alt4" type="text" placeholder="Alt" value="{{ old('alt4') }}">
+                                                            @error('alt4')
+                                                            <span class="invalid" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                            </span>
+                                                            @enderror
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5.
+                                                    </td>
+                                                   <td>
+                                                        <div class="form-group">
+                                                            <label for="image d-block">Workshop Image (400x350px)</label> 
+                                                            <br/>
+                                                            <div class="custom-file">
+                                                               <input type="file" class="custom-file-input" id="inputGroupFile01" @error('image5') is-invalid @enderror name="image5">
+                                                               @error('image5')
+                                                               <span class="invalid-feedback" role="alert">
+                                                               <strong>{{ $message }}</strong>
+                                                               </span>
+                                                               @enderror
+                                                               <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                            </div>
+                                                         </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group mb-2">
+                                                            <label for="alt">Alt</label>
+                                                            <input class="form-control @error('alt5') is-invalid @enderror" id="alt5" name="alt5" type="text" placeholder="Alt" value="{{ old('alt5') }}">
+                                                            @error('alt5')
+                                                            <span class="invalid-feedback" role="alert">
+                                                            <strong class="text-danger">{{ $message }}</strong>
+                                                            </span>
+                                                            @enderror
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </div>
 
                                         <div class="colo-md-12 col-lg-12 col-12">

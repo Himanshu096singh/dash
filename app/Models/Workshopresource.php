@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Workshopexcept extends Model
+class Workshopresource extends Model
 {
     use HasFactory;
-    protected $fillable = ['workshop_id', 'except'];
+    protected $fillable = ['workshop_id', 'resources'];
 }

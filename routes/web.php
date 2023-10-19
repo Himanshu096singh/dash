@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\EnquiryController;
 use App\Http\Controllers\Admin\WorkshopController;
 use App\Http\Controllers\Admin\CoursemediaController;
+use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\payment\PaymentController;
 
 
@@ -99,7 +100,8 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
     Route::post('workshop/modules', [WorkshopController::class, 'modules'])->name('workshop.modules');
     Route::post('workshop/testimonial', [WorkshopController::class, 'testimonial'])->name('workshop.testimonial');
     Route::post('workshop/except', [WorkshopController::class, 'except'])->name('workshop.except');
-
+    Route::post('workshop/resource', [WorkshopController::class, 'resource'])->name('workshop.resources');
+    Route::resource('bookingform', BookingController::class);
     Route::post('passwordupdate',[AdminController::class, 'passwordupdate'])->name('passwordupdate');
 });
 
