@@ -50,7 +50,7 @@ class FrontController extends Controller
     public function index()
     {
         $faq = Supportfaq::get();
-        $testimonial = testimonial::limit(3)-> get();
+        $testimonial = testimonial::limit(3)->where('type',0)-> get();
         $blog = Blog::with('category')->latest()->get();
         $seo = Seo::where('name','home')->first();
         if($seo){

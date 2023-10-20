@@ -1,7 +1,9 @@
 @extends('layouts.front')
 @section('css')
-@endsection
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
 
+@endsection
 @section('content')
 
 <section class="banner_slider full_screen p-0">
@@ -57,12 +59,11 @@
             </div>
         </div>
      <div class="carousel_nav carousel_style2">
-        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev"><i class="ion-chevron-left"></i></a>
-        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next"><i class="ion-chevron-right"></i></a>
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
     </div>
     </div>
 </section>
-
 <section style="padding:80px 0px 40px">
     <div class="container ">
         <div class="row justify-content-center text-center">
@@ -288,10 +289,16 @@
 
                 <div class="row justify-content-center">
                     <div class="col-xl-8 col-lg-8 col-md-10" >
-                        <div class="img d-flex justify-content-around mb-5">
-                            <img src="{{asset('assets/images/ryt200.webp')}}" style="max-width:150px"/>
-                            <img src="{{asset('assets/images/ryt300.webp')}}" style="max-width:150px"/>
-                            <img src="{{asset('assets/images/ryt500.webp')}}" style="max-width:150px"/>
+                        <div class="row mb-5">
+                            <div class="col-md-4 col-sm-4 col-4">
+                                <img src="{{asset('assets/images/ryt200.webp')}}" class="img-fluid" />
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-4">
+                                <img src="{{asset('assets/images/ryt300.webp')}}" class="img-fluid" />
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-4">
+                                <img src="{{asset('assets/images/ryt500.webp')}}" class="img-fluid" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -329,12 +336,15 @@
                                         <div class="testimonial-icon">
                                             <i class="fa fa-quote-left"></i>
                                         </div>
-                                        <p class="description">
+                                        <p class="description" style="font-size:15px;">
                                             {{$list->review}}
                                         </p>
                                     </div>
-                                    <h3 class="title">{{$list->name}}</h3>
-                                    
+                                    <div class="testi_meta d-flex justify-content-start">
+                                        <div class="testi_user text-left align-self-center">
+                                            <h5 class=" h6 mb-0 "> - {{$list->name}}</h5>
+                                        </div>
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
@@ -382,8 +392,25 @@
         </div>
     </section>
 @endif
+
 @endsection
 
 @section('js')
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#testimonial-slider").owlCarousel({
+            items:3,
+            itemsDesktop:[1000,3],
+            itemsDesktopSmall:[980,2],
+            itemsTablet:[768,2],
+            itemsMobile:[650,1],
+            pagination:true,
+            navigation:false,
+            slideSpeed:1000,
+            autoPlay:true
+        });
+    });
+</script>
 @endsection
 

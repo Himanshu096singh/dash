@@ -419,9 +419,9 @@ section.pb_70, .pb_70 {
 	overflow-y: auto;
 	padding: 10px 0;
 }
-.header_wrap .navbar {
+/* .header_wrap .navbar {
 	display: block;
-}
+} */
 .header_wrap .navbar .navbar-nav.attr-nav {
 	display: block;
 	float: right;

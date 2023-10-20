@@ -1,3 +1,4 @@
+html{scroll-behavior:smooth}
 /* Color Default */
 a:hover,
 .navbar .navbar-nav > li > a.active, 
@@ -49,7 +50,7 @@ a:hover,
 .btn-white,
 .sub_heading,
 .text_default,
-.btn-outline-default {
+.btn-outline-default ,.clr-default{
 	color: #CF3E5F !important;
 }
 
@@ -146,7 +147,7 @@ a:hover,
 .overlay_bg_default_10:before {
 	background-color: rgba(243, 43, 86, 0.10);
 }
-
+.footer_dark{background: #050505;}
 
 .container{max-width:1140px}
 .text-primary{color: #CF3E5F !important;}
@@ -176,8 +177,8 @@ line-height: 14px;float:left;-webkit-border-radius: 100px;-moz-border-radius: 10
 /* testimonials */
 
 .testimonial{margin: 0 20px 40px;}
-.testimonial .testimonial-content{padding:30px 20px 30px 38px;margin-bottom: 35px;background: #fff;border: 1px solid #f0f0f0;position: relative;}
-.testimonial .testimonial-content:after{content: "";display: inline-block;width: 20px;height: 20px;background: #fff;position: absolute;bottom: -10px;left: 22px;transform: rotate(45deg);}
+.testimonial .testimonial-content{padding:30px 20px 30px 38px;margin-bottom: 35px;background: #fff;border: 1px solid #0f0f0f;position: relative;}
+
 .testimonial-content .testimonial-icon{width: 50px;height: 45px;background:#CF3E5F;text-align: center;font-size: 22px;color: #fff;line-height: 42px;position: absolute;top: 37px;left: -19px;}
 .testimonial-content .testimonial-icon:before{content: "";border-bottom: 16px solid #CF3E5F;border-left: 18px solid transparent;position: absolute;top: -16px;left: 1px;}
 .testimonial .description{font-size: 16px;line-height: 28px;margin: 0;}
@@ -215,3 +216,94 @@ button.close {position: absolute;right: -10px;top: -3px;padding: 15px 18px !impo
 .modal-title{font-weight: 500;font-size: 25px;}
 .sidebar {background: white;padding: 10px;box-shadow: 0px 0px 10px #efefef;}
 .desc ul, .desc ol{margin-left:20px;margin-bottom:15px}
+.headertitlebox{z-index:9}
+/* Testimonial */
+.testi_desc .p-2{line-height:26px;text-align: left;letter-spacing:1.2px;font-size:16px;color:#131313;text-shadow: 1px 1px 1px #d0d0d0;}
+.testimonial_box{background: linear-gradient(112deg, #ffffff 50%, #ffbfcdd6 50%);}
+.video-testimonial-block { position: relative; width: auto; height: 206px; overflow: hidden; margin-bottom: 30px; }
+.video-testimonial-block .video-thumbnail { height: 100%; width: 100%; position: absolute; z-index: 1; background-size: cover; top: 0; left: 0; }
+.video-testimonial-block .video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0px; }
+.video-testimonial-block .video-play { position: absolute; z-index: 2; top: 50%; left: 50%; margin-left: -40px; margin-top: -18px; text-decoration: none; }
+.video-testimonial-block .video-play::before { content: "\f144"; font: normal normal normal 14px/1; font-family: 'Font Awesome\ 5 Free'; font-weight: 900; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 50px; color: #b3b5bc; }
+.video-testimonial-block .video-play:hover::before { color: #CF3E5F; }
+/* End Testimonial */
+
+/* Blog Sidebar */
+.sidebar {top: 120px;height: 1020px;position: sticky;overflow: scroll;overflow-x: hidden;}
+.sidebar::-webkit-scrollbar {width: 5px;}
+.sidebar::-webkit-scrollbar-track {box-shadow: inset 0 0 5px grey; border-radius: 10px;}
+.sidebar::-webkit-scrollbar-thumb {background: #cf3e5f; border-radius: 10px;border-right: none;border-left: none;}
+.sidebar::-webkit-scrollbar-thumb:hover {background: #d02f55;}
+/* End Blog Sidebar */
+
+/* Blog Detail */
+.blog_desc img {height: auto !important;}
+.blog_desc ul,.blog_desc ol {margin-left:20px;margin-bottom:20px;}
+.blog_desc li {margin-bottom:15px;}
+.blog_desc p,.blog_desc ul li, .blog_desc ol li {text-align: justify;}
+@media(max-width:620px){
+	.blog_desc p,.blog_desc ul li, .blog_desc ol li {text-align: justify;}
+}
+/* End Blog Detail */
+
+
+/* Course */
+.slider__container {width:100%;position:relative;}
+   .slick-list {perspective:1px;}
+   .slick-track {will-change:transform,transition;}
+   .slider__items {display:flex;}
+   .course_section {margin: 30px 0px;padding:30px 0px;}
+   .course_section hr {max-width:80px;margin-left: 0;height:4px !important;}
+   .included .includedlist {padding: 10px 5px;color: black;font-weight: 500;}
+   .side_info {border: 1px solid rgb(221, 221, 221);border-radius: 12px;padding: 24px;box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;}
+   .course_sidebar{top:200px;position:sticky;}
+   .course_sidebar .side_info h3 {padding: 10px;font-size: 22px;font-weight: bold;letter-spacing: 1.2px;
+   margin-bottom:20px;border-bottom:2px solid;}
+   .courseinfolist ul li:before,.curriculam ul li:before {font-family: 'Font Awesome 5 Free';content: "\f14a";color: #cf3e5f;padding-right: 6px;font-weight: 600;}
+   .courseinfolist ul li {color: black;margin-bottom: 10px;}
+   .dailyschedule ul li {list-style: none;padding: 0;}
+   .dailyschedule .container {display: flex;justify-content: center;align-items: center;padding: 0 1rem;background: linear-gradient(45deg, #209cff, #68e0cf);padding: 3rem 0;}
+   .dailyschedule .wrapper {background: #eaf6ff;padding: 2rem;border-radius: 15px;}
+   .dailyschedule .sessions {margin-top: 2rem;border-radius: 12px;position: relative;}
+   .dailyschedule li {padding-bottom: 1.5rem;border-left: 1px solid #cf3e5f;position: relative;padding-left: 20px;margin-left: 10px;}
+   .dailyschedule li:last-child {border: 0px;padding-bottom: 0;}
+   .dailyschedule li:before {content: '';width: 15px;height: 15px;background: white;border: 1px solid #cf3e5f;box-shadow: 3px 3px 0px #ff829f;box-shadow: 3px 3px 0px #ff829f;border-radius: 50%;
+   position: absolute;left: -10px;top: 0px;}
+    .dailyschedule .time {color: #2a2839;font-family: 'Poppins', sans-serif;font-weight: 500;}
+    .dailyschedule p {color: #4f4f4f;font-family: sans-serif;line-height: 1.5;margin-top: 0.4rem;}
+    .topscrollbox {background: #f0f0f0;position:sticky;top: 100px;z-index:9;}
+    .topscrollbox ul li {padding: 6px;margin: 2px;border-radius: 8px;font-size:14px;font-weight:500;}
+    .topscrollbox ul li.active{background:#cf3e5f;color:white;}
+    .slider__item img {padding:6px;}
+    .single_classes .faq{box-shadow:none;}
+    .curriculam ul li {color:#323232;}
+    .curriculam .card-body{padding:15px 40px !important;font-size:16px;}
+    .faq-title:after {font-family: 'Font Awesome 5 Free';content: "\f077";font-size: 14px;position: absolute;right: 20px;}
+    h5.faq-title.collapsed:after {content: "\f078";}
+    @media screen and (min-width: 601px) {
+        .dailyschedule .time {font-size: 0.9rem;}
+    }
+    @media screen and (max-width: 600px) {
+        .dailyschedule p{font-size: 0.9rem;}
+        .dailyschedule .time {margin-bottom: 0.3rem;font-size: 0.85rem;}
+    }
+/* End Course */
+
+/* Workshop */
+
+.secleftimg img{object-fit: cover;width: 100%;height: 100%;}
+.workshop_details .workshoplist{padding: 10px 5px;color: black;font-weight: 500;}
+.side_info {border: 1px solid rgb(221, 221, 221);border-radius: 12px;padding: 24px;box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;}
+.course_sidebar{top:200px;position:sticky;}
+.course_sidebar .side_info h3 {padding: 10px;font-size: 22px;font-weight: bold;letter-spacing: 1.2px;margin-bottom:20px;border-bottom:2px solid;}
+.workshopsideinfo tr td span:before, .modules ul li:before{font-family: 'Font Awesome 5 Free';content: "\f14a";color: #cf3e5f;padding-right: 6px;font-weight: 600;}
+.workshopsideinfo tr td{font-size:15px;padding:10px;}
+.modules .card-body {padding: 15px 40px !important;}
+.modules ul li{list-style:none;color:black;line-height:30px;}
+
+/* Endworksop */
+
+/*  Form Loader */
+.formloader{top: 0;text-align: center;margin: auto;position: absolute;height: 100%;width: 100%;align-items: initial;display: flex;background: #dddddd47;z-index: 99;}
+.spinner-grow{margin:auto}
+/* End Form Loader */

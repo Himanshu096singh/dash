@@ -6,7 +6,7 @@
     <section class="breadcrumb_section page-title-light background_bg overlay_bg_blue_70" data-img-src="https://bestwebcreator.com/dhyana/demo/assets/images/breadcrumb_bg.jpg">
         <div class="container">
         <div class="row align-items-center">
-            <div class="col-sm-12 text-center">
+            <div class="col-sm-12 text-center headertitlebox">
                 <div class="page-title">
                     <h1>{{$page->name}}</h1>
                 </div>

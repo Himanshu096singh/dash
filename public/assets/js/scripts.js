@@ -149,9 +149,9 @@
 	});
 
 	//Language Select Dropdown
-	$(document).on("ready", function() {
-		$(".custome_select").msDropdown();
-	});
+	// $(document).on("ready", function() {
+	// 	$(".custome_select").msDropdown();
+	// });
 	/*===================================*
 	04. SEARCH JS
 	*===================================*/
@@ -195,49 +195,49 @@
 		});
 	});
 	 
-	/*===================================*
-     06.COUNTDOWN JS
-    *===================================*/
-    $('.countdown_time').each(function() {
-        var endTime = $(this).data('time');
-        $(this).countdown(endTime, function(tm) {
-            $(this).html(tm.strftime('<div class="countdown_box"><div class="countdown_content"><span class="countdown days">%D </span><span class="cd_text">Days</span></div></div><div class="countdown_box"><div class="countdown_content"><span class="countdown hours">%H</span><span class="cd_text">Hrs</span></div></div><div class="countdown_box"><div class="countdown_content"><span class="countdown minutes">%M</span><span class="cd_text">Min</span></div></div><div class="countdown_box"><div class="countdown_content"><span class="countdown seconds">%S</span><span class="cd_text">Sec</span></div></div>'));
-        });
-    });
+	// /*===================================*
+    //  06.COUNTDOWN JS
+    // *===================================*/
+    // $('.countdown_time').each(function() {
+    //     var endTime = $(this).data('time');
+    //     $(this).countdown(endTime, function(tm) {
+    //         $(this).html(tm.strftime('<div class="countdown_box"><div class="countdown_content"><span class="countdown days">%D </span><span class="cd_text">Days</span></div></div><div class="countdown_box"><div class="countdown_content"><span class="countdown hours">%H</span><span class="cd_text">Hrs</span></div></div><div class="countdown_box"><div class="countdown_content"><span class="countdown minutes">%M</span><span class="cd_text">Min</span></div></div><div class="countdown_box"><div class="countdown_content"><span class="countdown seconds">%S</span><span class="cd_text">Sec</span></div></div>'));
+    //     });
+    // });
 	
-	/*===================================*
-	07. CONTACT FORM JS
-	*===================================*/
-	$("#submitButton").on("click", function(event) {
-	    event.preventDefault();
-	    var mydata = $("form").serialize();
-	    $.ajax({
-	        type: "POST",
-	        dataType: "json",
-	        url: "contact.php",
-	        data: mydata,
-	        success: function(data) {
-	            if (data.type === "error") {
-	                $("#alert-msg").removeClass("alert-msg-success");
-	                $("#alert-msg").addClass("alert-msg-failure");
-	            } else {
-	                $("#alert-msg").addClass("alert-msg-success");
-	                $("#alert-msg").removeClass("alert-msg-failure");
-	                $("#first-name").val("Enter Name");
-	                $("#email").val("Enter Email");
-					$("#phone").val("Enter Phone Number");
-	                $("#subject").val("Enter Subject");
-	                $("#description").val("Enter Message");
+	// /*===================================*
+	// 07. CONTACT FORM JS
+	// *===================================*/
+	// $("#submitButton").on("click", function(event) {
+	//     event.preventDefault();
+	//     var mydata = $("form").serialize();
+	//     $.ajax({
+	//         type: "POST",
+	//         dataType: "json",
+	//         url: "contact.php",
+	//         data: mydata,
+	//         success: function(data) {
+	//             if (data.type === "error") {
+	//                 $("#alert-msg").removeClass("alert-msg-success");
+	//                 $("#alert-msg").addClass("alert-msg-failure");
+	//             } else {
+	//                 $("#alert-msg").addClass("alert-msg-success");
+	//                 $("#alert-msg").removeClass("alert-msg-failure");
+	//                 $("#first-name").val("Enter Name");
+	//                 $("#email").val("Enter Email");
+	// 				$("#phone").val("Enter Phone Number");
+	//                 $("#subject").val("Enter Subject");
+	//                 $("#description").val("Enter Message");
 
-	            }
-	            $("#alert-msg").html(data.msg);
-	            $("#alert-msg").show();
-	        },
-	        error: function(xhr, textStatus) {
-	            alert(textStatus);
-	        }
-	    });
-	});
+	//             }
+	//             $("#alert-msg").html(data.msg);
+	//             $("#alert-msg").show();
+	//         },
+	//         error: function(xhr, textStatus) {
+	//             alert(textStatus);
+	//         }
+	//     });
+	// });
 	
 	/*===================================*
 	08. SCROLLUP JS
@@ -290,17 +290,17 @@
 		});
 	});
 	
-	/*==============================================================
-    10. VIDEO JS
-    ==============================================================*/
-	$(document).on("ready", function() {
-		$('.video_popup, .iframe_popup').magnificPopup({
-			type: 'iframe',
-			mainClass: 'mfp-fade',
-			removalDelay: 160,
-			fixedContentPos: false
-		});
-	});
+	// /*==============================================================
+    // 10. VIDEO JS
+    // ==============================================================*/
+	// $(document).on("ready", function() {
+	// 	$('.video_popup, .iframe_popup').magnificPopup({
+	// 		type: 'iframe',
+	// 		mainClass: 'mfp-fade',
+	// 		removalDelay: 160,
+	// 		fixedContentPos: false
+	// 	});
+	// });
 	
 	/*===================================*
 	11. ANIMATION JS
@@ -350,118 +350,118 @@
 		}
 	});
 	
-	/*===================================*
-	13. COUNTER JS
-	*===================================*/
-	$('.counter').counterUp({
-		time: 1500
-	});
+	// /*===================================*
+	// 13. COUNTER JS
+	// *===================================*/
+	// $('.counter').counterUp({
+	// 	time: 1500
+	// });
 	
 	/*===================================*
 	14. PARALLAX JS
 	*===================================*/
-	$(window).on('load', function() {
-        $('.parallax_bg').parallaxBackground();
-	});
+	// $(window).on('load', function() {
+    //     $('.parallax_bg').parallaxBackground();
+	// });
 	
-	/*===================================*
-	15. RATING STAR JS
-	*===================================*/
-	$(document).on("ready", function(){
-	  $('.star_rating span').on('click', function(){
-			var onStar = parseFloat($(this).data('value'), 10); // The star currently selected
-			var stars = $(this).parent().children('.star_rating span');
-			for (var i = 0; i < stars.length; i++) {
-				$(stars[i]).removeClass('selected');
-			}
-			for (i = 0; i < onStar; i++) {
-				$(stars[i]).addClass('selected');
-			}
-		});
-	});
+	// /*===================================*
+	// 15. RATING STAR JS
+	// *===================================*/
+	// $(document).on("ready", function(){
+	//   $('.star_rating span').on('click', function(){
+	// 		var onStar = parseFloat($(this).data('value'), 10); // The star currently selected
+	// 		var stars = $(this).parent().children('.star_rating span');
+	// 		for (var i = 0; i < stars.length; i++) {
+	// 			$(stars[i]).removeClass('selected');
+	// 		}
+	// 		for (i = 0; i < onStar; i++) {
+	// 			$(stars[i]).addClass('selected');
+	// 		}
+	// 	});
+	// });
 	
-	/*==============================================================
-    16. FIT VIDEO JS
-    ==============================================================*/
-	if ($(".fit-videos").length > 0){
-		$(".fit-videos").fitVids({ 
-			customSelector: "iframe[src^='https://w.soundcloud.com']"
-		});
-	}
+	// /*==============================================================
+    // 16. FIT VIDEO JS
+    // ==============================================================*/
+	// if ($(".fit-videos").length > 0){
+	// 	$(".fit-videos").fitVids({ 
+	// 		customSelector: "iframe[src^='https://w.soundcloud.com']"
+	// 	});
+	// }
 	
-	/*===================================*
-	17. MASONRY JS
-	*===================================*/
-	$( window ).on( "load", function() {
-		var $grid_selectors  = $(".grid_container");
-		var filter_selectors = ".grid_filter > li > a";
-		if( $grid_selectors.length > 0 ) {
-			$grid_selectors.imagesLoaded(function(){
-				if ($grid_selectors.hasClass("masonry")){
-					$grid_selectors.isotope({
-						itemSelector: '.grid_item',
-						percentPosition: true,
-						layoutMode: "masonry",
-						masonry: {
-							columnWidth: '.grid-sizer'
-						},
-					});
-				} 
-				else {
-					$grid_selectors.isotope({
-						itemSelector: '.grid_item',
-						percentPosition: true,
-						layoutMode: "fitRows",
-					});
-				}
-			});
-		}
+	// /*===================================*
+	// 17. MASONRY JS
+	// *===================================*/
+	// $( window ).on( "load", function() {
+	// 	var $grid_selectors  = $(".grid_container");
+	// 	var filter_selectors = ".grid_filter > li > a";
+	// 	if( $grid_selectors.length > 0 ) {
+	// 		$grid_selectors.imagesLoaded(function(){
+	// 			if ($grid_selectors.hasClass("masonry")){
+	// 				$grid_selectors.isotope({
+	// 					itemSelector: '.grid_item',
+	// 					percentPosition: true,
+	// 					layoutMode: "masonry",
+	// 					masonry: {
+	// 						columnWidth: '.grid-sizer'
+	// 					},
+	// 				});
+	// 			} 
+	// 			else {
+	// 				$grid_selectors.isotope({
+	// 					itemSelector: '.grid_item',
+	// 					percentPosition: true,
+	// 					layoutMode: "fitRows",
+	// 				});
+	// 			}
+	// 		});
+	// 	}
 	
-		//isotope filter
-		$(document).on( "click", filter_selectors, function() {
-			$(filter_selectors).removeClass("current");
-			$(this).addClass("current");
-			var dfselector = $(this).data('filter');
-			if ($grid_selectors.hasClass("masonry")){
-				$grid_selectors.isotope({
-					itemSelector: '.grid_item',
-					layoutMode: "masonry",
-					masonry: {
-						columnWidth: '.grid_item'
-					},
-					filter: dfselector
-				});
-			} 
-			else {
-				$grid_selectors.isotope({
-					itemSelector: '.grid_item',
-					layoutMode: "fitRows",
-					filter: dfselector
-				});
-			}
-			return false;
-		});
+	// 	//isotope filter
+	// 	$(document).on( "click", filter_selectors, function() {
+	// 		$(filter_selectors).removeClass("current");
+	// 		$(this).addClass("current");
+	// 		var dfselector = $(this).data('filter');
+	// 		if ($grid_selectors.hasClass("masonry")){
+	// 			$grid_selectors.isotope({
+	// 				itemSelector: '.grid_item',
+	// 				layoutMode: "masonry",
+	// 				masonry: {
+	// 					columnWidth: '.grid_item'
+	// 				},
+	// 				filter: dfselector
+	// 			});
+	// 		} 
+	// 		else {
+	// 			$grid_selectors.isotope({
+	// 				itemSelector: '.grid_item',
+	// 				layoutMode: "fitRows",
+	// 				filter: dfselector
+	// 			});
+	// 		}
+	// 		return false;
+	// 	});
 
-		$(window).on("resize", function () {
-			setTimeout(function () {
-				$grid_selectors.find('.grid_item').removeClass('animation').removeClass('animated'); // avoid problem to filter after window resize
-				$grid_selectors.isotope('layout');
-			}, 300);
-		});
-	});
+	// 	$(window).on("resize", function () {
+	// 		setTimeout(function () {
+	// 			$grid_selectors.find('.grid_item').removeClass('animation').removeClass('animated'); // avoid problem to filter after window resize
+	// 			$grid_selectors.isotope('layout');
+	// 		}, 300);
+	// 	});
+	// });
 	
-	$('.grid_item .image_popup').on('click', function () {
-		$(this).find('.link_container').magnificPopup('open');
-	});
-	$('.link_container').each(function () {
-		$(this).magnificPopup({
-			delegate: '.image_popup',
-			type: 'image',
-			gallery: {
-				enabled: true
-			}
-		});
-	});
+	// $('.grid_item .image_popup').on('click', function () {
+	// 	$(this).find('.link_container').magnificPopup('open');
+	// });
+	// $('.link_container').each(function () {
+	// 	$(this).magnificPopup({
+	// 		delegate: '.image_popup',
+	// 		type: 'image',
+	// 		gallery: {
+	// 			enabled: true
+	// 		}
+	// 	});
+	// });
 	
 	/*===================================*
 	18. TAB SLIDE JS
@@ -513,16 +513,16 @@
 		});
 	});
 	
-	/*===================================*
-	20. PROGRESS BAR JS
-	*===================================*/
-	$(document).on("ready", function() {
-		$('.progress .progress-bar').css("width",
-			function() {
-				return $(this).attr("aria-valuenow") + "%";
-			}
-		);
-	});
+	// /*===================================*
+	// 20. PROGRESS BAR JS
+	// *===================================*/
+	// $(document).on("ready", function() {
+	// 	$('.progress .progress-bar').css("width",
+	// 		function() {
+	// 			return $(this).attr("aria-valuenow") + "%";
+	// 		}
+	// 	);
+	// });
 	
 	/*===================================*
 	21. TOOLTIP POPOVER JS
@@ -536,66 +536,66 @@
 		$('[data-toggle="popover"]').popover({trigger: 'hover',});
 	});
 	
-	/*===================================*
-	22. PRICE FILTER JS
-	*===================================*/
-	$(function() {
-		$( "#price_filter" ).slider({
-			range: true,
-			min: 0,
-			max: 200,
-			values: [ 30, 150 ],
-			slide: function( event, ui ) {
-				$( "#flt_price" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-				$( "#price_first" ).val(ui.values[ 0 ]);
-				$( "#price_second" ).val(ui.values[ 1 ]);
-			}
-		});
-		$( "#flt_price" ).html( "$" + $( "#price_filter" ).slider( "values", 0 ) + " - $" + $( "#price_filter" ).slider( "values", 1 ) );
-	});
+	// /*===================================*
+	// 22. PRICE FILTER JS
+	// *===================================*/
+	// $(function() {
+	// 	$( "#price_filter" ).slider({
+	// 		range: true,
+	// 		min: 0,
+	// 		max: 200,
+	// 		values: [ 30, 150 ],
+	// 		slide: function( event, ui ) {
+	// 			$( "#flt_price" ).html( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+	// 			$( "#price_first" ).val(ui.values[ 0 ]);
+	// 			$( "#price_second" ).val(ui.values[ 1 ]);
+	// 		}
+	// 	});
+	// 	$( "#flt_price" ).html( "$" + $( "#price_filter" ).slider( "values", 0 ) + " - $" + $( "#price_filter" ).slider( "values", 1 ) );
+	// });
 	
-	/*===================================*
-	23. QUNTITY JS
-	*===================================*/	
-	$('.plus').on('click', function() {
-		if ($(this).prev().val()) {
-			$(this).prev().val(+$(this).prev().val() + 1);
-		}
-	});
-	$('.minus').on('click', function() {
-		if ($(this).next().val() > 1) {
-			if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
-		}
-	});
+	// /*===================================*
+	// 23. QUNTITY JS
+	// *===================================*/	
+	// $('.plus').on('click', function() {
+	// 	if ($(this).prev().val()) {
+	// 		$(this).prev().val(+$(this).prev().val() + 1);
+	// 	}
+	// });
+	// $('.minus').on('click', function() {
+	// 	if ($(this).next().val() > 1) {
+	// 		if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
+	// 	}
+	// });
 
-	/*Cart Page Payment option*/	
-	$('[name="payment_option"]').on('click', function(){
+	// /*Cart Page Payment option*/	
+	// $('[name="payment_option"]').on('click', function(){
     
-		var $value = $(this).attr('value');
+	// 	var $value = $(this).attr('value');
 	
-		$('.payment-text').slideUp();
-		$('[data-method="'+$value+'"]').slideDown();
+	// 	$('.payment-text').slideUp();
+	// 	$('[data-method="'+$value+'"]').slideDown();
 		
-	});
+	// });
 	
-	/*===================================*
-	24. CHECKBOX CHECK THEN ADD CLASS JS
-	*===================================*/
-	$('.create-account,.different_address').hide();
-	$('#createaccount:checkbox').change(function(){
-		if($(this).is(":checked")) {
-			$('.create-account').show(300);
-		} else {
-			$('.create-account').hide(300);
-		}
-	});
-	$('#differentaddress:checkbox').change(function(){
-		if($(this).is(":checked")) {
-			$('.different_address').show(300);
-		} else {
-			$('.different_address').hide(300);
-		}
-	});
+	// /*===================================*
+	// 24. CHECKBOX CHECK THEN ADD CLASS JS
+	// *===================================*/
+	// $('.create-account,.different_address').hide();
+	// $('#createaccount:checkbox').change(function(){
+	// 	if($(this).is(":checked")) {
+	// 		$('.create-account').show(300);
+	// 	} else {
+	// 		$('.create-account').hide(300);
+	// 	}
+	// });
+	// $('#differentaddress:checkbox').change(function(){
+	// 	if($(this).is(":checked")) {
+	// 		$('.different_address').show(300);
+	// 	} else {
+	// 		$('.different_address').hide(300);
+	// 	}
+	// });
 	
 	//Demo js
 	// $( window ).on( "load", function() {

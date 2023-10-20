@@ -1,11 +1,13 @@
 @extends('layouts.front')
 @section('css')
 @endsection
+
 @section('content')
+
 <section class="breadcrumb_section page-title-light background_bg overlay_bg_blue_70" data-img-src="https://bestwebcreator.com/dhyana/demo/assets/images/breadcrumb_bg.jpg">
     <div class="container">
        <div class="row align-items-center">
-          <div class="col-sm-12 text-center">
+          <div class="col-sm-12 text-center headertitlebox">
              <div class="page-title">
                 <h1>About Us</h1>
              </div>
@@ -78,6 +80,7 @@
      </div>
  </div>
 </section>
+
 <section class="pb_70">
 	<div class="container">
         <div class="heading_s1">
@@ -118,6 +121,8 @@
         </div>
     </div>
 </section>
+
 @endsection
+
 @section('js')
 @endsection

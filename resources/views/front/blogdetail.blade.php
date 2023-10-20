@@ -1,25 +1,12 @@
 @extends('layouts.front')
 @section('css')
-<style>
-    .sidebar {top: 120px;height: 1020px;position: sticky;overflow: scroll;overflow-x: hidden;}
-    .sidebar::-webkit-scrollbar {width: 5px;}
-    .sidebar::-webkit-scrollbar-track {box-shadow: inset 0 0 5px grey; border-radius: 10px;}
-    .sidebar::-webkit-scrollbar-thumb {background: #cf3e5f; border-radius: 10px;border-right: none;border-left: none;}
-    .sidebar::-webkit-scrollbar-thumb:hover {background: #d02f55;}
-    .blog_desc img {height: auto !important;}
-    .blog_desc ul,.blog_desc ol {margin-left:20px;margin-bottom:20px;}
-    .blog_desc li {margin-bottom:15px;}
-    .blog_desc p,.blog_desc ul li, .blog_desc ol li {text-align: justify;}
-    @media(max-width:620px){
-        .blog_desc p,.blog_desc ul li, .blog_desc ol li {text-align: justify;}
-    }
-</style>
 @endsection
+
 @section('content')
 <section class="breadcrumb_section page-title-light background_bg overlay_bg_blue_70" data-img-src="https://bestwebcreator.com/dhyana/demo/assets/images/breadcrumb_bg.jpg">
 	<div class="container">
     	<div class="row align-items-center">
-        	<div class="col-sm-12 text-center">
+        	<div class="col-sm-12 text-center headertitlebox">
             	<div class="page-title">
             		<h1>{{$blog->name}}</h1>
                 </div>
@@ -46,11 +33,11 @@
                     <div class="single_post_content">
                         <div class="blog_text">
                             <h2 class="blog_title">{{$blog->name}}</h2>
-                            <ul class="list_none blog_meta">
+                            {{-- <ul class="list_none blog_meta">
                                 <li><a href="#"><i class="far fa-calendar"></i>{{$blog->created_at->format('M, d Y')}} </a></li>
                                 <li><a href="#"><i class="far fa-comments"></i>4</a></li>
-                            </ul>
-                            <div class="blog_desc">
+                            </ul> --}}
+                            <div class="blog_desc mt-5">
                                 {!! $blog->description !!}
                             </div>
                         	<div class="border-top border-bottom blog_post_footer">

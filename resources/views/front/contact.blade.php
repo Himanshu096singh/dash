@@ -1,21 +1,12 @@
 @extends('layouts.front')
 @section('css')
-<style>
-    .testi_desc .p-2{line-height:26px;text-align: left;letter-spacing:1.2px;font-size:16px;color:#131313;text-shadow: 1px 1px 1px #d0d0d0;}
-    .testimonial_box{background: linear-gradient(112deg, #ffffff 50%, #ffbfcdd6 50%);}
-    .video-testimonial-block { position: relative; width: auto; height: 206px; overflow: hidden; margin-bottom: 30px; }
-    .video-testimonial-block .video-thumbnail { height: 100%; width: 100%; position: absolute; z-index: 1; background-size: cover; top: 0; left: 0; }
-    .video-testimonial-block .video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0px; }
-    .video-testimonial-block .video-play { position: absolute; z-index: 2; top: 50%; left: 50%; margin-left: -40px; margin-top: -18px; text-decoration: none; }
-    .video-testimonial-block .video-play::before { content: "\f144"; font: normal normal normal 14px/1; font-family: 'Font Awesome\ 5 Free'; font-weight: 900; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 50px; color: #b3b5bc; }
-    .video-testimonial-block .video-play:hover::before { color: #CF3E5F; }
-</style>
 @endsection
+
 @section('content')
 <section class="breadcrumb_section page-title-light background_bg overlay_bg_blue_70" data-img-src="https://bestwebcreator.com/dhyana/demo/assets/images/breadcrumb_bg.jpg">
     <div class="container">
        <div class="row align-items-center">
-          <div class="col-sm-12 text-center">
+          <div class="col-sm-12 text-center headertitlebox">
              <div class="page-title">
                 <h1>Contact Us</h1>
              </div>
@@ -148,6 +139,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 @section('js')
 @endsection
