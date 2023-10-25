@@ -22,6 +22,7 @@ use App\Models\Gallery;
 use App\Models\Enquiry;
 use App\Models\Bookingform;
 use App\Models\Workshop;
+use App\Models\Order;
 use Mail;
 use App\Mail\Email;
 use App\Mail\EnquiryMail;
@@ -302,10 +303,23 @@ class FrontController extends Controller
         $form->phone            =           $request->number;
         $form->message          =           $request->message;
         $form->paymentmode      =           $request->paymentmode;
-        $form->paymentmethod      =           $request->payment_option;
+        $form->paymentmethod    =           $request->payment_option;
         $form->price            =           '0';
         $form->save();
-        return 1;
+        if(Bookingform::latest()->exists()){
+            $lastestBook = Bookingform::latest('id')->first();
+            $lastestBookId = ($lastestBook->id)+1;
+        }else{
+            $lastestBookId = 1;
+        }
+        $BookId = 'ODR000'.$lastestBookId;
+        $order = Order::create([
+            'book_id'       => $BookId,
+            'form_id'       => $form['id'],
+            'course_id'     => $request->courseid,
+            'amount'        => $form['price'],
+        ]);
+        return redirect('paypal/payment/?ordid=1');
     }
     
     public function search(Request $request)

@@ -18,12 +18,12 @@
       <div id="invoice-company-details" class="row">
         <div class="col-md-6 col-12">
           <div class="media">
-            <img src="../app-assets/img/logos/logo-color-big.png" alt="company logo" width="80" height="80">
+            <img src="http://localhost:8000/upload/setting/6525167c68d8blogo.png" alt="logo" width="80">
             <div class="media-body ml-4">
               <ul class="m-0 list-unstyled">
-                <li class="text-bold-800">Pixinvent Creative Studio</li>
-                <li>4025 Oak Avenue, Melbourne,</li>
-                <li>Florida 32940, USA</li>
+                <li class="text-bold-800">Heart Of Yoga</li>
+                <li>Rishikesh, Uttrakhand</li>
+                <li>India</li>
               </ul>
             </div>
           </div>
@@ -32,10 +32,12 @@
         <div class="col-md-6 col-12 text-right">
           <h2 class="primary text-uppercase">Invoice</h2>
           <p class="pb-3"># INV-001001</p>
-          <ul class="px-0 list-unstyled">
-            <li>Balance Due</li>
-            <li class="font-medium-2 text-bold-700">$12,000.00</li>
-          </ul>
+            @if($booking->paymentmode==1)
+              <ul class="px-0 list-unstyled">
+                <li>Balance Due</li>
+                <li class="font-medium-2 text-bold-700">$12,000.00</li>
+              </ul>
+            @endif
         </div>
       </div>
       <!-- Invoice Company Details ends -->
@@ -46,17 +48,15 @@
         </div>
         <div class="col-md-6 col-12">
           <ul class="m-0 list-unstyled">
-            <li class="text-bold-800">Mr. Bret Lezama</li>
-            <li>4879 Westfall Avenue,</li>
-            <li>Albuquerque,</li>
-            <li>New Mexico-87102.</li>
+            <li class="text-bold-800">{{$booking->name}}</li>
+            <li>Email: {{$booking->email}}</li>
+            <li>Phone: {{$booking->phone}}</li>
+            <li>{{$booking->country}}</li>
           </ul>
         </div>
         <div class="col-md-6 col-12 text-right">
-          <p><span class="text-muted">Invoice Date :</span> 06/05/2016</p>
-          <p><span class="text-muted">Terms :</span> Due on Receipt</p>
-          <p class="m-0"><span class="text-muted">Due Date :</span> 10/05/2016</p>
-        </div>
+          <p><span class="text-muted">Invoice Date :</span> {{ $booking->created_at->format('d/m/Y') }}</p>
+<div class=""></div>        </div>
       </div>
       <!-- Invoice Customer Details ends -->
       <!-- Invoice Items Details starts -->

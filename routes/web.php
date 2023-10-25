@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BlogController;
@@ -118,8 +119,8 @@ Route::post('razorpay-payment', [PaymentController::class, 'store'])->name('razo
 
 Route::get('paypal', [PayPalController::class, 'index'])->name('paypal');
 Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal.payment');
-Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
-Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment/cancel');
+Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('success.payment');
+Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('cancel.payment');
 
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
