@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use App\Models\Order;
 
 class PaypalController extends Controller
 {
     public function payment(Request $request)
     {
         // return $request;
+        $orderdetail = Order::where('book_id',$request->ordid)->first();
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
@@ -23,33 +25,45 @@ class PaypalController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => "100.00"
+                        "value" => $orderdetail['amount']
                     ]
                 ]
             ]
         ]);
         if (isset($response['id']) && $response['id'] != null) {
+            $orderdetail->payment_token_id = $response['id'];
+            $orderdetail->save();
+            // $response['id'];
             foreach ($response['links'] as $links) {
                 if ($links['rel'] == 'approve') {
                     return redirect()->away($links['href']);
                 }
             }
+            
             return redirect()
-                ->route('cancel.payment')
-                ->with('error', 'Something went wrong.');
+            ->route('error')
+            ->with('error', 'Something went wrong.');
+            
         } else {
             return redirect()
-                ->route('create.payment')
+                ->route('success')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
+
+
     }
 
     public function paymentCancel()
     {
-        return $response['message'];
+        return $response;
+        $tokenId = $response['id'];
+        $orderdetail = Order::where('payment_token_id',$tokenId)->first();
+        $orderdetail->status = 0;
+        $orderdetail->save();
+        return "error";
         return redirect()
-            ->route('create.payment')
-            ->with('error', $response['message'] ?? 'You have canceled the transaction.');
+              ->route('paypal')
+              ->with('error', $response['message'] ?? 'You have canceled the transaction.');
     }
 
     public function paymentSuccess(Request $request)
@@ -57,14 +71,24 @@ class PaypalController extends Controller
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
-        return $response = $provider->capturePaymentOrder($request['token']);
+        $response = $provider->capturePaymentOrder($request['token']);
+        $tokenId = $response['id'];
+        $orderdetail = Order::where('payment_token_id',$tokenId)->first();
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+            $orderdetail->payer_id = $response['payer']['payer_id'];
+            $orderdetail->status = 1;
+            $orderdetail->save();
+            return "success";
             return redirect()
-                ->route('create.payment')
+                ->route('success')
+                ->with('response',$orderdetail->order_id)
                 ->with('success', 'Transaction complete.');
         } else {
+            $orderdetail->status = 0;
+            $orderdetail->save();
+            return "fail";
             return redirect()
-                ->route('create.payment')
+                ->route('error')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
     }

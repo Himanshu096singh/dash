@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\WorkshopController;
 use App\Http\Controllers\Admin\CoursemediaController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\payment\PaymentController;
+use App\Http\Controllers\RazorpayController;
 
 
 
@@ -140,3 +141,4 @@ Route::post('enquiry', [FrontController::class, 'enquiry'])->name('enquiry');
 Route::post('bookingform', [FrontController::class, 'bookingsubmit']);
 Route::post('courseprice', [FrontController::class, 'courseprice']);
 Route::post('searchbar', [FrontController::class, 'search']);
+Route::post('handle-razorpay-response', 'RazorpayController@handleRazorpayResponse')->name('handle-razorpay-response');

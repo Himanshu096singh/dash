@@ -292,7 +292,11 @@ class FrontController extends Controller
     
     public function bookingsubmit(Request $request)
     {
-        // return $request;
+
+        $amount = Course::where('id', $request->courseid)->value($request->room);
+        if($request->paymentmode == 1){
+            $amount = $amount * 0.15 ;
+        }
         $form                   =           new Bookingform;   
         $form->course_id        =           $request->courseid;
         $form->room             =           $request->room;
@@ -304,7 +308,7 @@ class FrontController extends Controller
         $form->message          =           $request->message;
         $form->paymentmode      =           $request->paymentmode;
         $form->paymentmethod    =           $request->payment_option;
-        $form->price            =           '0';
+        $form->price            =           ceil($amount);
         $form->save();
         if(Bookingform::latest()->exists()){
             $lastestBook = Bookingform::latest('id')->first();
@@ -319,7 +323,12 @@ class FrontController extends Controller
             'course_id'     => $request->courseid,
             'amount'        => $form['price'],
         ]);
-        return redirect('paypal/payment/?ordid=1');
+        if($request->payment_option==0){
+            return redirect("paypal/payment/?ordid=$BookId");
+        } else {
+            return app(RazorpayController::class)->processRazorpayPayment($BookId);
+        }
+        
     }
     
     public function search(Request $request)
