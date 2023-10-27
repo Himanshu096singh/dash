@@ -16,4 +16,8 @@ class Order extends Model
         'amount',
         'status'
     ];
+
+    public function form(){
+        return $this->hasOne(Bookingform::class,'id');
+    }
 }

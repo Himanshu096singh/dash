@@ -18,8 +18,8 @@ class PaypalController extends Controller
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
             "application_context" => [
-                "return_url" => route('success.payment'),
-                "cancel_url" => route('cancel.payment'),
+                "return_url" => route('success'),
+                "cancel_url" => route('error'),
             ],
             "purchase_units" => [
                 0 => [
@@ -41,7 +41,7 @@ class PaypalController extends Controller
             }
             
             return redirect()
-            ->route('error')
+            ->route('cancel')
             ->with('error', 'Something went wrong.');
             
         } else {
@@ -55,17 +55,14 @@ class PaypalController extends Controller
 
     public function paymentCancel()
     {
-        return $response;
         $tokenId = $response['id'];
         $orderdetail = Order::where('payment_token_id',$tokenId)->first();
         $orderdetail->status = 0;
         $orderdetail->save();
-        return "error";
         return redirect()
-              ->route('paypal')
-              ->with('error', $response['message'] ?? 'You have canceled the transaction.');
+                ->route('cancel')
+                ->with('response','error');
     }
-
     public function paymentSuccess(Request $request)
     {
         $provider = new PayPalClient;
@@ -78,18 +75,16 @@ class PaypalController extends Controller
             $orderdetail->payer_id = $response['payer']['payer_id'];
             $orderdetail->status = 1;
             $orderdetail->save();
-            return "success";
             return redirect()
                 ->route('success')
-                ->with('response',$orderdetail->order_id)
+                ->with('response','success')
                 ->with('success', 'Transaction complete.');
         } else {
             $orderdetail->status = 0;
             $orderdetail->save();
-            return "fail";
             return redirect()
-                ->route('error')
-                ->with('error', $response['message'] ?? 'Something went wrong.');
+                ->route('cancel')
+                ->with('response','error');
         }
     }
 }

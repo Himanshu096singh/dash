@@ -2,42 +2,28 @@
 <html>
 <head>
     <title>Razorpay Payment Popup</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
 
-<h1>Razorpay Payment Popup</h1>
-
-<button id="openRazorpayPopup">Open Razorpay Popup</button>
-<div id="payment-response"> </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-
+<h1>Razorpay Payment</h1>
+<div id="payment-response"></div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!-- Include the Razorpay JavaScript SDK -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
     var options = {
         key: "{{ env('RAZORPAY_KEY') }}",
         amount: {{ $order->amount }},
-        currency: 'INR',
-        name: 'Your Company Name',
+        currency: 'USD',
+        name: 'Heart Of Yoga',
         description: 'Payment for your product',
         order_id: '{{ $order->id }}',
         handler: function (response) {
-            console.log(response);
+            sendPaymentResponse(response)
 
             // Send the payment response to a controller method
-            $.ajax({
-                url: '{{ route("handle-razorpay-response") }}',
-                type: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    response: response
-                },
-                success: function (data) {
-                    console.log(data);
-                    // Update the view with the response from the controller
-                    $('#payment-response').html(data);
-                }
-            });
+            
         }
     };
 
@@ -49,20 +35,28 @@
     };
     
     function sendPaymentResponse(response) {
-        // Send the payment response to a controller method
-        $.ajax({
-            url: '{{ route("handle-razorpay-response") }}',
-            type: 'POST',
-            data: {
-                _token: '{{ csrf_token() }}',
-                response: response
-            },
-            success: function (data) {
-                console.log("response"+data)
-                // Update the view with the response from the controller
-                $('#payment-response').html(data);
+        console.log(response)
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        $.ajax({
+            url: "/handle-razorpay-response",
+            type: "POST",
+            data: { response: response },
+            success: function (data) {
+                console.log(data);
+                $('#payment-response').html(data);
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+
+        console.log("ends")
     }
 
 </script>

@@ -349,4 +349,22 @@ class FrontController extends Controller
         $locationData = \Location::get($userIp);
         dd($locationData);
     }*/
+
+    public function success(){
+        $sessionval = session('response');
+        if($sessionval == 'success'){
+            return view('success');
+        } else {
+            abort(404);
+        }
+        
+    }
+    public function error(){
+        $sessionval = session('response');
+        if($sessionval == 'error'){
+            return view('error');
+        } else {
+            abort(404);
+        }
+    }
 }

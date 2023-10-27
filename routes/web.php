@@ -124,6 +124,8 @@ Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess']
 Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('cancel.payment');
 
 Route::get('/', [FrontController::class, 'index'])->name('home');
+Route::get('/success', [FrontController::class, 'success'])->name('success');
+Route::get('/error', [FrontController::class, 'error'])->name('cancel');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/testimonial', [FrontController::class, 'testimonial'])->name('testimonial');
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
@@ -136,9 +138,9 @@ Route::get('/blog/{slug}', [FrontController::class, 'blogdetail'])->name('blogde
 Route::get('/{slug}/booking',[FrontController::class,'bookingform'])->name('bookingform');
 Route::get('{slug}',[FrontController::class, 'coursedetails'])->name('coursedetails');
 
+Route::post('handle-razorpay-response', [RazorpayController::class,'handleRazorpayResponse']);
 Route::post('contactsubmit',[FrontController::class,'contactsubmit'])->name('contactsubmit');
 Route::post('enquiry', [FrontController::class, 'enquiry'])->name('enquiry');
 Route::post('bookingform', [FrontController::class, 'bookingsubmit']);
 Route::post('courseprice', [FrontController::class, 'courseprice']);
 Route::post('searchbar', [FrontController::class, 'search']);
-Route::post('handle-razorpay-response', 'RazorpayController@handleRazorpayResponse')->name('handle-razorpay-response');

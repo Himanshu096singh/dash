@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Bookingform};
+use App\Models\{Bookingform,Order};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
@@ -17,7 +17,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $booking = Bookingform::get();
+        $booking = Bookingform::with('orders')->get();
         return view('back.booking.index',compact('booking'));
     }
 

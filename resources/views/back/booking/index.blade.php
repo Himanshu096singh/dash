@@ -57,7 +57,7 @@
                                                         <span class="badge badge-primary">Partial</span>
                                                     @endif
                                                 </td>
-                                                <td>
+                                                <td> 
                                                     @if($item->paymentmode == 0)
                                                         <span class="badge badge-info">Paypal</span>
                                                     @elseif($item->status == 1)
@@ -65,11 +65,11 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    @if($item->status == 0)
+                                                    @if($item->orders->status == 0)
                                                         <span class="badge badge-default">Pending</span>
-                                                    @elseif($item->status == 1)
+                                                    @elseif($item->orders->status == 1)
                                                         <span class="badge badge-success">Paid</span>
-                                                    @elseif($item->status == 2)
+                                                    @elseif($item->orders->status == 2)
                                                         <span class="badge badge-danger">Rejected</span>
                                                     @endif
                                                 </td>
