@@ -177,6 +177,25 @@
                                                 </div>
                                             </div>
                                         </div>
+
+
+                                        <div class="col-md-6 col-12">
+                                            <label for="alt">Yoga Type</label>
+                                            <div class="form-group mb-2">
+                                                <div class="radio radio-success @error('type') is-invalid @enderror">
+                                                    <input type="radio" name="type" id="nokundlini" value="0" {{ old('type',$course->type) == 0 ? 'checked':'' }}>
+                                                    <label for="nokundlini">Yoga Teacher</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-2">
+                                                <div class="radio radio-danger @error('type') is-invalid @enderror">
+                                                    <input type="radio" name="type" id="kundlini"  value="1" {{ old('type',$course->type) == 1 ? 'checked':'' }}>
+                                                    <label for="kundlini">Kundlini Yoga Teacher</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="colo-md-12 col-lg-12 col-12">
                                             <div class="form-group mb-2">
                                                 <label for="description">Description</label>

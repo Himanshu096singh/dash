@@ -20,10 +20,5 @@
 
 @section('js')
 
-{{-- <script>
-    setTimeout( ()=>{
-        location.href="{{route('home')}}"
-    }, 4000)
-</script> --}}
 
 @endsection

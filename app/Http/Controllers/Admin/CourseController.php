@@ -72,6 +72,7 @@ class CourseController extends Controller
         $course->image             =     $saveImage;
         $course->alt               =     $request->alt;
         $course->status            =     $request->status;
+        $course->type              =     $request->type;
         $course->description       =     $request->description;
         $course->metatitle         =     $request->metatitle;
         $course->metakeywords      =     $request->metakeyword;
@@ -150,6 +151,7 @@ class CourseController extends Controller
         $course->image             =     $saveImage;
         $course->alt               =     $request->alt;
         $course->status            =     $request->status;
+        $course->type              =     $request->type;
         $course->description       =     $request->description;
         $course->metatitle         =     $request->metatitle;
         $course->metakeywords      =     $request->metakeyword;

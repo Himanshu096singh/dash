@@ -47,26 +47,26 @@
                                                 <td>
                                                     {{ $item->phone }}
                                                 </td>
-                                                <td>
-                                                    {{ $item->price }}
+                                                <td><span class="badge badge-default">
+                                                    ${{number_format($item->price, 2); }} </span>
                                                 </td>
                                                 <td>
                                                     @if($item->paymentmode == 0)
-                                                        <span class="badge badge-info">Full</span>
-                                                    @elseif($item->status == 1)
-                                                        <span class="badge badge-primary">Partial</span>
+                                                        <span class="badge badge-warning">Full</span>
+                                                    @elseif($item->paymentmode == 1)
+                                                        <span class="badge badge-dark">Advanced</span>
                                                     @endif
                                                 </td>
                                                 <td> 
-                                                    @if($item->paymentmode == 0)
+                                                    @if($item->paymentmethod == 0)
                                                         <span class="badge badge-info">Paypal</span>
-                                                    @elseif($item->status == 1)
+                                                    @elseif($item->paymentmethod == 1)
                                                         <span class="badge badge-primary">Razorpay</span>
                                                     @endif
                                                 </td>
                                                 <td>
                                                     @if($item->orders->status == 0)
-                                                        <span class="badge badge-default">Pending</span>
+                                                        <span class="badge badge-danger">Pending</span>
                                                     @elseif($item->orders->status == 1)
                                                         <span class="badge badge-success">Paid</span>
                                                     @elseif($item->orders->status == 2)

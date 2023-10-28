@@ -86,7 +86,7 @@
                         <h3 class="text-uppercase">Better Life With Perfect Body</h3>
                         <div class="title_icon"><i class="flaticon-lotus"></i></div>
                     </div>
-                    <p class="text-justify">At our Yoga School in India, we offer a wide range of yoga teacher training courses, workshops and retreats. Our highly experienced and knowledgeable teachers guide students through various traditional yoga practices and help our students develop a strong foundation in their yoga practice and discover inner peace and harmony. Whether you are looking to become a certified yoga teacher or simply wish to immerse yourself in the ancient wisdom of yoga, the Heart of Yoga School in India is the ideal place for your yogic journey.</p>
+                    <p class="text-justify">At our Yoga School in India, we offer a wide range of yoga teacher training courses, workshops and retreats suitable for practitioners of all levels, from beginners to advanced. Our highly experienced and knowledgeable teachers guide students through various traditional yoga practices and help our students develop a strong foundation in their yoga practice and discover inner peace and harmony. Whether you are looking to become a certified yoga teacher or simply wish to immerse yourself in the ancient wisdom of yoga, the Heart of Yoga School in India is the ideal place for your yogic journey.</p>
     
                 </div>
             </div>
@@ -109,7 +109,7 @@
                     <div class="title_icon"><i class="flaticon-lotus"></i></div>
                 </div> 
                 <p style="font-size: 18px;
-                line-height: 35px;text-align: justify; text-align-last: center; ">If you're looking to deepen your practice and share the gift of yoga with others, then a yoga teacher training course is the perfect next step for you. Whether you're a beginner or an experienced yogi, we offer numerous yoga teacher training courses that cater to all levels and interests. So why wait? Sign up for a yoga teacher training in Rishikesh and take your practice to new heights while discovering the true essence of yoga.</p>
+                line-height: 35px;text-align: justify; text-align-last: center; ">If you're looking to deepen your practice and share the gift of yoga with others, then a yoga teacher training course is the perfect next step for you. Whether you're a beginner or an experienced yogi, we offer numerous yoga teacher training courses that cater to all levels and interests. So why wait? Sign up for a yoga teacher training in Rishikesh and take your practice to new heights while discovering the true essence of yoga./p>
                 <div class="small_divider clearfix"></div>
             </div>
         </div>
@@ -196,11 +196,11 @@
     	<div class="row justify-content-center">
         	<div class="col-xl-10 col-lg-10 col-md-10 text-center animation" data-animation="fadeInUp" data-animation-delay="0.2s">
             	<div class="heading_s3 text-center">
-                	<h2 class="text-uppercase">Yoga Teacher Training Courses</h2> 
+                	<h2 class="text-uppercase">Kundalini Yoga Teacher Training Courses</h2> 
                     <div class="title_icon"><i class="flaticon-lotus"></i></div>
                 </div> 
                 <p style="font-size: 18px;
-                line-height: 35px;text-align: justify; text-align-last: center; ">If you're looking to deepen your practice and share the gift of yoga with others, then a yoga teacher training course is the perfect next step for you. Whether you're a beginner or an experienced yogi, we offer numerous yoga teacher training courses that cater to all levels and interests. So why wait? Sign up for a yoga teacher training in Rishikesh and take your practice to new heights while discovering the true essence of yoga.</p>
+                line-height: 35px;text-align: justify; text-align-last: center; ">Our Kundalini Yoga Teacher Training courses in the spiritual hub of Rishikesh are designed to provide a comprehensive understanding of Kundalini Yoga, including its philosophy, asanas, pranayama, and meditation techniques. Join us today on a life-changing adventure that will not only transform you but also enable you to share the gift of Kundalini Yoga with others.</p>
                 <div class="small_divider clearfix"></div>
             </div>
         </div>

@@ -351,6 +351,7 @@ class FrontController extends Controller
     }*/
 
     public function success(){
+        // return view('success');
         $sessionval = session('response');
         if($sessionval == 'success'){
             return view('success');
