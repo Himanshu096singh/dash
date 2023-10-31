@@ -51,6 +51,8 @@ class FrontController extends Controller
     public function index()
     {
         $faq = Supportfaq::get();
+        $trainingcourse = Course::limit(3)->where('type',0)-> get();
+        $kundalinicourse = Course::limit(3)->where('type',1)-> get();
         $testimonial = testimonial::limit(3)->where('type',0)-> get();
         $blog = Blog::with('category')->latest()->get();
         $seo = Seo::where('name','home')->first();
@@ -61,9 +63,9 @@ class FrontController extends Controller
                 'metadescription' => $seo['metadescription'],
                 'image' => $seo['image']
             ];
-            return view('front/home',compact('blog','faq','testimonial','meta'));
+            return view('front/home',compact('blog','faq','testimonial','meta','trainingcourse','kundalinicourse'));
         } else {
-            return view('front/home',compact('blog','faq','testimonial'));
+            return view('front/home',compact('blog','faq','testimonial','trainingcourse','kundalinicourse'));
         }
         
     }

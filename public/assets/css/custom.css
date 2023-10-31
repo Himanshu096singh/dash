@@ -314,3 +314,8 @@ button.close  span{font-size: 25px;}
 .form-group {margin-bottom: 1rem;}
 .form-control {height: 45px;padding: 10px 15px;font-size: 14px;}
 div#curriculam ul li {list-style: none;}
+
+@media(max-width:768px){
+    .contact-wrap .form, .contact-wrap .contact-info {padding: 15px;}
+    .topscrollbox ul li {padding: 3px 4px;margin: 0px;border-radius: 8px;font-size: 12px;font-weight: 500;}
+}

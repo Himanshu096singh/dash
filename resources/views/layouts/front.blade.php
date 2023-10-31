@@ -53,10 +53,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" />
     
     <link rel="stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.0/css/all.min.css" />
-     {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" />--}}
+   {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" />--}}
     <link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">	
     {{-- <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}"> --}}
    
@@ -89,7 +89,9 @@
                     <img class="logo_dark" src="{{asset($setting->logo)}}" alt="{{$setting->logoalt}}" width="110px">
                     <img class="logo_default" src="{{asset($setting->logo)}}" alt="{{$setting->logoalt}}" width="110px">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
+                    <i class="fas fa-bars"></i>
+                </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li>
@@ -105,7 +107,8 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a class="dropdown-item nav-link nav_item dropdown-toggler" href="#">Workshop</a>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown">Workshop</a>
                             <div class="dropdown-menu">
                                 <ul> 
                                     @foreach($workshoplist as $list)
@@ -115,7 +118,7 @@
                             </div>
                         </li>
                         <li><a class="dropdown-item nav-link nav_item" href="{{route('blog')}}">Blog</a></li> 
-                        <li><a class="dropdown-item nav-link nav_item dropdown-toggler" href="#">About</a>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown">About</a>
                             <div class="dropdown-menu">
                                 <ul> 
                                     <li><a class="dropdown-item nav-link nav_item" href="{{route('about')}}">About Us</a></li> 
@@ -148,19 +151,19 @@
                     <div class="col-lg-2 col-sm-5">
                         <h5 class="widget_title3">Quick Links</h5>
                         <ul class="list_none widget_links links_style2">
-                            <li><a href="{{route('home')}}">Home</a></li>
-                            <li><a href="{{route('about')}}">About Us</a></li>
-                            <li><a href="{{route('blog')}}">Blog</a></li>
-                            <li><a href="{{route('gallery')}}">Gallery</a></li>
-                            <li><a href="{{route('testimonial')}}">Testimonials</a></li>
-                            <li><a href="{{route('contact')}}">Contact Us</a></li>
+                            <li><a href="{{route('home')}}"><i class="fa fa-angle-right"></i> Home</a></li>
+                            <li><a href="{{route('about')}}"><i class="fa fa-angle-right"></i> About Us</a></li>
+                            <li><a href="{{route('blog')}}"><i class="fa fa-angle-right"></i> Blog</a></li>
+                            <li><a href="{{route('gallery')}}"><i class="fa fa-angle-right"></i> Gallery</a></li>
+                            <li><a href="{{route('testimonial')}}"><i class="fa fa-angle-right"></i> Testimonials</a></li>
+                            <li><a href="{{route('contact')}}"><i class="fa fa-angle-right"></i> Contact Us</a></li>
                          </ul>
                     </div>
                     <div class="col-lg-3 col-md-7">
                         <h5 class="widget_title3">Our Course</h5>
                         <ul class="list_none widget_links links_style2">
                             @foreach($courselist as $list)
-                                <li><a href="{{url($list->slug)}}">{{$list->name}}</a></li>
+                                <li><a href="{{url($list->slug)}}"><i class="fa fa-angle-right"></i> {{$list->name}}</a></li>
                             @endforeach
                         </ul>
                     </div>

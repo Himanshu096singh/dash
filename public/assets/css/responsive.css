@@ -416,7 +416,6 @@ section.pb_70, .pb_70 {
 }
 #navbarSupportedContent .navbar-nav {
 	max-height: 80vh;
-	overflow-y: auto;
 	padding: 10px 0;
 }
 /* .header_wrap .navbar {
@@ -438,7 +437,6 @@ section.pb_70, .pb_70 {
 	padding: 21px 10px !important;
 }
 .header_wrap .navbar-collapse {
-	position: absolute;
 	left: 0;
 	right: 0;
 	z-index: 999;
@@ -771,6 +769,7 @@ section.pb_70, .pb_70 {
 }
 .navbar .navbar-nav .dropdown-item {
 	padding: 5px 15px;
+	text-wrap:wrap;
 }
 .banner_slider:not(.full_screen), .banner_slider:not(.full_screen) .carousel-item,
 .banner_section:not(.full_screen) .banner_content_wrap,.banner_section:not(.full_screen) .banner_content_wrap .carousel-item  {

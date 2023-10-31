@@ -114,78 +114,32 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="pricing_box pricing_style2 background_bg animation" data-animation="flip_box" data-animation-delay="0.1s" >
-                    <div class="pr_title_wrap ">
-                        <div class="classes_img">
-                            <img class="rounded mb-2" src="{{asset('assets/images/classes_img1.jpg')}}" alt="image">
-                            <div class="link_container">
-                                <a href="#"><i class="ion-plus"></i></a>
+            @foreach($trainingcourse as $list)
+                <div class="col-lg-4">
+                    <div class="pricing_box pricing_style2 background_bg animation" data-animation="flip_box" data-animation-delay="0.1s" >
+                        <div class="pr_title_wrap ">
+                            <div class="classes_img">
+                                <img class="rounded mb-2" src="{{asset($list->image)}}" alt="{{$list->alt}}">
+                                <div class="link_container">
+                                    <a href="#"><i class="ion-plus"></i></a>
+                                </div>
                             </div>
+                            <h6 class="pr_title">{{$list->name}}</h6>
                         </div>
-                        <h6 class="pr_title">200 Hour Yoga Teacher Training Course (Hatha & Ashtanga Vinyasa)</h6>
-                    </div>
-                    <div class="pr_content pt-3">
-                        <ul class="list_none pr_list">
-                            <li><i class="fa fa-check text-primary me-3"></i> Basic Options</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Full Access</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Customers Support</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="pr_footer">
-                        <a class="d-block btn btn-radius btn-default rounded-0 animation animated fadeInUp" href="#" data-animation="fadeInUp" data-animation-delay="0.7s" style="animation-delay: 0.7s; opacity: 1;letter-spacing:2px;">Learn More</a>
+                        <div class="pr_content pt-3">
+                            <ul class="list_none pr_list">
+                                <li><i class="fa fa-check text-primary me-3"></i> Basic Options</li>
+                                <li><i class="fa fa-check text-primary me-3"></i> Full Access</li>
+                                <li><i class="fa fa-check text-primary me-3"></i> Customers Support</li>
+                                
+                            </ul>
+                        </div>
+                        <div class="pr_footer">
+                            <a class="d-block btn btn-radius btn-default rounded-0 animation animated fadeInUp" href="{{url($list->slug)}}" data-animation="fadeInUp" data-animation-delay="0.7s" style="animation-delay: 0.7s; opacity: 1;letter-spacing:2px;">Learn More</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="pricing_box pricing_style2 background_bg animation" data-animation="flip_box" data-animation-delay="0.1s" >
-                    <div class="pr_title_wrap ">
-                        <div class="classes_img">
-                            <img class="rounded mb-2" src="{{asset('assets/images/classes_img2.jpg')}}" alt="image">
-                            <div class="link_container">
-                                <a href="#"><i class="ion-plus"></i></a>
-                            </div>
-                        </div>
-                        <h6 class="pr_title">200 Hour Yoga Teacher Training Course (Hatha & Ashtanga Vinyasa)</h6>
-                    </div>
-                    <div class="pr_content pt-3">
-                        <ul class="list_none pr_list">
-                            <li><i class="fa fa-check text-primary me-3"></i> Basic Options</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Full Access</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Customers Support</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="pr_footer">
-                        <a class="d-block btn btn-radius btn-default rounded-0 animation animated fadeInUp" href="#" data-animation="fadeInUp" data-animation-delay="0.7s" style="animation-delay: 0.7s; opacity: 1;letter-spacing:2px;">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="pricing_box pricing_style2 background_bg animation" data-animation="flip_box" data-animation-delay="0.1s" >
-                    <div class="pr_title_wrap ">
-                        <div class="classes_img">
-                            <img class="rounded mb-2" src="{{asset('assets/images/classes_img3.jpg')}}" alt="image">
-                            <div class="link_container">
-                                <a href="#"><i class="ion-plus"></i></a>
-                            </div>
-                        </div>
-                        <h6 class="pr_title">200 Hour Yoga Teacher Training Course (Hatha & Ashtanga Vinyasa)</h6>
-                    </div>
-                    <div class="pr_content pt-3">
-                        <ul class="list_none pr_list">
-                            <li><i class="fa fa-check text-primary me-3"></i> Basic Options</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Full Access</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Customers Support</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="pr_footer">
-                        <a class="d-block btn btn-radius btn-default rounded-0 animation animated fadeInUp" href="#" data-animation="fadeInUp" data-animation-delay="0.7s" style="animation-delay: 0.7s; opacity: 1;letter-spacing:2px;">Learn More</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -205,78 +159,33 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="pricing_box pricing_style2 background_bg animation" data-animation="flip_box" data-animation-delay="0.1s" >
-                    <div class="pr_title_wrap ">
-                        <div class="classes_img">
-                            <img class="rounded mb-2" src="{{asset('assets/images/classes_img1.jpg')}}" alt="image">
-                            <div class="link_container">
-                                <a href="#"><i class="ion-plus"></i></a>
+            @foreach($kundalinicourse as $list)
+                <div class="col-lg-4">
+                    <div class="pricing_box pricing_style2 background_bg animation" data-animation="flip_box" data-animation-delay="0.1s" >
+                        <div class="pr_title_wrap ">
+                            <div class="classes_img">
+                                <img class="rounded mb-2" src="{{asset($list->image)}}" alt="{{$list->alt}}">
+                                <div class="link_container">
+                                    <a href="#"><i class="ion-plus"></i></a>
+                                </div>
                             </div>
+                            <h6 class="pr_title">{{$list->name}}</h6>
                         </div>
-                        <h6 class="pr_title">200 Hour Yoga Teacher Training Course (Hatha & Ashtanga Vinyasa)</h6>
-                    </div>
-                    <div class="pr_content pt-3">
-                        <ul class="list_none pr_list">
-                            <li><i class="fa fa-check text-primary me-3"></i> Basic Options</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Full Access</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Customers Support</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="pr_footer">
-                        <a class="d-block btn btn-radius btn-default rounded-0 animation animated fadeInUp" href="#" data-animation="fadeInUp" data-animation-delay="0.7s" style="animation-delay: 0.7s; opacity: 1;letter-spacing:2px;">Learn More</a>
+                        <div class="pr_content pt-3">
+                            <ul class="list_none pr_list">
+                                <li><i class="fa fa-check text-primary me-3"></i> Basic Options</li>
+                                <li><i class="fa fa-check text-primary me-3"></i> Full Access</li>
+                                <li><i class="fa fa-check text-primary me-3"></i> Customers Support</li>
+                                
+                            </ul>
+                        </div>
+                        <div class="pr_footer">
+                            <a class="d-block btn btn-radius btn-default rounded-0 animation animated fadeInUp" href="{{url($list->slug)}}" data-animation="fadeInUp" data-animation-delay="0.7s" style="animation-delay: 0.7s; opacity: 1;letter-spacing:2px;">Learn More</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="pricing_box pricing_style2 background_bg animation" data-animation="flip_box" data-animation-delay="0.1s" >
-                    <div class="pr_title_wrap ">
-                        <div class="classes_img">
-                            <img class="rounded mb-2" src="{{asset('assets/images/classes_img2.jpg')}}" alt="image">
-                            <div class="link_container">
-                                <a href="#"><i class="ion-plus"></i></a>
-                            </div>
-                        </div>
-                        <h6 class="pr_title">200 Hour Yoga Teacher Training Course (Hatha & Ashtanga Vinyasa)</h6>
-                    </div>
-                    <div class="pr_content pt-3">
-                        <ul class="list_none pr_list">
-                            <li><i class="fa fa-check text-primary me-3"></i> Basic Options</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Full Access</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Customers Support</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="pr_footer">
-                        <a class="d-block btn btn-radius btn-default rounded-0 animation animated fadeInUp" href="#" data-animation="fadeInUp" data-animation-delay="0.7s" style="animation-delay: 0.7s; opacity: 1;letter-spacing:2px;">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="pricing_box pricing_style2 background_bg animation" data-animation="flip_box" data-animation-delay="0.1s" >
-                    <div class="pr_title_wrap ">
-                        <div class="classes_img">
-                            <img class="rounded mb-2" src="{{asset('assets/images/classes_img3.jpg')}}" alt="image">
-                            <div class="link_container">
-                                <a href="#"><i class="ion-plus"></i></a>
-                            </div>
-                        </div>
-                        <h6 class="pr_title">200 Hour Yoga Teacher Training Course (Hatha & Ashtanga Vinyasa)</h6>
-                    </div>
-                    <div class="pr_content pt-3">
-                        <ul class="list_none pr_list">
-                            <li><i class="fa fa-check text-primary me-3"></i> Basic Options</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Full Access</li>
-                            <li><i class="fa fa-check text-primary me-3"></i> Customers Support</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="pr_footer">
-                        <a class="d-block btn btn-radius btn-default rounded-0 animation animated fadeInUp" href="#" data-animation="fadeInUp" data-animation-delay="0.7s" style="animation-delay: 0.7s; opacity: 1;letter-spacing:2px;">Learn More</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+ 
         </div>
     </div>
 </section>

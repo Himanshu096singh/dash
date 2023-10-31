@@ -17,29 +17,35 @@
 <div class="topscrollbox p-1 bg-gray">
     <div class="container">
         <ul class="list-inline text-center m-2">
-            <li class="list-inline-item active" onclick="clicktoscroll('introduction')">
+            <li class="list-inline-item active" onclick="clicktoscroll('introduction', this)">
             Overview
             </li>
-            <li class="list-inline-item" onclick="clicktoscroll('included')">
-                Inclusions
-            </li>
-            <li class="list-inline-item" onclick="clicktoscroll('curriculam')">
-                Curriculam
-            </li>
-            <li class="list-inline-item" onclick="clicktoscroll('schedule')">
-                Schedule
-            </li>
-            <li class="list-inline-item" onclick="clicktoscroll('upcoming-batches')">
+            @if(count($course->inclusion)>0)
+               <li class="list-inline-item" onclick="clicktoscroll('included', this)">
+                  Inclusions
+               </li>
+            @endif
+            @if(count($course->curriculam)>0)
+               <li class="list-inline-item" onclick="clicktoscroll('curriculam', this)">
+                  Curriculam
+               </li>
+            @endif
+            @if(count($course->schdule)>0)  
+               <li class="list-inline-item" onclick="clicktoscroll('schedule', this)">
+                  Schedule
+               </li>
+            @endif
+            <li class="list-inline-item" onclick="clicktoscroll('upcoming-batches', this)">
                 Course Dates
             </li>
-            <li class="list-inline-item" onclick="clicktoscroll('accomodation')">
+            <li class="list-inline-item" onclick="clicktoscroll('accomodation', this)">
                 Accomodation
             </li>
             @if(count($course->testimonial)>0)
-                <li class="list-inline-item" onclick="clicktoscroll('testimonials')"> Testimonials </li>
+                <li class="list-inline-item" onclick="clicktoscroll('testimonials', this)"> Testimonials </li>
             @endif
             @if(count($course->faqs)>0)
-                <li class="list-inline-item" onclick="clicktoscroll('faq')"> FAQ's </li>
+                <li class="list-inline-item" onclick="clicktoscroll('faq', this)"> FAQ's </li>
             @endif
         </ul>
     </div>
@@ -55,7 +61,7 @@
                <div class="classes_img">
                   <img src="{{asset($course->image)}}" alt="{{$course->alt}}">
                   <div class="register_btn">
-                     <a href="#" class="btn btn-default btn-sm" type="button"  data-toggle="modal" data-target="#enquiryForm">Enquiry Now</a>
+                     <a class="btn btn-default btn-sm" type="button"  data-toggle="modal" data-target="#enquiryForm">Enquiry Now</a>
                   </div>
                </div>
                <div class="classes_detail">
@@ -444,7 +450,7 @@
                      </div>
                      <div class="action_btn d-flex justify-content-between">
                         <a href="{{url($course->slug."/booking")}}" class="btn btn-default d-inline-block m-1 mb-3 px-2 font-weight-normal" style="width:150px"> Book Now </a>
-                        <a class="btn btn-default d-inline-block m-1 mb-3 px-2 font-weight-normal" style="width:150px"> Enquiry Now </a>
+                        <a class="btn btn-default d-inline-block m-1 mb-3 px-2 font-weight-normal"   type="button"  data-toggle="modal" data-target="#enquiryForm" style="width:150px"> Enquiry Now </a>
                      </div>
                   </div>
                </div>
@@ -551,30 +557,32 @@
         });
     </script>
     <script>
-    function clicktoscroll(getid) {
-        console.log(this);
-        let e = document.getElementById(getid);
-        let position = e.getBoundingClientRect();
-        window.scrollTo(position.left, position.top + window.scrollY - 150);
+    function clicktoscroll(getid, clickedElement) {
+      const listItems = document.querySelectorAll('ul.list-inline > li');
+         listItems.forEach(item => item.classList.remove('active'));
+         clickedElement.classList.add('active');
+         let e = document.getElementById(getid);
+         let position = e.getBoundingClientRect();
+         window.scrollTo(position.left, position.top + window.scrollY - 150);
     }
-    var headings = $(".single_classes").find(".course_section");
+   //  var headings = $(".single_classes").find(".course_section");
     
-    $(window).scroll(function(e){
-        var windscroll = $(window).scrollTop();
-        if (windscroll >= 100) {
-            headings.each(function(i) {
+   //  $(window).scroll(function(e){
+   //      var windscroll = $(window).scrollTop();
+   //      if (windscroll >= 100) {
+   //          headings.each(function(i) {
                 
-                if ($(this).position().top <= windscroll - 20) {
-                    $('.topscrollbox li.active').removeClass('active');
-                    $('.topscrollbox li').eq(i).addClass('active');
-                }
-            });
+   //              if ($(this).position().top <= windscroll - 20) {
+   //                  $('.topscrollbox li.active').removeClass('active');
+   //                  $('.topscrollbox li').eq(i).addClass('active');
+   //              }
+   //          });
     
-        } else {
+   //      } else {
     
-            $('.topscrollbox li.active').removeClass('active');
-            $('.topscrollbox li:first').addClass('active');
-        }
-    }).scroll();
+   //          $('.topscrollbox li.active').removeClass('active');
+   //          $('.topscrollbox li:first').addClass('active');
+   //      }
+   //  }).scroll();
     </script>
 @endsection
