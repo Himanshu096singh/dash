@@ -263,7 +263,7 @@ button.close  span{font-size: 25px;}
    margin-bottom:20px;border-bottom:2px solid;}
    .courseinfolist ul li:before,.curriculam ul li:before {font-family: 'Font Awesome 5 Free';content: "\f14a";color: #cf3e5f;padding-right: 6px;font-weight: 600;}
    .courseinfolist ul li {color: black;margin-bottom: 10px;}
-   .dailyschedule ul li {list-style: none;padding: 0;}
+   .dailyschedule ul li {list-style: none;padding: 0;padding-left:20px;padding-bottom:25px}
    .dailyschedule .container {display: flex;justify-content: center;align-items: center;padding: 0 1rem;background: linear-gradient(45deg, #209cff, #68e0cf);padding: 3rem 0;}
    .dailyschedule .wrapper {background: #eaf6ff;padding: 2rem;border-radius: 15px;}
    .dailyschedule .sessions {margin-top: 2rem;border-radius: 12px;position: relative;}
@@ -313,3 +313,4 @@ button.close  span{font-size: 25px;}
 
 .form-group {margin-bottom: 1rem;}
 .form-control {height: 45px;padding: 10px 15px;font-size: 14px;}
+div#curriculam ul li {list-style: none;}
