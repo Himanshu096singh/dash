@@ -142,5 +142,6 @@ Route::post('handle-razorpay-response', [RazorpayController::class,'handleRazorp
 Route::post('contactsubmit',[FrontController::class,'contactsubmit'])->name('contactsubmit');
 Route::post('enquiry', [FrontController::class, 'enquiry'])->name('enquiry');
 Route::post('bookingform', [FrontController::class, 'bookingsubmit']);
+Route::post('workshoppriceupdate', [FrontController::class, 'workshoppriceupdate']);
 Route::post('courseprice', [FrontController::class, 'courseprice']);
 Route::post('searchbar', [FrontController::class, 'search']);

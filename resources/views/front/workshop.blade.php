@@ -187,7 +187,7 @@
                            </table>
                         </div>
                         <div class="action_btn d-flex justify-content-between">
-                           <a href="" class="btn btn-default d-inline-block m-1 mb-3 px-2 font-weight-normal" style="width:150px"> Book Now </a>
+                           <a href="{{url($workshop->slug.'/booking')}}" class="btn btn-default d-inline-block m-1 mb-3 px-2 font-weight-normal" style="width:150px"> Book Now </a>
                            <a class="btn btn-default d-inline-block m-1 mb-3 px-2 font-weight-normal" style="width:150px" data-toggle="modal" data-target="#enquiryFormWorkshop"> Enquiry Now </a>
                         </div>
                      </div>
