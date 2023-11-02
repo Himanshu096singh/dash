@@ -21,6 +21,7 @@ use App\Models\Founder;
 use App\Models\Gallery;
 use App\Models\Enquiry;
 use App\Models\Bookingform;
+use App\Models\Bookingworkshop;
 use App\Models\Workshop;
 use App\Models\Order;
 use Mail;
@@ -311,7 +312,42 @@ class FrontController extends Controller
         }
         return $price;
     }
-    
+    public function workshopbookingsubmit(Request $request){
+        // $amount = Workshop::where('id', $request->workshopid)->value($request->room);
+        // if($request->paymentmode == 1){
+        //     $amount = $amount * 0.15 ;
+        // }
+        $form                   =           new Bookingworkshop;   
+        $form->workshop_id      =           $request->workshopid;
+        $form->attend           =           $request->attend;
+        $form->name             =           $request->name;
+        $form->email            =           $request->email;
+        $form->country          =           $request->country_selector_code;
+        $form->phone            =           $request->number;
+        $form->paymentmode      =           $request->paymentmode;
+        $form->paymentmethod    =           $request->payment_option;
+        $form->price            =           $request->price;
+        $form->save();
+        return 1;
+        // if(Bookingform::latest()->exists()){
+        //     $lastestBook = Bookingform::latest('id')->first();
+        //     $lastestBookId = ($lastestBook->id)+1;
+        // }else{
+        //     $lastestBookId = 1;
+        // }
+        // $BookId = 'ODR000'.$lastestBookId;
+        // $order = Order::create([
+        //     'book_id'       => $BookId,
+        //     'form_id'       => $form['id'],
+        //     'course_id'     => $request->courseid,
+        //     'amount'        => $form['price'],
+        // ]);
+        // if($request->payment_option==0){
+        //     return redirect("paypal/payment/?ordid=$BookId");
+        // } else {
+        //     return app(RazorpayController::class)->processRazorpayPayment($BookId);
+        // }
+    }
     public function bookingsubmit(Request $request)
     {
 

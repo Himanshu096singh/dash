@@ -124,15 +124,16 @@
                            <tr>
                               <td>
                                  200 Hour Yoga Teacher Training in Rishikesh India<br/>
-                                 <span class="product-qty">Payment Mode:</span> Full Payment
+                                 <span class="fw-bold"> Payment Mode: </span> <span class="paymentypetxt">Full Payment</span>
                               </td>
-                              <td>$899.00</td>
+                              <td class="courseprice">$<span class="courseprice"></span></td>
                            </tr>
                         </tbody>
                         <tfoot>
                            <tr>
                               <td class="product-subtotal">Total</td>
-                              <td class="product-subtotal">$899.00</td>
+                              <td class="product-subtotal">$
+                                 <span class="courseprice"> </span> </td>
                            </tr>
                         </tfoot>
                      </table>
@@ -242,6 +243,7 @@
       const attend = document.querySelector("#workshopattend");
       const mode = document.querySelector("#paymentmode");
       const courseprice = document.querySelectorAll(".courseprice");
+      const paymenttype = document.querySelector(".paymentypetxt");
 
       const workshopflag = inputValidationfunc(workshop);
       const attendflag = inputValidationfunc(attend);
@@ -263,6 +265,7 @@
                for (const price of courseprice) {
                   price.innerHTML = data;
                }
+               paymenttype.innerHTML = paymenttype;
                console.log(data);
                // for (const price of courseprice) {
                //    price.innerHTML = data[roomvalue];
