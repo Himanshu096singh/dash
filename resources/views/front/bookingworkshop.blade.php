@@ -40,7 +40,7 @@
           <div class="col-lg-6 mt-5 mt-lg-0 formsstep">
             <form action="{{url('bookingforms2')}}" method="post">
                @csrf
-               <div class="step">
+               <div class="step1">
                   <div class="form-group">
                      <label>Select Workshop: <span class="required">*</span></label>
                      <div class="custom_select">
@@ -91,7 +91,7 @@
                   <div class="form-group">
                      <label>Payment Mode: <span class="required">*</span></label>
                      <div class="custom_select">
-                        <select id="paymentmode" name="paymentmode">
+                        <select id="paymentmode" name="paymentmode" onchange="updateWorkshop()">
                            <option value="">Choose Payment Mode</option>
                            <option value="0">Full Payment</option>
                            <option value="1">Advance Payment</option>
@@ -108,18 +108,10 @@
                      </div>
                   </div>
                   <div class="form-group">
-                     <a class="btn btn-default" onclick="myFunctionStep2()"> NEXT </a>
+                     <a class="btn btn-default" onclick="myFunctionStep1()"> NEXT </a>
                   </div>
                </div>
-               <div class="step3 d-none">
-                  <div class="booking-course-title d-flex justify-content-between mb-4 border-bottom">
-                     <div class="title">
-                        <h3 class="h4 clr-default" > Choose your payment method:</h3>
-                     </div>
-                     <div class="step">
-                        <h3 class="h5 clr-default"> Step 3 - 3</h3>
-                     </div>
-                  </div>
+               <div class="step2 d-none">
                   <div class="table-responsive order_table">
                      <table class="table table-bordered">
                         <thead>
@@ -195,13 +187,25 @@
       }
     }
     function myFunctionStep1() {
-         const bookingCourse = document.querySelector("#bookingcourse");
-         const bookingRoom = document.querySelector("#bookingroom");
-         const bookingDate = document.querySelector("#bookingdate");
-         const courseflag = bookingCoursefun(bookingCourse)
-         const roomflag = bookingCoursefun(bookingRoom)
-         const dateflag = bookingCoursefun(bookingDate)
-         if(courseflag && roomflag && dateflag){
+         console.log("d");
+         const workshopId     = document.querySelector("#workshop");
+         const workshopAttend = document.querySelector("#workshopattend");
+         const workshopName   = document.querySelector("#workshopname");
+         const workshopEmail  = document.querySelector("#workshopemail");
+         const workshopCountry = document.querySelector("#workshopcountry");
+         const workshopNumber = document.querySelector("#workshopnumber");
+         const workshopGender = document.querySelector("#workshopgender");
+         const workshopMode   = document.querySelector("#paymentmode");
+         const idflag      = inputValidationfunc(workshopId);
+         const Attendflag  = inputValidationfunc(workshopAttend);
+         const nameflag    = inputValidationfunc(workshopName);
+         const emailflag   = inputValidationfunc(workshopEmail);
+         const countryflag = inputValidationfunc(workshopCountry);
+         const numberflag  = inputValidationfunc(workshopNumber);
+         const genderflag  = inputValidationfunc(workshopGender);
+         const modeflag    = inputValidationfunc(workshopMode);
+
+         if(idflag && Attendflag && nameflag && emailflag && countryflag && numberflag && genderflag && modeflag){
             const step1 = document.querySelector(".step1");
             step1.classList.add("d-none");
             document.querySelector(".step2").classList.remove("d-none");
@@ -236,12 +240,16 @@
     function updateWorkshop(){
       const workshop = document.querySelector("#workshop");
       const attend = document.querySelector("#workshopattend");
+      const mode = document.querySelector("#paymentmode");
       const courseprice = document.querySelectorAll(".courseprice");
+
       const workshopflag = inputValidationfunc(workshop);
       const attendflag = inputValidationfunc(attend);
-      if(workshopflag && attendflag){
+      const modeflag = inputValidationfunc(mode);
+      if(workshopflag && attendflag && modeflag){
          const workshopvalue = workshop.value;
          const attendvalue = attend.value;
+         const modevalue = mode.value;
          $.ajaxSetup({
             headers: {
                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -250,8 +258,11 @@
          $.ajax({
             url: "/workshoppriceupdate",
             type: "POST",
-            data: { workshopvalue: workshopvalue, attendvalue: attendvalue},
+            data: { workshopvalue: workshopvalue, attendvalue: attendvalue,mode: modevalue},
             success: function (data) {
+               for (const price of courseprice) {
+                  price.innerHTML = data;
+               }
                console.log(data);
                // for (const price of courseprice) {
                //    price.innerHTML = data[roomvalue];

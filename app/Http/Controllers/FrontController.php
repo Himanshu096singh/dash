@@ -303,8 +303,12 @@ class FrontController extends Controller
     }
 
     public function workshoppriceupdate(Request $request){
-        return $workshop = Workshop::find($request->workshopvalue);
+        $attend = $request->attendvalue;
+        $workshop = Workshop::find($request->workshopvalue);
         $price = $workshop->$attend;
+        if($request->mode == 1){
+            return $price = $price * 0.15 ;
+        }
         return $price;
     }
     
