@@ -120,14 +120,15 @@ Route::post('razorpay-payment', [PaymentController::class, 'store'])->name('razo
 
 Route::get('paypal', [PayPalController::class, 'index'])->name('paypal');
 Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal.payment');
+
 Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('success.payment');
-Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('cancel.payment');
+Route::get('paypal/payment/error', [PayPalController::class, 'paymentCancel'])->name('error.payment');
 
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/success', [FrontController::class, 'success'])->name('success');
-Route::get('/error', [FrontController::class, 'error'])->name('cancel');
+Route::get('/error', [FrontController::class, 'error'])->name('error');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
-Route::get('/testimonial', [FrontController::class, 'testimonial'])->name('testimonial');
+Route::get('/testimonial', [FrontController::class, 'testimonial'])->name('testimonial'); 
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 Route::get('/gallery',[FrontController::class,'gallery'])->name('gallery');

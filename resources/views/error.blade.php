@@ -1,4 +1,4 @@
-@extends('layouts.error')
+@extends('layouts.front')
 @section('content')
 
 <section>

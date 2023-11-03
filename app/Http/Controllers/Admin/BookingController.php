@@ -17,7 +17,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $booking = Bookingform::with('orders')->get();
+        $booking = Bookingform::with('orders')->latest()->get();
         return view('back.booking.index',compact('booking'));
     }
 

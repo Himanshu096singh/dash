@@ -34,7 +34,7 @@ class RazorpayController extends Controller
     {
        
         $response = $request->input('response');
-
+ 
         // Process the payment response, update the database, or perform other actions
         if (isset($response['razorpay_payment_id'])) {
             $orderdetail = Order::where('razorpay_order_id',$response['razorpay_order_id'])->first();
@@ -43,6 +43,8 @@ class RazorpayController extends Controller
             $orderdetail->status = 1;
             $orderdetail->save();
             // Payment is successful
+            $request->session()->put('response', 'success');
+            return response()->json(['redirect' => route('success')]);
             return redirect()
             ->route('success')
             ->with('response','success')
@@ -52,8 +54,10 @@ class RazorpayController extends Controller
             $orderdetail = Order::where('razorpay_order_id',$response['razorpay_order_id'])->first();
             $orderdetail->status = 0;
             $orderdetail->save();
+            $request->session()->put('response', 'error');
+            return response()->json(['redirect' => route('error')]);
             return redirect()
-                ->route('cancel')
+                ->route('error')
                 ->with('response','error');
         }
 

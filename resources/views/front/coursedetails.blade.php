@@ -94,7 +94,7 @@
                         <li>
                            <div class="classes_date">
                               <label>Price: </label>
-                              <span>USD {{$course->privateroom}} </span>
+                              <span>$ {{number_format($course->shared6room, 2); }} USD </span>
                            </div>
                         </li>
                      </ul>
@@ -429,21 +429,21 @@
                            <tr>
                               <td>
                                  <span class="font-weight-bold">Private Room </span><br/>
-                                 ${{$course->privateroom}} USD
+                                 ${{number_format($course->privateroom, 2); }} USD
                               </td>
                               <td>
-                                 <span class="font-weight-bold">Private Room </span><br/>
-                                 ${{$course->shared2room}} USD
+                                 <span class="font-weight-bold"> 2-Shared Room </span><br/>
+                                 ${{number_format($course->shared2room, 2); }} USD
                               </td>
                            </tr>
                            <tr>
                               <td>
-                                 <span class="font-weight-bold">Private Room </span><br/>
-                                 ${{$course->shared3room}} USD
+                                 <span class="font-weight-bold"> 3-Shared Room </span><br/>
+                                 ${{number_format($course->shared3room, 2); }} USD
                               </td>
                               <td>
-                                 <span class="font-weight-bold">Private Room </span><br/>
-                                 ${{$course->shared6room}} USD
+                                 <span class="font-weight-bold"> 6-Shared Room </span><br/>
+                                 ${{number_format($course->shared6room, 2); }} USD
                               </td>
                            </tr>
                         </table>

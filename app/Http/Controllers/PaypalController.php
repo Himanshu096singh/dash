@@ -18,8 +18,8 @@ class PaypalController extends Controller
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
             "application_context" => [
-                "return_url" => route('success'),
-                "cancel_url" => route('error'),
+                "return_url" => route('success.payment'),
+                "cancel_url" => route('error.payment'),
             ],
             "purchase_units" => [
                 0 => [
@@ -41,12 +41,12 @@ class PaypalController extends Controller
             }
             
             return redirect()
-            ->route('cancel')
+            ->route('error')
             ->with('error', 'Something went wrong.');
             
         } else {
             return redirect()
-                ->route('success')
+                ->route('error')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
 
@@ -60,7 +60,7 @@ class PaypalController extends Controller
         $orderdetail->status = 0;
         $orderdetail->save();
         return redirect()
-                ->route('cancel')
+                ->route('error')
                 ->with('response','error');
     }
     public function paymentSuccess(Request $request)
@@ -83,7 +83,7 @@ class PaypalController extends Controller
             $orderdetail->status = 0;
             $orderdetail->save();
             return redirect()
-                ->route('cancel')
+                ->route('error')
                 ->with('response','error');
         }
     }

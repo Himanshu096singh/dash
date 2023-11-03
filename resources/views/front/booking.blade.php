@@ -181,18 +181,19 @@
                         <div class="payment_method">
                            <div class="custome-radio">
                               <input class="form-check-input" type="radio" name="payment_option" id="exampleRadios4" value="0" checked>
-                              <label class="form-check-label" for="exampleRadios4">Paytm</label>
-                              <p data-method="paytm" class="payment-text">Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                              <label class="form-check-label" for="exampleRadios4">Paypal</label>
+                              <p data-method="paypal" class="payment-text">Pay via PayPal; you can pay with your credit card if you don't have a PayPal account.</p>
                            </div>
                            <div class="custome-radio">
                               <input class="form-check-input" type="radio" name="payment_option" id="exampleRadios5" value="1">
                               <label class="form-check-label" for="exampleRadios5">Razorpay</label>
-                              <p data-method="razorpay" class="payment-text">Pay via PayPal; you can pay with your credit card if you don't have a PayPal account.</p>
+                              <p data-method="razorpay" class="payment-text d-block">Pay via Razorpay; you can pay with your UPI, Debit Card, Credit card if you don't have a Razorpay account.</p>
                            </div>
                         </div>
                         <button type="submit" class="btn btn-default">Place Order</a>
                      </div>
                   </div>
+                  
                </div>
             </form>
           </div>
@@ -293,7 +294,7 @@
                dateSelect.innerHTML = '';
                for (const dateObj of datesArray) {
                   const option = document.createElement('option');
-                  option.value = dateObj.id; // You can set the value to something meaningful if needed
+                  option.value = dateObj.date; // You can set the value to something meaningful if needed
                   option.text = dateObj.date;
                   dateSelect.appendChild(option);
                }

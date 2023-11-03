@@ -48,15 +48,14 @@
             type: "POST",
             data: { response: response },
             success: function (data) {
-                console.log(data);
                 $('#payment-response').html(data);
+                window.location.href = data.redirect;
             },
             error: function (xhr, status, error) {
-                console.error(error);
+                $('#payment-response').html(data);
+                window.location.href = data.redirect;
             }
         });
-
-        console.log("ends")
     }
 
 </script>

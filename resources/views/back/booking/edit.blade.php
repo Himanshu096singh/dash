@@ -31,12 +31,15 @@
         </div>
         <div class="col-md-6 col-12 text-right">
           <h2 class="primary text-uppercase">Invoice</h2>
-          <p class="pb-3"># INV-001001</p>
+          <p class="pb-3"># {{$booking->orders->book_id}}</p>
+            @php
+                $room = $booking->room;
+            @endphp
             @if($booking->paymentmode==1)
               <ul class="px-0 list-unstyled">
                 <li>Balance Due</li>
-                <li class="font-medium-2 text-bold-700">$12,000.00</li>
-              </ul>
+                <li class="font-medium-2 text-bold-700">${{number_format($booking->course->$room - $booking->price,2)}}
+                </ul>
             @endif
         </div>
       </div>
@@ -68,9 +71,10 @@
                 <tr>
                   <th>#</th>
                   <th>Course</th>
+                  <th>Date</th>
                   <th class="text-right">Price</th>
                   <th class="text-right">Payment Mode</th>
-                  <th class="text-right">Amount</th>
+                  <th class="text-right">Amount Paid</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,11 +83,14 @@
                   <td>
                     <p>{{$booking->course->name}}</p>
                   </td>
+                  <td>
+                    <p>{{$booking->date}}</p>
+                  </td>
                   <td class="text-right">
                     @php
                         $room = $booking->room;
                     @endphp
-                    $ {{$booking->course->$room}} USD</td>
+                    ${{number_format($booking->course->$room,2)}} USD</td>
                     <td class="text-right">
                         @if($booking->paymentmode == 0)
                             Full Payment
@@ -91,7 +98,7 @@
                             Advance Payment
                         @endif
                     </td>
-                  <td class="text-right">$ {{$booking->price}} USD</td>
+                  <td class="text-right">${{number_format($booking->price,2)}} USD</td>
                 </tr>
 
               </tbody>
@@ -117,16 +124,16 @@
                   
                   <tr>
                     <td class="text-bold-800">Total</td>
-                    <td class="text-bold-800 text-right"> $ {{$booking->course->$room}}</td>
+                    <td class="text-bold-800 text-right">${{number_format($booking->course->$room,2)}} USD</td>
                   </tr>
                   @if($booking->paymentmode == 1)
                     <tr>
                         <td>Payment Mode (Advance)</td>
-                        <td class="danger text-right">(-) ${{$booking->price}}</td>
+                        <td class="danger text-right">(-) ${{number_format($booking->price,2)}} USD</td>
                     </tr>
                     <tr class="text-bold-500">
                         <td>Balance Due</td>
-                        <td class="text-right">${{$booking->course->$room - $booking->price}}</td>
+                        <td class="text-right">${{number_format($booking->course->$room - $booking->price,2)}} </td>
                     </tr>
                   @endif
                 </tbody>
@@ -148,8 +155,7 @@
           <div class="col-md-6 col-12">
             <div class="signature text-center">
               <p>Authorized person</p>
-              <img src="../app-assets/img/pages/signature-scan.png" alt="signature" width="250">
-              <h6 class="mt-4">Amanda Orton</h6>
+              <h6 class="mt-4">John Doe</h6>
               <p class="text-muted">Managing Director</p>
             </div>
           </div>
