@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2023 at 05:44 PM
+-- Generation Time: Nov 03, 2023 at 04:47 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -101,50 +101,44 @@ CREATE TABLE `bookingforms` (
 --
 
 INSERT INTO `bookingforms` (`id`, `course_id`, `room`, `date`, `name`, `email`, `country`, `phone`, `price`, `message`, `paymentmode`, `paymentmethod`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'shared3room', '3', 'himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7412589630', '0', 'test', 0, 0, 0, '2023-10-18 02:13:08', '2023-10-18 02:13:08'),
-(2, 1, 'privateroom', '1', 'test', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '70456456465', '0', 'test', 0, 0, 0, '2023-10-25 08:47:31', '2023-10-25 08:47:31'),
-(3, 1, 'privateroom', '1', 'test', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '70456456465', '0', 'ddd', 0, 0, 0, '2023-10-25 08:49:28', '2023-10-25 08:49:28'),
-(4, 1, 'privateroom', '1', 'test', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '70456456465', '0', 'DSF', 0, 0, 0, '2023-10-25 08:50:10', '2023-10-25 08:50:10'),
-(5, 1, 'shared2room', '2', 'test', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '70456456465', '0', 'rr444', 0, 0, 0, '2023-10-25 08:50:41', '2023-10-25 08:50:41'),
-(6, 1, 'shared3room', '2', 'test', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '70456456465', '0', 'eee', 0, 0, 0, '2023-10-25 08:51:01', '2023-10-25 08:51:01'),
-(7, 2, 'shared3room', '2', 'Himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7417417410', '134.85', 'test', 1, 0, 0, '2023-10-26 02:37:42', '2023-10-26 02:37:42'),
-(8, 2, 'shared6room', '2', 'Himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7417417410', '170', 'xc', 1, 0, 0, '2023-10-26 02:40:19', '2023-10-26 02:40:19'),
-(9, 2, 'shared3room', '2', 'Himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7417417410', '135', 'test', 1, 0, 0, '2023-10-26 02:50:39', '2023-10-26 02:50:39'),
-(10, 2, 'shared2room', '3', 'Himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7417417410', '90', 'test', 1, 0, 0, '2023-10-26 02:52:25', '2023-10-26 02:52:25'),
-(11, 2, 'shared6room', '2', 'himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7412589630', '170', 'test', 1, 0, 0, '2023-10-26 03:45:38', '2023-10-26 03:45:38'),
-(12, 1, 'privateroom', '1', 'test', 'test@gmail.com', 'Australia', '7045454544', '45', 'test', 1, 0, 0, '2023-10-26 04:00:17', '2023-10-26 04:00:17'),
-(13, 1, 'shared6room', '6', 'test', 'test@gmail.com', 'Australia', '7045454544', '999', 'j', 0, 0, 0, '2023-10-26 04:08:26', '2023-10-26 04:08:26'),
-(14, 2, 'shared2room', '4', 'himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '3434343433', '599', 'test', 0, 0, 0, '2023-10-26 04:14:16', '2023-10-26 04:14:16'),
-(15, 2, 'shared3room', '4', 'test', 'test@gmail.com', 'Australia', '8794564145', '135', '8794564145', 1, 0, 0, '2023-10-26 04:15:50', '2023-10-26 04:15:50'),
-(16, 2, 'shared6room', '4', 'test', 'test@gmail.com', 'usa', '78945645', '170', '789', 1, 0, 0, '2023-10-26 04:17:48', '2023-10-26 04:17:48'),
-(17, 2, 'shared6room', '4', 'test', 'test@gmail.com', 'United States', '78945645', '170', '789', 1, 0, 0, '2023-10-26 04:17:51', '2023-10-26 04:17:51'),
-(18, 2, 'shared6room', '3', 'test', 'test@gmail.com', 'United States', '789456124', '170', 'test', 1, 1, 0, '2023-10-26 04:25:37', '2023-10-26 04:25:37'),
-(19, 2, 'shared2room', '3', 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '741258930', '90', 'test', 1, 0, 0, '2023-10-26 06:49:16', '2023-10-26 06:49:16'),
-(20, 2, 'shared2room', '3', 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '741258930', '90', 'ff', 1, 1, 0, '2023-10-26 06:49:28', '2023-10-26 06:49:28'),
-(21, 2, 'shared2room', '3', 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '741258930', '90', 'ff', 1, 1, 0, '2023-10-26 06:50:37', '2023-10-26 06:50:37'),
-(22, 2, 'shared2room', '3', 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '741258930', '90', 'dd', 1, 1, 0, '2023-10-26 06:50:43', '2023-10-26 06:50:43'),
-(23, 2, 'shared2room', '3', 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '741258930', '90', 'dd', 1, 1, 0, '2023-10-26 06:51:20', '2023-10-26 06:51:20'),
-(24, 2, 'shared2room', '3', 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '741258930', '90', 'dd', 1, 1, 0, '2023-10-26 07:17:53', '2023-10-26 07:17:53'),
-(25, 2, 'shared2room', '3', 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '741258930', '90', 'h', 1, 1, 0, '2023-10-26 07:18:25', '2023-10-26 07:18:25'),
-(26, 2, 'shared2room', '2', 'tes', 'test@gmail.co', 'American Samoa', '704545455545', '90', 'test', 1, 1, 0, '2023-10-26 07:47:22', '2023-10-26 07:47:22'),
-(27, 2, 'shared2room', '5', 'tes', 'test@gmail.co', 'American Samoa', '704545455545', '90', 'h', 1, 1, 0, '2023-10-26 07:51:03', '2023-10-26 07:51:03'),
-(28, 2, 'shared2room', '5', 'tes', 'test@gmail.co', 'American Samoa', '704545455545', '90', 'h', 1, 1, 0, '2023-10-26 07:54:01', '2023-10-26 07:54:01'),
-(29, 1, 'privateroom', '2', 'himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '70454544454', '299', 'test', 0, 1, 0, '2023-10-26 07:55:52', '2023-10-26 07:55:52'),
-(30, 2, 'shared2room', '2', 'himanshu', 'himanshu01eglobalsoft@gmail.com', 'Bouvet Island (Bouvetøya)', '7412589633', '90', 'test', 1, 1, 0, '2023-10-26 08:11:47', '2023-10-26 08:11:47'),
-(31, 2, 'shared2room', '2', 'himanshu', 'himanshu01eglobalsoft@gmail.com', 'Bouvet Island (Bouvetøya)', '7412589633', '90', 'test', 1, 1, 0, '2023-10-26 08:12:48', '2023-10-26 08:12:48'),
-(32, 1, 'shared2room', '4', 'himanshu', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '7412365895', '499', 'test', 0, 1, 0, '2023-10-26 08:29:55', '2023-10-26 08:29:55'),
-(33, 2, 'shared2room', '2', 'test', 'test@gmail.com', 'India (भारत)', '7412589630', '599', 'test', 0, 1, 0, '2023-10-26 08:32:13', '2023-10-26 08:32:13'),
-(34, 2, 'shared3room', '3', 'himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7412589630', '899', 'test', 0, 1, 0, '2023-10-26 08:34:07', '2023-10-26 08:34:07'),
-(35, 2, 'shared2room', '3', 'himanhu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '741258965', '599', 'test', 0, 1, 0, '2023-10-26 08:37:04', '2023-10-26 08:37:04'),
-(36, 1, 'shared2room', '4', 'himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7412589630', '75', 'test', 1, 1, 0, '2023-10-26 08:53:06', '2023-10-26 08:53:06'),
-(37, 1, 'shared3room', '3', 'test', 'test@gmail.com', 'India (भारत)', '7412589630', '105', 'test', 1, 1, 0, '2023-10-26 08:58:00', '2023-10-26 08:58:00'),
-(38, 1, 'shared2room', '4', 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '741258960', '75', 'test', 1, 1, 0, '2023-10-26 09:00:53', '2023-10-26 09:00:53'),
-(39, 2, 'shared2room', '3', 'test', 'test@gmail.com', 'India (भारत)', '7412589630', '90', 'test', 1, 1, 0, '2023-10-26 09:05:06', '2023-10-26 09:05:06'),
-(40, 2, 'shared2room', '3', 'test', 'test@gmail.com', 'India (भारत)', '7412589630', '90', 'test', 1, 1, 0, '2023-10-26 09:09:07', '2023-10-26 09:09:07'),
-(41, 2, 'shared2room', '2', 'test', 'himanshu01eglobalsoft@gmail.com', 'Botswana', '7412589635', '599', 'test', 0, 1, 0, '2023-10-26 09:09:34', '2023-10-26 09:09:34'),
-(42, 2, 'shared2room', '2', 'test', 'himanshu01eglobalsoft@gmail.com', 'Botswana', '7412589635', '599', 'test', 0, 1, 0, '2023-10-26 09:10:00', '2023-10-26 09:10:00'),
-(43, 2, 'shared2room', '2', 'test', 'himanshu01eglobalsoft@gmail.com', 'Botswana', '7412589635', '599', 'dsf', 0, 1, 0, '2023-10-26 09:10:21', '2023-10-26 09:10:21'),
-(44, 1, 'shared3room', '3', 'himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7412589630', '105', 'test', 1, 1, 0, '2023-10-26 09:21:25', '2023-10-26 09:21:25');
+(11, 7, 'shared3room', '1 Apr - 25 Apr 2023', 'Himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7412589630', '999', 'this is test message', 0, 0, 0, '2023-11-03 02:52:17', '2023-11-03 02:52:17'),
+(12, 4, 'shared2room', '1 Mar - 25 Mar 2023', 'test', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7415896545t', '180', 'est', 1, 1, 0, '2023-11-03 02:56:53', '2023-11-03 02:56:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bookingworkshops`
+--
+
+CREATE TABLE `bookingworkshops` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `workshop_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `price` varchar(255) DEFAULT NULL,
+  `attend` varchar(255) DEFAULT NULL,
+  `paymentmode` tinyint(1) NOT NULL DEFAULT 0,
+  `paymentmethod` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `bookingworkshops`
+--
+
+INSERT INTO `bookingworkshops` (`id`, `workshop_id`, `name`, `email`, `country`, `phone`, `price`, `attend`, `paymentmode`, `paymentmethod`, `created_at`, `updated_at`) VALUES
+(8, 1, 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '33333333333', NULL, 'onlineprice', 0, 0, '2023-11-03 07:55:29', '2023-11-03 07:55:29'),
+(9, 1, 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '324333333333', '45', 'onlineprice', 1, 0, '2023-11-03 07:57:53', '2023-11-03 07:57:53'),
+(10, 1, 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '232323223', '299', 'onlineprice', 0, 0, '2023-11-03 07:59:45', '2023-11-03 07:59:45'),
+(11, 1, 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '35435435435', '45', 'onlineprice', 1, 0, '2023-11-03 08:06:58', '2023-11-03 08:06:58'),
+(12, 2, 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '2343243232', '105', 'onlineprice', 1, 0, '2023-11-03 08:07:19', '2023-11-03 08:07:19'),
+(13, 1, 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '345345345345', '299', 'onlineprice', 0, 0, '2023-11-03 08:13:36', '2023-11-03 08:13:36'),
+(14, 1, 'test', 'himanshu01eglobalsoft@gmail.com', 'British Indian Ocean Territory', '32444444444', '45', 'onlineprice', 1, 0, '2023-11-03 08:15:41', '2023-11-03 08:15:41'),
+(15, 1, 'test', 'himanshu01eglobalsoft@gmail.com', 'Australia', '88888888888', '299', 'onlineprice', 0, 0, '2023-11-03 08:16:59', '2023-11-03 08:16:59'),
+(16, 1, 'test', 'himanshu01eglobalsoft@gmail.com', 'Australia', '555555555555', '299', 'onlineprice', 0, 1, '2023-11-03 08:17:14', '2023-11-03 08:17:14');
 
 -- --------------------------------------------------------
 
@@ -262,11 +256,92 @@ CREATE TABLE `coursecurriculams` (
 --
 
 INSERT INTO `coursecurriculams` (`id`, `course_id`, `question`, `answer`, `created_at`, `updated_at`) VALUES
-(2, 1, 'Traditional Hatha Yoga', '<ul><li>Historical contexts of hatha yoga</li><li>Pawan muktasana series 1, 2 &amp; 3</li><li>Traditional Surya Namaskara (Sun Salutation)<br><br>The below asana series will be covered with the particular asana alignment &amp; adjustment, variations, contraindications, breathing techniques and their benefits<br></li></ul><ul><li>Standing asana series</li><li>Pawan muktasana series 1, 2 &amp; 3</li><li>Traditional Surya Namaskara (Sun Salutation)</li><li>Kneeling asana series</li><li>Sitting asana series</li><li>Forward bending asana series</li><li>Backward bending asana series</li><li>Twisting asana series</li><li>Arm balancing asana series</li><li>Prone asnana series</li><li>Supine asana series</li><li>Inversion asana series</li><li>Balancing asana series</li><li>Relaxing asana series</li></ul>', '2023-10-11 02:18:53', '2023-10-11 02:18:53'),
-(3, 1, 'Ashtanga Vinyasa Yoga', '<ul><li>Historical contexts of Ashtanga Vinyasa yoga including different asanas.</li><li>Ashtanga Primary series Asanas with the asana alignment &amp; adjustment, variations, contraindications, breathing techniques and their benefits</li><li>Surya Namaskar A (Sun salutation A) - 9 Vinyasas</li><li>Surya Namaskar B (Sun salutation B) - 17 Vinyasas</li><li>Standing asana series</li><li>Sitting asana series</li><li>Closing sequesnce</li><li>Understanding &amp; practice of Vinyasa Flow</li></ul>', '2023-10-11 02:18:54', '2023-10-11 02:18:54'),
-(4, 1, 'Alignment & Adjustment', '<p>Alignment &amp; Adjustment is the process to learn the correct ways or techniques to get in or out of an asana. You will get in-depth theories of asana, variations, alignment, and contraindications. Yoga alignment and adjustment will help you increase your mastery of yoga. You will learn different techniques and types of adjustment for the yoga sequences. It is the main idea to guide your students in each pose or asana. Adjustment is one of the important aspects of yoga. Verbal cueing is not enough, it is important for proper alignment. Students learn best through physical instruction. Our 200 hour YTTC also makes you feel more confident about hands-on adjustments. It is our top priority.<br></p>', '2023-10-11 02:18:54', '2023-10-11 02:18:54'),
-(5, 1, 'Pranayama / Breathing Practices', '<ul><li>Historical contexts of Ashtanga Vinyasa yoga including different asanas.</li><li>Ashtanga Primary series Asanas with the asana alignment &amp; adjustment, variations, contraindications, breathing techniques and their benefits</li><li>Surya Namaskar A (Sun salutation A) - 9 Vinyasas</li><li>Surya Namaskar B (Sun salutation B) - 17 Vinyasas</li><li>Standing asana series</li><li>Sitting asana series</li><li>Closing sequesnce</li><li>Understanding &amp; practice of Vinyasa Flow</li></ul>', '2023-10-11 02:18:54', '2023-10-11 02:18:54'),
-(6, 1, 'Mudra (Hand Gestures)', '<p><span style=\"letter-spacing: 0.3px;\">Alignment &amp; Adjustment is the process to learn the correct ways or techniques to get in or out of an asana. You will get in-depth theories of asana, variations, alignment, and contraindications. Yoga alignment and adjustment will help you increase your mastery of yoga. You will learn different techniques and types of adjustment for the yoga sequences. It is the main idea to guide your students in each pose or asana. Adjustment is one of the important aspects of yoga. Verbal cueing is not enough, it is important for proper alignment. Students learn best through physical instruction. Our 200 hour YTTC also makes you feel more confident about hands-on adjustments. It is our top priority.</span><br></p>', '2023-10-11 02:18:54', '2023-10-11 02:18:54');
+(16, 4, 'Advanced Asana Practice (Hatha & Ashtanga Vinyasa):', '<ul><li>In-depth exploration of Hatha and Ashtanga Vinyasa yoga asanas (postures).</li><li>Advanced variations, modifications, and adjustments.</li><li>Refinement of alignment principles and sequencing.</li></ul>', '2023-10-28 07:09:10', '2023-10-28 07:09:10'),
+(17, 4, 'Pranayama and Breathwork:', '<ul><li>Advanced pranayama techniques and their application.</li><li>Breath awareness and control.</li><li>Incorporating pranayama into Hatha and Ashtanga classes.</li></ul>', '2023-10-28 07:09:10', '2023-10-28 07:09:10'),
+(18, 4, 'Meditation and Mindfulness:', '<ul><li>Advanced meditation techniques.</li><li>Mindfulness and its application to yoga.</li><li>Teaching meditation and mindfulness to students.</li></ul>', '2023-10-28 07:09:10', '2023-10-28 07:09:10'),
+(19, 4, 'Yoga Philosophy and History:', '<ul><li>Deep dive into yoga philosophy texts (e.g., Bhagavad Gita, Yoga Sutras of Patanjali).</li><li>Comparative study of Hatha and Ashtanga yoga philosophies.</li><li>Ethical principles and living a yogic lifestyle (yamas and niyamas).</li></ul>', '2023-10-28 07:09:10', '2023-10-28 07:09:10'),
+(20, 4, 'Anatomy and Physiology:', '<ul><li>Advanced study of human anatomy relevant to yoga practice.</li><li>Biomechanics of Hatha and Ashtanga yoga poses.</li><li>Injury prevention and management.</li><li>In-depth understanding of alignment in Hatha and Ashtanga poses.</li><li>Alignment for injury prevention and therapeutic applications.</li><li>Adapting poses to individual anatomical differences.</li></ul>', '2023-10-28 07:09:10', '2023-10-28 07:09:10'),
+(21, 4, 'Teaching Methodology:', '<ul><li>Advanced teaching techniques and pedagogy.</li><li>Designing and leading advanced Hatha and Ashtanga yoga classes.</li><li>Working with diverse student populations and needs.</li></ul>', '2023-10-28 07:09:10', '2023-10-28 07:09:10'),
+(22, 4, 'Adjustments and Assists:', '<ul><li>Advanced adjustments and assists for Hatha and Ashtanga poses.</li><li>Hands-on techniques for safe and effective guidance.</li><li>Ethical considerations in physical adjustments.</li></ul>', '2023-10-28 07:09:10', '2023-10-28 07:09:10'),
+(23, 4, 'Advanced Sequencing:', '<ul><li>Advanced class sequencing for Hatha and Ashtanga yoga.</li><li>Developing themed and specialized classes.</li><li>Progressive sequencing for different levels of students.</li></ul>', '2023-10-28 07:09:10', '2023-10-28 07:09:10'),
+(24, 4, 'Practicum and Teaching Experience: -', '<ul><li>Teaching practice sessions with feedback.</li><li>Assisting and observing other teachers.</li><li>Developing your unique teaching style.</li></ul>', '2023-10-28 07:09:10', '2023-10-28 07:09:10'),
+(25, 4, 'Business and Ethics', '<ul><li>Marketing and running a successful yoga business.&nbsp;</li><li>Legal and ethical considerations for yoga professionals.</li></ul>', '2023-10-28 07:09:10', '2023-10-28 07:09:10'),
+(26, 4, 'Final Assessment and Certification', '<ul><li>Typically, a final examination and teaching practicum.</li><li>Graduation and certification as a 300-Hour Yoga Teacher.</li></ul>', '2023-10-28 07:09:10', '2023-10-28 07:09:10'),
+(27, 5, 'Hatha yoga Practice:', '<ul><li>In-depth exploration of Hatha yoga asanas (postures).</li><li>Learning and practicing a wide range of yoga postures, including standing, seated, forward bends, backbends, inversions, and twists.</li><li>Emphasis on proper alignment, adjustments, and modifications to accommodate different body types and abilities.</li><li>Sequencing Hatha yoga classes for different levels.</li><li>Advanced variations, modifications, and adjustments.</li><li>Refinement of alignment principles and sequencing.</li></ul>', '2023-10-28 07:20:10', '2023-10-28 07:20:10'),
+(28, 5, 'Ashtanga Yoga Practice:', '<ul><li>Detailed study and practice of the Ashtanga Primary Series and Secondary series including the specific sequence of asanas and vinyasas (movement-breath coordination).</li><li>Mysore-style practice and self-practice techniques.</li><li>Understanding the foundational principles of Ashtanga yoga as outlined in Patanjali\'s Yoga Sutras.</li><li>Exploration of the eight limbs of Ashtanga yoga, with an emphasis on the first two limbs (yamas and niyamas).</li></ul>', '2023-10-28 07:20:10', '2023-10-28 07:20:10'),
+(29, 5, 'Pranayama and Breathwork:', '<ul><li>Beginner to advanced pranayama techniques and their application.</li><li>Breath awareness and control.</li><li>Incorporating pranayama into Hatha and Ashtanga classes.</li></ul>', '2023-10-28 07:20:10', '2023-10-28 07:20:10'),
+(30, 5, 'Meditation and Mindfulness:', '<ul><li>Beginner to advanced meditation techniques.</li><li>Mindfulness and its application to yoga.</li><li>Teaching meditation and mindfulness to students</li></ul>', '2023-10-28 07:20:10', '2023-10-28 07:20:10'),
+(31, 5, 'Yoga Philosophy and History:', '<ul><li>Deep dive into yoga philosophy texts (e.g., Bhagavad Gita, Yoga Sutras of Patanjali).</li><li>Comparative study of Hatha and Ashtanga yoga philosophies.</li><li>Ethical principles and living a yogic lifestyle (yamas and niyamas).</li></ul>', '2023-10-28 07:20:10', '2023-10-28 07:20:10'),
+(32, 5, 'Anatomy and Physiology:', '<ul><li>Advanced study of human anatomy relevant to yoga practice.</li><li>Biomechanics of Hatha and Ashtanga yoga poses.</li><li>Injury prevention and management.</li><li>In-depth understanding of alignment in Hatha and Ashtanga poses.</li><li>Alignment for injury prevention and therapeutic applications.</li><li>Adapting poses to individual anatomical differences.</li></ul>', '2023-10-28 07:20:10', '2023-10-28 07:20:10'),
+(33, 5, 'Teaching Methodology:', '<ul><li>Advanced teaching techniques and pedagogy.</li><li>Designing and leading advanced Hatha and Ashtanga yoga classes.</li><li>Working with diverse student populations and needs.</li></ul>', '2023-10-28 07:20:10', '2023-10-28 07:20:10'),
+(34, 5, 'Alignment, Adjustments and Sequencing', '<ul><li>Advanced adjustments and assists for Hatha and Ashtanga poses.</li><li>Hands-on techniques for safe and effective guidance.</li><li>Ethical considerations in physical adjustments.</li><li>Advanced class sequencing for Hatha and Ashtanga yoga.</li><li>Developing themed and specialized classes.</li><li>Progressive sequencing for different levels of students.</li></ul>', '2023-10-28 07:20:10', '2023-10-28 07:20:10'),
+(35, 5, 'Practicum and Teaching Experience', '<ul><li>Teaching practice sessions with feedback.</li><li>Assisting and observing other teachers. - Developing your unique teaching style.</li></ul>', '2023-10-28 07:20:10', '2023-10-28 07:20:10'),
+(36, 5, 'Final Assessment and Certification', '<ul><li>Typically, a final examination and teaching practicum</li><li>Graduation and certification as a 500-Hour Hatha and Ashtanga Yoga Teacher.</li></ul>', '2023-10-28 07:20:10', '2023-10-28 07:20:10'),
+(37, 1, 'Hatha Yoga Asanas (Postures):', '<p></p><p><ul></ul></p><ul><li>In-depth study and practice of Hatha yoga asanas, including alignment, benefits, and variations.</li><li>Learning and practicing a wide range of yoga postures, including standing, seated, forward bends, backbends, inversions, and twists.</li><li>Emphasis on proper alignment, adjustments, and modifications to accommodate different body types and abilities.</li><li>Sequencing Hatha yoga classes for different levels.</li></ul>', '2023-10-30 22:44:41', '2023-10-30 22:44:41'),
+(38, 1, 'Ashtanga Yoga:', '<ul><li>Detailed study and practice of the Ashtanga Primary Series, including the specific sequence of asanas and vinyasas (movement-breath coordination).<br></li><li>Mysore-style practice and self-practice techniques.</li><li>Understanding the foundational principles of Ashtanga yoga as outlined in Patanjali\'s Yoga Sutras.</li><li>Exploration of the eight limbs of Ashtanga yoga, with an emphasis on the first two limbs (yamas and niyamas).</li></ul>', '2023-10-30 22:44:41', '2023-10-30 22:44:41'),
+(39, 1, 'Pranayama (Breath Control)', '<p></p><p><ul></ul></p><ul><li>Exploration of various pranayama techniques specific to Hatha yoga.</li><li>Integrating breath control into the practice and teaching.</li><li>Instruction in various pranayama techniques to improve breath awareness, control, and energy management.</li><li>How to incorporate pranayama into yoga classes for enhanced practice.</li></ul>', '2023-10-30 22:44:41', '2023-10-30 22:44:41'),
+(40, 1, 'Meditation:', '<ul><li>Introduction to Hatha yoga meditation techniques.</li><li>Different types of Meditation techniques</li><li>Incorporating relaxation and meditation into Hatha yoga sessions.</li></ul>', '2023-10-30 22:44:41', '2023-10-30 22:44:41'),
+(41, 1, 'Yoga Philosophy:', '<ul><li><li>Study of classical yoga texts like the Yoga Sutras and the Bhagavad Gita.</li><li>Discussions on the philosophy and ethics of yoga.</li></li></ul>', '2023-10-30 22:44:41', '2023-10-30 22:44:41'),
+(42, 1, 'Anatomy and Physiology:', '<ul><li><li>Detailed examination of anatomy relevant to Hatha and Ashtanga yoga practice.</li><li>How yoga affects the muscular, skeletal, and respiratory systems.</li></li></ul>', '2023-10-30 22:44:41', '2023-10-30 22:44:41'),
+(43, 1, 'Teaching Methodology:', '<ul><li><li>Learning the art of teaching Hatha and Ashtanga yoga, including effective cueing, hands-on adjustments, and the art of sequencing.</li><li>Practice teaching sessions with peer and instructor feedback.</li></li></ul>', '2023-10-30 22:44:41', '2023-10-30 22:44:41'),
+(44, 1, 'Chanting and Mantras:', '<ul><li><li>Introduction to Sanskrit chanting and mantras in the context of Hatha and Ashtanga yoga.</li><li>Chanting of traditional mantras for grounding and spiritual connection.</li></li></ul>', '2023-10-30 22:44:41', '2023-10-30 22:44:41'),
+(45, 1, 'Practical Teaching Experience:', '<ul><li><li>Opportunities to teach segments of yoga classes and receive feedback from instructors and peers.</li><li>Supervised teaching practice to develop teaching skills.</li></li></ul>', '2023-10-30 22:44:41', '2023-10-30 22:44:41'),
+(46, 1, 'Yogic Lifestyle and Ethics:', '<ul><li>Exploration of the yogic way of life, including ethical guidelines for yoga teachers.</li><li>Discussions on maintaining professionalism and appropriate teacher-student relationships.</li></ul>', '2023-10-30 22:44:41', '2023-10-30 22:44:41'),
+(47, 6, 'Kundalini Yoga Philosophy:', '<ul><li>Study of Kundalini Yoga philosophy and its roots in traditional yoga and Sikhism.</li><li>Understanding the concept of Kundalini energy, chakras, and their significance.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(48, 6, 'Kundalini Yoga Practices:', '<ul><li>Kundalini Yoga asanas (postures) designed to facilitate the flow of Kundalini energy.</li><li>Understanding the alignment and benefits of Kundalini Yoga postures.</li><li>In-depth exploration and practice of Kundalini Yoga kriyas (specific sequences of postures, breathwork, and sound) for various purposes, such as awakening energy, balancing the chakras, and promoting physical and mental well-being.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(49, 6, 'Meditation and Mantras:', '<ul><li>Introduction to Kundalini meditation techniques, including mantra meditation.</li><li>Learning and chanting Kundalini mantras (sound vibrations) and their effects.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(50, 6, 'Pranayama and Breathwork:', '<ul><li>Study and practice of specific Kundalini pranayama techniques for energy control and mental clarity.</li><li>Incorporating breathwork into Kundalini Yoga sessions.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(51, 6, 'Anatomy and Physiology : Energetic Anatomy:', '<ul><li>Exploration of the subtle body, including the nadis (energy channels) and chakras (energy centers).</li><li>How Kundalini Yoga affects the energetic and physiological aspects of the body.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(52, 6, 'Anatomy and Physiology : Physical Anatomy:', '<ul><li>An overview of basic human anatomy and physiology relevant to Kundalini Yoga practice.</li><li>Understanding the body\'s physical responses during Kundalini Yoga practice.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(53, 6, 'Teaching Methodology: Effective Teaching Skills:', '<ul><li>Learning the art of teaching Kundalini Yoga, including class sequencing, instructions, and maintaining a safe and sacred space.</li><li>Practicing teaching Kundalini Yoga kriyas and meditations.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(54, 6, 'Teaching Methodology:  Ethics and Professionalism:', '<ul><li>Exploring ethical guidelines for Kundalini Yoga teachers.</li><li>Maintaining professionalism and appropriate teacher-student relationships.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(55, 6, 'Kundalini Yoga Lifestyle: Yogic Lifestyle and Diet:', '<ul><li>Discussion of the Kundalini Yoga way of life, including diet, daily routines, and maintaining a yogic lifestyle.</li><li>How to integrate Kundalini Yoga principles into daily life.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(56, 6, 'Kundalini Yoga Lifestyle:  Hatha Yoga Asanas (Postures):', '<ul><li>In-depth study and practice of Hatha yoga asanas, including alignment, benefits, and variations.</li><li>Learning and practicing a wide range of yoga postures, including standing, seated, forward bends, backbends, inversions, and twists.</li><li>Emphasis on proper alignment, adjustments, and modifications to accommodate different body types and abilities.</li><li>Sequencing Hatha yoga classes for different levels.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(57, 6, 'Personal Growth and Self-Reflection: Self-Reflection and Personal Growth:', '<ul><li>Encouragement of self-inquiry, self-awareness, and personal growth throughout the training.</li><li>Developing a deeper understanding of one\'s own spiritual journey.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(58, 6, 'Practical Teaching Experience: Practice Teaching:', '<ul><li>Opportunities to lead Kundalini Yoga classes and receive feedback from instructors and peers.</li><li>Supervised teaching practice to refine teaching skills.</li></ul>', '2023-10-30 22:52:48', '2023-10-30 22:52:48'),
+(59, 7, 'Kundalini Yoga Philosophy and History:', '<ul><li>In-depth study of Kundalini Yoga philosophy, including its origins and evolution.</li><li>Exploration of Kundalini energy, chakras, and their significance.</li><li>Understanding the teachings of Kundalini Yoga masters like Yogi Bhajan.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(60, 7, 'Advanced Kundalini Kriyas and Asanas:', '<ul><li>Practice and instruction in advanced Kundalini kriyas (sets of postures, breath, and sound) and asanas.</li><li>Focus on the correct alignment, sequencing, and modifications for advanced poses.</li><li>Incorporating the use of props and adjustments in Kundalini Yoga.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(61, 7, 'Advanced Hatha Yoga Practice', '<ul><li>In-depth exploration of Hatha yoga asanas (postures).</li><li>Advanced variations, modifications, and adjustments.</li><li>Refinement of alignment principles and sequencing.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(62, 7, 'Pranayama and Breathwork:', '<ul><li>Advanced pranayama techniques specific to Kundalini Yoga.</li><li>Breath control and manipulation for energy awakening and management.</li><li>Teaching pranayama to students safely and effectively.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(63, 7, 'Mantras, Mudras, and Meditation:', '<ul><li>Mastery of Kundalini mantras and their effects on consciousness.</li><li>Exploring advanced mudras (gestures) used in Kundalini practice.</li><li>In-depth meditation techniques and their applications in Kundalini Yoga.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(64, 7, 'Anatomy and Physiology:', '<ul><li>Advanced study of anatomy relevant to Kundalini Yoga practice.</li><li>Understanding the energetics of the body, including the subtle energy channels (nadis).</li><li>Anatomy of the nervous system and its relationship to Kundalini awakening.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(65, 7, 'Teaching Methodology:', '<ul><li>Advanced teaching techniques, including class sequencing and adapting classes for various levels.</li><li>Ethical considerations in teaching Kundalini Yoga.</li><li>Developing your unique teaching style and presence as a Kundalini Yoga teacher.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(66, 7, 'Kundalini Awakening and Chakra Work:', '<ul><li>Techniques for Kundalini energy awakening and balancing.</li><li>In-depth study of the chakra system and its role in Kundalini Yoga.</li><li>Guiding students through chakra-based practices and meditations.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(67, 7, 'Yoga Ethics and Lifestyle:', '<ul><li>Ethical considerations for Kundalini Yoga teachers.</li><li>Living a yogic lifestyle and maintaining personal integrity.</li><li>Supporting students in their Kundalini Yoga journey.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(68, 7, 'Practicum and Teaching Experience:', '<ul><li>Teaching practice sessions with peers and receiving feedback.</li><li>Assisting and observing other teachers.</li><li>Developing your teaching portfolio, including lesson plans and class sequences.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(69, 7, 'Business and Marketing', '<ul><li>Marketing yourself as a Kundalini Yoga teacher</li><li>Running a successful Kundalini Yoga business</li><li>Legal and ethical considerations for yoga professionals.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(70, 7, 'Final Assessment and Certification:', '<ul><li>Typically, a final examination and teaching practicum</li><li>Graduation and certification as a 300-Hour Kundalini Yoga Teacher.</li></ul>', '2023-10-30 23:06:52', '2023-10-30 23:06:52'),
+(71, 8, 'Kundalini Yoga Philosophy and History:', '<ul><li>In-depth study of Kundalini Yoga philosophy, including its origins and evolution.</li><li>Exploration of Kundalini energy, chakras, and their significance.</li><li>Understanding the teachings of Kundalini Yoga masters like Yogi Bhajan.</li></ul>', '2023-10-30 23:19:21', '2023-10-30 23:19:21'),
+(72, 8, 'Kundalini Kriyas and Asanas:', '<ul><li>Practice and instruction in advanced Kundalini kriyas (sets of postures, breath, and sound) and asanas.</li><li>Focus on the correct alignment, sequencing, and modifications for advanced poses.</li><li>Incorporating the use of props and adjustments in Kundalini Yoga.</li></ul>', '2023-10-30 23:19:21', '2023-10-30 23:19:21'),
+(73, 8, 'Pranayama and Breathwork:', '<ul><li>Pranayama techniques specific to Kundalini Yoga.</li><li>Breath control and manipulation for energy awakening and management.</li><li>Teaching pranayama to students safely and effectively within the context of Kundalini Yoga.</li></ul>', '2023-10-30 23:19:21', '2023-10-30 23:19:21'),
+(74, 8, 'Mantras, Mudras, and Meditation:', '<ul><li>Mastery of Kundalini mantras and their effects on consciousness.</li><li>Advanced mudras (gestures) used in Kundalini practice.</li><li>In-depth meditation techniques and their applications in Kundalini Yoga, including mantra meditation and various meditation styles.</li></ul>', '2023-10-30 23:19:21', '2023-10-30 23:19:21'),
+(75, 8, 'Anatomy and Physiology:', '<ul><li>In-depth study of anatomy relevant to Kundalini Yoga practice.</li><li>Understanding the energetics of the body, including the subtle energy channels (nadis).</li><li>Anatomy of the nervous system and its relationship to Kundalini awakening.</li></ul>', '2023-10-30 23:19:21', '2023-10-30 23:19:21'),
+(76, 8, 'Hatha yoga Practice:', '<ul><li>In-depth exploration of Hatha yoga asanas (postures).</li><li>Learning and practicing a wide range of yoga postures, including standing, seated, forward bends, backbends, inversions, and twists.</li><li>Emphasis on proper alignment, adjustments, and modifications to accommodate different body types and abilities.</li><li>Sequencing Hatha yoga classes for different levels.</li><li>Advanced variations, modifications, and adjustments.</li><li>Refinement of alignment principles and sequencing.</li></ul>', '2023-10-30 23:19:21', '2023-10-30 23:19:21'),
+(77, 8, 'Teaching Methodology:', '<ul><li>Teaching techniques specific to Kundalini Yoga.</li><li>Designing and leading advanced Kundalini Yoga classes, including themed and specialized classes.</li><li>Working with diverse student populations and addressing individual needs within the Kundalini tradition.</li></ul>', '2023-10-30 23:19:21', '2023-10-30 23:19:21'),
+(78, 8, 'Kundalini Awakening and Chakra Work:', '<ul><li>Techniques for Kundalini energy awakening and balancing.</li><li>In-depth study of the chakra system and its role in Kundalini Yoga.</li><li>Guiding students through advanced chakra-based practices and meditations.</li></ul>', '2023-10-30 23:19:21', '2023-10-30 23:19:21'),
+(79, 8, 'Yoga Ethics and Lifestyle:', '<ul><li>Ethical considerations for Kundalini Yoga teachers.</li><li>Living a yogic lifestyle and maintaining personal integrity.</li><li>Supporting students in their Kundalini Yoga journey while adhering to Kundalini ethical principles.</li></ul>', '2023-10-30 23:19:21', '2023-10-30 23:19:21'),
+(80, 8, 'Practicum and Teaching Experience', '<ul><li>Teaching practice sessions with peers and receiving feedback</li><li>Assisting and observing experienced Kundalini teachers.</li><li>Developing your unique teaching style while adhering to the traditional Kundalini method.</li></ul>', '2023-10-30 23:19:21', '2023-10-30 23:19:21'),
+(81, 8, 'Final Assessment and Certification', '<ul><li>Typically, a final examination and teaching practicum.</li><li>Graduation and certification as a 500-Hour Kundalini Yoga Teacher.</li></ul>', '2023-10-30 23:19:21', '2023-10-30 23:19:21'),
+(82, 9, 'Ayurveda Ayurveda', '<ul><li>Origins and historical development of Ayurveda.</li><li>Fundamental principles and philosophy of Ayurveda.</li><li>Understanding the Tridosha concept (Vata, Pitta, Kapha).</li></ul>', '2023-10-30 23:45:10', '2023-10-30 23:45:10'),
+(83, 9, 'Module 2: Ayurvedic Anatomy and Physiology', '<ul><li>Exploration of Ayurvedic anatomy and physiology.</li><li>Study of the seven Dhatus (tissues) and the importance of proper digestion (Agni).</li><li>The concept of Malas (waste products) in Ayurveda.</li></ul>', '2023-10-30 23:45:11', '2023-10-30 23:45:11'),
+(84, 9, 'Module 3: Prakriti and Vikriti', '<ul><li>Assessing individual constitution (Prakriti) and understanding its significance.</li><li>Identifying and addressing imbalances (Vikriti) in the body and mind.</li><li>Practical methods for conducting Prakriti and Vikriti assessments.</li></ul>', '2023-10-30 23:45:11', '2023-10-30 23:45:11'),
+(85, 9, 'Module 4: Ayurvedic Diet and Nutrition', '<ul><li>Ayurvedic dietary principles and guidelines for different constitutions.</li><li>Ayurvedic cooking and meal planning.</li><li>Ayurvedic herbs and spices for health and healing.</li></ul>', '2023-10-30 23:45:11', '2023-10-30 23:45:11'),
+(86, 9, 'Module 5: Ayurvedic Lifestyle and Daily Routines', '<ul><li>Ayurvedic daily routines (Dinacharya) for optimal health and balance.</li><li>Incorporating Ayurvedic rituals into daily life.</li><li>Ayurvedic practices for self-care and rejuvenation.</li></ul>', '2023-10-30 23:45:11', '2023-10-30 23:45:11'),
+(87, 9, 'Module 6: Ayurvedic Therapies and Detoxification', '<ul><li>Overview of Ayurvedic therapies, including Panchakarma.</li><li>Practical application of Ayurvedic treatments for various health conditions.</li><li>Understanding the role of Ayurveda in detoxification and rejuvenation.</li></ul>', '2023-10-30 23:45:11', '2023-10-30 23:45:11'),
+(88, 9, 'Module 7: Ayurveda and Yoga Integration', '<ul><li>The relationship between Ayurveda and yoga.</li><li>Incorporating Ayurvedic principles into yoga practice and teaching.</li><li>Designing yoga sequences that align with Ayurvedic principles.</li></ul>', '2023-10-30 23:45:11', '2023-10-30 23:45:11'),
+(89, 9, 'Module 8: Ayurvedic Psychology and Mental Health', '<ul><li>Ayurvedic approach to mental health and emotional well-being.</li><li>Balancing the mind through Ayurveda and yoga.</li><li>Practical tools for managing stress and promoting mental clarity.</li></ul>', '2023-10-30 23:45:11', '2023-10-30 23:45:11'),
+(90, 9, 'Module 9: Ayurvedic Consultation and Counseling', '<ul><li>Developing skills in Ayurvedic consultation and counseling.</li><li>Creating personalized wellness plans for clients.</li><li>Ethical considerations in Ayurvedic practice.</li></ul>', '2023-10-30 23:45:11', '2023-10-30 23:45:11'),
+(91, 10, 'Introduction to Meditation', '<ul><li>History and philosophy of meditation.</li><li>Different meditation traditions and their origins.</li><li>The science of meditation and its benefits.</li></ul>', '2023-10-30 23:59:47', '2023-10-30 23:59:47'),
+(92, 10, 'Meditation Techniques', '<ul><li>Instruction and practice of various meditation techniques.</li><li>Guided meditation practice</li><li>Understanding the purpose and applications of different practices.</li></ul>', '2023-10-30 23:59:47', '2023-10-30 23:59:47'),
+(93, 10, 'Anatomy & Physiology in Meditation', '<ul><li>The physiological and psychological effects of meditation.</li><li>Understanding the mind-body connection.</li><li>How meditation impacts the nervous system and brain.</li><li>Anatomy relevant to meditation practice.</li><li>The physical and mental effects of meditation on the body.</li></ul>', '2023-10-30 23:59:47', '2023-10-30 23:59:47'),
+(94, 10, 'Teaching Methodology', '<ul><li>Effective teaching techniques for meditation.</li><li>Creating a conducive environment for meditation.</li><li>Guiding group and individual meditation sessions.</li></ul>', '2023-10-30 23:59:47', '2023-10-30 23:59:47'),
+(95, 10, 'Meditation and Philosophy', '<ul><li>The philosophical and spiritual aspects of meditation.</li><li>Integrating meditation into daily life and one\'s personal philosophy.</li><li>The role of ethics and mindfulness in meditation practice.</li></ul>', '2023-10-30 23:59:47', '2023-10-30 23:59:47'),
+(96, 10, 'Hatha Yoga Asanas (Postures):', '<ul><li>In-depth study and practice of Hatha yoga asanas, including alignment, benefits, and variations.</li><li>Learning and practicing a wide range of yoga postures, including standing, seated, forward bends, backbends, inversions, and twists.</li><li>Emphasis on proper alignment, adjustments, and modifications to accommodate different body types and abilities.</li><li>Sequencing Hatha yoga classes for different levels.</li></ul>', '2023-10-30 23:59:47', '2023-10-30 23:59:47'),
+(97, 10, 'Pranayama (Breath Control):', '<ul><li>Exploration of various pranayama techniques specific to Hatha yoga.</li><li>Integrating breath control into the practice and teaching.</li><li>Instruction in various pranayama techniques to improve breath awareness, control, and energy management.</li><li>How to incorporate pranayama into yoga classes for enhanced practice.</li></ul>', '2023-10-30 23:59:47', '2023-10-30 23:59:47'),
+(98, 10, 'Yoga and Meditation Integration', '<ul><li>The connection between yoga and meditation.</li><li>Incorporating meditation into yoga practice.</li><li>Techniques for teaching meditation within a yoga class.</li></ul>', '2023-10-30 23:59:47', '2023-10-30 23:59:47'),
+(99, 10, 'Ethics and Professionalism', '<ul><li>Ethical considerations for meditation teachers.</li><li>Establishing and maintaining professional boundaries.</li><li>Responsible teaching and practice in the field of meditation.</li></ul>', '2023-10-30 23:59:47', '2023-10-30 23:59:47'),
+(100, 10, 'Practicum and Teaching Experience', '<ul><li>Leading meditation sessions and receiving feedback.</li><li>Assisting and observing experienced meditation teachers.</li><li>Developing your unique teaching style while adhering to best practices.</li></ul>', '2023-10-30 23:59:47', '2023-10-30 23:59:47'),
+(101, 10, 'Final Assessments and Certification', '<ul><li>Written and practical examinations to assess knowledge and teaching skills.</li><li>Graduation and certification as a 200-Hour Meditation Teacher.</li></ul>', '2023-10-30 23:59:47', '2023-10-30 23:59:47');
 
 -- --------------------------------------------------------
 
@@ -288,8 +363,87 @@ CREATE TABLE `coursedates` (
 --
 
 INSERT INTO `coursedates` (`id`, `course_id`, `date`, `seats`, `created_at`, `updated_at`) VALUES
-(2, 1, '01 Jan  - 25 Jan', '5 Seat', '2023-10-13 22:48:50', '2023-10-13 22:48:50'),
-(3, 1, '01 Feb - 25 Feb', '10 Seat', '2023-10-13 22:48:50', '2023-10-13 22:48:50');
+(4, 1, '4th Jan - 28th Jan 2024', '3 seats left', '2023-10-28 06:59:51', '2023-10-28 06:59:51'),
+(5, 1, '1st Feb - 25th Feb 2024', '4 seats left', '2023-10-28 06:59:51', '2023-10-28 06:59:51'),
+(6, 1, '1st Mar - 25th Mar 2024', '4 seats left', '2023-10-28 06:59:51', '2023-10-28 06:59:51'),
+(7, 1, '1st Apr - 25th Apr 2024', '5 seats left', '2023-10-28 06:59:51', '2023-10-28 06:59:51'),
+(8, 1, '1st May - 25th May 2024', '5 seats left', '2023-10-28 06:59:51', '2023-10-28 06:59:51'),
+(9, 1, '1st Jun - 25th Jun 2024', '7 seats left', '2023-10-28 06:59:51', '2023-10-28 06:59:51'),
+(10, 1, '1st Jul - 25th Jul 2024', '8 seats left', '2023-10-28 06:59:51', '2023-10-28 06:59:51'),
+(11, 1, '1st Aug - 25th Aug 2024', '7 seats left', '2023-10-28 06:59:51', '2023-10-28 06:59:51'),
+(12, 1, '1st Sep - 25th Sep 2024', '9 seats left', '2023-10-28 06:59:51', '2023-10-28 06:59:51'),
+(13, 1, '1st Oct - 25th Oct 2024', '7 seats left', '2023-10-28 06:59:51', '2023-10-28 06:59:51'),
+(14, 1, '1st Nov - 25th Nov 2024', '7 seats left', '2023-10-28 06:59:51', '2023-10-28 06:59:51'),
+(15, 4, '1 Feb - 25 Feb 2023', '3 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(16, 4, '1 Mar - 25 Mar 2023', '4 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(17, 4, '1 Apr - 25 Apr 2023', '3 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(18, 4, '1 May - 25 May 2023', '5 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(19, 4, '1 June - 25 June 2023', '5 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(20, 4, '1 July- 25 July 2023', '5 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(21, 4, '1 August - 25 August 2023', '5 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(22, 4, '1 September - 25 September', '5 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(23, 4, '1 October - 25 October', '5 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(24, 4, '1 November - 25 November', '5 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(25, 4, '1 December - 25 December', '5 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(26, 4, '1 January - 25 January', '5 seats left', '2023-10-28 07:13:33', '2023-10-28 07:13:33'),
+(27, 6, '1 Feb - 25 Feb 2024', '3 Seats Left', '2023-10-30 22:55:07', '2023-10-30 22:55:07'),
+(28, 6, '1 Mar - 25 Mar 2023', '3 Seats Left', '2023-10-30 22:55:07', '2023-10-30 22:55:07'),
+(29, 6, '1 Apr - 25 Apr 2023', '3 Seats Left', '2023-10-30 22:55:07', '2023-10-30 22:55:07'),
+(30, 6, '1 May - 25 May 2023', '3 Seats Left', '2023-10-30 22:55:07', '2023-10-30 22:55:07'),
+(31, 6, '1 June - 25 June 2023', '3 Seats Left', '2023-10-30 22:55:07', '2023-10-30 22:55:07'),
+(32, 6, '1 July - 25 July 2023', '3 Seats Left', '2023-10-30 22:55:07', '2023-10-30 22:55:07'),
+(33, 6, '1 August - 25 August 2023', '3 Seats Left', '2023-10-30 22:55:07', '2023-10-30 22:55:07'),
+(34, 6, '1 September - 25 September', '3 Seats Left', '2023-10-30 22:55:07', '2023-10-30 22:55:07'),
+(35, 6, '1 October - 25 October', '3 Seats Left', '2023-10-30 22:55:07', '2023-10-30 22:55:07'),
+(36, 6, '1 November- 25 November', '3 Seats Left', '2023-10-30 22:55:07', '2023-10-30 22:55:07'),
+(37, 6, '1 December - 25 December', '3 Seats Left', '2023-10-30 22:55:07', '2023-10-30 22:55:07'),
+(38, 7, '1 Feb - 25 Feb 2023', '3 seats left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(39, 7, '1 Mar - 25 Mar 2023', '4 seats left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(40, 7, '1 Apr - 25 Apr 2023', '3 seats left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(41, 7, '1 May - 25 May 2023', '5 seats left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(42, 7, '1 June - 25 June 2023', '5 seats  left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(43, 7, '1 July - 25 July 2023', '5 seats left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(44, 7, '1 August - 25 August 2023', '5 seats left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(45, 7, '1 September - 25 September', '5 seats left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(46, 7, '1 October - 25 October', '5 seats left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(47, 7, '1 November - 25 November', '5 seats left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(48, 7, '1 December - 25 December', '5 seats left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(49, 7, '1 January - 25 January', '5 seats left', '2023-10-30 23:11:38', '2023-10-30 23:11:38'),
+(50, 8, '1 Feb - 25 Feb 2023', '3 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(51, 8, '1 Mar - 25 Mar 2023', '4 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(52, 8, '1 Apr - 25 Apr 2023', '3 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(53, 8, '1 May - 25 May 2023', '5 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(54, 8, '1 June - 25 June 2023', '5 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(55, 8, '1 July - 25 July 2023', '5 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(56, 8, '1 August - 25 August 2023', '5 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(57, 8, '1 September - 25 September', '5 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(58, 8, '1 October - 25 October', '5 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(59, 8, '1 November - 25 November', '5 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(60, 8, '1 December - 25 December', '5 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(61, 8, '1 January - 25 January', '5 seats left', '2023-10-30 23:25:59', '2023-10-30 23:25:59'),
+(62, 9, '1 Feb - 25 Feb 2023', '3 seats left', '2023-10-30 23:49:28', '2023-10-30 23:49:28'),
+(63, 9, '1 Mar - 25 Mar 2023', '4 seats left', '2023-10-30 23:49:28', '2023-10-30 23:49:28'),
+(64, 9, '1 Apr - 25 Apr 2023', '3 seats left', '2023-10-30 23:49:28', '2023-10-30 23:49:28'),
+(65, 9, '1 May - 25 May 2023', '5 seats left', '2023-10-30 23:49:28', '2023-10-30 23:49:28'),
+(66, 9, '1 June - 25 June 2023', '5 seats left', '2023-10-30 23:49:28', '2023-10-30 23:49:28'),
+(67, 9, '1 August - 25 August 2023', '5 seats left', '2023-10-30 23:49:28', '2023-10-30 23:49:28'),
+(68, 9, '1 September - 25 September', '5 seats left', '2023-10-30 23:49:28', '2023-10-30 23:49:28'),
+(69, 9, '1 October - 25 October', '5 seats leftv', '2023-10-30 23:49:28', '2023-10-30 23:49:28'),
+(70, 9, '1 November - 25 November', '5 seats left', '2023-10-30 23:49:28', '2023-10-30 23:49:28'),
+(71, 9, '1 December - 25 December', '5 seats left', '2023-10-30 23:49:28', '2023-10-30 23:49:28'),
+(72, 9, '1 January - 25 January', '5 seats left', '2023-10-30 23:49:28', '2023-10-30 23:49:28'),
+(73, 10, '1st Oct - 25th Oct 2023', '4 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53'),
+(74, 10, '1st Nov - 25th Nov 2023', '5 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53'),
+(75, 10, '1st Dec - 25th Dec 2023', '5 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53'),
+(76, 10, '5th Jan - 29th Jan 2024', '7 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53'),
+(77, 10, '1st Feb - 25th Feb 2024', '6 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53'),
+(78, 10, '1st Mar - 25th Mar 2024', '9 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53'),
+(79, 10, '1st Apr - 25th Apr 2024', '7 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53'),
+(80, 10, '1st May - 25th May 2024', '8 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53'),
+(81, 10, '1st Jun - 25th Jun 2024', '11 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53'),
+(82, 10, '1st Jul - 25th Jul 2024', '11 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53'),
+(83, 10, '1st Aug - 25th Aug 2024', '14 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53'),
+(84, 10, '1st Sep - 25th Sep 2024', '14 seats left', '2023-10-31 00:04:53', '2023-10-31 00:04:53');
 
 -- --------------------------------------------------------
 
@@ -337,13 +491,54 @@ CREATE TABLE `courseinclusions` (
 --
 
 INSERT INTO `courseinclusions` (`id`, `course_id`, `inclusion`, `created_at`, `updated_at`) VALUES
-(14, 1, 'Yoga classes', '2023-10-11 02:17:06', '2023-10-11 02:17:06'),
-(15, 1, 'Yoga Mat, blocks, Shatkarma kit', '2023-10-11 02:17:06', '2023-10-11 02:17:06'),
-(16, 1, '3 hour Kirtan Session', '2023-10-11 02:17:06', '2023-10-11 02:17:06'),
-(17, 1, 'Excursions', '2023-10-11 02:17:06', '2023-10-11 02:17:06'),
-(18, 1, '3 hour Acro Yoga session', '2023-10-11 02:17:06', '2023-10-11 02:17:06'),
-(19, 1, '2 hour De-stress throgh fun', '2023-10-11 02:17:06', '2023-10-11 02:17:06'),
-(20, 1, 'Accommodation', '2023-10-11 02:17:06', '2023-10-11 02:17:06');
+(21, 1, 'Pickup From Dehradun Airport  (DED)', '2023-10-28 06:53:58', '2023-10-28 06:53:58'),
+(22, 1, 'Course Manuals', '2023-10-28 06:53:58', '2023-10-28 06:53:58'),
+(23, 1, '24 Days Accommaodation', '2023-10-28 06:53:58', '2023-10-28 06:53:58'),
+(24, 1, 'Shatkarma kit', '2023-10-28 06:53:58', '2023-10-28 06:53:58'),
+(25, 1, 'Vegetarian Meals', '2023-10-28 06:53:58', '2023-10-28 06:53:58'),
+(26, 1, '2 Sunday Excursions', '2023-10-28 06:53:58', '2023-10-28 06:53:58'),
+(27, 4, 'Pickup From Dehradun Airport (DED)', '2023-10-28 07:06:01', '2023-10-28 07:06:01'),
+(28, 4, 'Course Manuals', '2023-10-28 07:06:01', '2023-10-28 07:06:01'),
+(29, 4, '24 Days Accommaodation', '2023-10-28 07:06:01', '2023-10-28 07:06:01'),
+(30, 4, 'Shatkarma kit', '2023-10-28 07:06:01', '2023-10-28 07:06:01'),
+(31, 4, 'Vegetarian Meals', '2023-10-28 07:06:01', '2023-10-28 07:06:01'),
+(32, 4, '2 Sunday Excursions', '2023-10-28 07:06:01', '2023-10-28 07:06:01'),
+(33, 5, 'Pickup From Dehradun Airport (DED)', '2023-10-28 07:17:24', '2023-10-28 07:17:24'),
+(34, 5, 'Course Manuals', '2023-10-28 07:17:24', '2023-10-28 07:17:24'),
+(35, 5, '24 Days Accommaodation', '2023-10-28 07:17:24', '2023-10-28 07:17:24'),
+(36, 5, 'Shatkarma kit', '2023-10-28 07:17:24', '2023-10-28 07:17:24'),
+(37, 5, 'Vegetarian Meals', '2023-10-28 07:17:24', '2023-10-28 07:17:24'),
+(38, 5, '2 Sunday Excursions', '2023-10-28 07:17:24', '2023-10-28 07:17:24'),
+(39, 6, 'Pickup From Dehradun Airport (DED)', '2023-10-30 22:48:29', '2023-10-30 22:48:29'),
+(40, 6, 'Course Manuals', '2023-10-30 22:48:29', '2023-10-30 22:48:29'),
+(41, 6, '24 Days Accommaodation', '2023-10-30 22:48:29', '2023-10-30 22:48:29'),
+(42, 6, 'Shatkarma kit', '2023-10-30 22:48:29', '2023-10-30 22:48:29'),
+(43, 6, 'Vegetarian Meals', '2023-10-30 22:48:29', '2023-10-30 22:48:29'),
+(44, 6, '2 Sunday Excursions', '2023-10-30 22:48:29', '2023-10-30 22:48:29'),
+(45, 7, 'Pickup From Dehradun Airport (DED)', '2023-10-30 23:03:46', '2023-10-30 23:03:46'),
+(46, 7, 'Course Manuals', '2023-10-30 23:03:46', '2023-10-30 23:03:46'),
+(47, 7, '24 Days Accommaodation', '2023-10-30 23:03:46', '2023-10-30 23:03:46'),
+(48, 7, 'Shatkarma kit', '2023-10-30 23:03:46', '2023-10-30 23:03:46'),
+(49, 7, 'Vegetarian Meals', '2023-10-30 23:03:46', '2023-10-30 23:03:46'),
+(50, 7, '2 Sunday Excursions', '2023-10-30 23:03:46', '2023-10-30 23:03:46'),
+(51, 8, 'Pickup From Dehradun Airport (DED)', '2023-10-30 23:16:49', '2023-10-30 23:16:49'),
+(52, 8, 'Course Manuals', '2023-10-30 23:16:49', '2023-10-30 23:16:49'),
+(53, 8, '24 Days Accommaodation', '2023-10-30 23:16:49', '2023-10-30 23:16:49'),
+(54, 8, 'Shatkarma kit', '2023-10-30 23:16:49', '2023-10-30 23:16:49'),
+(55, 8, 'Vegetarian Meals', '2023-10-30 23:16:49', '2023-10-30 23:16:49'),
+(56, 8, '2 Sunday Excursions', '2023-10-30 23:16:49', '2023-10-30 23:16:49'),
+(57, 9, 'Pickup From Dehradun Airport (DED)', '2023-10-30 23:42:40', '2023-10-30 23:42:40'),
+(58, 9, 'Course Manuals', '2023-10-30 23:42:40', '2023-10-30 23:42:40'),
+(59, 9, '24 Days Accommaodation', '2023-10-30 23:42:40', '2023-10-30 23:42:40'),
+(60, 9, 'Shatkarma kit', '2023-10-30 23:42:40', '2023-10-30 23:42:40'),
+(61, 9, 'Vegetarian Meals', '2023-10-30 23:42:40', '2023-10-30 23:42:40'),
+(62, 9, '2 Sunday Excursions', '2023-10-30 23:42:40', '2023-10-30 23:42:40'),
+(63, 10, 'Pickup From Dehradun Airport (DED)', '2023-10-30 23:56:56', '2023-10-30 23:56:56'),
+(64, 10, 'Course Manuals', '2023-10-30 23:56:56', '2023-10-30 23:56:56'),
+(65, 10, '24 Days Accommaodation', '2023-10-30 23:56:56', '2023-10-30 23:56:56'),
+(66, 10, 'Shatkarma kit', '2023-10-30 23:56:56', '2023-10-30 23:56:56'),
+(67, 10, 'Vegetarian Meals', '2023-10-30 23:56:56', '2023-10-30 23:56:56'),
+(68, 10, '2 Sunday Excursions', '2023-10-30 23:56:56', '2023-10-30 23:56:56');
 
 -- --------------------------------------------------------
 
@@ -359,17 +554,6 @@ CREATE TABLE `coursemedia` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `coursemedia`
---
-
-INSERT INTO `coursemedia` (`id`, `course_id`, `image`, `alt`, `created_at`, `updated_at`) VALUES
-(27, 2, '/upload/course/media/65292a7de5dbenew-gallery-item7.webp', 'test1', '2023-10-13 06:01:09', '2023-10-13 06:01:25'),
-(28, 2, '/upload/course/media/65292a7de6ecbnew-gallery-item3.webp', 'test5', '2023-10-13 06:01:09', '2023-10-13 06:01:58'),
-(29, 2, '/upload/course/media/65292a7de7b67new-gallery-item2.webp', 'test2', '2023-10-13 06:01:09', '2023-10-13 06:01:28'),
-(30, 2, '/upload/course/media/65292a7de87c8new-gallery-item6.webp', 'test3', '2023-10-13 06:01:09', '2023-10-13 06:01:31'),
-(31, 2, '/upload/course/media/65292a7de9a91new-gallery-item1.webp', 'test4', '2023-10-13 06:01:09', '2023-10-13 06:01:35');
 
 -- --------------------------------------------------------
 
@@ -394,6 +578,7 @@ CREATE TABLE `courses` (
   `metadescription` varchar(600) DEFAULT NULL,
   `alt` varchar(1200) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0,
+  `type` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0->yoga teacher, 1->knudlini yoga teacher\r\n',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `hour` varchar(100) DEFAULT NULL
@@ -403,9 +588,15 @@ CREATE TABLE `courses` (
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`id`, `name`, `slug`, `duration`, `certification`, `privateroom`, `shared2room`, `shared3room`, `shared6room`, `description`, `image`, `metatitle`, `metakeywords`, `metadescription`, `alt`, `status`, `created_at`, `updated_at`, `hour`) VALUES
-(1, '200 Hour Yoga Teacher Training in Rishikesh India', '200-hour-yoga-teacher-training-in-rishikesh-india', '15 Days', '200 Hour Yoga Teacher', 299, 499, 699, 999, '<p>Our 200 hour Yoga Teacher Training in Rishikesh is accredited by Yoga Alliance, USA. Upon completing this 200 hour Yoga TTC, you will become a certified yoga teacher with enough theoretical and practical knowledge to guide a yoga class. This is a foundational course to become a yoga teacher. You will be eligible to register yourself as an RYT-200 (Registered Yoga Teacher) with the Yoga Alliance, USA, and be certified to teach yoga in your own country or worldwide.</p>\r\n\r\n<p>This 200 hour Yoga Teacher Training in India delivers practical, theoretical, and comprehensive training to deepen your yoga practice and teaching ability to make you a highly skilled yoga teacher. Over the past few years, we have graduated many students to become successful yoga teachers around the globe. The curriculum takes you through all the required aspects of yoga including asanas (yoga postures), pranayama (breathing techniques), meditation, yoga philosophy, anatomy, teaching methodology, and ethics. It will guide you through all the fundamentals of yoga so that you can teach with confidence and ease.</p>', '/upload/course/651fdd127b216dsc00857-1.webp', '200 Hour Yoga Teacher Training in Rishikesh India', '200 Hour Yoga Teacher Training in Rishikesh India', '200 Hour Yoga Teacher', '200 Hour Yoga Teacher Training in Rishikesh India', 1, '2023-10-06 03:36:02', '2023-10-06 04:40:45', '200 Hr'),
-(2, '300 Hour Yoga Teacher Training In Rishikesh India', '300-hour-yoga-teacher-training-in-rishikesh-india', '30 Days', '300 Hour Yoga', 399, 599, 899, 1129, '<p>Our 300 hour Yoga Teacher Training in Rishikesh is an intense and advanced-level course that dives deeper into the topics covered in the&nbsp;<a href=\"https://www.nirvanayogaschoolindia.com/200-hour-yoga-teacher-training-in-rishikesh-india\" style=\"box-sizing: border-box; color: rgb(0, 0, 0);\" target=\"_blank\">200 hour yoga teacher training course</a>. The course is designed in such a way that it will deepen your yoga practice and teaching skills, thus taking you one step further towards becoming a successful yoga teacher. The training last for 29 days, during which you will get an in-depth understanding of advanced asanas (postures) and their different variations, alignment &amp; teaching techniques, advanced pranayama &amp; meditation techniques, understanding the philosophy of yoga, business skills &amp; ethics. The course will also help you focus on your personal development as a yoga teacher.</p>\r\n\r\n<p>This course is accredited by Yoga Alliance, USA, and is recognized globally. Our teachers will help you deepen your understanding of yoga philosophy, develop effective teaching skills, and cultivate the ability to create transformative experiences for your students. Complete your 300 Hour Yoga Teacher Training in India at Nirvana Yoga School and be ready to inspire others on their yogic path.</p>', '/upload/course/65291b96ef7bablog-small-img8.jpg', '300 Hour Yoga Teacher Training In Rishikesh India', '300 Hour Yoga', 'Our 300 hour Yoga Teacher Training in Rishikesh is an intense and advanced-level course that dives deeper into the topics covered in the 200 hour yoga teacher training course.', '300 Hour Yoga', 1, '2023-10-06 03:38:44', '2023-10-13 04:57:34', '200 Hr');
+INSERT INTO `courses` (`id`, `name`, `slug`, `duration`, `certification`, `privateroom`, `shared2room`, `shared3room`, `shared6room`, `description`, `image`, `metatitle`, `metakeywords`, `metadescription`, `alt`, `status`, `type`, `created_at`, `updated_at`, `hour`) VALUES
+(1, '200 Hour Yoga Teacher Training in Rishikesh, India', '200-hour-yoga-teacher-training-in-rishikesh-india', '15 Days', 'RYT-200, Yoga Alliance USA', 1499, 1199, 999, 799, '<p>If you are looking to deepen your yoga practice and take the first step towards becoming a certified yoga teacher, then our 200 hour yoga teacher training in Rishikesh is the perfect choice for you. This course is designed to provide individuals with a solid foundation in the principles and practices of yoga. The program typically covers topics such as asanas (yoga postures), pranayama (breathing techniques), meditation, anatomy, philosophy, and teaching methodology. Students not only gain a deep understanding of these aspects of yoga but also have the opportunity to develop their own personal practice.</p>\r\n\r\n<p>One of the key advantages of undertaking a 200 hour yoga teacher training in India is the immersive and transformative experience it offers. Being in the birthplace of yoga itself, surrounded by the natural beauty of the Himalayas, creates an ideal environment for self-reflection and self-discovery. Our rigorous schedule and disciplined lifestyle during the training help students develop focus, discipline, and resilience.</p>\r\n\r\n<p>Upon successful completion of a 200 hour yoga teacher training in Rishikesh, students are awarded a certification that allows them to register with Yoga Alliance as a registered yoga teacher (RYT). This certification opens up numerous opportunities for graduates to teach yoga professionally, whether it be at studios, retreat centers, or gyms. Additionally, the training equips individuals with the knowledge and skills to guide others on their own yogic journey and make a positive impact on their lives</p>', '/upload/course/651fdd127b216dsc00857-1.webp', '200 Hour Yoga Teacher Training in Rishikesh, India', '200 Hour Yoga Teacher Training in Rishikesh, India', 'If you are looking to deepen your yoga practice and take the first step towards becoming a certified yoga teacher, then our 200 hour yoga teacher training in Rishikesh is the perfect choice for you.', '200 Hour Ayurveda Yoga Teacher Training in Rishikesh', 1, 0, '2023-10-06 03:36:02', '2023-10-30 22:40:29', '200 Hr'),
+(4, '300 Hour Yoga Teacher Training in Rishikesh, India', '300-hour-yoga-teacher-training-in-rishikesh-india', '30 Days', 'RYT-200, Yoga Alliance USA', 1499, 1199, 999, 799, '<p dir=\"ltr\">Our 300 Hour Yoga Teacher Training in Rishikesh, India is a comprehensive program designed to deepen your understanding and practice of yoga. This is an advanced course designed for those individuals who have already completed their 200 hour YTTC in any style of yoga. With a focus on advanced asanas, pranayama techniques, meditation, and teaching methodology, this training will equip you with the skills and knowledge needed to become a confident and effective yoga teacher. Our experienced and highly trained faculty will guide you through the training, providing personalized attention and support.&nbsp;</p>\r\n\r\n<p>Upon completion of our 300 hour yoga teacher training in India, you will be equipped with the knowledge and skills to confidently lead your own yoga classes. You will receive a certification recognized by Yoga Alliance, the leading international organization for yoga teachers. Located in the spiritual heart of India, Rishikesh offers the perfect environment for immersing yourself in the study and practice of yoga. Join us for our 300 hour yoga teacher training in Rishikesh and take your yoga journey to the next level.</p>\r\n\r\n<div>&nbsp;</div>', '/upload/course/653d000eb32c7img-5245-1.webp', '300 Hour Yoga Teacher Training in Rishikesh, India', '300 Hour Yoga Teacher Training in Rishikesh', 'Our 300 Hour Yoga Teacher Training in Rishikesh, India is a comprehensive program designed to deepen your understanding and practice of yoga.', '300 Hour Yoga Teacher Training in Rishikesh', 1, 0, '2023-10-28 07:05:26', '2023-10-28 07:05:26', '300 Hr'),
+(5, '500 Hour Yoga Teacher Training in Rishikesh, India', '500-hour-yoga-teacher-training-in-rishikesh-india', '60 Days', 'RYT-200, Yoga Alliance USA', 1499, 1199, 999, 799, '<p>Welcome to our 500 Hour Yoga Teacher Training in Rishikesh, India! This 2-months long program is designed for those who are serious about deepening their knowledge and practice of yoga. With a focus on both theory and practical training, our program will equip you with the skills and confidence to become a certified yoga teacher. During the course, you will have the opportunity to study under experienced and highly skilled yoga instructors who are dedicated to helping you reach your full potential as a teacher.&nbsp;</p>\r\n\r\n<p>The course is accredited by the Yoga Alliance, USA. You will deepen your personal practice through daily asana, pranayama, and meditation sessions, while also learning how to effectively teach these practices to others. In addition to the intensive study of yoga theory and practice, our program includes classes on sequencing, alignment, adjustments, and teaching methodology. Join us on our 500 hour Yoga Teacher Training in India and embark on a transformative journey of self-discovery and growth.</p>', '/upload/course/653d02b76dcf9pexels-gokul-gurang-15980663-1.webp', '500 Hour Yoga Teacher Training in Rishikesh, India', '500 Hour Yoga Teacher Training in Rishikesh, India', 'Welcome to our 500 Hour Yoga Teacher Training in Rishikesh, India! This 2-months long program is designed for those who are serious about deepening their knowledge and practice of yoga.', '500 Hour Yoga Teacher Training in Rishikesh', 1, 0, '2023-10-28 07:16:47', '2023-10-28 07:16:47', '500 Hr'),
+(6, '200 hour Kundalini Yoga Teacher Training in Rishikesh, India', '200-hour-kundalini-yoga-teacher-training-in-rishikesh-india', '25 Days', 'RYT-200, Yoga Alliance USA', 1499, 1199, 999, 799, '<p>&nbsp;If you are looking to deepen your yoga practice and become a certified instructor, the 200-hour Kundalini Yoga Teacher Training in Rishikesh, India is an excellent choice.The program consists of a combination of theoretical and practical classes, covering topics such as kundalini asanas, Kundalini yoga philosophy, anatomy and physiology, teaching methodology, meditation techniques, mantra chanting, and much more. Studnets will also have the opportunity to learn about the chakra system and how it relates to Kundalini energy.</p>\r\n\r\n<p>The training is led by experienced and certified Kundalini yoga teachers who are passionate about sharing their knowledge and helping individuals develop their teaching skills.&nbsp;<br />\r\nAt the end of the 200 hour Kundalini Yoga Teacher Training in India, participants will receive a certification that enables them to teach Kundalini yoga classes. This certification is recognized internationally and provides graduates with the necessary credentials to start teach at established yoga centers</p>', '/upload/course/65407fd538be2dsc07893.webp', '200 hour Kundalini Yoga Teacher Training in Rishikesh, India', '200 hour Kundalini Yoga Teacher Training', 'If you are looking to deepen your yoga practice and become a certified instructor, the 200-hour Kundalini Yoga Teacher Training in Rishikesh, India is an excellent choice.', '200 hour Kundalini Yoga Teacher Training', 1, 1, '2023-10-30 22:47:25', '2023-10-30 22:47:25', '200 Hr'),
+(7, '300 Hour Kundalini Yoga Teacher Training in Rishikesh, India', '300-hour-kundalini-yoga-teacher-training-in-rishikesh-india', '30 days', 'RYT-200, Yoga Alliance USA', 1499, 1199, 999, 799, '<p>Our 300 hour Kundalini Yoga Teacher Training in Rishikesh, India is an intensive program designed to deepen your understanding and practice of Kundalini Yoga. This training is suitable for experienced yoga teachers looking to expand their knowledge and sharing the transformative power of Kundalini Yoga. The trainee should have completed 200 hour Kundalini course in order to be eligible for this course.</p>\r\n\r\n<p>Located in the spiritual heartland of Rishikesh, Nirvana Yoga School&nbsp; provides the perfect environment for deepening your practice and immersing yourself in the teachings of Kundalini Yoga. During this 300 hour kundalini yoga teacher training in India, you will further delve into the philosophy, theory, and practical aspects of Kundalini Yoga. Upon completion of this training, you will receive a 300 hour Kundalini YTT certification, allowing you to confidently teach Kundalini Yoga to students around the world. This certification is recognized by Yoga Alliance, ensuring that you meet the highest standards of teaching and professionalism</p>', '/upload/course/6540838486b38img-5245-1-1.webp', '300 Hour Kundalini Yoga Teacher Training in Rishikesh, India', '300 Hour Kundalini Yoga Teacher Training in Rishikesh, India', 'Our 300 hour Kundalini Yoga Teacher Training in Rishikesh, India is an intensive program designed to deepen your understanding and practice of Kundalini Yoga.', '300 Hour Kundalini Yoga Teacher Training in Rishikesh, India', 1, 1, '2023-10-30 23:03:08', '2023-10-30 23:03:08', '300 Hour'),
+(8, '500 Hour Kundalini Yoga Teacher Training in Rishikesh, India', '500-hour-kundalini-yoga-teacher-training-in-rishikesh-india', '30 Days', 'RYT-200, Yoga Alliance USA', 1499, 1199, 999, 799, '<p>During the 500 Hour Kundalini Yoga Teacher Training in Rishikesh, students will delve into the theory and philosophy of Kundalini Yoga, as well as its practical application in daily life. They will learn various kriyas (yogic exercises), pranayama (breathing techniques), meditation practices, and mantra chanting, all aimed at awakening the dormant energy within and achieving a state of higher consciousness. In addition to the traditional aspects of Kundalini Yoga, our training also includes modules on anatomy and physiology, teaching methodology, and yogic lifestyle. These modules are designed to equip students with the necessary tools and skills to become confident and competent yoga teachers.</p>\r\n\r\n<p>Our experienced and knowledgeable teachers will guide students through these practices, ensuring a safe and transformative learning experience. Students will have ample opportunities to practice teaching under the guidance of our experienced faculty, allowing them to refine their teaching style and gain valuable feedback. At the end of this 500 Hour Kundalini Yoga Teacher Training in India, students will receive a globally recognized certification, enabling them to teach Kundalini Yoga anywhere in the world. Our program is registered with Yoga Alliance, ensuring that our curriculum meets their stringent standards. Graduates will not only have a deep understanding of Kundalini Yoga but also the ability to share this ancient wisdom with others.</p>', '/upload/course/65408660ddd7bdsc07893-1.webp', '500 Hour Kundalini Yoga Teacher Training in Rishikesh, India', '500 Hour Kundalini Yoga Teacher Training in Rishikesh, India', 'During the 500 Hour Kundalini Yoga Teacher Training in Rishikesh, students will delve into the theory and philosophy of Kundalini Yoga, as well as its practical application in daily life.', '500 Hour Kundalini Yoga Teacher Training in Rishikesh, India', 1, 1, '2023-10-30 23:15:20', '2023-10-30 23:15:20', '500 Hr'),
+(9, '200 Hour Ayurveda Yoga Teacher Training in Rishikesh, India', '200-hour-ayurveda-yoga-teacher-training-in-rishikesh-india', '20 Days', 'RYT-200, Yoga Alliance USA', 1499, 1199, 999, 799, '<p>Our 200 hour Ayurveda Yoga Teacher Training in Rishikesh is a comprehensive program designed to provide aspiring yoga teachers with a deep understanding of the ancient practice of Ayurveda and its integration with yoga. This training program is specifically designed to provide a solid foundation in Ayurveda and its principles, as well as a thorough understanding of yoga philosophy, anatomy, and teaching methodology. In addition to the theoretical and practical aspects of Ayurveda and yoga, this training also includes daily meditation and pranayama (breathing) practices.</p>\r\n\r\n<p>The 200-hour curriculum covers a wide range of topics, including Ayurvedic lifestyle practices, Ayurvedic diet and nutrition, Ayurvedic massage and bodywork techniques, and Ayurvedic herbs and remedies. Participants will also learn how to incorporate Ayurveda into their yoga teaching, allowing them to offer a holistic approach to their students.</p>\r\n\r\n<p>Our team of experienced and knowledgeable teachers will guide participants through this transformative journey, providing hands-on training and personalized support.Upon completion of the 200-hour Ayurveda Yoga Teacher Training, participants will receive a certification that is recognized by Yoga Alliance. If you are passionate about Ayurveda, yoga, and teaching, our 200-hour Ayurveda Yoga Teacher Training in India is the perfect opportunity for you to deepen your practice and gain the skills and knowledge needed to become a confident and competent yoga teacher.&nbsp;</p>', '/upload/course/65408c952f150ayurveda-massage-alternative-healing-therapy-beaut-2022-05-31-18-27-02-utc.webp', '200 Hour Ayurveda Yoga Teacher Training in Rishikesh, India', '200 Hour Ayurveda Yoga Teacher Training in Rishikesh, India', 'Our 200 hour Ayurveda Yoga Teacher Training in Rishikesh is a comprehensive program designed to provide aspiring yoga teachers with a deep understanding of the ancient practice of Ayurveda and its integration with yoga', '200 Hour Ayurveda Yoga Teacher Training in Rishikesh, India', 1, 0, '2023-10-30 23:41:49', '2023-10-30 23:41:49', '200 Hr'),
+(10, '200 Hour Meditation Yoga Teacher Training in Rishikesh, India', '200-hour-meditation-yoga-teacher-training-in-rishikesh-india', '15 days', 'RYT-200, Yoga Alliance USA', 1499, 1199, 999, 799, '<p>Our 200 Hour Meditation Teacher Training in Rishikesh is a comprehensive program designed to provide aspiring meditation teachers with the necessary skills and knowledge to guide others in their meditation practice. This training is ideal for individuals who have a passion for meditation and want to deepen their own practice, as well as those who wish to share the benefits of meditation with others.&nbsp;</p>\r\n\r\n<p>The training curriculum covers a wide range of topics including the theory and philosophy of meditation, different meditation techniques, anatomy and physiology, teaching methodology, and the business of being a meditation teacher. Participants will have the opportunity to learn from experienced meditation teachers who have a deep understanding of the subject matter and are dedicated to helping others on their meditation journey.</p>\r\n\r\n<p>Throughout the 200 Hour Meditation Teacher Training in India, participants will have the opportunity to practice and refine their own meditation techniques, as well as learn how to effectively guide others in their practice. They will also learn how to create a safe and supportive environment for their students, as well as develop their own teaching style. By the end of the training, participants will have the knowledge and confidence to lead group meditation sessions and one-on-one meditation sessions.</p>', '/upload/course/65408ff3bd83dpresent-moment-mindful-meditation-2022-02-02-05-05-52-utc.webp', '200 Hour Meditation Yoga Teacher Training in Rishikesh, India', '200 Hour Meditation Yoga Teacher Training in Rishikesh, India', 'Our 200 Hour Meditation Teacher Training in Rishikesh is a comprehensive program designed to provide aspiring meditation teachers with the necessary skills and knowledge to guide others in their meditation practice.', '200 Hour Meditation Yoga Teacher Training in Rishikesh, India', 1, 0, '2023-10-30 23:56:11', '2023-10-30 23:56:11', '200 Hr');
 
 -- --------------------------------------------------------
 
@@ -427,17 +618,102 @@ CREATE TABLE `courseschdules` (
 --
 
 INSERT INTO `courseschdules` (`id`, `course_id`, `time`, `task`, `created_at`, `updated_at`) VALUES
-(1, 2, '05-06', 'test1', '2023-10-06 23:53:12', '2023-10-06 23:53:12'),
-(2, 2, '05-06', 'tett1', '2023-10-06 23:53:12', '2023-10-06 23:53:12'),
-(3, 1, '05:00', 'Wake up', '2023-10-11 02:20:20', '2023-10-11 02:20:20'),
-(4, 1, '06:00 - 07:30', 'Traditional Hatha Yoga', '2023-10-11 02:20:20', '2023-10-11 02:20:20'),
-(5, 1, '07:45 - 08:45', 'Pranayama Mudras & Bandhas', '2023-10-11 02:20:20', '2023-10-11 02:20:20'),
-(6, 1, '09:00 - 09:30', 'Breakfast', '2023-10-11 02:20:20', '2023-10-11 02:20:20'),
-(7, 1, '10:45 - 11:45', 'Yoga Philosophy & Ethics', '2023-10-11 02:20:20', '2023-10-11 02:20:20'),
-(8, 1, '11:50 - 12:50', 'Teaching Methodology & Alignment-Adjustment', '2023-10-11 02:20:20', '2023-10-11 02:20:20'),
-(9, 1, '13:00 - 13:30', 'Lunch', '2023-10-11 02:20:20', '2023-10-11 02:20:20'),
-(10, 1, NULL, NULL, '2023-10-13 22:44:19', '2023-10-13 22:44:19'),
-(11, 1, NULL, NULL, '2023-10-13 22:44:19', '2023-10-13 22:44:19');
+(12, 1, '05:00', 'Wake up', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(13, 1, '06:00 - 07:30', 'Traditional Hatha Yoga', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(14, 1, '07:45 - 08:45', 'Pranayama Mudras & Bandhas', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(15, 1, '09:00 - 09:30', 'Breakfast', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(16, 1, '10:45 - 11:45', 'Yoga Philosophy & Ethics', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(17, 1, '11:50 - 12:50', 'Teaching Methodology & Alignment-Adjustment', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(18, 1, '13:00 - 13:30', 'Lunch', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(19, 1, '14:30 - 15:30', 'Yoga Anatomy Physiology & Biomechanics', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(20, 1, '15:40 - 16:20', 'Ayurveda / Mantra Chanting', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(21, 1, '16:30 - 18:00', 'Ashtanga Vinyasa Yoga', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(22, 1, '18:00 - 19:00', 'Meditation / Yoga Nidra', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(23, 1, '19:15 - 20:00', 'Dinner...', '2023-10-28 06:57:35', '2023-10-28 06:57:35'),
+(24, 4, '05:00', 'Wake up', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(25, 4, '06:00 - 07:30', 'Advanced Hatha Yoga', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(26, 4, '07:45 - 08:45', 'Pranayama Mudras & Bandhas', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(27, 4, '09:00 - 09:30', 'Breakfast', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(28, 4, '10:45 - 11:45', 'Yoga Philosophy & Ethics', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(29, 4, '11:50 - 12:50', 'Teaching Methodology & Alignment Adjustment', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(30, 4, '13:00 - 13:30', 'Lunch', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(31, 4, '14:30 - 15:30', 'Yoga Anatomy Physiology & Biomechanics', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(32, 4, '15:40 - 16:20', 'Ayurveda / Mantra Chanting', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(33, 4, '16:30 - 18:00', 'Advanced Ashtanga Vinyasa Yoga', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(34, 4, '18:00 - 19:00', 'Meditation / Yoga Nidra', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(35, 4, '19:15 - 20:00', 'Dinner...', '2023-10-28 07:11:18', '2023-10-28 07:11:18'),
+(36, 5, '05:00', 'Wake up', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(37, 5, '06:00 - 07:00', 'Advanced Hatha Yoga', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(38, 5, '07:45 - 08:45', 'Pranayama Mudras & Bandhas', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(39, 5, '09:00 - 09:30', 'Breakfast', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(40, 5, '10:45 - 11:45', 'Yoga Philosophy & Ethics', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(41, 5, '11:50 - 12:50', 'Teaching Methodology & Alignment Adjustment', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(42, 5, '13:00 - 13:30', 'Lunch', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(43, 5, '14:30 - 15:30', 'Yoga Anatomy Physiology & Biomechanics', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(44, 5, '15:40 - 16:20', 'Ayurveda / Mantra Chanting', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(45, 5, '16:30 - 18:00', 'Advanced Ashtanga Vinyasa Yoga', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(46, 5, '18:00 - 19:00', 'Meditation / Yoga Nidra', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(47, 5, '19:15 - 20:00', 'Dinner...', '2023-10-28 07:22:43', '2023-10-28 07:22:43'),
+(48, 6, '05:00', 'Wake up', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(49, 6, '06:00 - 07:30', 'Advanced Hatha Yoga', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(50, 6, '07:45 - 08:45', 'Pranayama Mudras & Bandhas', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(51, 6, '09:00 - 09:30', 'Breakfast  Yoga Philosophy & Ethics', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(52, 6, '10:45 - 11:45', 'Teaching Methodology & Alignment Adjustment', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(53, 6, '11:50 - 12:50', 'Lunch', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(54, 6, '13:00 - 13:30', 'Yoga Anatomy Physiology & Biomechanics', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(55, 6, '14:30 - 15:30', 'Ayurveda / Mantra Chanting', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(56, 6, '15:40 - 16:20', 'Advanced Ashtanga', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(57, 6, '16:30 - 18:00', 'Vinyasa Yoga', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(58, 6, '18:00 - 19:00', 'Meditation / Yoga Nidra', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(59, 6, '19:15 - 20:00', 'Dinner...', '2023-10-30 22:58:08', '2023-10-30 22:58:08'),
+(60, 7, '05:00', 'Wake up', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(61, 7, '06:00 - 07:30', 'Advanced Hatha Yoga', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(62, 7, '07:45 - 08:45', 'Pranayama Mudras & Bandhas', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(63, 7, '09:00 - 09:30', 'Breakfast Yoga Philosophy & Ethics', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(64, 7, '10:45 - 11:45', 'Teaching Methodology & Alignment Adjustment', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(65, 7, '11:50 - 12:50', 'Lunch', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(66, 7, '13:00 - 13:30', 'Yoga Anatomy Physiology & Biomechanics', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(67, 7, '14:30 - 15:30', 'Ayurveda / Mantra Chanting', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(68, 7, '15:40 - 16:20', 'Advanced Ashtanga', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(69, 7, '16:30 - 18:00', 'Vinyasa Yoga', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(70, 7, '18:00 - 19:00', 'Meditation / Yoga Nidra', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(71, 7, '19:15 - 20:00', 'Dinner...', '2023-10-30 23:08:53', '2023-10-30 23:08:53'),
+(72, 8, '05:00', 'Wake up', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(73, 8, '06:00 - 07:30', 'Advanced Hatha Yoga', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(74, 8, '07:45 - 08:45', 'Pranayama Mudras & Bandhas', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(75, 8, '09:00 - 09:30', 'Breakfast Yoga Philosophy & Ethics', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(76, 8, '10:45 - 11:45', 'Teaching Methodology & Alignment Adjustment', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(77, 8, '11:50 - 12:50', 'Lunch', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(78, 8, '13:00 - 13:30', 'Yoga Anatomy Physiology & Biomechanics', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(79, 8, '14:30 - 15:30', 'Ayurveda / Mantra Chanting', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(80, 8, '15:40 - 16:20', 'Advanced Ashtanga', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(81, 8, '16:30 - 18:00', 'Vinyasa Yoga', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(82, 8, '18:00 - 19:00', 'Meditation / Yoga Nidra', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(83, 8, '19:15 - 20:00', 'Dinner...', '2023-10-30 23:21:33', '2023-10-30 23:21:33'),
+(84, 9, '05:00', 'Wake up', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(85, 9, '06:00 - 07:30', 'Advanced Hatha Yoga', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(86, 9, '07:45 - 08:45', 'Pranayama Mudras & Bandhas', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(87, 9, '09:00 - 09:30', 'Breakfast Yoga Philosophy & Ethics', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(88, 9, '10:45 - 11:45', 'Teaching Methodology & Alignment Adjustment', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(89, 9, '11:50 - 12:50', 'Lunch', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(90, 9, '13:00 - 13:30', 'Yoga Anatomy Physiology & Biomechanics', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(91, 9, '14:30 - 15:30', 'Ayurveda / Mantra Chanting', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(92, 9, '15:40 - 16:20', 'Advanced Ashtanga', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(93, 9, '16:30 - 18:00', 'Vinyasa Yoga', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(94, 9, '18:00 - 19:00', 'Meditation / Yoga Nidra', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(95, 9, '19:15 - 20:00 Dinner...', 'Dinner...', '2023-10-30 23:47:31', '2023-10-30 23:47:31'),
+(96, 10, '05:00', 'Wake up', '2023-10-31 00:01:37', '2023-10-31 00:01:37'),
+(97, 10, '06:00 - 07:30', 'Advanced Hatha Yoga', '2023-10-31 00:01:37', '2023-10-31 00:01:37'),
+(98, 10, '07:45 - 08:45', 'Pranayama Mudras & Bandhas', '2023-10-31 00:01:37', '2023-10-31 00:01:37'),
+(99, 10, '09:00 - 09:30', 'Breakfast Yoga Philosophy & Ethics', '2023-10-31 00:01:37', '2023-10-31 00:01:37'),
+(100, 10, '10:45 - 11:45', 'Teaching Methodology & Alignment Adjustment', '2023-10-31 00:01:37', '2023-10-31 00:01:37'),
+(101, 10, '11:50 - 12:50', 'Lunch', '2023-10-31 00:01:37', '2023-10-31 00:01:37'),
+(102, 10, '13:00 - 13:30', 'Yoga Anatomy Physiology & Biomechanics', '2023-10-31 00:01:37', '2023-10-31 00:01:37'),
+(103, 10, '14:30 - 15:30', 'Ayurveda / Mantra Chanting', '2023-10-31 00:01:37', '2023-10-31 00:01:37'),
+(104, 10, '15:40 - 16:20', 'Advanced Ashtanga', '2023-10-31 00:01:37', '2023-10-31 00:01:37'),
+(105, 10, '16:30 - 18:00', 'Vinyasa Yoga', '2023-10-31 00:01:37', '2023-10-31 00:01:37'),
+(106, 10, '18:00 - 19:00', 'Meditation / Yoga Nidra', '2023-10-31 00:01:37', '2023-10-31 00:01:37'),
+(107, 10, '19:15 - 20:00', 'Dinner...', '2023-10-31 00:01:37', '2023-10-31 00:01:37');
 
 -- --------------------------------------------------------
 
@@ -507,8 +783,7 @@ INSERT INTO `enquiries` (`id`, `name`, `email`, `country`, `phone`, `course`, `g
 (2, 'Himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7412589630', '300 Hour Yoga Teacher Training In Rishikesh India', 'female', '2 Shared Room', 'test', 0, '2023-10-12 02:48:55', '2023-10-12 02:48:55'),
 (3, 'Himanshu Singh', 'himanshu01eglobalsoft@gmail.com', 'New Zealand', '7412589630', 'Mindfulness', 'male', 'Online Workshop', 'this is for testing', 1, '2023-10-19 03:37:34', '2023-10-19 03:37:34'),
 (4, 'Shubham', 'shubham@gmail.com', 'Australia', '7412589630', '200 Hour Yoga Teacher Training in Rishikesh India', 'male', 'Private Room', 'tesing', 0, '2023-10-19 03:38:25', '2023-10-19 03:38:25'),
-(5, 'Alex Hales', 'alex@gmail.com', 'South Africa', '7417417410', 'Mindfulness', 'male', 'Online Workshop', NULL, 1, '2023-10-19 03:48:28', '2023-10-19 03:48:28'),
-(6, 'tet', 'himanshu01eglobalsoft@gmail.com', 'United Arab Emirates (‫الإمارات العربية المتحدة‬‎)', '7412589632', '300 Hour Yoga Teacher Training In Rishikesh India', 'female', '2 Shared Room', 'test', 0, '2023-10-19 23:17:44', '2023-10-19 23:17:44');
+(5, 'Alex Hales', 'alex@gmail.com', 'South Africa', '7417417410', 'Mindfulness', 'male', 'Online Workshop', NULL, 1, '2023-10-19 03:48:28', '2023-10-19 03:48:28');
 
 -- --------------------------------------------------------
 
@@ -585,8 +860,7 @@ CREATE TABLE `forms` (
 --
 
 INSERT INTO `forms` (`id`, `name`, `email`, `country`, `phone`, `subject`, `comment`, `created_at`, `updated_at`) VALUES
-(10, 'Himanshu', 'singh@gmail.com', 'India (भारत)', '7896541230', 'test form', 'test forms', '2023-10-10 04:44:54', '2023-10-10 04:44:54'),
-(11, 'Himanshu', 'himanshu01eglobalsoft@gmail.com', 'India (भारत)', '7412589630', 'this is etst frms', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.', '2023-10-10 04:46:54', '2023-10-10 04:46:54');
+(10, 'Himanshu', 'singh@gmail.com', 'India (भारत)', '7896541230', 'test form', 'test forms', '2023-10-10 04:44:54', '2023-10-10 04:44:54');
 
 -- --------------------------------------------------------
 
@@ -706,7 +980,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (71, '2023_10_18_045616_create_bookingforms_table', 20),
 (72, '2023_10_17_071528_create_workshoptestimonials_table', 21),
 (73, '2023_10_18_081254_create_workshopresources_table', 22),
-(74, '2023_10_25_135203_create_orders_table', 23);
+(74, '2023_10_25_135203_create_orders_table', 23),
+(75, '2023_11_02_113508_create_bookingworkshops_table', 24),
+(76, '2023_11_03_110038_create_orderworkshops_table', 25);
 
 -- --------------------------------------------------------
 
@@ -720,8 +996,11 @@ CREATE TABLE `orders` (
   `form_id` bigint(20) UNSIGNED NOT NULL,
   `course_id` bigint(20) UNSIGNED NOT NULL,
   `amount` int(11) NOT NULL,
-  `payment_token_id` varchar(100) DEFAULT NULL,
-  `payer_id` varchar(100) DEFAULT NULL,
+  `payment_token_id` varchar(600) DEFAULT NULL,
+  `payer_id` varchar(600) DEFAULT NULL,
+  `razorpay_order_id` varchar(600) DEFAULT NULL,
+  `razorpay_payment_id` varchar(600) DEFAULT NULL,
+  `razorpay_signature` varchar(600) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=fail or 1=success',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -731,49 +1010,44 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `book_id`, `form_id`, `course_id`, `amount`, `payment_token_id`, `payer_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, NULL, 3, 1, 0, NULL, NULL, 0, '2023-10-25 08:49:28', '2023-10-25 08:49:28'),
-(2, NULL, 4, 1, 0, NULL, NULL, 0, '2023-10-25 08:50:10', '2023-10-25 08:50:10'),
-(3, NULL, 5, 1, 0, NULL, NULL, 0, '2023-10-25 08:50:41', '2023-10-25 08:50:41'),
-(4, NULL, 6, 1, 0, NULL, NULL, 0, '2023-10-25 08:51:01', '2023-10-25 08:51:01'),
-(5, 'ODR0008', 7, 2, 135, NULL, NULL, 0, '2023-10-26 02:37:42', '2023-10-26 02:37:42'),
-(6, 'ODR0009', 8, 2, 170, NULL, NULL, 0, '2023-10-26 02:40:19', '2023-10-26 02:40:19'),
-(7, 'ODR00010', 9, 2, 135, NULL, NULL, 0, '2023-10-26 02:50:39', '2023-10-26 02:50:39'),
-(8, 'ODR00011', 10, 2, 90, '6EY376471Y072094Y', NULL, 0, '2023-10-26 02:52:25', '2023-10-26 02:52:29'),
-(9, 'ODR00012', 11, 2, 170, '2J674340FH706190K', NULL, 0, '2023-10-26 03:45:38', '2023-10-26 03:45:40'),
-(10, 'ODR00013', 12, 1, 45, '7B815322J46028105', '2JRHYW99C4RXN', 1, '2023-10-26 04:00:17', '2023-10-26 04:00:32'),
-(11, 'ODR00014', 13, 1, 999, '35577110LX6389143', '2JRHYW99C4RXN', 1, '2023-10-26 04:08:26', '2023-10-26 04:09:00'),
-(12, 'ODR00015', 14, 2, 599, '42N75982MR818331T', NULL, 0, '2023-10-26 04:14:16', '2023-10-26 04:14:19'),
-(13, 'ODR00016', 15, 2, 135, '2M324745RN218492V', NULL, 0, '2023-10-26 04:15:50', '2023-10-26 04:15:52'),
-(14, 'ODR00017', 16, 2, 170, '40Y867434U277412S', NULL, 0, '2023-10-26 04:17:48', '2023-10-26 04:17:51'),
-(15, 'ODR00018', 17, 2, 170, '5YW875854J3608431', NULL, 0, '2023-10-26 04:17:51', '2023-10-26 04:17:54'),
-(16, 'ODR00019', 18, 2, 170, NULL, NULL, 0, '2023-10-26 04:25:37', '2023-10-26 04:25:37'),
-(17, 'ODR00020', 19, 2, 90, '4027084082179320B', NULL, 0, '2023-10-26 06:49:16', '2023-10-26 06:49:19'),
-(18, 'ODR00021', 20, 2, 90, NULL, NULL, 0, '2023-10-26 06:49:28', '2023-10-26 06:49:28'),
-(19, 'ODR00022', 21, 2, 90, NULL, NULL, 0, '2023-10-26 06:50:37', '2023-10-26 06:50:37'),
-(20, 'ODR00023', 22, 2, 90, NULL, NULL, 0, '2023-10-26 06:50:43', '2023-10-26 06:50:43'),
-(21, 'ODR00024', 23, 2, 90, NULL, NULL, 0, '2023-10-26 06:51:20', '2023-10-26 06:51:20'),
-(22, 'ODR00025', 24, 2, 90, NULL, NULL, 0, '2023-10-26 07:17:53', '2023-10-26 07:17:53'),
-(23, 'ODR00026', 25, 2, 90, NULL, NULL, 0, '2023-10-26 07:18:25', '2023-10-26 07:18:25'),
-(24, 'ODR00027', 26, 2, 90, NULL, NULL, 0, '2023-10-26 07:47:22', '2023-10-26 07:47:22'),
-(25, 'ODR00028', 27, 2, 90, NULL, NULL, 0, '2023-10-26 07:51:03', '2023-10-26 07:51:03'),
-(26, 'ODR00029', 28, 2, 90, NULL, NULL, 0, '2023-10-26 07:54:01', '2023-10-26 07:54:01'),
-(27, 'ODR00030', 29, 1, 299, NULL, NULL, 0, '2023-10-26 07:55:52', '2023-10-26 07:55:52'),
-(28, 'ODR00031', 30, 2, 90, NULL, NULL, 0, '2023-10-26 08:11:47', '2023-10-26 08:11:47'),
-(29, 'ODR00032', 31, 2, 90, NULL, NULL, 0, '2023-10-26 08:12:48', '2023-10-26 08:12:48'),
-(30, 'ODR00033', 32, 1, 499, NULL, NULL, 0, '2023-10-26 08:29:55', '2023-10-26 08:29:55'),
-(31, 'ODR00034', 33, 2, 599, NULL, NULL, 0, '2023-10-26 08:32:13', '2023-10-26 08:32:13'),
-(32, 'ODR00035', 34, 2, 899, NULL, NULL, 0, '2023-10-26 08:34:07', '2023-10-26 08:34:07'),
-(33, 'ODR00036', 35, 2, 599, NULL, NULL, 0, '2023-10-26 08:37:04', '2023-10-26 08:37:04'),
-(34, 'ODR00037', 36, 1, 75, NULL, NULL, 0, '2023-10-26 08:53:06', '2023-10-26 08:53:06'),
-(35, 'ODR00038', 37, 1, 105, NULL, NULL, 0, '2023-10-26 08:58:00', '2023-10-26 08:58:00'),
-(36, 'ODR00039', 38, 1, 75, NULL, NULL, 0, '2023-10-26 09:00:53', '2023-10-26 09:00:53'),
-(37, 'ODR00040', 39, 2, 90, NULL, NULL, 0, '2023-10-26 09:05:06', '2023-10-26 09:05:06'),
-(38, 'ODR00041', 40, 2, 90, NULL, NULL, 0, '2023-10-26 09:09:07', '2023-10-26 09:09:07'),
-(39, 'ODR00042', 41, 2, 599, NULL, NULL, 0, '2023-10-26 09:09:34', '2023-10-26 09:09:34'),
-(40, 'ODR00043', 42, 2, 599, NULL, NULL, 0, '2023-10-26 09:10:00', '2023-10-26 09:10:00'),
-(41, 'ODR00044', 43, 2, 599, NULL, NULL, 0, '2023-10-26 09:10:21', '2023-10-26 09:10:21'),
-(42, 'ODR00045', 44, 1, 105, NULL, NULL, 0, '2023-10-26 09:21:25', '2023-10-26 09:21:25');
+INSERT INTO `orders` (`id`, `book_id`, `form_id`, `course_id`, `amount`, `payment_token_id`, `payer_id`, `razorpay_order_id`, `razorpay_payment_id`, `razorpay_signature`, `status`, `created_at`, `updated_at`) VALUES
+(9, 'ODR00012', 11, 7, 999, '6PH04735L29824019', '2JRHYW99C4RXN', NULL, NULL, NULL, 1, '2023-11-03 02:52:17', '2023-11-03 02:52:39'),
+(10, 'ODR00013', 12, 4, 180, NULL, NULL, 'order_Mvw1DsDgLGH2Mm', 'pay_Mvw1V0t8rIh3EG', 'e7e6eaeee6b9d7de498f10d75228090f813f2b12b2790278d90387527686b72d', 1, '2023-11-03 02:56:53', '2023-11-03 02:57:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderworkshops`
+--
+
+CREATE TABLE `orderworkshops` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `invoice` varchar(600) DEFAULT NULL,
+  `booking_id` bigint(20) UNSIGNED NOT NULL,
+  `workshop_id` bigint(20) UNSIGNED NOT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `payment_token_id` varchar(255) DEFAULT NULL,
+  `payer_id` varchar(255) DEFAULT NULL,
+  `razorpay_order_id` varchar(255) DEFAULT NULL,
+  `razorpay_payment_id` varchar(255) DEFAULT NULL,
+  `razorpay_signature` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=fail or 1=success',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orderworkshops`
+--
+
+INSERT INTO `orderworkshops` (`id`, `invoice`, `booking_id`, `workshop_id`, `amount`, `payment_token_id`, `payer_id`, `razorpay_order_id`, `razorpay_payment_id`, `razorpay_signature`, `status`, `created_at`, `updated_at`) VALUES
+(4, 'WRK00011', 10, 1, 299, NULL, NULL, NULL, NULL, NULL, 0, '2023-11-03 07:59:45', '2023-11-03 07:59:45'),
+(5, 'WRK00012', 11, 1, 45, NULL, NULL, NULL, NULL, NULL, 0, '2023-11-03 08:06:58', '2023-11-03 08:06:58'),
+(6, 'WRK00013', 12, 2, 105, NULL, NULL, NULL, NULL, NULL, 0, '2023-11-03 08:07:19', '2023-11-03 08:07:19'),
+(7, 'WRK00014', 13, 1, 299, '3Y286035D7661504R', NULL, NULL, NULL, NULL, 0, '2023-11-03 08:13:36', '2023-11-03 08:13:38'),
+(8, 'WRK00015', 14, 1, 45, '9DW753592V531991E', '2JRHYW99C4RXN', NULL, NULL, NULL, 1, '2023-11-03 08:15:41', '2023-11-03 08:15:58'),
+(9, 'WRK00016', 15, 1, 299, '81H87952A30140719', NULL, NULL, NULL, NULL, 0, '2023-11-03 08:16:59', '2023-11-03 08:17:02'),
+(10, 'WRK00017', 16, 1, 299, NULL, NULL, 'order_Mw1TdB7vClUDjB', 'pay_Mw1Uzj5ZaJBkAi', '48cc0072057d095f3dcd829ed3dd962bacdde1e86566e63bf2487058111b8bb9', 1, '2023-11-03 08:17:14', '2023-11-03 08:18:39');
 
 -- --------------------------------------------------------
 
@@ -1234,6 +1508,13 @@ ALTER TABLE `bookingforms`
   ADD KEY `bookingforms_course_id_foreign` (`course_id`);
 
 --
+-- Indexes for table `bookingworkshops`
+--
+ALTER TABLE `bookingworkshops`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `bookingworkshops_workshop_id_foreign` (`workshop_id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -1389,6 +1670,12 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orderworkshops`
+--
+ALTER TABLE `orderworkshops`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -1527,7 +1814,13 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `bookingforms`
 --
 ALTER TABLE `bookingforms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `bookingworkshops`
+--
+ALTER TABLE `bookingworkshops`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -1557,13 +1850,13 @@ ALTER TABLE `consultations`
 -- AUTO_INCREMENT for table `coursecurriculams`
 --
 ALTER TABLE `coursecurriculams`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `coursedates`
 --
 ALTER TABLE `coursedates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `coursefaqs`
@@ -1575,7 +1868,7 @@ ALTER TABLE `coursefaqs`
 -- AUTO_INCREMENT for table `courseinclusions`
 --
 ALTER TABLE `courseinclusions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `coursemedia`
@@ -1587,13 +1880,13 @@ ALTER TABLE `coursemedia`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `courseschdules`
 --
 ALTER TABLE `courseschdules`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `coursetestimonials`
@@ -1611,7 +1904,7 @@ ALTER TABLE `customcodes`
 -- AUTO_INCREMENT for table `enquiries`
 --
 ALTER TABLE `enquiries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `errors`
@@ -1659,13 +1952,19 @@ ALTER TABLE `media`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `orderworkshops`
+--
+ALTER TABLE `orderworkshops`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1778,6 +2077,12 @@ ALTER TABLE `blogs`
 --
 ALTER TABLE `bookingforms`
   ADD CONSTRAINT `bookingforms_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `bookingworkshops`
+--
+ALTER TABLE `bookingworkshops`
+  ADD CONSTRAINT `bookingworkshops_workshop_id_foreign` FOREIGN KEY (`workshop_id`) REFERENCES `workshops` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `categoryfaqs`
