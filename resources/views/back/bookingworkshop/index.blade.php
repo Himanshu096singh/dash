@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="content-header">
-                    Booking
+                    Workshop Booking
                 </div>
             </div>
         </div>
@@ -25,7 +25,8 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Name</th>
-                                                <th>Course</th>
+                                                <th>Workshop</th>
+                                                <th>Attend</th>
                                                 <th>Phone</th>
                                                 <th>Amount</th>
                                                 <th>Payment Mode</th>
@@ -41,13 +42,18 @@
                                                 <td>{{ $key+1 }}</td>
                                                 <td>
                                                     {{ ucwords($item->name) }}
+                                                </td>
                                                 <td>
-                                                    {{ $item->course->name }}
+                                                    {{ $item->workshop->name }}
+                                                </td>
+                                                <td>
+                                                    {{ $item->attend }}
                                                 </td>
                                                 <td>
                                                     {{ $item->phone }}
                                                 </td>
-                                                <td><span class="badge badge-default">
+                                                <td>
+                                                    <span class="badge badge-default">
                                                     ${{number_format($item->price, 2); }} </span>
                                                 </td>
                                                 <td>
@@ -78,9 +84,9 @@
                                                     $eid = Crypt::encrypt($item->id);
                                                 @endphp
                                                 <td class="inlinebtn">
-                                                    <a href="{{ route('bookingform.edit', $eid) }}" class="btn btn-info btn ml-1"><i class="ft-edit"></i></a>
+                                                    <a href="{{ route('bookingworkshop.edit', $eid) }}" class="btn btn-info btn ml-1"><i class="ft-edit"></i></a>
                                                     @if(Auth::check() && Auth::user()->role_id == 1)
-                                                        <form action="{{ route('bookingform.destroy',$eid) }}" method="post" class="ml-1">
+                                                        <form action="{{ route('bookingworkshop.destroy',$eid) }}" method="post" class="ml-1">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-danger" type="submit" onclick="return DeleteConfirmation();"><i class="ft-trash-2"></i></button>

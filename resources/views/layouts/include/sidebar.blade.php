@@ -25,11 +25,11 @@
                 <li class="has-sub nav-item ">
                     <a href="javascript:void();"><i class="ft-file-text"></i><span class="menu-title">Booking</span></a>
                     <ul class="menu-content">
-                        <li class="{{ Route::is('.index') ? 'active' : '' }}">
+                        <li class="{{ Route::is('bookingform.index') ? 'active' : '' }}">
                             <a href="{{ route('bookingform.index') }}"><i class="ft-eye"></i><span class="menu-item" >View Course Booking</span></a>
                         </li>
-                        <li class="">
-                            <a href=""><i class="ft-eye"></i><span class="menu-item" >View Workshop Orders</span></a>
+                        <li class="{{ Route::is('bookingworkshop.index') ? 'active' : '' }}">
+                            <a href="{{ route('bookingworkshop.index') }}"><i class="ft-eye"></i><span class="menu-item" >View Workshop Booking</span></a>
                         </li>
                     </ul>
                 </li>

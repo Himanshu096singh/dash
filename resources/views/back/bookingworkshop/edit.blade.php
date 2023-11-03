@@ -71,8 +71,8 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Course</th>
-                  <th>Date</th>
+                  <th>Workshop</th>
+                  <th>Attend</th>
                   <th>Price</th>
                   <th>Payment Mode</th>
                   <th>Payment Status</th>
@@ -86,14 +86,13 @@
                     <p>{{$booking->course->name}}</p>
                   </td>
                   <td>
-                    <p>{{$booking->date}}</p>
-                    
+                    <p>{{$booking->attend}}</p>
                   </td>
                   <td>
                     @php
-                        $room = $booking->room;
+                        $attend = $booking->attend;
                     @endphp
-                    ${{number_format($booking->course->$room,2)}} USD</td>
+                    ${{number_format($booking->workshop->$attend,2)}} USD</td>
                     <td>
                         @if($booking->paymentmode == 0)
                             Full Payment
@@ -137,7 +136,7 @@
                   
                   <tr>
                     <td class="text-bold-800">Total</td>
-                    <td class="text-bold-800 text-right">${{number_format($booking->course->$room,2)}} USD</td>
+                    <td class="text-bold-800 text-right">${{number_format($booking->workshop->$attend,2)}} USD</td>
                   </tr>
                   @if($booking->paymentmode == 1)
                     <tr>
@@ -146,7 +145,7 @@
                     </tr>
                     <tr class="text-bold-500">
                         <td>Balance Due</td>
-                        <td class="text-right">${{number_format($booking->course->$room - $booking->price,2)}} </td>
+                        <td class="text-right">${{number_format($booking->workshop->$room - $booking->price,2)}} </td>
                     </tr>
                   @endif
                 </tbody>

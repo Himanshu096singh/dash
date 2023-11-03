@@ -4261,7 +4261,7 @@ newsletter_form3 {
 }
 .custom_select::before {
 	font-family: "Font Awesome 5 Free"; 
-    font-weight: 400; 
+    font-weight: 900; 
     content: "\f107";
     padding-right: 0.5rem;
 	position: absolute;

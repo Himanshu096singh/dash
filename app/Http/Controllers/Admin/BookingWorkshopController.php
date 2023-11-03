@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Bookingform,Order};
+use App\Models\{Bookingworkshop,Orderworkshop};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
-class BookingController extends Controller
+class BookingWorkshopController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $booking = Bookingform::with('orders')->latest()->get();
-        return view('back.booking.index',compact('booking'));
+        $booking = Bookingworkshop::with('orders')->latest()->get();
+        return view('back.bookingworkshop.index',compact('booking'));
     }
 
     /**
@@ -51,8 +51,8 @@ class BookingController extends Controller
     public function edit(string $eid)
     {
         $id = Crypt::decrypt($eid);
-        $booking = Bookingform::findOrFail($id);
-        return view('back.booking.edit', compact('booking'));
+        $booking = Bookingworkshop::findOrFail($id);
+        return view('back.bookingworkshop.edit', compact('booking'));
     }
 
     /**
@@ -69,8 +69,8 @@ class BookingController extends Controller
     public function destroy(string $id)
     {
         $eid = Crypt::decrypt($id);
-        Order::where('form_id',$eid)->delete();
-        Bookingform::destroy($eid);
+        Orderworkshop::where('form_id',$eid)->delete();
+        Bookingworkshop::destroy($eid);
         return redirect()->back()->with('success', 'Deleted Successfully');
     }
 }

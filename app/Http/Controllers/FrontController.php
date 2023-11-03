@@ -24,6 +24,7 @@ use App\Models\Bookingform;
 use App\Models\Bookingworkshop;
 use App\Models\Workshop;
 use App\Models\Order;
+use App\Models\Orderworkshop;
 use Mail;
 use App\Mail\Email;
 use App\Mail\EnquiryMail;
@@ -303,20 +304,33 @@ class FrontController extends Controller
         return $course;
     }
 
+    public function coursepricetype(Request $request){
+        $room = $request->room;
+        $course = $request->course;
+        $mode = $request->mode;
+        $courses = Course::find($course);
+        $price = $courses->$room;
+        if($mode== 1){
+            return $price = ceil($price * 0.15);
+        }
+        return $price;
+        
+    }
+
     public function workshoppriceupdate(Request $request){
         $attend = $request->attendvalue;
         $workshop = Workshop::find($request->workshopvalue);
         $price = $workshop->$attend;
         if($request->mode == 1){
-            return $price = $price * 0.15 ;
+            return $price =  ceil($price * 0.15);
         }
         return $price;
     }
     public function workshopbookingsubmit(Request $request){
-        // $amount = Workshop::where('id', $request->workshopid)->value($request->room);
-        // if($request->paymentmode == 1){
-        //     $amount = $amount * 0.15 ;
-        // }
+        $amount = Workshop::where('id', $request->workshopid)->value($request->attend);
+        if($request->paymentmode == 1){
+            $amount = $amount * 0.15 ;
+        }
         $form                   =           new Bookingworkshop;   
         $form->workshop_id      =           $request->workshopid;
         $form->attend           =           $request->attend;
@@ -326,27 +340,27 @@ class FrontController extends Controller
         $form->phone            =           $request->number;
         $form->paymentmode      =           $request->paymentmode;
         $form->paymentmethod    =           $request->payment_option;
-        $form->price            =           $request->price;
+        $form->price            =            ceil($amount);
         $form->save();
-        return 1;
-        // if(Bookingform::latest()->exists()){
-        //     $lastestBook = Bookingform::latest('id')->first();
-        //     $lastestBookId = ($lastestBook->id)+1;
-        // }else{
-        //     $lastestBookId = 1;
-        // }
-        // $BookId = 'ODR000'.$lastestBookId;
-        // $order = Order::create([
-        //     'book_id'       => $BookId,
-        //     'form_id'       => $form['id'],
-        //     'course_id'     => $request->courseid,
-        //     'amount'        => $form['price'],
-        // ]);
-        // if($request->payment_option==0){
-        //     return redirect("paypal/payment/?ordid=$BookId");
-        // } else {
-        //     return app(RazorpayController::class)->processRazorpayPayment($BookId);
-        // }
+        
+        if(Bookingworkshop::latest()->exists()){
+            $lastestBook = Bookingworkshop::latest('id')->first();
+            $lastestBookId = ($lastestBook->id)+1;
+        }else{
+            $lastestBookId = 1;
+        }
+        $BookId = 'WRK000'.$lastestBookId;
+        $order = Orderworkshop::create([
+            'invoice'       => $BookId,
+            'booking_id'    => $form['id'],
+            'workshop_id'   => $request->workshopid,
+            'amount'        => $form['price'],
+        ]);
+        if($request->payment_option==0){
+            return redirect("paypal/workshoppayment/?ordid=$BookId");
+        } else {
+            return app(RazorpayController::class)->processRazorpayWorkshopPayment($BookId);
+        }
     }
     public function bookingsubmit(Request $request)
     {

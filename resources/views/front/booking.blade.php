@@ -122,7 +122,7 @@
                   <div class="form-group">
                      <label>Payment Mode: <span class="required">*</span></label>
                      <div class="custom_select">
-                        <select id="bookingpaymentmode" name="paymentmode">
+                        <select id="bookingpaymentmode" name="paymentmode" onchange="paymenttype()">
                            <option value="">Choose Payment Mode</option>
                            <option value="0">Full Payment</option>
                            <option value="1">Advance Payment</option>
@@ -155,23 +155,22 @@
                      <table class="table table-bordered">
                         <thead>
                            <tr>
-                              <th>Course</th>
+                              <th>Payment Mode</th>
                               <th>Total</th>
                            </tr>
                         </thead>
                         <tbody>
                            <tr>
                               <td>
-                                 200 Hour Yoga Teacher Training in Rishikesh India<br/>
-                                 <span class="product-qty">Payment Mode:</span> Full Payment
+                                 <span id="paytype"> Full Payment </span>
                               </td>
-                              <td>$899.00</td>
+                              <td>$<span class="courseprice"> </span> USD</td>
                            </tr>
                         </tbody>
                         <tfoot>
                            <tr>
                               <td class="product-subtotal">Total</td>
-                              <td class="product-subtotal">$899.00</td>
+                              <td class="product-subtotal">$<span class="courseprice"> </span> USD</td>
                            </tr>
                         </tfoot>
                      </table>
@@ -266,7 +265,44 @@
          document.querySelector(".step3").classList.remove("d-none");
       } 
    }
+   function paymenttype(){
+      const room = document.querySelector("#bookingroom");
+      const course = document.querySelector("#bookingcourse");
+      const bookingPaymentmode = document.querySelector("#bookingpaymentmode");
+      const paytype = document.querySelector("#paytype");
+      const courseprice = document.querySelectorAll(".courseprice");
+      const paymenflag = bookingCoursefun(bookingPaymentmode);
+      if(bookingPaymentmode.value == 0){
+         paytype.innerHTML = "Full Payment";
+         console.log(0)
+      } else {
+         paytype.innerHTML = "Advanced Payment";
+         console.log(1)
+      }
 
+      if(paymenflag){
+         const coursevalue = course.value;
+         const roomvalue = room.value;
+         const mode = bookingPaymentmode.value;
+         $.ajaxSetup({
+            headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+         });
+         $.ajax({
+            url: "/coursepricetype",
+            type: "POST",
+            data: { course: course.value, room: room.value,mode:mode},
+            success: function (data) {
+               console.log(data);
+               for (const price of courseprice) {
+                  price.innerHTML = parseInt(data).toFixed(2);
+               }
+            }
+         });
+      }
+      console.log(bookingPaymentmode.value)
+   }
    function roomselect(){
       const room = document.querySelector("#bookingroom");
       const course = document.querySelector("#bookingcourse");
@@ -287,7 +323,7 @@
             data: { course: course.value, room: room.value},
             success: function (data) {
                for (const price of courseprice) {
-                  price.innerHTML = data[roomvalue];
+                  price.innerHTML = data[roomvalue].toFixed(2);
                }
                const datesArray = data.dates;
                const dateSelect = document.getElementById('bookingdate');

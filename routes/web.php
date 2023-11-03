@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\EnquiryController;
 use App\Http\Controllers\Admin\WorkshopController;
 use App\Http\Controllers\Admin\CoursemediaController;
 use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\BookingWorkshopController;
 use App\Http\Controllers\payment\PaymentController;
 use App\Http\Controllers\RazorpayController;
 
@@ -104,25 +105,22 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
     Route::post('workshop/except', [WorkshopController::class, 'except'])->name('workshop.except');
     Route::post('workshop/resource', [WorkshopController::class, 'resource'])->name('workshop.resources');
     Route::resource('bookingform', BookingController::class);
+    Route::resource('bookingworkshop', BookingWorkshopController::class);
     Route::post('passwordupdate',[AdminController::class, 'passwordupdate'])->name('passwordupdate');
 });
 
- /*Route::group(['middleware' => ['auth', 'isUser'], 'prefix' => 'user'], function(){
-   Route::resource('blog', BlogController::class)->except('destroy');
-    Route::post('blog/ajax',[BlogController::class, 'ajaxrequest'])->name('blog.ajax');
-    Route::post('blog/faqs', [BlogController::class, 'faqs'])->name('blog.faq');
-    Route::resource('product', ProductController::class)->except('destroy');
-    Route::post('product/ajax',[ProductController::class, 'ajaxrequest'])->name('product.ajax');
-    Route::post('product/faqs',[ProductController::class, 'faqs'])->name('product.faq');
-});*/
 Route::get('razorpay-payment', [PaymentController::class, 'index']);
 Route::post('razorpay-payment', [PaymentController::class, 'store'])->name('razorpay.payment.store');
 
 Route::get('paypal', [PayPalController::class, 'index'])->name('paypal');
 Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal.payment');
+Route::get('paypal/workshoppayment', [PayPalController::class, 'workshoppayment'])->name('paypal.workshoppayment');
 
 Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('success.payment');
 Route::get('paypal/payment/error', [PayPalController::class, 'paymentCancel'])->name('error.payment');
+
+Route::get('paypal/workshoppayment/success', [PayPalController::class, 'workshoppaymentSuccess'])->name('success.workshoppayment');
+Route::get('paypal/workshoppayment/error', [PayPalController::class, 'workshoppaymentCancel'])->name('error.workshoppayment');
 
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/success', [FrontController::class, 'success'])->name('success');
@@ -140,10 +138,12 @@ Route::get('/{slug}/booking',[FrontController::class,'bookingform'])->name('book
 Route::get('{slug}',[FrontController::class, 'coursedetails'])->name('coursedetails');
 
 Route::post('handle-razorpay-response', [RazorpayController::class,'handleRazorpayResponse']);
+Route::post('handle-razorpay-workshop-response', [RazorpayController::class,'handleRazorpayWorkshopResponse']);
 Route::post('contactsubmit',[FrontController::class,'contactsubmit'])->name('contactsubmit');
 Route::post('enquiry', [FrontController::class, 'enquiry'])->name('enquiry');
 Route::post('bookingform', [FrontController::class, 'bookingsubmit']);
 Route::post('bookingforms2', [FrontController::class, 'workshopbookingsubmit']);
 Route::post('workshoppriceupdate', [FrontController::class, 'workshoppriceupdate']);
 Route::post('courseprice', [FrontController::class, 'courseprice']);
+Route::post('coursepricetype', [FrontController::class, 'coursepricetype']);
 Route::post('searchbar', [FrontController::class, 'search']);
