@@ -1,109 +1,113 @@
 @extends('layouts.back')
 @section('content')
 <div class="main-content">
-    <div class="content-overlay"></div>
-    <div class="content-wrapper">
-        <div class="row">
+   <div class="content-overlay"></div>
+   <div class="content-wrapper">
+      <div class="row">
+         <div class="col-12">
+            <div class="content-header">
+               Workshop Booking
+            </div>
+         </div>
+      </div>
+      <section id="dom">
+         <div class="row">
             <div class="col-12">
-                <div class="content-header">
-                    Workshop Booking
-                </div>
-            </div>
-        </div>
-        <section id="dom">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Booking List</h4>
+               <div class="card">
+                  <div class="card-header">
+                     <h4 class="card-title">Booking List</h4>
+                  </div>
+                  <div class="card-content">
+                     <div class="card-body">
+                        <div class="table-responsive">
+                           <table id="myTable" class="table table-striped table-bordered dom-jQuery-events">
+                              <thead>
+                                 <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Workshop</th>
+                                    <th>Attend</th>
+                                    <th>Phone</th>
+                                    <th>Amount</th>
+                                    <th>Payment Mode</th>
+                                    <th>Payment Method</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 @foreach ($booking as $key => $item)
+                                 <tr>
+                                    <td>{{ $key+1 }}</td>
+                                    <td>
+                                       {{ ucwords($item->name) }}
+                                    </td>
+                                    <td>
+                                       {{ $item->workshop->name }}
+                                    </td>
+                                    <td>
+                                       @if($item->attend == "onlineprice")
+                                       <span class="badge badge-warning">Online</span>
+                                       @elseif($item->attend == "inpersonprice")
+                                       <span class="badge badge-dark">In-person</span>
+                                       @endif
+                                    </td>
+                                    <td>
+                                       {{ $item->phone }}
+                                    </td>
+                                    <td>
+                                       <span class="badge badge-default">
+                                       ${{number_format($item->price, 2); }} </span>
+                                    </td>
+                                    <td>
+                                       @if($item->paymentmode == 0)
+                                       <span class="badge badge-warning">Full</span>
+                                       @elseif($item->paymentmode == 1)
+                                       <span class="badge badge-dark">Advanced</span>
+                                       @endif
+                                    </td>
+                                    <td> 
+                                       @if($item->paymentmethod == 0)
+                                       <span class="badge badge-info">Paypal</span>
+                                       @elseif($item->paymentmethod == 1)
+                                       <span class="badge badge-primary">Razorpay</span>
+                                       @endif
+                                    </td>
+                                     <td>
+                                       @if($item->orders->status == 0)
+                                       <span class="badge badge-danger">Pending</span>
+                                       @elseif($item->orders->status == 1)
+                                       <span class="badge badge-success">Paid</span>
+                                       @elseif($item->orders->status == 2)
+                                       <span class="badge badge-danger">Rejected</span>
+                                       @endif
+                                    </td>
+                                    <td>{{ $item->created_at }}</td>
+                                    @php
+                                    $eid = Crypt::encrypt($item->id);
+                                    @endphp
+                                    <td class="inlinebtn">
+                                       <a href="{{ route('bookingworkshop.edit', $eid) }}" class="btn btn-info btn ml-1"><i class="ft-edit"></i></a>
+                                       @if(Auth::check() && Auth::user()->role_id == 1)
+                                       <form action="{{ route('bookingworkshop.destroy',$eid) }}" method="post" class="ml-1">
+                                          @csrf
+                                          @method('DELETE')
+                                          <button class="btn btn-danger" type="submit" onclick="return DeleteConfirmation();"><i class="ft-trash-2"></i></button>
+                                       </form>
+                                       @endif
+                                    </td>
+                                 </tr>
+                                 @endforeach
+                              </tbody>
+                           </table>
                         </div>
-                        <div class="card-content">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table id="myTable" class="table table-striped table-bordered dom-jQuery-events">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Name</th>
-                                                <th>Workshop</th>
-                                                <th>Attend</th>
-                                                <th>Phone</th>
-                                                <th>Amount</th>
-                                                <th>Payment Mode</th>
-                                                <th>Payment Method</th>
-                                                <th>Status</th>
-                                                <th>Date</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($booking as $key => $item)
-                                            <tr>
-                                                <td>{{ $key+1 }}</td>
-                                                <td>
-                                                    {{ ucwords($item->name) }}
-                                                </td>
-                                                <td>
-                                                    {{ $item->workshop->name }}
-                                                </td>
-                                                <td>
-                                                    {{ $item->attend }}
-                                                </td>
-                                                <td>
-                                                    {{ $item->phone }}
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-default">
-                                                    ${{number_format($item->price, 2); }} </span>
-                                                </td>
-                                                <td>
-                                                    @if($item->paymentmode == 0)
-                                                        <span class="badge badge-warning">Full</span>
-                                                    @elseif($item->paymentmode == 1)
-                                                        <span class="badge badge-dark">Advanced</span>
-                                                    @endif
-                                                </td>
-                                                <td> 
-                                                    @if($item->paymentmethod == 0)
-                                                        <span class="badge badge-info">Paypal</span>
-                                                    @elseif($item->paymentmethod == 1)
-                                                        <span class="badge badge-primary">Razorpay</span>
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    @if($item->orders->status == 0)
-                                                         <span class="badge badge-danger">Pending</span>
-                                                    @elseif($item->orders->status == 1)
-                                                        <span class="badge badge-success">Paid</span>
-                                                    @elseif($item->orders->status == 2)
-                                                        <span class="badge badge-danger">Rejected</span>
-                                                    @endif
-                                                </td>
-                                                <td>{{ $item->created_at }}</td>
-                                                @php
-                                                    $eid = Crypt::encrypt($item->id);
-                                                @endphp
-                                                <td class="inlinebtn">
-                                                    <a href="{{ route('bookingworkshop.edit', $eid) }}" class="btn btn-info btn ml-1"><i class="ft-edit"></i></a>
-                                                    @if(Auth::check() && Auth::user()->role_id == 1)
-                                                        <form action="{{ route('bookingworkshop.destroy',$eid) }}" method="post" class="ml-1">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger" type="submit" onclick="return DeleteConfirmation();"><i class="ft-trash-2"></i></button>
-                                                        </form>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </section>
-    </div>
+         </div>
+      </section>
+   </div>
 </div>
 @endsection

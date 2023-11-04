@@ -433,6 +433,7 @@ class FrontController extends Controller
         
     }
     public function error(){
+
         $sessionval = session('response');
         if($sessionval == 'error'){
             return view('error');

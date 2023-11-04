@@ -31,14 +31,14 @@
         </div>
         <div class="col-md-6 col-12 text-right">
           <h2 class="primary text-uppercase">Invoice</h2>
-          <p class="pb-3"># {{$booking->orders->book_id}}</p>
+          <p class="pb-3"># {{$booking->orders->invoice}}</p>
             @php
-                $room = $booking->room;
+                $room = $booking->attend;
             @endphp
             @if($booking->paymentmode==1)
               <ul class="px-0 list-unstyled">
                 <li>Balance Due</li>
-                <li class="font-medium-2 text-bold-700">${{number_format($booking->course->$room - $booking->price,2)}}
+                <li class="font-medium-2 text-bold-700">${{number_format($booking->workshop->$room - $booking->price,2)}}
                 </ul>
             @endif
         </div>
@@ -83,7 +83,7 @@
                 <tr>
                   <th scope="row">1</th>
                   <td>
-                    <p>{{$booking->course->name}}</p>
+                    <p>{{$booking->workshop->name}}</p>
                   </td>
                   <td>
                     <p>{{$booking->attend}}</p>

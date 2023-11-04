@@ -151,30 +151,6 @@
                         <h3 class="h5 clr-default"> Step 3 - 3</h3>
                      </div>
                   </div>
-                  <div class="table-responsive order_table">
-                     <table class="table table-bordered">
-                        <thead>
-                           <tr>
-                              <th>Payment Mode</th>
-                              <th>Total</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <tr>
-                              <td>
-                                 <span id="paytype"> Full Payment </span>
-                              </td>
-                              <td>$<span class="courseprice"> </span> USD</td>
-                           </tr>
-                        </tbody>
-                        <tfoot>
-                           <tr>
-                              <td class="product-subtotal">Total</td>
-                              <td class="product-subtotal">$<span class="courseprice"> </span> USD</td>
-                           </tr>
-                        </tfoot>
-                     </table>
-                  </div>
                   <div class="row mt-5">
                      <div class="col-12">
                         <div class="payment_method">

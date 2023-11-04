@@ -123,7 +123,6 @@
                         <tbody>
                            <tr>
                               <td>
-                                 200 Hour Yoga Teacher Training in Rishikesh India<br/>
                                  <span class="fw-bold"> Payment Mode: </span> <span class="paymentypetxt">Full Payment</span>
                               </td>
                               <td class="courseprice">$<span class="courseprice"></span></td>
@@ -146,10 +145,11 @@
                               <label class="form-check-label" for="exampleRadios4">Paypal</label>
                               <p data-method="paytm" class="payment-text">Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
                            </div>
+                           
                            <div class="custome-radio">
                               <input class="form-check-input" type="radio" name="payment_option" id="exampleRadios5" value="1">
                               <label class="form-check-label" for="exampleRadios5">Razorpay</label>
-                              <p data-method="razorpay" class="payment-text">Pay via PayPal; you can pay with your credit card if you don't have a PayPal account.</p>
+                              <p data-method="razorpay" class="payment-text d-block">Pay via Razorpay; you can pay with your UPI, Debit Card, Credit card if you don't have a Razorpay account.</p>
                            </div>
                         </div>
                         <button type="submit" class="btn btn-default">Place Order</a>

@@ -7,7 +7,7 @@ use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use App\Models\Order;
 use App\Models\Orderworkshop;
 
-class PaypalController extends Controller
+class PayPalController extends Controller
 {
     public function payment(Request $request)
     {
